@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "tutorialsiteapi",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authtutorialapp87f334df",
+      "Outputs.UserPoolId"
+    ]
+  }
+}
