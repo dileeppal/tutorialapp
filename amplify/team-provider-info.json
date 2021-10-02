@@ -16,7 +16,9 @@
         "tutorialapp33e120fcCustomMessage": {
           "REDIRECTURL": "",
           "EMAILSUBJECT": "",
-          "EMAILMESSAGE": ""
+          "EMAILMESSAGE": "",
+          "deploymentBucketName": "amplify-tutorialapp-dev-170734-deployment",
+          "s3Key": "amplify-builds/tutorialapp33e120fcCustomMessage-4e504a73637878566757-build.zip"
         }
       },
       "auth": {

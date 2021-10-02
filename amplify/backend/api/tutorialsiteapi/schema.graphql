@@ -1,0 +1,93 @@
+type Course
+  @model
+  @auth(
+    rules: [
+      { allow: owner, ownerField: "admin" operations: [read] }
+      {
+        allow: groups
+        groups: ["Admin"]
+        operations: [create, update, delete, read]
+      }
+      { allow: private, operations: [read] }
+      { allow: public, operations: [read] }
+    ]
+  ) {
+  id: ID!
+  createdAt: AWSDate!
+  name: String!
+  startDate: String!
+  endDate: String!
+  contents: String!
+  image: String!
+  likes: [Like] @connection(keyName: "byLike", fields: ["id"])
+  comments: [Comment] @connection(keyName: "byCourse", fields: ["id"])
+}
+
+type Comment
+  @model
+  @key(name: "byCourse", fields: ["courseID", "content"])
+  @auth(
+    rules: [
+      { allow: owner, operations: [create, update, delete, read] }
+      { allow: private, operations: [read] }
+      { allow: public, operations: [read] }
+    ]
+  ) {
+  id: ID!
+  createdAt: AWSDate!
+  courseID: ID!
+  course: Course @connection(fields: ["courseID"])
+  content: String!
+}
+
+type Like
+  @model
+  @key(name: "byLike", fields: ["courseID", "like"])
+  @auth(
+    rules: [
+      { allow: owner, operations: [create, update, delete, read] }
+      { allow: private, operations: [read] }
+      { allow: public, operations: [read] }
+    ]
+  ) {
+  id: ID!
+  createdAt: AWSDate!
+  like: String!
+  courseID: ID!
+  course: Course @connection(fields: ["courseID"])
+}
+
+type Book
+  @model
+  @auth(
+    rules: [
+      { allow: owner, operations: [create, update, delete, read] }
+      { allow: private, operations: [read] }
+      { allow: public, operations: [read] }
+    ]
+  ) {
+  id: ID!
+  createdAt: AWSDate!
+  name: String!
+  author: String!
+  image: String!
+  url: String!
+  booklikes: [BookLike] @connection(keyName: "byBookLike", fields: ["id"])
+}
+
+type BookLike
+  @model
+  @key(name: "byBookLike", fields: ["bookID", "like"])
+  @auth(
+    rules: [
+      { allow: owner, operations: [create, update, delete, read] }
+      { allow: private, operations: [read] }
+      { allow: public, operations: [read] }
+    ]
+  ) {
+  id: ID!
+  createdAt: AWSDate!
+  like: String!
+  bookID: ID!
+  book: Book @connection(fields: ["bookID"])
+}
