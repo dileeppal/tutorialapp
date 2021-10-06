@@ -1,0 +1,60 @@
+import React from 'react'
+
+import {
+  PostTop,
+  PostLeftWrap,
+  PostProfileImge,
+  UserName,
+  PostDate,
+  PostTopRightWrap,
+  ExpandIcon,
+  PostCenterWrap,
+  PostText,
+  PostBottomWrapper,
+  BottomLeftWrap,
+  LikeIcon,
+  LikeCounter,
+  BottomRightWrap,
+  CommentIcon,
+  CommentText,
+  ForumWrapper,
+} from "./forum.styles";
+
+const TextPostCard = ({
+  username,
+  image,
+  date,
+  content,
+  likeCount = 0,
+  commentCount = 0,
+}: any) => {
+  return (
+    <ForumWrapper>
+      <PostTop>
+        <PostLeftWrap>
+          <PostProfileImge src={image} alt="user profile image" />
+          <UserName>{username}</UserName>
+          <PostDate>{date}</PostDate>
+        </PostLeftWrap>
+        <PostTopRightWrap>
+          <ExpandIcon />
+        </PostTopRightWrap>
+      </PostTop>
+      <PostCenterWrap>
+        <PostText>{content}</PostText>
+      </PostCenterWrap>
+      <PostBottomWrapper>
+        <BottomLeftWrap>
+          <LikeIcon />
+          <LikeCounter>{likeCount} liked your post</LikeCounter>
+        </BottomLeftWrap>
+        <BottomRightWrap>
+          <CommentIcon />
+          <CommentText>{commentCount}</CommentText>
+        </BottomRightWrap>
+      </PostBottomWrapper>
+    </ForumWrapper>
+  );
+}
+
+export default TextPostCard

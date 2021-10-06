@@ -13,25 +13,44 @@ import {
 
 import { Button } from "../Button/styles"
 
-const HeroSection = () => {
+const HeroSection = ({ ...props }: any ) => {
     const [hover, setHover] = useState(false)
 
     const onHover = () => {
         setHover(!hover)
     }
     return (
-      <HeroContainer>
+      <HeroContainer id="home">
         <HeroBg>
-          <VideoBg autoPlay loop muted src="" />
+          <VideoBg
+            playsInline
+            autoPlay
+            loop
+            muted
+            src=""
+            type="video/mp4"
+            {...props}
+          />
         </HeroBg>
         <HeroContent>
-            <HeroH1>testing somethings</HeroH1>
-            <HeroP>something else will go here</HeroP>
-            <HeroBtnWrapper>
-                <Button to="" onMouseEnter= {onHover} onMouseLeave={onHover} primary="true" dark="true">
-                    get started {hover ? <ArrowForward /> : <ArrowRight />}
-                </Button>
-            </HeroBtnWrapper>
+          <HeroH1>testing somethings</HeroH1>
+          <HeroP>something else will go here</HeroP>
+          <HeroBtnWrapper>
+            <Button
+              {...props}
+              to="home"
+              onMouseEnter={onHover}
+              onMouseLeave={onHover}
+              primary="true"
+              dark="true"
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-80}
+            >
+              get started {hover ? <ArrowForward /> : <ArrowRight />}
+            </Button>
+          </HeroBtnWrapper>
         </HeroContent>
       </HeroContainer>
     );

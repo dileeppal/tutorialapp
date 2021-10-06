@@ -1,0 +1,77 @@
+import React from "react";
+import {
+  PostTop,
+  PostLeftWrap,
+  PostProfileImge,
+  UserName,
+  PostDate,
+  PostTopRightWrap,
+  ExpandIcon,
+  PostCenterWrap,
+  PostText,
+  PostMediaImage,
+  PostBottomWrapper,
+  BottomLeftWrap,
+  LikeIcon,
+  LikeCounter,
+  BottomRightWrap,
+  CommentIcon,
+  CommentText,
+  ForumWrapper,
+} from "./forum.styles";
+
+interface ForumPost {
+  username: string
+  image: string
+  date: string
+  content: string
+  postMedia?: string
+  videoMedia?: string
+  likeCount:number
+  viewCount?: number
+  commentCount: number
+}
+
+const ImagePostCard = ({
+  username,
+  image,
+  date,
+  content,
+  postMedia,
+  videoMedia,
+  likeCount = 0,
+  viewCount = 0,
+  commentCount = 0,
+  ...props
+}: ForumPost) => {
+  return (
+    <ForumWrapper>
+      <PostTop>
+        <PostLeftWrap>
+          <PostProfileImge src={image} alt="user profile image" />
+          <UserName>{username}</UserName>
+          <PostDate>{date}</PostDate>
+        </PostLeftWrap>
+        <PostTopRightWrap>
+          <ExpandIcon />
+        </PostTopRightWrap>
+      </PostTop>
+      <PostCenterWrap>
+        <PostText>{content}</PostText>
+        <PostMediaImage alt="Post image" src={postMedia} />
+      </PostCenterWrap>
+      <PostBottomWrapper>
+        <BottomLeftWrap>
+          <LikeIcon />
+          <LikeCounter>{likeCount} people liked your post</LikeCounter>
+        </BottomLeftWrap>
+        <BottomRightWrap>
+          <CommentIcon />
+          <CommentText>{commentCount}</CommentText>
+        </BottomRightWrap>
+      </PostBottomWrapper>
+    </ForumWrapper>
+  );
+};
+
+export default ImagePostCard;

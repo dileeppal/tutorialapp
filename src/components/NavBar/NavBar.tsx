@@ -1,5 +1,5 @@
-import React from "react";
-
+import React, { useEffect, useState } from "react";
+import { animateScroll as scroll } from "react-scroll"
 import Link from "next/link";
 import { FaBars } from "react-icons/fa";
 import {
@@ -13,17 +13,31 @@ import {
   NavBarContainer,
   NavItem,
 } from "./NavBar.styles";
-import { Logo } from "../../assets/images/Logo"
+import { Logo } from "../../../public/assets/images/Logo"
 
 
 
-export default function NavBar({ toggle }: any) {
+export default function NavBar({ toggle, ...props }: any) {
+  const [scrcollNav, setScrollNav] = useState(false);
 
+  const changeNav = () => {
+    if (window.scrollY >= 80) {
+      setScrollNav(true);
+    } else setScrollNav(false);
+  }
+
+  useEffect(() => {
+    window.addEventListener('scroll', changeNav)
+  })
+
+  const toggleHome = () => {
+    scroll.scrollToTop();
+  }
   return (
-    <Nav>
+    <Nav scrollNav={scrcollNav} {...props}>
       <NavBarContainer>
         <Link href="/">
-          <NavLogo>
+          <NavLogo onClick={toggleHome}>
             <Logo color="white" width="50" height="50" />
           </NavLogo>
         </Link>
@@ -32,23 +46,73 @@ export default function NavBar({ toggle }: any) {
         </MobileIcon>
         <NavMenu>
           <NavItem>
-            <NavLink to="home">Courses</NavLink>
+            <NavLink
+              {...props}
+              to="courses"
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-80}
+              exact="true"
+            >
+              Courses
+            </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="recommend">Recommendations</NavLink>
+            <NavLink
+              {...props}
+              to="recommend"
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-80}
+              exact="true"
+            >
+              Recommendations
+            </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="books">Books</NavLink>
+            <NavLink
+              {...props}
+              to="books"
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-80}
+              exact="true"
+            >
+              Books
+            </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="forum">Forum</NavLink>
+            <NavLink
+              {...props}
+              to="forum"
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-80}
+              exact="true"
+            >
+              Forum
+            </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink to="signup">Sign Up</NavLink>
+            <NavLink
+              {...props}
+              to="signup"
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-80}
+              exact="true"
+            >
+              Sign Up
+            </NavLink>
           </NavItem>
         </NavMenu>
         <NavBtn>
-          <Link href="/">
+          <Link href="/signup">
             <NavBtnLink>Sign Up</NavBtnLink>
           </Link>
         </NavBtn>

@@ -11,7 +11,7 @@ import NavDropDown from '../components/NavDropDown';
 
 
 function MyApp({ Component, pageProps }: AppProps) {
-  // const [isOpen, setIsOpen] = useState(false)
+  const [isOpen, setIsOpen] = useState(false)
   useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
@@ -20,9 +20,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     }
   }, []);
 
-  // const toggle: any = () => {
-  //   setIsOpen(!isOpen);
-  // }
+  const toggle: any = () => {
+    setIsOpen(!isOpen);
+  }
 
 
   return (
@@ -36,10 +36,10 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <ThemeProvider theme={darkTheme}>
         <CssBaseline />
-        <NavDropDown />
-        <NavBar />
+        <NavDropDown toggle={toggle} isOpen={isOpen} />
+        {/* <NavBar toggle={toggle} /> */}
         <Component {...pageProps} />
-        <Footer />
+        {/* <Footer /> */}
       </ThemeProvider>
     </>
   );

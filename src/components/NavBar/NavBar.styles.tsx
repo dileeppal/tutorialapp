@@ -2,19 +2,19 @@ import styled from "styled-components";
 import {Link} from "react-scroll"
 
 export const Nav = styled.nav`
-  background: #000000;
+  background: ${({ scrollNav }) => (scrollNav ? "#000" : "transparent")};
   height: 80px;
   margin-top: -80px;
   display: flex;
   justify-content: center;
+  align-items: center;
   font-size: 1rem;
   position: sticky;
-  /* padding: 0.5rem calc((100vw - 1000px) / 2); */
-  z-index: 10;
   top: 0;
-  align-items: center;
+  z-index: 10;
+
   @media screen and (max-width: 960px) {
-      transition: 0.8s all ease;
+    transition: 0.8s all ease;
   }
 `;
 
@@ -37,7 +37,6 @@ export const NavMenu = styled.ul`
 
   @media screen and (max-width: 768px) {
     display: none;
-    /* margin-right: 24px; */
   }
 `;
 
@@ -57,9 +56,9 @@ export const NavLink = styled(Link)`
   &.active {
     
     color: #15cdfc;
-    &:hover {
+    /* &:hover {
       color: #fff;
-    }
+    } */
   }
 
   &:hover {
@@ -81,17 +80,6 @@ export const MobileIcon = styled.div`
     cursor: pointer;
   }
 `;
-
-
-
-// export const NavLogo = styled(Link)`
-//   display: flex;
-//   justify-self: flex-start;
-//   align-items: center;
-//   cursor: pointer;
-//   margin-left: 24px;
-
-// `;
 
 export const NavLogo = styled.div`
   display: flex;
@@ -116,6 +104,7 @@ export const NavBtnLink = styled.button`
   background: #256ce1;
   padding: 10px 22px;
   color: #fff;
+  font-size: 14px;
   border: none;
   outline: none;
   cursor: pointer;

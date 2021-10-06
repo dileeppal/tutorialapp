@@ -1,28 +1,8 @@
 import styled from "styled-components";
 import { FaTimes } from "react-icons/fa"
-// import Link  from "next/link";
 import {Link} from "react-scroll"
 
-// export const DropDownContainer = styled.aside`
-//   position: fixed;
-//   z-index: 999;
-//   width: 100%;
-//   height: 100%;
-//   background: #0d0d0d;
-//   display: grid;
-//   align-items: center;
-//   top: 0;
-//   left: 0;
-//   transition: 0.3s ease-in-out;
-//   opacity: ${({ isOpen })  => (isOpen ? "100%" : "0")};
-//   top: ${({isOpen}) => (isOpen ? "0" : "-100")};
-// `;
-
-export const DropDownContainer = styled.aside.attrs((props) => ({
-  // isOpen: "100%" || "0",
-  // top: "0" || "-100",
-  isOpen: (isOpen: any) => (isOpen ? "0%" : "0"),
-}))`
+export const DropDownContainer = styled.aside`
   position: fixed;
   z-index: 999;
   width: 100%;
@@ -33,19 +13,19 @@ export const DropDownContainer = styled.aside.attrs((props) => ({
   top: 0;
   left: 0;
   transition: 0.3s ease-in-out;
-  opacity: ${(props) => props.isOpen};
-  /* top: ${({ isOpen }) => (isOpen ? "0" : "-100")}; */
-  /* top: ${(props) => props.top}; */
+  top: ${({ isOpen }) => (isOpen ? "0" : "-100%")};
+  opacity: ${({ isOpen }) => (isOpen ? "100%" : "0")};
 `;
 
 export const Icon = styled.div`
-    position: absolute;
-    top: 1.2rem;
-    right: 1.5rem;
-    background: transparent;
-    font-size: 2rem;
-    cursor: pointer;
-    outline: none;
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
+  background: transparent;
+  border: transparent;
+  font-size: 2rem;
+  cursor: pointer;
+  outline: none;
 `;
 
 export const CloseIcon = styled(FaTimes)`
@@ -76,11 +56,12 @@ export const DropDownLinks = styled(Link)`
   text-decoration: none;
   list-style: none;
   transition: 0.2s ease-in-out;
+  text-decoration: none;
   color: #fff;
   cursor: pointer;
 
   &:hover {
-    color: #01bf71;
+    color: #15cdfc;
     transition: 0.2s ease-in-out;
   }
 `;
@@ -91,7 +72,7 @@ export const DropDownBtnWrapper = styled.div`
 `;
 export const DropDownBtn = styled.button`
   border-radius: 50px;
-  background-color: #01bf71;
+  background-color: #256ce1;
   white-space: nowrap;
   padding: 16px 64px;
   color: #010606;
@@ -101,10 +82,10 @@ export const DropDownBtn = styled.button`
   cursor: pointer;
   transition: all 0.2s ease-in-out;
   text-decoration: none;
-  
+
   &:hover {
-      transition: all 0.2s ease-in-out;
-      background: #fff;
-      color: #010606;
+    transition: all 0.2s ease-in-out;
+    background: #fff;
+    color: #010606;
   }
 `;
