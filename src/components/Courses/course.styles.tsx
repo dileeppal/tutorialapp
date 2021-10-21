@@ -69,7 +69,6 @@ export const CourseImage = styled.img`
 export const CourseDescription = styled.p`
   font-size: 1rem;
   text-align: center;
-  
 `;
 
 export const CourseDuration = styled.span`

@@ -1,5 +1,5 @@
+import { Form } from "formik";
 import styled from "styled-components";
-
 
 export const PageContainer = styled.div`
   align-items: center;
@@ -16,7 +16,7 @@ export const PageContainer = styled.div`
   background: linear-gradient(108deg, #696d6b 0%, #594463 100%);
 `;
 
-export const FormWrap = styled.form`
+export const FormWrap = styled(Form)`
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -26,6 +26,7 @@ export const FormWrap = styled.form`
     height: 80%;
   }
 `;
+
 export const MainContainer = styled.div`
   display: flex;
   align-items: center;
@@ -74,7 +75,6 @@ export const MainContainer = styled.div`
     width: 30vw;
     height: 80vh;
   }
-
 `;
 
 export const WelcomeText = styled.h2`
@@ -88,7 +88,6 @@ export const InputContainer = styled.div`
   align-items: center;
   height: 25%;
   width: 100%;
-
 `;
 
 export const ButtonContainer = styled.div`

@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { Form } from "formik";
 
 
 export const PageContainer = styled.div`
@@ -20,7 +21,7 @@ display: flex;
   );
 `;
 
-export const FormWrap = styled.form`
+export const FormWrap = styled(Form)`
   height: 100%;
   display: flex;
   flex-direction: column;

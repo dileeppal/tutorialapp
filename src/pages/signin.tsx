@@ -1,10 +1,11 @@
 import React from "react";
 
 import Login from "../components/Auth/Login";
+import { withApollo } from "../utils/withApollo";
 
 
 
-export default function SignIn() {
+function SignIn() {
   
   return (
     <>
@@ -12,3 +13,7 @@ export default function SignIn() {
     </>
   );
 }
+
+// export default SignIn;
+
+export default withApollo({ ssr: false })(SignIn);

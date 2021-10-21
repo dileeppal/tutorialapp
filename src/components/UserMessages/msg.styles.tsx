@@ -61,6 +61,7 @@ export const ChatMessageInput = styled.textarea`
   width: 80%;
   height: 90px;
   padding: 10px;
+  border-radius: .5rem;
 
   @media screen and (max-width: 768px) {
     display: none;

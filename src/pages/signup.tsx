@@ -1,8 +1,9 @@
 import React from "react";
 import Register from "../components/Auth/Register";
+import { withApollo } from "../utils/withApollo";
 
 
-export default function SignUp() {
+function SignUp() {
 
   return (
     <>
@@ -10,3 +11,5 @@ export default function SignUp() {
     </>
   );
 }
+
+export default withApollo({ ssr: false })(SignUp);

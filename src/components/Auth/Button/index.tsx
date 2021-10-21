@@ -1,8 +1,12 @@
 import styled from "styled-components";
 
 
-export default function AuthButton({ content }: any) {
-  return <StyledButton>{content}</StyledButton>;
+export default function AuthButton({ content, type, disabled }: any) {
+  return (
+    <StyledButton type={type} disabled={disabled}>
+      {content}
+    </StyledButton>
+  );
 }
 
 const StyledButton = styled.button`

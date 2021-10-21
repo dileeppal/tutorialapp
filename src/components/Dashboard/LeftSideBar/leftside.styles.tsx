@@ -47,5 +47,33 @@ export const LeftSideBarListItem = styled.li`
 `;
 export const LeftSideBarIcon = styled.div`
   margin-right: 15px;
+  display: flex;
+  position: relative;
 `;
 export const LeftSideBarListItemText = styled.span``;
+
+export const IconBadge = styled.span`
+  width: 10px;
+  height: 10px;
+  background-color: #4cbaed;
+  border-radius: 50%;
+  color: white;
+  position: absolute;
+  top: -3px;
+  right: -3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px; ;
+`;
+
+export const Icons = styled.div`
+  display: flex;
+`;
+
+export const IconItem = styled.div`
+  margin-right: 15px;
+  cursor: pointer;
+  position: relative;
+  font-size: 20px;
+`;

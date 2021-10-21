@@ -1,9 +1,20 @@
 import styled from "styled-components";
-export default function Input({ type, placeholder }: any) {
-  return <StyledInput type={type} placeholder={placeholder} />;
+import { Field } from "formik";
+
+export const Input = ({ type, name, placeholder, ...props }: any) => {
+  return (
+    <>
+      <StyledInput placeholder={placeholder} name={name} type={type} />
+
+    </>
+  );
 }
 
-const StyledInput = styled.input`
+export const Error = ({ children }: any) => {
+  return <ErrorMsg>{children}</ErrorMsg>;
+};
+
+export const StyledInput = styled(Field)`
   background: rgba(255, 255, 255, 0.15);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   border-radius: 2rem;
@@ -26,4 +37,26 @@ const StyledInput = styled.input`
     font-weight: 100;
     font-size: 1rem;
   }
+`;
+
+export const ErrorMsg = styled.span`
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  background: red400;
+  color: red;
+  font-size: 0.9rem;
+  text-transform: lowercase;
+  font-weight: bold;
+`;
+
+export const SuccessMsg = styled.span`
+  display: flex;
+  justify-content: center;
+  margin-top: 5px;
+  background: red400;
+  color: #00ff55;
+  font-size: 0.9rem;
+  text-transform: lowercase;
+  font-weight: bold;
 `;

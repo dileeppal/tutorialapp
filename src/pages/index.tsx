@@ -7,8 +7,9 @@ import {
   homeObjTwo,
   homeObjThree,
 } from "../components/MainSection/Data";
+import { withApollo } from "utils/withApollo";
 
-export default function Home() {
+function Home() {
   return (
     <>
       <Head>
@@ -30,3 +31,4 @@ export default function Home() {
     </>
   );
 }
+export default withApollo({ ssr: false })(Home);

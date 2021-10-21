@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Form } from "formik";
 
 export const RPContainer = styled.div`
   align-items: center;
@@ -15,7 +16,7 @@ export const RPContainer = styled.div`
   background: linear-gradient(108deg, #696d6b 0%, #594463 100%);
 `;
 
-export const FormWrap = styled.form`
+export const FormWrap = styled(Form)`
   display: flex;
   flex-direction: column;
   justify-content: center;

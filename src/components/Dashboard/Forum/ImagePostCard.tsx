@@ -38,7 +38,6 @@ const ImagePostCard = ({
   date,
   content,
   postMedia,
-  videoMedia,
   likeCount = 0,
   viewCount = 0,
   commentCount = 0,

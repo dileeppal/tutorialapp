@@ -1,5 +1,12 @@
 import React from 'react'
 import Link from "next/link";
+
+// for data fetching
+import { ErrorMsg } from "components/Input";
+import { useMeQuery } from "generated/graphql";
+import { useAppDispatch } from "app/hooks";
+import { setUser } from "features/auth/reducers";
+
 import {
   TopbarContainer,
   TopLeftWrap,
@@ -18,16 +25,27 @@ import {
 } from "./topbar.styles";
 
 import { BsFillChatSquareFill } from "react-icons/bs";
-import { RiNotification2Fill } from "react-icons/ri";
-import { RiHome4Fill } from "react-icons/ri";
+import { RiNotification2Fill, RiHome4Fill } from "react-icons/ri";
 import { Logo } from "../../../../public/assets/images/Logo";
 
+
+
+
 const Topbar = () => {
+  const dispatch = useAppDispatch();
+
+  const { data, loading, error } = useMeQuery();
+  if (!data || loading) {
+    return <div>loading...</div>;
+  }
+  if (error) return <ErrorMsg>{error}</ErrorMsg>;
+  dispatch(setUser(data.me));
+
     return (
       <TopbarContainer>
         <TopLeftWrap>
           <TopBarLogo>
-            <Link href="/user-profile/maguyva">
+            <Link href={`/user-profile/`}>
               <TopBarLogo>
                 <Logo color="white" width="50" height="50" />
               </TopBarLogo>
