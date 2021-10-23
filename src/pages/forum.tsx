@@ -14,8 +14,8 @@ function Forum() {
             username="maguyva"
             image="/D.jpg"
             date="5 min ago"
-            content="tweet tweet tweet"
-            postMedia="/isak.jpg"
+            title="tweet tweet tweet"
+            body="/isak.jpg"
             likeCount={10}
             commentCount={8}
           />
@@ -25,7 +25,8 @@ function Forum() {
             username="maguyva"
             image="/D.jpg"
             date="5 min ago"
-            content="tweet tweet tweet"
+            title="tweet tweet tweet"
+            body="tweet tweet tweet"
             likeCount="10"
             commentCount={16}
           />
@@ -35,8 +36,8 @@ function Forum() {
             username="maguyva"
             image="/D.jpg"
             date="5 min ago"
-            content="tweet tweet tweet"
-            videoMedia="https://www.youtube.com/embed/VC4ORS5n9Hg"
+            title="tweet tweet tweet"
+            body="https://www.youtube.com/embed/VC4ORS5n9Hg"
             likeCount={10}
             commentCount={49}
             viewCount={19}
@@ -47,8 +48,8 @@ function Forum() {
             username="maguyva"
             image="/D.jpg"
             date="5 min ago"
-            content="tweet tweet tweet"
-            videoMedia="/exvid.mp4"
+            title="tweet tweet tweet"
+            body="/exvid.mp4"
             likeCount={13}
             commentCount={29}
             viewCount={31}

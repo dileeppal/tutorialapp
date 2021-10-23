@@ -24,7 +24,8 @@ const TextPostCard = ({
   username,
   image,
   date,
-  content,
+  title,
+  body,
   likeCount = 0,
   commentCount = 0,
 }: any) => {
@@ -41,7 +42,10 @@ const TextPostCard = ({
         </PostTopRightWrap>
       </PostTop>
       <PostCenterWrap>
-        <PostText>{content}</PostText>
+        <PostText>{title}</PostText>
+      </PostCenterWrap>
+      <PostCenterWrap>
+        <PostText>{body}</PostText>
       </PostCenterWrap>
       <PostBottomWrapper>
         <BottomLeftWrap>

@@ -29,8 +29,6 @@ import { RiNotification2Fill, RiHome4Fill } from "react-icons/ri";
 import { Logo } from "../../../../public/assets/images/Logo";
 
 
-
-
 const Topbar = () => {
   const dispatch = useAppDispatch();
 
@@ -40,6 +38,7 @@ const Topbar = () => {
   }
   if (error) return <ErrorMsg>{error}</ErrorMsg>;
   dispatch(setUser(data.me));
+  const me: any = data.me as {};
 
     return (
       <TopbarContainer>
@@ -61,13 +60,13 @@ const Topbar = () => {
         <TopRightWrap>
           <TopBarNavLinks>
             <NavLinks>
-              <Link href="/user-profile/maguyva">Home</Link>
+              <Link href={`/user-profile/${me.username}`}>Home</Link>
             </NavLinks>
             <NavLinks>Timeline</NavLinks>
           </TopBarNavLinks>
           <Icons>
             <IconItem>
-              <Link href="/user-profile/maguyva">
+              <Link href={`/user-profile/${me.username}`}>
                 <RiHome4Fill />
               </Link>
             </IconItem>
@@ -80,7 +79,7 @@ const Topbar = () => {
               <IconBadge>5</IconBadge>
             </IconItem>
           </Icons>
-          <ProfileImg alt="user profile image" src="/D.jpg" />
+          <ProfileImg alt="user profile image" src={me.profileImage} />
         </TopRightWrap>
       </TopbarContainer>
     );

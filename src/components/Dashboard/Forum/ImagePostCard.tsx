@@ -21,23 +21,22 @@ import {
 } from "./forum.styles";
 
 interface ForumPost {
-  username: string
-  image: string
-  date: string
-  content: string
-  postMedia?: string
-  videoMedia?: string
-  likeCount:number
-  viewCount?: number
-  commentCount: number
+  username: string;
+  image: string;
+  date: string;
+  title: string;
+  body?: string;
+  likeCount: number;
+  viewCount?: number;
+  commentCount: number;
 }
 
 const ImagePostCard = ({
   username,
   image,
   date,
-  content,
-  postMedia,
+  title,
+  body,
   likeCount = 0,
   viewCount = 0,
   commentCount = 0,
@@ -56,8 +55,8 @@ const ImagePostCard = ({
         </PostTopRightWrap>
       </PostTop>
       <PostCenterWrap>
-        <PostText>{content}</PostText>
-        <PostMediaImage alt="Post image" src={postMedia} />
+        <PostText>{title}</PostText>
+        <PostMediaImage alt="Post image" src={body} />
       </PostCenterWrap>
       <PostBottomWrapper>
         <BottomLeftWrap>

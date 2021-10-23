@@ -26,8 +26,8 @@ const VideoPostCard = ({
   username,
   image,
   date,
-  content,
-  videoMedia,
+  title,
+  body,
   likeCount = 0,
   viewCount = 0,
   commentCount = 0,
@@ -46,12 +46,12 @@ const VideoPostCard = ({
         </PostTopRightWrap>
       </PostTop>
       <PostCenterWrap>
-        <PostText>{content}</PostText>
+        <PostText>{title}</PostText>
         <PostMediaVideoIF
           {...props}
           width="560"
           height="315"
-          src={videoMedia}
+          src={body}
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
         />

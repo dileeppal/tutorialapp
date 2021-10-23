@@ -1,6 +1,8 @@
 import Document, { Html, Head, Main, NextScript, DocumentContext } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 
+
+
 export default class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
@@ -34,7 +36,7 @@ export default class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          {/* <div id="modal-root"></div> */}
+          {/* <div id="#root"></div> */}
         </body>
       </Html>
     );

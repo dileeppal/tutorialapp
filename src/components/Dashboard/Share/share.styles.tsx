@@ -13,6 +13,7 @@ export const ShareWrapper = styled.div`
 export const ShareTop = styled.div`
   display: flex;
   align-items: center;
+  justify-content: flex-start;
 `;
 export const ProfileImage = styled.img`
   width: 50px;
@@ -20,8 +21,23 @@ export const ProfileImage = styled.img`
   border-radius: 50%;
   object-fit: cover;
   margin-right: 10px;
+  margin-bottom: 10px;
 `;
-export const Content = styled.input`
+export const InputLabel = styled.label`
+  font-size: 14px;
+  font-weight: 500;
+`;
+export const Title = styled.input`
+  border: 1px;
+  width: 80%;
+  margin-bottom: 10px;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+export const Body = styled.select`
   border: none;
   width: 80%;
 
@@ -29,6 +45,17 @@ export const Content = styled.input`
     outline: none;
   }
 `;
+
+export const SelectOptions = styled.option`
+  border: none;
+  width: 80%;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+
 export const ShareHr = styled.hr`
   margin: 20px;
 `;

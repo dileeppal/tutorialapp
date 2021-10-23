@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useState } from "react";
 import {
   ShareContainer,
   ShareWrapper,
   ShareTop,
   ProfileImage,
-  Content,
+  Title,
   ShareHr,
   ShareBottomWrap,
   ShareOptions,
@@ -13,59 +13,68 @@ import {
   ShareOptionstext,
   ShareButton,
 } from "./share.styles";
-import { MdPermMedia } from "react-icons/md";
-import { MdLabel } from "react-icons/md";
-import { FaLocationArrow } from "react-icons/fa";
-import { GrEmoji } from "react-icons/gr";
+import { MdPermMedia, MdOndemandVideo, MdTextsms } from "react-icons/md";
+import Modal from "components/ShareForm/Modal";
 
-const username = "frank"
+
+
+// const categories = [
+//   { value: "grocery", name: "Grocery", id: "1" },
+//   { value: "women-cloths", name: "Women Cloths", id: "2" },
+//   { value: "bags", name: "Bags", id: "3" },
+//   { value: "makeup", name: "Makeup", id: "4" },
+// ];
+
+const username = "frank";
 const Share = () => {
-    return (
+
+  const [showModal, setShowModal] = useState(false);
+
+
+  return (
+    <>
       <ShareContainer>
         <ShareWrapper>
           <ShareTop>
             <ProfileImage src="/D.jpg" alt="user profile image" />
-            <Content placeholder={`what's on your mind ${username}?`} />
+            <Title placeholder={`what's on your mind ${username}?`} />
           </ShareTop>
           <ShareHr />
           <ShareBottomWrap>
-            <ShareOptions>
+            <ShareOptions onClick={() => setShowModal(true)}>
               <ShareOptionItem>
                 <ShareOptionsIcon>
                   <MdPermMedia />
                 </ShareOptionsIcon>
-                <ShareOptionstext>Photo or Video</ShareOptionstext>
+                <ShareOptionstext>Photo</ShareOptionstext>
               </ShareOptionItem>
             </ShareOptions>
-            <ShareOptions>
+            <ShareOptions onClick={() => setShowModal(true)}>
               <ShareOptionItem>
                 <ShareOptionsIcon>
-                  <MdLabel />
+                  <MdOndemandVideo />
                 </ShareOptionsIcon>
-                <ShareOptionstext>Tag</ShareOptionstext>
+                <ShareOptionstext>Video</ShareOptionstext>
               </ShareOptionItem>
             </ShareOptions>
-            <ShareOptions>
+            <ShareOptions onClick={() => setShowModal(true)}>
               <ShareOptionItem>
                 <ShareOptionsIcon>
-                  <FaLocationArrow />
+                  <MdTextsms />
                 </ShareOptionsIcon>
-                <ShareOptionstext>Location</ShareOptionstext>
+                <ShareOptionstext>Text</ShareOptionstext>
               </ShareOptionItem>
             </ShareOptions>
-            <ShareOptions>
-              <ShareOptionItem>
-                <ShareOptionsIcon>
-                  <GrEmoji />
-                </ShareOptionsIcon>
-                <ShareOptionstext>Emoji</ShareOptionstext>
-              </ShareOptionItem>
-            </ShareOptions>
-            <ShareButton>submit</ShareButton>
+            <ShareButton onClick={() => setShowModal(true)}>send</ShareButton>
           </ShareBottomWrap>
         </ShareWrapper>
       </ShareContainer>
-    );
-}
-
-export default Share
+      <Modal
+        showModal={showModal}
+        closeM={() => setShowModal(false)}
+        setShowModal={setShowModal}
+      />
+    </>
+  );
+};
+export default Share;
