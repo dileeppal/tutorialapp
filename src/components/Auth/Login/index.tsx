@@ -19,13 +19,13 @@ import {
   InputContainer,
   ButtonContainer,
   LoginWith,
-  HorizontalRule,
   ForgotPassword,
   PageContainer,
   FormWrap,
-} from "./login-styles";
+} from "../auth-styles";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FooterLinkContainer } from 'components/Footer/styles';
 
 
 const initialValues = {
@@ -79,9 +79,10 @@ const Login = () => {
           {({ isSubmitting, errors, touched }) => (
             <FormWrap>
               <MainContainer>
-                <WelcomeText>login</WelcomeText>
+                <WelcomeText>Login</WelcomeText>
                 {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
                 <InputContainer>
+                <div className="form-group">
                   <Input
                     type="text"
                     placeholder="Username or Email"
@@ -90,6 +91,8 @@ const Login = () => {
                   {errors.usernameOrEmail && touched.usernameOrEmail && (
                     <Error>{errors.usernameOrEmail}</Error>
                   )}
+                  </div>
+                  <div className="form-group">
                   <Input
                     type="password"
                     placeholder="Password"
@@ -98,6 +101,7 @@ const Login = () => {
                   {errors.password && touched.password && (
                     <Error>{errors.password}</Error>
                   )}
+                  </div>
                 </InputContainer>
                 <ButtonContainer>
                   <Button
@@ -106,13 +110,15 @@ const Login = () => {
                     disabled={isSubmitting}
                   />
                 </ButtonContainer>
-                <Link href="/signup">
-                  <LoginWith>or Register </LoginWith>
-                </Link>
-                <HorizontalRule />
-                <Link href="/forgot-password">
-                  <ForgotPassword>forgot password?</ForgotPassword>
-                </Link>
+                <FooterLinkContainer className="d-flex">
+                  <Link href="/signup">
+                    <LoginWith>Register </LoginWith>
+                  </Link>
+                  &nbsp;&nbsp;|&nbsp;&nbsp;
+                  <Link href="/forgot-password">
+                    <ForgotPassword>Forgot password?</ForgotPassword>
+                  </Link>
+                </FooterLinkContainer>
               </MainContainer>
             </FormWrap>
           )}

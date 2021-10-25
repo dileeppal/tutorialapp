@@ -7,15 +7,16 @@ import { ErrorMsg, Input, Error, SuccessMsg } from "../../Input";
 import Button from "../Button";
 
 import {
-  RPContainer,
-  FormWrap,
   MainContainer,
-  HeaderText,
+  WelcomeText,
   InputContainer,
   ButtonContainer,
-  HorizontalRule,
   BackToLogin,
-} from "./passwordreset.styles";
+  PageContainer,
+  FormWrap,
+  HorizontalRule,
+} from "../auth-styles";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
@@ -65,7 +66,7 @@ const ResetPassword = () => {
   };
   return (
     <>
-      <RPContainer>
+      <PageContainer>
         <Formik
           initialValues={initialValues}
           onSubmit={handleSubmit}
@@ -74,10 +75,11 @@ const ResetPassword = () => {
           {({ isSubmitting, errors, touched }) => (
             <FormWrap>
               <MainContainer>
-                <HeaderText>reset password</HeaderText>
+                <WelcomeText>reset password</WelcomeText>
                 {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
                 {successMsg && <SuccessMsg>{initialValues.success}</SuccessMsg>}
                 <InputContainer>
+                <div className="form-group">
                   <Input
                     type="password"
                     placeholder="New Password"
@@ -86,6 +88,8 @@ const ResetPassword = () => {
                   {errors.newPassword && touched.newPassword && (
                     <Error>{errors.newPassword}</Error>
                   )}
+                  </div>
+                  <div className="form-group">
                   <Input
                     type="password"
                     placeholder="Confirm Password"
@@ -94,23 +98,24 @@ const ResetPassword = () => {
                   {errors.confirmPassword && touched.confirmPassword && (
                     <Error>{errors.confirmPassword}</Error>
                   )}
+                  </div>
                 </InputContainer>
                 <ButtonContainer>
                   <Button
-                    type="submit"
-                    content="submit"
+                    type="Submit"
+                    content="Submit"
                     disabled={isSubmitting}
                   />
                 </ButtonContainer>
                 <HorizontalRule />
                 <Link href="/signin">
-                  <BackToLogin>back to login?</BackToLogin>
+                  <BackToLogin>Back to login?</BackToLogin>
                 </Link>
               </MainContainer>
             </FormWrap>
           )}
         </Formik>
-      </RPContainer>
+      </PageContainer>
       <ToastContainer />
     </>
   );
