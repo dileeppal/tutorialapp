@@ -85,7 +85,7 @@ export const InputContainer = styled.div`
     border-radius: 2rem !important;
     box-shadow: none !important;
     outline: none;
-    color: #FFF;
+    color: #FFF; 
     font-size: 1.125rem;
     width: 100%;
     margin-bottom: 0;
