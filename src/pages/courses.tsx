@@ -30,11 +30,11 @@ function courses() {
 
 export default courses;
 
-export const getServerSideProps: GetServerSideProps = requireAuthentication(
-    async  (_ctx) => {
+// export const getServerSideProps: GetServerSideProps = requireAuthentication(
+//     async  (_ctx) => {
     
-        return {
-            props: {}
-        }
-    }
-)
+//         return {
+//             props: {}
+//         }
+//     }
+// )

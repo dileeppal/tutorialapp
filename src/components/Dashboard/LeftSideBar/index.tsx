@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { MdSchool } from "react-icons/md";
 import { BsFillChatSquareFill } from "react-icons/bs";
@@ -16,11 +16,22 @@ import {
   LeftSideBarIcon,
   LeftSideBarListItemText,
   IconBadge,
+  ToggleButton,
+  BackOverlay,
 } from "./leftside.styles";
 
 const LeftSideBar = () => {
+  const [menuState, setMenuState] =  useState(false)
   return (
-    <LeftSideContainer>
+    <>
+      <ToggleButton onClick={() => setMenuState(true)} className="toggleMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </ToggleButton>
+      {menuState && <BackOverlay onClick={() => setMenuState(false)} className="" />}
+    
+    <LeftSideContainer className= {menuState ? 'open': ''}>
       <LeftSideBarWrapper>
         <LeftSideBarListItem>
           <LeftSideBarIcon>
@@ -90,6 +101,8 @@ const LeftSideBar = () => {
         </LeftSideBarListItem>
       </LeftSideBarWrapper>
     </LeftSideContainer>
+    </>
+
   );
 };
 

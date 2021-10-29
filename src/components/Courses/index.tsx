@@ -24,18 +24,19 @@ function CoursesPage() {
         <Topbar />
         <PageContainer>
           <LeftSideBar />
+          
           <CourseContainer>
             <CoursesH1>Courses</CoursesH1>
             <CoursesWrapper>
               <CoursesCard>
-                <CourseTitle>
-                  Fullstack Javascript web Dev
-                  <CourseDuration> - 3 Months</CourseDuration>
-                </CourseTitle>
                 <CourseImage
                   alt="course image"
                   src="/assets/images/react.svg"
-                />
+                  />
+                  <CourseTitle>
+                    Fullstack Javascript web Dev
+                    <CourseDuration> - 3 Months</CourseDuration>
+                  </CourseTitle>
                 <CourseDescription>
                   The course includes: HTML, CSS and JavaScript and React
                   Framework.
@@ -46,14 +47,14 @@ function CoursesPage() {
                 </CardBottom>
               </CoursesCard>
               <CoursesCard>
-                <CourseTitle>
-                  Fullstack Javascript web Dev
-                  <CourseDuration> - 3 Months</CourseDuration>
-                </CourseTitle>
                 <CourseImage
                   alt="course image"
                   src="/assets/images/react.svg"
-                />
+                  />
+                  <CourseTitle>
+                    Fullstack Javascript web Dev
+                    <CourseDuration> - 3 Months</CourseDuration>
+                  </CourseTitle>
                 <CourseDescription>
                   The course includes: HTML, CSS and JavaScript and React
                   Framework.
@@ -64,14 +65,14 @@ function CoursesPage() {
                 </CardBottom>
               </CoursesCard>
               <CoursesCard>
-                <CourseTitle>
-                  Fullstack Javascript web Dev
-                  <CourseDuration> - 3 Months</CourseDuration>
-                </CourseTitle>
                 <CourseImage
                   alt="course image"
                   src="/assets/images/react.svg"
-                />
+                  />
+                  <CourseTitle>
+                    Fullstack Javascript web Dev
+                    <CourseDuration> - 3 Months</CourseDuration>
+                  </CourseTitle>
                 <CourseDescription>
                   The course includes: HTML, CSS and JavaScript and React
                   Framework.
@@ -82,14 +83,14 @@ function CoursesPage() {
                 </CardBottom>
               </CoursesCard>
               <CoursesCard>
-                <CourseTitle>
-                  Fullstack Javascript web Dev
-                  <CourseDuration> - 3 Months</CourseDuration>
-                </CourseTitle>
                 <CourseImage
                   alt="course image"
                   src="/assets/images/react.svg"
-                />
+                  />
+                  <CourseTitle>
+                    Fullstack Javascript web Dev
+                    <CourseDuration> - 3 Months</CourseDuration>
+                  </CourseTitle>
                 <CourseDescription>
                   The course includes: HTML, CSS and JavaScript and React
                   Framework.

@@ -9,7 +9,7 @@ import { Formik} from "formik";
 import Button from "../Button";
 import { Input, Error, ErrorMsg } from "../../Input";
 import { getRegisterValidationSchema } from "../../../utils/formValidation";
-import AuthModal from "../../Modal"
+// import AuthModal from "../../Modal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -65,7 +65,7 @@ const Register = () => {
 
   return (
     <>
-      <AuthModal isOpen={false}>{initialValues.error}</AuthModal>;
+      {/* <AuthModal isOpen={false}>{initialValues.error}</AuthModal>; */}
       <PageContainer>
         <Formik
           initialValues={initialValues}
@@ -126,7 +126,7 @@ const Register = () => {
                 <HorizontalRule />
                 <Terms>
                   By creating your account you agree to the{" "}
-                  <Link href="/terms">terms</Link> and
+                  <Link href="/terms">terms</Link> and 
                   <Link href="/privacy">privacy policy</Link>
                 </Terms>
               </MainContainer>

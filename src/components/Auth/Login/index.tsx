@@ -22,6 +22,7 @@ import {
   ForgotPassword,
   PageContainer,
   FormWrap,
+  HorizontalRule
 } from "../auth-styles";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -110,6 +111,7 @@ const Login = () => {
                     disabled={isSubmitting}
                   />
                 </ButtonContainer>
+                <HorizontalRule />
                 <FooterLinkContainer className="d-flex">
                   <Link href="/signup">
                     <LoginWith>Register </LoginWith>

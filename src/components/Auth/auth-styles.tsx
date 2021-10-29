@@ -8,6 +8,7 @@ export const PageContainer = styled.div`
   left: 0;
   bottom: 0;
   right: 0;
+  overflow: auto;
   &:before {
     content: "";
     background-image: url(https://images.unsplash.com/photo-1469981283837-561b3779462f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80);

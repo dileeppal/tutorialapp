@@ -28,8 +28,8 @@ function BooksPage() {
             <BooksH1>Recommended Books</BooksH1>
             <BooksWrapper>
               <BooksCard>
-                <BookTitle>Essential TypeScript</BookTitle>
                 <BookImage alt="course image" src="/assets/images/react.svg" />
+                <BookTitle>Essential TypeScript</BookTitle>
                 <BookDescription>
                   Develop Future Proof responsive websites
                 </BookDescription>
@@ -39,8 +39,8 @@ function BooksPage() {
                 </BookBottom>
               </BooksCard>
               <BooksCard>
-                <BookTitle>Essential TypeScript</BookTitle>
                 <BookImage alt="course image" src="/assets/images/react.svg" />
+                <BookTitle>Essential TypeScript</BookTitle>
                 <BookDescription>
                   Develop Future Proof responsive websites
                 </BookDescription>
@@ -50,8 +50,8 @@ function BooksPage() {
                 </BookBottom>
               </BooksCard>
               <BooksCard>
-                <BookTitle>Essential TypeScript</BookTitle>
                 <BookImage alt="course image" src="/assets/images/react.svg" />
+                <BookTitle>Essential TypeScript</BookTitle>
                 <BookDescription>
                   Develop Future Proof responsive websites
                 </BookDescription>
@@ -61,8 +61,8 @@ function BooksPage() {
                 </BookBottom>
               </BooksCard>
               <BooksCard>
-                <BookTitle>Essential TypeScript</BookTitle>
                 <BookImage alt="course image" src="/assets/images/react.svg" />
+                <BookTitle>Essential TypeScript</BookTitle>
                 <BookDescription>
                   Develop Future Proof responsive websites
                 </BookDescription>
