@@ -33,6 +33,12 @@ type FormInput = {
   upload?: string;
 };
 
+const categories = [
+  { value: "grocery", name: "Grocery", id: "1" },
+  { value: "women-cloths", name: "Women Cloths", id: "2" },
+  { value: "bags", name: "Bags", id: "3" },
+  { value: "makeup", name: "Makeup", id: "4" },
+];
 
 export const Modal = ({ closeM, showModal, setShowModal, ...props }: any) => {
   const {
@@ -115,15 +121,13 @@ export const Modal = ({ closeM, showModal, setShowModal, ...props }: any) => {
                       {...props}
                     />
                     {errors.title && <span>Title is required</span>}
-                    <Category
-                      placeholder="t"
-                      {...register("category", { required: true })}
-                    >
-                      <CategoryOptions>Select a category</CategoryOptions>
-                      <CategoryOptions value="one">1</CategoryOptions>
-                      <CategoryOptions value="two">2</CategoryOptions>
-                      <CategoryOptions value="three">3</CategoryOptions>
-                      <CategoryOptions value="four">4</CategoryOptions>
+                    <Category {...register("category", { required: true })}>
+                      <CategoryOptions >Please select a category</CategoryOptions>
+                      {categories.map((c, id) => (
+                        <CategoryOptions key={id} value={c.value}>
+                          {c.name}
+                        </CategoryOptions>
+                      ))}
                     </Category>
                     {errors.category && <span>Category is required</span>}
                     <UploadWrapper>

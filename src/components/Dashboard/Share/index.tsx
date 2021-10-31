@@ -18,12 +18,7 @@ import Modal from "components/ShareForm/Modal";
 
 
 
-// const categories = [
-//   { value: "grocery", name: "Grocery", id: "1" },
-//   { value: "women-cloths", name: "Women Cloths", id: "2" },
-//   { value: "bags", name: "Bags", id: "3" },
-//   { value: "makeup", name: "Makeup", id: "4" },
-// ];
+
 
 const username = "frank";
 const Share = () => {

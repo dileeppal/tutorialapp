@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 import {
   PostTop,
   PostLeftWrap,
@@ -21,6 +24,8 @@ import {
   ViewCounter,
   PostMediaVideoIF,
 } from "./forum.styles";
+import { Comment } from "../../Comments";
+import Dropdown from "../../Dropdown";
 
 const VideoPostCard = ({
   username,
@@ -33,18 +38,21 @@ const VideoPostCard = ({
   commentCount = 0,
   ...props
 }: any) => {
+  const [showComments, setShowComments] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   return (
     <ForumWrapper>
       <PostTop>
         <PostLeftWrap>
           <PostProfileImge src={image} alt="user profile image" />
           <UserName>{username}</UserName>
-          <PostDate>{date}</PostDate>
+          <PostDate>{dayjs(date).fromNow()}</PostDate>
         </PostLeftWrap>
         <PostTopRightWrap>
-          <ExpandIcon />
+          <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} />
         </PostTopRightWrap>
       </PostTop>
+      <Dropdown showDropdown={showDropdown} />
       <PostCenterWrap>
         <PostText>{title}</PostText>
         <PostMediaVideoIF
@@ -64,10 +72,11 @@ const VideoPostCard = ({
           <ViewCounter>{viewCount}</ViewCounter>
         </BottomLeftWrap>
         <BottomRightWrap>
-          <CommentIcon />
+          <CommentIcon onClick={() => setShowComments(!showComments)} />
           <CommentText>{commentCount}</CommentText>
         </BottomRightWrap>
       </PostBottomWrapper>
+      <Comment showComments={showComments} />
     </ForumWrapper>
   );
 };
