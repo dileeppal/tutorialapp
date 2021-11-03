@@ -1,5 +1,7 @@
-import React from 'react'
-
+import React, { useState } from "react";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 import {
   PostTop,
   PostLeftWrap,
@@ -19,6 +21,8 @@ import {
   CommentText,
   ForumWrapper,
 } from "./forum.styles";
+import { Comment } from "../../Comments";
+import Dropdown from "../../Dropdown";
 
 const TextPostCard = ({
   username,
@@ -29,18 +33,21 @@ const TextPostCard = ({
   likeCount = 0,
   commentCount = 0,
 }: any) => {
+  const [showComments, setShowComments] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   return (
     <ForumWrapper>
       <PostTop>
         <PostLeftWrap>
           <PostProfileImge src={image} alt="user profile image" />
           <UserName>{username}</UserName>
-          <PostDate>{date}</PostDate>
+          <PostDate>{dayjs(date).fromNow()}</PostDate>
         </PostLeftWrap>
         <PostTopRightWrap>
-          <ExpandIcon />
+          <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} />
         </PostTopRightWrap>
       </PostTop>
+      <Dropdown showDropdown={showDropdown} />
       <PostCenterWrap>
         <PostText>{title}</PostText>
       </PostCenterWrap>
@@ -53,12 +60,13 @@ const TextPostCard = ({
           <LikeCounter>{likeCount} liked your post</LikeCounter>
         </BottomLeftWrap>
         <BottomRightWrap>
-          <CommentIcon />
+          <CommentIcon onClick={() => setShowComments(!showComments)} />
           <CommentText>{commentCount}</CommentText>
         </BottomRightWrap>
       </PostBottomWrapper>
+      <Comment showComments={showComments} />
     </ForumWrapper>
   );
-}
+};
 
-export default TextPostCard
+export default TextPostCard;

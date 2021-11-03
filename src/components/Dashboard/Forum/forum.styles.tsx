@@ -42,11 +42,13 @@ export const PostDate = styled.span`
 export const PostTopRightWrap = styled.div`
 `;
 export const ExpandIcon = styled(MdExpandMore)`
-
+  cursor: pointer;
 `;
 
 export const PostCenterWrap = styled.div`
   margin: 20px 0;
+  position: relative;
+  z-index: -1;
 `;
 export const PostText = styled.span`
 
