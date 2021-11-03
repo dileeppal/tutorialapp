@@ -24,7 +24,7 @@ import {
 import { AiFillCloseCircle } from "react-icons/ai";
 // import Uploader from "components/Uploader";
 import { uploadBytes, ref, getDownloadURL } from "firebase/storage";
-import { storage } from "lib/admin"
+//import { storage } from "lib/admin";
 
 type FormInput = {
   title: string;

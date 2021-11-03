@@ -9,7 +9,7 @@ import { Formik} from "formik";
 import Button from "../Button";
 import { Input, Error, ErrorMsg } from "../../Input";
 import { getRegisterValidationSchema } from "../../../utils/formValidation";
-import AuthModal from "../../Modal"
+// import AuthModal from "../../Modal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -27,11 +27,11 @@ import {
   InputContainer,
   ButtonContainer,
   LoginWith,
-  HorizontalRule,
   Terms,
   PageContainer,
   FormWrap,
-} from "./styles";
+  HorizontalRule,
+} from "../auth-styles";
 
 
 const Register = () => {
@@ -65,7 +65,7 @@ const Register = () => {
 
   return (
     <>
-      <AuthModal isOpen={false}>{initialValues.error}</AuthModal>;
+      {/* <AuthModal isOpen={false}>{initialValues.error}</AuthModal>; */}
       <PageContainer>
         <Formik
           initialValues={initialValues}
@@ -76,12 +76,16 @@ const Register = () => {
             <FormWrap>
               <MainContainer>
                 <WelcomeText>Register</WelcomeText>
+                
                 {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
                 <InputContainer>
+                  <div className="form-group">
                   <Input type="text" placeholder="Full Name" name="fullName" />
                   {errors.fullName && touched.fullName && (
                     <Error>{errors.fullName}</Error>
                   )}
+                  </div>
+                  <div className="form-group">
                   <Input
                     type="text"
                     placeholder="username"
@@ -91,10 +95,14 @@ const Register = () => {
                   {errors.username && touched.username && (
                     <Error>{errors.username}</Error>
                   )}
+                  </div>
+                  <div className="form-group">
                   <Input type="email" placeholder="Email" name="email" />
                   {errors.email && touched.email && (
                     <Error>{errors.email}</Error>
                   )}
+                  </div>
+                  <div className="form-group">
                   <Input
                     type="password"
                     placeholder="Password"
@@ -103,6 +111,7 @@ const Register = () => {
                   {errors.password && touched.password && (
                     <Error>{errors.password}</Error>
                   )}
+                  </div>
                 </InputContainer>
                 <ButtonContainer>
                   <Button
@@ -117,7 +126,7 @@ const Register = () => {
                 <HorizontalRule />
                 <Terms>
                   By creating your account you agree to the{" "}
-                  <Link href="/terms">terms</Link> and
+                  <Link href="/terms">terms</Link> and 
                   <Link href="/privacy">privacy policy</Link>
                 </Terms>
               </MainContainer>
