@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
 export const LeftSideContainer = styled.div`
-  max-width: 18rem;
-  min-width: 18rem;
+  max-width: 20rem;
+  min-width: 20rem;
   min-height: calc(100vh - 100px);
   // overflow-y: auto;
   position: sticky;
@@ -11,7 +11,8 @@ export const LeftSideContainer = styled.div`
   top: 0;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  padding-right: 1rem;
+  padding-right: 2rem;
+  padding-left: 2rem;
   transition: transform 0.2s ease-in-out;
   &:before {
     content: "";
@@ -22,13 +23,18 @@ export const LeftSideContainer = styled.div`
     right: 100%;
     left: -50vw;
   }
+
+  @media (max-width: 1366px) {
+    max-width: 18rem;
+    min-width: 18rem;
+  }
   
-  @media (max-width: 991px) { 
+  @media (max-width: 991px) {
     transform: translateX(-100%);
     background-color: #ededed;
     position: fixed;
     left: 0;
-    top: 0;
+    top: 100px;
     bottom: 0;
     padding: 2rem 1rem;
   }
@@ -56,6 +62,7 @@ export const ToggleButton = styled.button`
     border: none;
     vertical-align: top;
     margin-top: 1rem;
+    margin-left: 2rem;
     @media (min-width: 992px) {
       display: none
     }

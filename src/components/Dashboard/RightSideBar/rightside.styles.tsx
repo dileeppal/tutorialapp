@@ -1,7 +1,9 @@
 import styled from "styled-components";
 
 export const RightSideContainer = styled.aside`
-  flex: 3.5;
+  max-width: 20rem;
+  min-width: 20rem;
+  padding: 2rem;
 `;
 
 export const RightSideWrapper = styled.div`

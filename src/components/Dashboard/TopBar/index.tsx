@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Link from "next/link";
 
 // for data fetching
@@ -22,6 +22,9 @@ import {
   IconItem,
   IconBadge,
   ProfileImg,
+  ProfileSetting,
+  ProfileDropdown,
+  ProfileItem,
 } from "./topbar.styles";
 
 import { BsFillChatSquareFill } from "react-icons/bs";
@@ -30,15 +33,16 @@ import { Logo } from "../../../../public/assets/images/Logo";
 
 
 const Topbar = () => {
-  const dispatch = useAppDispatch();
+  // const dispatch = useAppDispatch();
 
-  const { data, loading, error } = useMeQuery();
-  if (!data || loading) {
-    return <div>loading...</div>;
-  }
-  if (error) return <ErrorMsg>{error}</ErrorMsg>;
-  dispatch(setUser(data.me));
-  const me: any = data.me as {};
+  // const { data, loading, error } = useMeQuery();
+  // if (!data || loading) {
+  //   return <div>loading...</div>;
+  // }
+  // if (error) return <ErrorMsg>{error}</ErrorMsg>;
+  // dispatch(setUser(data.me));
+  const me: any = {};
+  const [dropdown, setDropdown] = useState(false)
 
     return (
       <TopbarContainer>
@@ -58,12 +62,12 @@ const Topbar = () => {
           </SearchBar>
         </TopCenterWrap>
         <TopRightWrap>
-          <TopBarNavLinks>
+          {/* <TopBarNavLinks>
             <NavLinks>
               <Link href={`/user-profile/${me.username}`}>Home</Link>
             </NavLinks>
             <NavLinks>Timeline</NavLinks>
-          </TopBarNavLinks>
+          </TopBarNavLinks> */}
           <Icons>
             <IconItem>
               <Link href={`/user-profile/${me.username}`}>
@@ -79,7 +83,23 @@ const Topbar = () => {
               <IconBadge>5</IconBadge>
             </IconItem>
           </Icons>
-          <ProfileImg alt="user profile image" src={me.profileImage} />
+          <ProfileSetting>
+            <ProfileImg onClick={ () => setDropdown(!dropdown)} alt="user profile image" src={me.profileImage} />
+            <ProfileDropdown className={ `${dropdown ? 'opened': ''}`} onClick={ () => setDropdown(!dropdown)}>
+              <ProfileItem>
+                <Link href={`/user-profile/${me.username}`}>Setting</Link>
+              </ProfileItem>
+              <ProfileItem>
+                <Link href={`/user-profile/${me.username}`}>Profile</Link>
+              </ProfileItem>
+              <ProfileItem>
+                <Link href={`/user-profile/${me.username}`}>Edit</Link>
+              </ProfileItem>
+              <ProfileItem>
+                <Link href={`/user-profile/${me.username}`}>Logout</Link>
+              </ProfileItem>
+            </ProfileDropdown>
+          </ProfileSetting>
         </TopRightWrap>
       </TopbarContainer>
     );

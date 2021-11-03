@@ -1,22 +1,26 @@
 import React from 'react'
-import PageContainer, {
-  MiddleContainer,
-  RightSideContainer,
-} from "../Containers/PageContainer";
+// import PageContainer, {
+//   InnerContainer,
+//   PageRightSide,
+// } from "../Containers/PageContainer";
 import LeftSideBar from '../Dashboard/LeftSideBar'
 import SmallFooter from '../Dashboard/SmallFooter'
 import TopBar from '../Dashboard/TopBar'
 import {
-  BooksH1,
-  BooksWrapper,
-  BooksCard,
-  BookTitle,
-  BookImage,
-  BookDescription,
-  BookBottom,
-  BookAuthor,
-  BuyButton,
-} from "./book.styles";
+  PageContainer,
+  InnerContainer,
+  PageRightSide,
+  PageHeading,
+  PageWrapper,
+  PostCard,
+  CardTitle,
+  CardImage,
+  CardDescription,
+  CardDuration,
+  CardBottom,
+  CardStartDate,
+  ApplyButton,
+} from "../../styles/common.styles";
 
 function BooksPage() {
     return (
@@ -24,56 +28,56 @@ function BooksPage() {
         <TopBar />
         <PageContainer>
           <LeftSideBar />
-          <MiddleContainer>
-            <BooksH1>Recommended Books</BooksH1>
-            <BooksWrapper>
-              <BooksCard>
-                <BookImage alt="course image" src="/assets/images/react.svg" />
-                <BookTitle>Essential TypeScript</BookTitle>
-                <BookDescription>
+          <InnerContainer>
+            <PageHeading>Recommended Books</PageHeading>
+            <PageWrapper>
+              <PostCard>
+                <CardImage alt="course image" src="/assets/images/react.svg" />
+                <CardTitle>Essential TypeScript</CardTitle>
+                <CardDescription>
                   Develop Future Proof responsive websites
-                </BookDescription>
-                <BookBottom>
-                  <BookAuthor>Peter Jones</BookAuthor>
-                  <BuyButton>Buy</BuyButton>
-                </BookBottom>
-              </BooksCard>
-              <BooksCard>
-                <BookImage alt="course image" src="/assets/images/react.svg" />
-                <BookTitle>Essential TypeScript</BookTitle>
-                <BookDescription>
+                </CardDescription>
+                <CardBottom>
+                  <CardStartDate>Peter Jones</CardStartDate>
+                  <ApplyButton>Buy</ApplyButton>
+                </CardBottom>
+              </PostCard>
+              <PostCard>
+                <CardImage alt="course image" src="/assets/images/react.svg" />
+                <CardTitle>Essential TypeScript</CardTitle>
+                <CardDescription>
                   Develop Future Proof responsive websites
-                </BookDescription>
-                <BookBottom>
-                  <BookAuthor>Peter Jones</BookAuthor>
-                  <BuyButton>Buy</BuyButton>
-                </BookBottom>
-              </BooksCard>
-              <BooksCard>
-                <BookImage alt="course image" src="/assets/images/react.svg" />
-                <BookTitle>Essential TypeScript</BookTitle>
-                <BookDescription>
+                </CardDescription>
+                <CardBottom>
+                  <CardStartDate>Peter Jones</CardStartDate>
+                  <ApplyButton>Buy</ApplyButton>
+                </CardBottom>
+              </PostCard>
+              <PostCard>
+                <CardImage alt="course image" src="/assets/images/react.svg" />
+                <CardTitle>Essential TypeScript</CardTitle>
+                <CardDescription>
                   Develop Future Proof responsive websites
-                </BookDescription>
-                <BookBottom>
-                  <BookAuthor>Peter Jones</BookAuthor>
-                  <BuyButton>Buy</BuyButton>
-                </BookBottom>
-              </BooksCard>
-              <BooksCard>
-                <BookImage alt="course image" src="/assets/images/react.svg" />
-                <BookTitle>Essential TypeScript</BookTitle>
-                <BookDescription>
+                </CardDescription>
+                <CardBottom>
+                  <CardStartDate>Peter Jones</CardStartDate>
+                  <ApplyButton>Buy</ApplyButton>
+                </CardBottom>
+              </PostCard>
+              <PostCard>
+                <CardImage alt="course image" src="/assets/images/react.svg" />
+                <CardTitle>Essential TypeScript</CardTitle>
+                <CardDescription>
                   Develop Future Proof responsive websites
-                </BookDescription>
-                <BookBottom>
-                  <BookAuthor>Peter Jones</BookAuthor>
-                  <BuyButton>Buy</BuyButton>
-                </BookBottom>
-              </BooksCard>
-            </BooksWrapper>
-          </MiddleContainer>
-          <RightSideContainer>Live Forever Young</RightSideContainer>
+                </CardDescription>
+                <CardBottom>
+                  <CardStartDate>Peter Jones</CardStartDate>
+                  <ApplyButton>Buy</ApplyButton>
+                </CardBottom>
+              </PostCard>
+            </PageWrapper>
+          </InnerContainer>
+          <PageRightSide>Live Forever Young</PageRightSide>
         </PageContainer>
         <SmallFooter />
       </>

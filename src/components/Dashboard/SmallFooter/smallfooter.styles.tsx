@@ -11,10 +11,14 @@ export const SmallFooterContainer = styled.footer`
 `;
 
 export const SocialMedia = styled.section`
-  max-width: 1440px;
+  max-width: 100%;
   width: 100%;
   padding-left: 2rem;
   padding-right: 2rem;
+  @media screen and (max-width: 991px) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 `;
 
 export const SocialMediaWrap = styled.div`
@@ -22,7 +26,7 @@ export const SocialMediaWrap = styled.div`
   justify-content: space-between;
   align-items: center;
 
-  @media screen and (max-width: 820px) {
+  @media screen and (max-width: 991px) {
     flex-direction: column;
   }
 `;

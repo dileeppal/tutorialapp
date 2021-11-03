@@ -10,7 +10,7 @@ export const PageContainer = styled.div`
     }
 `;
 
-export const CourseContainer = styled.div`
+export const InnerContainer = styled.div`
     flex: 1 0 0%;
     padding: 2.5rem;
     @media (max-width: 991px) {
@@ -18,7 +18,7 @@ export const CourseContainer = styled.div`
     } 
 `;
 
-export const CoursesH1 = styled.h1`
+export const PageHeading = styled.h1`
   color: #000;
   font-size: 2rem;
   margin-bottom: 2rem;
@@ -28,7 +28,7 @@ export const CoursesH1 = styled.h1`
   }
 `;
 
-export const CoursesWrapper = styled.div`
+export const PageWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin: -.5rem;
@@ -57,7 +57,7 @@ export const CoursesWrapper = styled.div`
 `;
 
 
-export const CoursesCard = styled.div`
+export const PostCard = styled.div`
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -74,25 +74,24 @@ export const CoursesCard = styled.div`
   }
 `;
 
-export const CourseTitle = styled.h2`
+export const CardTitle = styled.h2`
   font-size: 1rem;
   margin-bottom: 1rem; 
   text-align: center;
 `;
-export const CourseImage = styled.img`
+export const CardImage = styled.img`
   height: 8rem;
   width: 8rem;
   margin-bottom: 1rem;
 `;
-export const CourseDescription = styled.p`
+export const CardDescription = styled.p`
   font-size: .875rem;
   text-align: center;
   margin-bottom: 1rem;
 `;
 
-export const CourseDuration = styled.span`
+export const CardDuration = styled.span`
   font-size: .875rem;
-  margin-bottom: 1rem;
   color: #5bb3aa;
 `;
 
@@ -101,7 +100,7 @@ export const CardBottom = styled.div`
   text-align: center;
   
 `;
-export const CourseStartDate = styled.span`
+export const CardStartDate = styled.span`
   font-size: .875rem;
   font-weight: bold;
   color: #125c55;
@@ -123,7 +122,7 @@ export const ApplyButton = styled.button`
 `;
 
 
-export const CourseRightSide = styled.div`
+export const PageRightSide = styled.div`
   max-width: 20rem;
   min-width: 20rem;
   padding: 2rem;

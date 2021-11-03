@@ -1,108 +1,110 @@
 import React from 'react'
+import { Logo } from '../../../public/assets/images/Logo';
 import LeftSideBar from '../Dashboard/LeftSideBar'
 import SmallFooter from '../Dashboard/SmallFooter';
 import Topbar from '../Dashboard/TopBar'
 import {
   PageContainer,
-  CourseContainer,
-  CourseRightSide,
-  CoursesH1,
-  CoursesWrapper,
-  CoursesCard,
-  CourseTitle,
-  CourseDuration,
-  CourseImage,
-  CourseDescription,
+  InnerContainer,
+  PageRightSide,
+  PageHeading,
+  PageWrapper,
+  PostCard,
+  CardTitle,
+  CardImage,
+  CardDescription,
+  CardDuration,
   CardBottom,
-  CourseStartDate,
+  CardStartDate,
   ApplyButton,
-} from "./course.styles";
+} from "../../styles/common.styles";
 
 function CoursesPage() {
     return (
       <>
         <Topbar />
+
         <PageContainer>
           <LeftSideBar />
           
-          <CourseContainer>
-            <CoursesH1>Courses</CoursesH1>
-            <CoursesWrapper>
-              <CoursesCard>
-                <CourseImage
+          <InnerContainer>
+            <PageHeading>Courses</PageHeading>
+            <PageWrapper>
+              <PostCard>
+                <CardImage
                   alt="course image"
                   src="/assets/images/react.svg"
                   />
-                  <CourseTitle>
+                  <CardTitle>
                     Fullstack Javascript web Dev
-                    <CourseDuration> - 3 Months</CourseDuration>
-                  </CourseTitle>
-                <CourseDescription>
+                    <CardDuration> - 3 Months</CardDuration>
+                  </CardTitle>
+                <CardDescription>
                   The course includes: HTML, CSS and JavaScript and React
                   Framework.
-                </CourseDescription>
+                </CardDescription>
                 <CardBottom>
-                  <CourseStartDate>12/11/2021</CourseStartDate>
+                  <CardStartDate>12/11/2021</CardStartDate>
                   <ApplyButton>apply</ApplyButton>
                 </CardBottom>
-              </CoursesCard>
-              <CoursesCard>
-                <CourseImage
+              </PostCard>
+              <PostCard>
+                <CardImage
                   alt="course image"
                   src="/assets/images/react.svg"
                   />
-                  <CourseTitle>
+                  <CardTitle>
                     Fullstack Javascript web Dev
-                    <CourseDuration> - 3 Months</CourseDuration>
-                  </CourseTitle>
-                <CourseDescription>
+                    <CardDuration> - 3 Months</CardDuration>
+                  </CardTitle>
+                <CardDescription>
                   The course includes: HTML, CSS and JavaScript and React
                   Framework.
-                </CourseDescription>
+                </CardDescription>
                 <CardBottom>
-                  <CourseStartDate>12/11/2021</CourseStartDate>
+                  <CardStartDate>12/11/2021</CardStartDate>
                   <ApplyButton>apply</ApplyButton>
                 </CardBottom>
-              </CoursesCard>
-              <CoursesCard>
-                <CourseImage
+              </PostCard>
+              <PostCard>
+                <CardImage
                   alt="course image"
                   src="/assets/images/react.svg"
                   />
-                  <CourseTitle>
+                  <CardTitle>
                     Fullstack Javascript web Dev
-                    <CourseDuration> - 3 Months</CourseDuration>
-                  </CourseTitle>
-                <CourseDescription>
+                    <CardDuration> - 3 Months</CardDuration>
+                  </CardTitle>
+                <CardDescription>
                   The course includes: HTML, CSS and JavaScript and React
                   Framework.
-                </CourseDescription>
+                </CardDescription>
                 <CardBottom>
-                  <CourseStartDate>12/11/2021</CourseStartDate>
+                  <CardStartDate>12/11/2021</CardStartDate>
                   <ApplyButton>apply</ApplyButton>
                 </CardBottom>
-              </CoursesCard>
-              <CoursesCard>
-                <CourseImage
+              </PostCard>
+              <PostCard>
+                <CardImage
                   alt="course image"
                   src="/assets/images/react.svg"
                   />
-                  <CourseTitle>
+                  <CardTitle>
                     Fullstack Javascript web Dev
-                    <CourseDuration> - 3 Months</CourseDuration>
-                  </CourseTitle>
-                <CourseDescription>
+                    <CardDuration> - 3 Months</CardDuration>
+                  </CardTitle>
+                <CardDescription>
                   The course includes: HTML, CSS and JavaScript and React
                   Framework.
-                </CourseDescription>
+                </CardDescription>
                 <CardBottom>
-                  <CourseStartDate>12/11/2021</CourseStartDate>
+                  <CardStartDate>12/11/2021</CardStartDate>
                   <ApplyButton>apply</ApplyButton>
                 </CardBottom>
-              </CoursesCard>
-            </CoursesWrapper>
-          </CourseContainer>
-          <CourseRightSide>blow my wig</CourseRightSide>
+              </PostCard>
+            </PageWrapper>
+          </InnerContainer>
+          <PageRightSide>blow my wig</PageRightSide>
         </PageContainer>
         <SmallFooter />
       </>
