@@ -1,13 +1,8 @@
 import React from "react";
-import PageContainer, {
-  MiddleContainer,
-  RightSideContainer,
-} from "../Containers/PageContainer";
 import LeftSideBar from "../Dashboard/LeftSideBar";
 import SmallFooter from "../Dashboard/SmallFooter";
 import TopBar from "../Dashboard/TopBar";
 import {
-  NoticesH1,
   NoticesWrapper,
   NoticeLeftWrap,
   SenderProfileImge,
@@ -16,6 +11,12 @@ import {
   NoticeTopRightWrap,
   DeleteIcon,
 } from "./notice.styles";
+import {
+  PageContainer,
+  InnerContainer,
+  PageRightSide,
+  PageHeading,
+} from "../../styles/common.styles";
 
 function NotificationsPage() {
   return (
@@ -23,8 +24,8 @@ function NotificationsPage() {
       <TopBar />
       <PageContainer>
         <LeftSideBar />
-        <MiddleContainer>
-          <NoticesH1>Notifications</NoticesH1>
+        <InnerContainer>
+          <PageHeading>Notifications</PageHeading>
           <NoticesWrapper>
             <NoticeLeftWrap>
               <SenderProfileImge alt="sender profile image" src="/Aleah.jpg" />
@@ -65,8 +66,8 @@ function NotificationsPage() {
             </NoticeTopRightWrap>
           </NoticesWrapper>
           
-        </MiddleContainer>
-        <RightSideContainer>Live forever young!</RightSideContainer>
+        </InnerContainer>
+        <PageRightSide>Live forever young!</PageRightSide>
       </PageContainer>
       <SmallFooter />
     </>

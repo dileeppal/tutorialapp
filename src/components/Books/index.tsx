@@ -1,8 +1,4 @@
 import React from 'react'
-// import PageContainer, {
-//   InnerContainer,
-//   PageRightSide,
-// } from "../Containers/PageContainer";
 import LeftSideBar from '../Dashboard/LeftSideBar'
 import SmallFooter from '../Dashboard/SmallFooter'
 import TopBar from '../Dashboard/TopBar'
@@ -16,7 +12,6 @@ import {
   CardTitle,
   CardImage,
   CardDescription,
-  CardDuration,
   CardBottom,
   CardStartDate,
   ApplyButton,

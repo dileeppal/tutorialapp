@@ -4,13 +4,6 @@ import { FcComments } from "react-icons/fc";
 import { AiOutlineFolderView } from "react-icons/ai";
 import { MdExpandMore } from "react-icons/md";
 
-export const ForumContainer = styled.div`
-  width: 100%;
-  border-radius: 10px;
-  -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-  margin: 30px 0;
-`;
 
 export const ForumWrapper = styled.div`
   padding: 10px;

@@ -1,15 +1,17 @@
 import React from 'react'
-import PageContainer, {
-  MiddleContainer,
-  RightSideContainer,
-} from "../Containers/PageContainer";
+
 import LeftSideBar from '../Dashboard/LeftSideBar'
 import SmallFooter from '../Dashboard/SmallFooter'
 import Topbar from '../Dashboard/TopBar'
 import Button from '../Auth/Button'
-
 import {
-  SupportH1,
+  PageContainer,
+  InnerContainer,
+  PageRightSide,
+  PageHeading,
+  // PageWrapper,
+} from "../../styles/common.styles";
+import {
   SupportCardWrapper,
   FAQTitle,
   TextWrap,
@@ -29,8 +31,8 @@ function SupportPage() {
         <Topbar />
         <PageContainer>
           <LeftSideBar />
-          <MiddleContainer>
-            <SupportH1>Support</SupportH1>
+          <InnerContainer>
+            <PageHeading>Support</PageHeading>
             <SupportCardWrapper>
               <FAQTitle>FAQs</FAQTitle>
               <TextWrap>
@@ -63,8 +65,8 @@ function SupportPage() {
                 </FormWrap>
               </ContactCard>
             </ContactCardWrap>
-          </MiddleContainer>
-          <RightSideContainer>Live Forever Young</RightSideContainer>
+          </InnerContainer>
+          <PageRightSide>Live Forever Young</PageRightSide>
         </PageContainer>
         <SmallFooter />
       </>
