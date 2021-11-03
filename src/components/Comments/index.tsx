@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {
   CommentHorizontalRule,
   CommentCard,
@@ -10,8 +10,10 @@ import {
   CommentTopRightWrap,
   ExpandIcon,
 } from "./comment.styles";
+import Dropdown from "../Dropdown";
 
 export const Comment = ({ showComments, ...props }: any) => {
+  const [showDropdown, setShowDropdown] = useState(false);
   return (
     <>
       {showComments ? (
@@ -29,9 +31,10 @@ export const Comment = ({ showComments, ...props }: any) => {
                 <CommentDate> 2 hours ago</CommentDate>
               </CommentLeftWrap>
               <CommentTopRightWrap>
-                <ExpandIcon />
+                <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} />
               </CommentTopRightWrap>
             </CommentWrapper>
+            <Dropdown showDropdown={showDropdown} />
             <CommentWrapper>
               <CommentLeftWrap>
                 <UserProfileImge alt="sender profile image" src="/Aleah.jpg" />
