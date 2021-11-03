@@ -20,8 +20,8 @@ export default function UserFeed() {
             username="maguyva"
             image="/D.jpg"
             date="5 min ago"
-            content="tweet tweet tweet"
-            postMedia="/isak.jpg"
+            title="tweet tweet tweet"
+            body="/isak.jpg"
             likeCount={10}
             commentCount={8}
           />

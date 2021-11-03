@@ -9,6 +9,14 @@ export const ForumWrapper = styled.div`
   padding: 10px;
 `;
 
+export const ForumContainer = styled.div`
+  width: 100%;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+  margin: 30px 0;
+`;
+
 export const PostTop = styled.div`
   display: flex;
   align-items: center;

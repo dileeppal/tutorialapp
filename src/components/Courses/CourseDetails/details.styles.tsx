@@ -1,5 +1,4 @@
-import styled from 'styled-components'
-
+import styled from "styled-components";
 
 export const CoursesH1 = styled.h1`
   font-size: 2.5rem;
@@ -36,7 +35,6 @@ export const StartDateTitle = styled.p`
   font-size: 20px;
   font-weight: 500;
   margin: 0 10px;
-  
 `;
 
 export const StartDate = styled.span`

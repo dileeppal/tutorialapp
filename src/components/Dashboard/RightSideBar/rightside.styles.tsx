@@ -4,6 +4,14 @@ export const RightSideContainer = styled.aside`
   max-width: 20rem;
   min-width: 20rem;
   padding: 2rem;
+  @media (max-width: 1366px) {
+    max-width: 15rem;
+    min-width: 15rem;
+  }
+  @media (max-width: 991px) {
+    display: none;
+    padding: 2rem 1.5rem;
+  }
 `;
 
 export const RightSideWrapper = styled.div`
