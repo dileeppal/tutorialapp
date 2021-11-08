@@ -34,7 +34,7 @@ export const LeftSideContainer = styled.div`
     background-color: #ededed;
     position: fixed;
     left: 0;
-    top: 100px;
+    top: 70px;
     bottom: 0;
     padding: 2rem 1rem;
   }
@@ -54,7 +54,27 @@ export const BackOverlay = styled.div`
   right: 0;
   top: 0;
   bottom: 0;
+  z-index: 100;
 
+`;
+
+
+export const SearchButton = styled.button`
+    width: 4rem;
+    background-color: #FFF;
+    border: none;
+    z-index: 100;
+    height: 3.5rem;
+    position: absolute;
+        cursor: pointer;
+    @media (min-width: 992px) {
+        display: none
+    }
+    svg {
+        margin: 0;
+        float: left;
+        margin-left: 1.5rem;
+    }
 `;
 export const ToggleButton = styled.button`
   width: 1.5rem;
@@ -63,6 +83,7 @@ export const ToggleButton = styled.button`
     vertical-align: top;
     margin-top: 1rem;
     margin-left: 2rem;
+    z-index: 100;
     @media (min-width: 992px) {
       display: none
     }

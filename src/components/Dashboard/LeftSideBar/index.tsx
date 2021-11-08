@@ -33,7 +33,8 @@ const LeftSideBar = () => {
         <span></span>
         <span></span>
         <span></span>
-      </ToggleButton>    
+      </ToggleButton>
+      {menuState && <BackOverlay onClick={() => setMenuState(false)} className="" />}
     <LeftSideContainer className= {menuState ? 'open': ''}>
       <LeftSideBarWrapper>
         <LeftSideBarListItem>

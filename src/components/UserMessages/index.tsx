@@ -1,4 +1,6 @@
-import React from 'react'
+import { BackOverlay, SearchButton } from 'components/Dashboard/LeftSideBar/leftside.styles';
+import { SearchIcon } from 'components/Dashboard/TopBar/topbar.styles';
+import React, { useState } from 'react'
 import Conversation from '../Conversation';
 import Message from '../Message';
 import OnlineChat from '../OnlineChat';
@@ -19,9 +21,28 @@ import {
 } from "./msg.styles";
 
 function UserMessages() {
+  const [menuState, setMenuState] =  useState(false)
+  {
+    menuState && (
+      <BackOverlay onClick={() => setMenuState(false)} className="" />
+    );
+  }
+  const [leftSearch, setLeftSearch] = useState(false)
+
     return (
+      <>
+
+      <SearchButton onClick={() => setMenuState(true)} className="toggleMenu">
+        <SearchIcon></SearchIcon>
+      </SearchButton>
+      {menuState && <BackOverlay onClick={() => setMenuState(false)} className="" />}
+
+      {/* <button onClick={() => setLeftSearch(!leftSearch)}>Search TBN</button> */}
+
+      {/* <div className="overlay" onClick={() => setLeftSearch(!leftSearch)}></div> */}
+
       <MsgContainer>
-        <MsgChatMenu>
+        <MsgChatMenu className= {menuState ? 'opened': ''}>
           <MsgChatMenuWrapper>
             <MsgChatMenuInput placeholder="Search for a user" />
             <div>
@@ -48,6 +69,7 @@ function UserMessages() {
             </OnlineChatWrapper>
         </OnlineChatContainer>
       </MsgContainer>
+      </>
     );
 }
 
