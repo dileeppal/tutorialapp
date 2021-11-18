@@ -11,12 +11,12 @@ import {
   TitleInput,
   Category,
   CategoryOptions,
-  BodyText,
+  // BodyText,
   ButtonContainer,
-  UploadWrapper,
-  UploadLabel,
+  // UploadWrapper,
+  // UploadLabel,
   BodyTextWrapper,
-  UploadInput,
+  // UploadInput,
   SubmitButton,
   CloseButton,
   Background,
@@ -24,7 +24,11 @@ import {
 import { AiFillCloseCircle } from "react-icons/ai";
 // import Uploader from "components/Uploader";
 import { uploadBytes, ref, getDownloadURL } from "firebase/storage";
-//import { storage } from "lib/admin";
+// import { storage } from "lib/admin";
+
+import { EditorState, convertToRaw } from "draft-js";
+import draftToHtml from "draftjs-to-html";
+import ModalEditor from "./ModalEditor";
 
 type FormInput = {
   title: string;
@@ -41,6 +45,13 @@ const categories = [
 ];
 
 export const Modal = ({ closeM, showModal, setShowModal, ...props }: any) => {
+  
+  const [editorState, setEditorState] = useState<EditorState>(
+    EditorState.createEmpty()
+  );
+
+  const [content, setContent] = useState<string>("");
+
   const {
     register,
     handleSubmit,
@@ -87,18 +98,18 @@ export const Modal = ({ closeM, showModal, setShowModal, ...props }: any) => {
   };
 
   const onSubmit = async (data: any) => {
-    const testingRef = ref(storage, `testing folder/${data.upload.name}`)
+    // const testingRef = ref(storage, `testing folder/${data.upload.name}`)
     let url: string;
     console.log(data.upload.name)
-    try {
-      await uploadBytes(testingRef, data.upload).then(async () => {
-        url = await getDownloadURL(testingRef);
-        console.log(url);
-      });
-    } catch (err) {
-      console.log("");
+    // try {
+    //   await uploadBytes(testingRef, data.upload).then(async () => {
+    //     url = await getDownloadURL(testingRef);
+    //     console.log(url);
+    //   });
+    // } catch (err) {
+    //   console.log("");
 
-    }
+    // }
   };
   return (
     <>
@@ -122,7 +133,9 @@ export const Modal = ({ closeM, showModal, setShowModal, ...props }: any) => {
                     />
                     {errors.title && <span>Title is required</span>}
                     <Category {...register("category", { required: true })}>
-                      <CategoryOptions >Please select a category</CategoryOptions>
+                      <CategoryOptions>
+                        Please select a category
+                      </CategoryOptions>
                       {categories.map((c, id) => (
                         <CategoryOptions key={id} value={c.value}>
                           {c.name}
@@ -130,26 +143,25 @@ export const Modal = ({ closeM, showModal, setShowModal, ...props }: any) => {
                       ))}
                     </Category>
                     {errors.category && <span>Category is required</span>}
-                    <UploadWrapper>
-                      <UploadLabel
-                        {...props}
-                        htmlFor="file-input"
-                        name="body"
-                      ></UploadLabel>
-                      <UploadInput
-                        {...props}
-                        onChange={handleImageChange("upload")}
-                        type="file"
-                        name="upload"
-                      />
-                      {/* <Uploader onChange={handleUploader} /> */}
-                    </UploadWrapper>
+
                     <BodyTextWrapper>
-                      <BodyText
+                      <ModalEditor
+                        editorState={editorState}
+                        onEditorStateChange={(newState: EditorState) => {
+                          setEditorState(newState);
+                          setContent(
+                            draftToHtml(
+                              convertToRaw(newState.getCurrentContent())
+                            )
+                          );
+                          setValue("body", content);
+                        }}
+                      />
+                      {/* <BodyText
                         {...props}
                         {...register("body")}
                         placeholder="write something...."
-                      ></BodyText>
+                      ></BodyText> */}
                     </BodyTextWrapper>
                   </InputContainer>
                   <ButtonContainer>

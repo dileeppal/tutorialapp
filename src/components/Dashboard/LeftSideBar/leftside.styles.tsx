@@ -76,6 +76,7 @@ export const SearchButton = styled.button`
         margin-left: 1.5rem;
     }
 `;
+
 export const ToggleButton = styled.button`
   width: 1.5rem;
     background-color: transparent;
