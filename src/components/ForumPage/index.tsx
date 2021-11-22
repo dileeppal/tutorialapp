@@ -13,6 +13,7 @@ import {
   InnerContainer,
   PageRightSide,
   PageHeading,
+  ForumRow,
 } from "../../styles/common.styles";
 
 const ForumPage = () => {
@@ -24,40 +25,42 @@ const ForumPage = () => {
           <InnerContainer>
             <PageHeading>Forum</PageHeading>
             <Share />
-            <ForumContainer>
-              <TextPostCard
-                username="maguyva"
-                image="/D.jpg"
-                date="5 min ago"
-                title="tweet tweet tweet"
-                body="tweet tweet tweet"
-                likeCount="10"
-                commentCount={16}
-              />
-            </ForumContainer>
-            <ForumContainer>
-              <VideoPostCard
-                username="maguyva"
-                image="/D.jpg"
-                date="5 min ago"
-                title="tweet tweet tweet"
-                body="/exvid.mp4"
-                likeCount={13}
-                commentCount={29}
-                viewCount={31}
-              />
-            </ForumContainer>
-            <ForumContainer>
-              <ImagePostCard
-                username="maguyva"
-                image="/D.jpg"
-                date="5 min ago"
-                title="tweet tweet tweet"
-                body="/isak.jpg"
-                likeCount={10}
-                commentCount={8}
-              />
-            </ForumContainer>
+            <ForumRow>
+              <ForumContainer>
+                <TextPostCard
+                  username="maguyva"
+                  image="/D.jpg"
+                  date="5 min ago"
+                  title="tweet tweet tweet"
+                  body="tweet tweet tweet"
+                  likeCount="10"
+                  commentCount={16}
+                />
+              </ForumContainer>
+              <ForumContainer>
+                <VideoPostCard
+                  username="maguyva"
+                  image="/D.jpg"
+                  date="5 min ago"
+                  title="tweet tweet tweet"
+                  body="/exvid.mp4"
+                  likeCount={13}
+                  commentCount={29}
+                  viewCount={31}
+                />
+              </ForumContainer>
+              <ForumContainer>
+                <ImagePostCard
+                  username="maguyva"
+                  image="/D.jpg"
+                  date="5 min ago"
+                  title="tweet tweet tweet"
+                  body="/isak.jpg"
+                  likeCount={10}
+                  commentCount={8}
+                />
+              </ForumContainer>
+            </ForumRow>
           </InnerContainer>
           <PageRightSide>Live Forever Young</PageRightSide>
         </PageContainer>
@@ -69,9 +72,6 @@ const ForumPage = () => {
 export default ForumPage
 
 export const ForumContainer = styled.div`
-  width: 100%;
-  border-radius: 10px;
-  -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-  margin: 30px 0;
+  width: 33.33%;
+  padding: .5rem;
 `;

@@ -43,20 +43,7 @@ export const Comment = ({ showComments, ...props }: any) => {
       {showComments ? (
         <div showComments={showComments} {...props}>
           <CommentHorizontalRule />
-          <form onSubmit={handleSubmit(onSubmit)}>
-            {errors.body && <span>text is required</span>}
-            <PostEditor
-              editorState={editorState}
-              onEditorStateChange={(newState: EditorState) => {
-                setEditorState(newState);
-                setContent(
-                  draftToHtml(convertToRaw(newState.getCurrentContent()))
-                );
-                setValue("body", content);
-              }}
-            />
-          </form>
-          <CommentCard>
+           <CommentCard>
             <CommentWrapper>
               <CommentLeftWrap>
                 <UserProfileImge alt="sender profile image" src="/Aleah.jpg" />
@@ -86,7 +73,21 @@ export const Comment = ({ showComments, ...props }: any) => {
                 <ExpandIcon />
               </CommentTopRightWrap>
             </CommentWrapper>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            {errors.body && <span>text is required</span>}
+            <PostEditor
+              editorState={editorState}
+              onEditorStateChange={(newState: EditorState) => {
+                setEditorState(newState);
+                setContent(
+                  draftToHtml(convertToRaw(newState.getCurrentContent()))
+                );
+                setValue("body", content);
+              }}
+            />
+          </form>
           </CommentCard>
+         
         </div>
       ) : null}
     </>

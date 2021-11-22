@@ -12,6 +12,7 @@ import {
   ExpandIcon,
   PostCenterWrap,
   PostText,
+  PostTitle,
   PostBottomWrapper,
   BottomLeftWrap,
   LikeIcon,
@@ -23,6 +24,9 @@ import {
   ViewIcon,
   ViewCounter,
   PostMediaVideoIF,
+  PostDropdown,
+  LikeGroup,
+  ViewMore,
 } from "./forum.styles";
 import { Comment } from "../../Comments";
 import Dropdown from "../../Dropdown";
@@ -49,31 +53,38 @@ const VideoPostCard = ({
           <PostDate>{dayjs(date).fromNow()}</PostDate>
         </PostLeftWrap>
         <PostTopRightWrap>
-          <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} />
+          <PostDropdown>
+            <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} />
+            <Dropdown showDropdown={showDropdown} />
+          </PostDropdown>
         </PostTopRightWrap>
       </PostTop>
-      <Dropdown showDropdown={showDropdown} />
       <PostCenterWrap>
-        <PostText>{title}</PostText>
-        <PostMediaVideoIF
+        <PostTitle>{title}</PostTitle>
+        {/* <PostMediaVideoIF
           {...props}
           width="560"
           height="315"
           src={body}
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-        />
+        /> */}
       </PostCenterWrap>
       <PostBottomWrapper>
         <BottomLeftWrap>
-          <LikeIcon />
-          <LikeCounter>{likeCount}</LikeCounter>
-          <ViewIcon />
-          <ViewCounter>{viewCount}</ViewCounter>
+          <LikeGroup>
+            <LikeIcon />
+            <LikeCounter>{likeCount}</LikeCounter>
+          </LikeGroup>
+          <LikeGroup>
+            <ViewIcon />
+            <ViewCounter>{viewCount}</ViewCounter>
+          </LikeGroup>
         </BottomLeftWrap>
         <BottomRightWrap>
-          <CommentIcon onClick={() => setShowComments(!showComments)} />
-          <CommentText>{commentCount}</CommentText>
+          <ViewMore>View more</ViewMore>
+          {/* <CommentIcon onClick={() => setShowComments(!showComments)} />
+          <CommentText>{commentCount}</CommentText> */}
         </BottomRightWrap>
       </PostBottomWrapper>
       <Comment showComments={showComments} />

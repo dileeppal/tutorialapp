@@ -12,6 +12,7 @@ import {
   ExpandIcon,
   PostCenterWrap,
   PostText,
+  PostTitle,
   PostBottomWrapper,
   BottomLeftWrap,
   LikeIcon,
@@ -20,6 +21,9 @@ import {
   CommentIcon,
   CommentText,
   ForumWrapper,
+  PostDropdown,
+  LikeGroup,
+  ViewMore,
 } from "./forum.styles";
 import { Comment } from "../../Comments";
 import Dropdown from "../../Dropdown";
@@ -44,24 +48,29 @@ const TextPostCard = ({
           <PostDate>{dayjs(date).fromNow()}</PostDate>
         </PostLeftWrap>
         <PostTopRightWrap>
-          <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} />
+          <PostDropdown>
+            <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} />
+            <Dropdown showDropdown={showDropdown} />
+          </PostDropdown>
         </PostTopRightWrap>
       </PostTop>
-      <Dropdown showDropdown={showDropdown} />
       <PostCenterWrap>
-        <PostText>{title}</PostText>
+        <PostTitle>{title}</PostTitle>
       </PostCenterWrap>
       <PostCenterWrap>
         <PostText>{body}</PostText>
       </PostCenterWrap>
       <PostBottomWrapper>
         <BottomLeftWrap>
-          <LikeIcon />
-          <LikeCounter>{likeCount} liked your post</LikeCounter>
+          <LikeGroup>
+            <LikeIcon />
+            <LikeCounter>{likeCount} liked your post</LikeCounter>
+          </LikeGroup>
         </BottomLeftWrap>
         <BottomRightWrap>
-          <CommentIcon onClick={() => setShowComments(!showComments)} />
-          <CommentText>{commentCount}</CommentText>
+          <ViewMore>View more</ViewMore>
+          {/* <CommentIcon onClick={() => setShowComments(!showComments)} />
+          <CommentText>{commentCount}</CommentText> */}
         </BottomRightWrap>
       </PostBottomWrapper>
       <Comment showComments={showComments} />

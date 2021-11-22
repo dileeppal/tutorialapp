@@ -40,7 +40,7 @@ interface ForumPost {
   commentCount: number;
 }
 
-const ImagePostCard = ({
+const DetailPost = ({
   username,
   image,
   date,
@@ -49,12 +49,12 @@ const ImagePostCard = ({
   likeCount = 0,
   commentCount = 0,
 }: ForumPost) => {
-  const [showComments, setShowComments] = useState(false);
+  const [showComments, setShowComments] = useState(true);
   const [showDropdown, setShowDropdown] = useState(false);
 
   return (
     <>
-      <ForumWrapper>
+      
         <PostTop>
           <PostLeftWrap>
             <PostProfileImge src={image} alt="user profile image" />
@@ -70,7 +70,7 @@ const ImagePostCard = ({
         </PostTop>
         <PostCenterWrap>
           <PostTitle>{title}</PostTitle>
-          {/* <PostMediaImage alt="Post image" src={body} /> */}
+          <PostMediaImage alt="Post image" src={body} />
         </PostCenterWrap>
 
         <PostBottomWrapper>
@@ -81,15 +81,14 @@ const ImagePostCard = ({
             </LikeGroup>
           </BottomLeftWrap>
           <BottomRightWrap>
-            <ViewMore>View more</ViewMore>
-            {/* <CommentIcon onClick={() => setShowComments(!showComments)} /> */}
-            {/* <CommentText>{commentCount}</CommentText> */}
+            <CommentIcon onClick={() => setShowComments(showComments)} />
+            <CommentText>{commentCount}</CommentText>
           </BottomRightWrap>
         </PostBottomWrapper>
         <Comment showComments={showComments} />
-      </ForumWrapper>
+      
     </>
   );
 };
 
-export default ImagePostCard;
+export default DetailPost;

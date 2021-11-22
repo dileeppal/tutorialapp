@@ -10,6 +10,13 @@ export const PageContainer = styled.div`
     }
 `;
 
+export const ForumRow = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -.5rem;
+    margin-right: -.5rem;
+`;
+
 export const InnerContainer = styled.div`
     flex: 1 0 0%;
     padding: 2.5rem;

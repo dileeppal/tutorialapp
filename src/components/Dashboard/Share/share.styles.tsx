@@ -1,14 +1,16 @@
 import styled from "styled-components";
 
 export const ShareContainer = styled.div`
-  width: 100%;
-  height: 170px;
-  border-radius: 10px;
-  -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+      padding: 1.5rem;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
+    border-radius: .5rem;
+    background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+  margin-bottom: 1rem;
 `;
 export const ShareWrapper = styled.div`
-  padding: 10px;
+  padding: 0;
 `;
 export const ShareTop = styled.div`
   display: flex;
