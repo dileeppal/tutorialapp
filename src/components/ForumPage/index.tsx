@@ -14,6 +14,11 @@ import {
   PageRightSide,
   PageHeading,
   ForumRow,
+  ForumFilter,
+  ForumFilterSortBy,
+  SelectCategory,
+  CategoryOption,
+  FilterSearch,
 } from "../../styles/common.styles";
 
 const ForumPage = () => {
@@ -25,7 +30,24 @@ const ForumPage = () => {
           <InnerContainer>
             <PageHeading>Forum</PageHeading>
             <Share />
+
+
+
             <ForumRow>
+
+              <ForumFilter>
+                <ForumFilterSortBy>
+                  <SelectCategory>
+                    <CategoryOption>Category 01</CategoryOption>
+                    <CategoryOption>Category 02</CategoryOption>
+                    <CategoryOption>Category 03</CategoryOption>
+                    <CategoryOption>Category 04</CategoryOption>
+                  </SelectCategory>
+                </ForumFilterSortBy>
+                <FilterSearch placeholder="Search">
+                </FilterSearch>
+              </ForumFilter>
+
               <ForumContainer>
                 <TextPostCard
                   username="maguyva"
@@ -74,4 +96,10 @@ export default ForumPage
 export const ForumContainer = styled.div`
   width: 33.33%;
   padding: .5rem;
+  @media (max-width: 991px) {
+      width: 50%;
+    }
+    @media (max-width: 767px) {
+      width: 100%;
+    }
 `;

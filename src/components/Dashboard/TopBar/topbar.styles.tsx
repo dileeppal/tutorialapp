@@ -11,7 +11,7 @@ export const TopbarContainer = styled.div`
     align-items: center;
     position: sticky;
     top: 0;
-    z-index: 999;
+    z-index: 99999;
     padding-left: 2rem;
     padding-right: 2rem;
     @media (max-width: 991px) {
