@@ -32,3 +32,19 @@ body {
 	border-radius: 0;
 	background-color: #b2b2b2;
 }
+
+.rdw-editor-wrapper {
+    background-color: #FFF;
+    border: 1px solid #ededed;
+    border-radius: 1rem;
+    overflow: hidden;
+}
+.editor-class {
+  padding: 0 1rem .5rem;
+  min-height: 8rem;
+}
+.toolbar-class {
+      border: none;
+    border-bottom: 1px solid #F1F1F1;
+    margin-bottom: 0;
+}

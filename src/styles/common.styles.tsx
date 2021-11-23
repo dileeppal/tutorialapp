@@ -10,6 +10,73 @@ export const PageContainer = styled.div`
     }
 `;
 
+export const ForumRow = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -.5rem;
+    margin-right: -.5rem;
+`;
+
+export const ForumColumn = styled.div`
+    width: 33.33%;
+    padding: .5rem;
+    @media (max-width: 991px) {
+      width: 50%;
+    }
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+`;
+
+export const ForumFilter = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    min-width: 100%;
+    width: 100%;
+    padding: .5rem;
+`;
+
+export const ForumFilterSortBy = styled.div`
+    margin: .25rem 0;
+`;
+
+export const FilterSearch = styled.input`
+    width: 15rem;
+    background-color: #e9e9e9;
+    display: flex;
+    align-items: center;
+    border-radius: 2rem;
+    height: 2.5rem;
+    border: none;
+    padding: .5rem 1rem;
+    font-size: .875rem;
+    margin: .25rem 0;
+        outline: none !important;
+    @media (max-width: 767px) {
+      width: 100%;
+    }
+    
+`;
+
+export const SelectCategory = styled.select`
+    width: 10rem;
+    background-color: #e9e9e9;
+    display: flex;
+    align-items: center;
+    border-radius: 2rem;
+    height: 2.5rem;
+    outline: none !important;
+    border: none;
+    padding: .5rem 1rem;
+    font-size: .875rem;
+`;
+
+export const CategoryOption = styled.option`
+    
+`;
+
+
 export const InnerContainer = styled.div`
     flex: 1 0 0%;
     padding: 2.5rem;

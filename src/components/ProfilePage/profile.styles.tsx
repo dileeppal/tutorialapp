@@ -9,7 +9,15 @@ export const ProfileRightWrap = styled.div`
 `;
 
 export const ProfileRightTopWrap = styled.div`
-
+  margin-top: -2.5rem;
+  margin-left: -2.5rem;
+  margin-right: -2.5rem;
+  margin-bottom: 2.5rem;
+  @media (max-width: 991px) {
+    margin-top: 0;
+    margin-left: -1.5rem;
+    margin-right: -1.5rem;
+  }
 `;
 
 export const ProfileCover = styled.div`

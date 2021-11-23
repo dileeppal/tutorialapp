@@ -13,6 +13,12 @@ import {
   InnerContainer,
   PageRightSide,
   PageHeading,
+  ForumRow,
+  ForumFilter,
+  ForumFilterSortBy,
+  SelectCategory,
+  CategoryOption,
+  FilterSearch,
 } from "../../styles/common.styles";
 
 const ForumPage = () => {
@@ -24,40 +30,59 @@ const ForumPage = () => {
           <InnerContainer>
             <PageHeading>Forum</PageHeading>
             <Share />
-            <ForumContainer>
-              <TextPostCard
-                username="maguyva"
-                image="/D.jpg"
-                date="5 min ago"
-                title="tweet tweet tweet"
-                body="tweet tweet tweet"
-                likeCount="10"
-                commentCount={16}
-              />
-            </ForumContainer>
-            <ForumContainer>
-              <VideoPostCard
-                username="maguyva"
-                image="/D.jpg"
-                date="5 min ago"
-                title="tweet tweet tweet"
-                body="/exvid.mp4"
-                likeCount={13}
-                commentCount={29}
-                viewCount={31}
-              />
-            </ForumContainer>
-            <ForumContainer>
-              <ImagePostCard
-                username="maguyva"
-                image="/D.jpg"
-                date="5 min ago"
-                title="tweet tweet tweet"
-                body="/isak.jpg"
-                likeCount={10}
-                commentCount={8}
-              />
-            </ForumContainer>
+
+
+
+            <ForumRow>
+
+              <ForumFilter>
+                <ForumFilterSortBy>
+                  <SelectCategory>
+                    <CategoryOption>Category 01</CategoryOption>
+                    <CategoryOption>Category 02</CategoryOption>
+                    <CategoryOption>Category 03</CategoryOption>
+                    <CategoryOption>Category 04</CategoryOption>
+                  </SelectCategory>
+                </ForumFilterSortBy>
+                <FilterSearch placeholder="Search">
+                </FilterSearch>
+              </ForumFilter>
+
+              <ForumContainer>
+                <TextPostCard
+                  username="maguyva"
+                  image="/D.jpg"
+                  date="5 min ago"
+                  title="tweet tweet tweet"
+                  body="tweet tweet tweet"
+                  likeCount="10"
+                  commentCount={16}
+                />
+              </ForumContainer>
+              <ForumContainer>
+                <VideoPostCard
+                  username="maguyva"
+                  image="/D.jpg"
+                  date="5 min ago"
+                  title="tweet tweet tweet"
+                  body="/exvid.mp4"
+                  likeCount={13}
+                  commentCount={29}
+                  viewCount={31}
+                />
+              </ForumContainer>
+              <ForumContainer>
+                <ImagePostCard
+                  username="maguyva"
+                  image="/D.jpg"
+                  date="5 min ago"
+                  title="tweet tweet tweet"
+                  body="/isak.jpg"
+                  likeCount={10}
+                  commentCount={8}
+                />
+              </ForumContainer>
+            </ForumRow>
           </InnerContainer>
           <PageRightSide>Live Forever Young</PageRightSide>
         </PageContainer>
@@ -69,9 +94,12 @@ const ForumPage = () => {
 export default ForumPage
 
 export const ForumContainer = styled.div`
-  width: 100%;
-  border-radius: 10px;
-  -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-  margin: 30px 0;
+  width: 33.33%;
+  padding: .5rem;
+  @media (max-width: 991px) {
+      width: 50%;
+    }
+    @media (max-width: 767px) {
+      width: 100%;
+    }
 `;

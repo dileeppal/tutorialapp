@@ -6,6 +6,7 @@ import {
   PageContainer,
   InnerContainer,
   PageRightSide,
+  
 } from "../../styles/common.styles";
 import { ProfileCover, ProfileCoverImage, ProfileInfo, ProfileRightBottomWrap, ProfileRightTopWrap, ProfileRightWrap, UserDescription, UserName, UserProfileImage } from './profile.styles';
 import UserFeed from './UserFeed';

@@ -12,7 +12,7 @@ export const MsgChatMenu = styled.div`
     border-right: 1px solid rgb(0 0 0 / 10%);
     padding: 2rem;
     overflow-y: auto;
-    z-index: 100;
+    z-index: 9999;
     @media (max-width: 1366px) {
         max-width: 18rem;
         min-width: 18rem;
