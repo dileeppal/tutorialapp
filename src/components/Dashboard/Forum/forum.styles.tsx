@@ -66,9 +66,9 @@ export const UserName = styled.span`
      margin: 0 .625rem;
 `;
 export const PostDate = styled.span`
-    font-size: .75rem;
-    color: #b5b5b5;
-    display: block;
+  font-size: 0.75rem;
+  color: #b5b5b5;
+  display: block;
 `;
 export const PostTopRightWrap = styled.div`
 `;

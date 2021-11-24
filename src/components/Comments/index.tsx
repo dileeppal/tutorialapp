@@ -45,14 +45,13 @@ export const Comment = ({ showComments, ...props }: any) => {
       {showComments ? (
         <div showComments={showComments} {...props}>
           <CommentHorizontalRule />
-           <CommentCard>
+          <CommentCard>
             <CommentWrapper>
               <CommentLeftWrap>
                 <UserProfileImge alt="sender profile image" src="/Aleah.jpg" />
                 <CommentText>
                   Lorem Ipsum is simply dummy text of the printing and
-                  typesetting
-                  industry...
+                  typesetting industry...
                 </CommentText>
                 <CommentDate> 2 hours ago</CommentDate>
               </CommentLeftWrap>
@@ -66,36 +65,32 @@ export const Comment = ({ showComments, ...props }: any) => {
             <CommentWrapper>
               <CommentLeftWrap>
                 <UserProfileImge alt="sender profile image" src="/Aleah.jpg" />
-                <CommentText>
-                  Lorem Ipsum is simply dummy text of the printing and
-                  typesetting
-                  industry...
-                </CommentText>
+                <CommentText>Lorem Ipsum</CommentText>
                 <CommentDate> 2 hours ago</CommentDate>
               </CommentLeftWrap>
               <CommentTopRightWrap>
                 <PostDropdown>
-                  <ExpandIcon />
+                  <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} />
+                  <Dropdown showDropdown={showDropdown} />
                 </PostDropdown>
               </CommentTopRightWrap>
             </CommentWrapper>
-              <form onSubmit={handleSubmit(onSubmit)}>
-                {errors.body && <span>text is required</span>}
-                <PostEditor
-                  editorState={editorState}
-                  onEditorStateChange={(newState: EditorState) => {
-                    setEditorState(newState);
-                    setContent(
-                      draftToHtml(convertToRaw(newState.getCurrentContent()))
-                    );
-                    setValue("body", content);
-                  }}
-                />
-                <br />
-                <SubmitButton>Submit</SubmitButton>
-              </form>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              {errors.body && <span>text is required</span>}
+              <PostEditor
+                editorState={editorState}
+                onEditorStateChange={(newState: EditorState) => {
+                  setEditorState(newState);
+                  setContent(
+                    draftToHtml(convertToRaw(newState.getCurrentContent()))
+                  );
+                  setValue("body", content);
+                }}
+              />
+              <br />
+              <SubmitButton>Submit</SubmitButton>
+            </form>
           </CommentCard>
-         
         </div>
       ) : null}
     </>

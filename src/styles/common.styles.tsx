@@ -20,11 +20,7 @@ export const ForumRow = styled.div`
 export const ForumColumn = styled.div`
     width: 33.33%;
     padding: .5rem;
-<<<<<<< HEAD
-    @media (max-width: 991px) {
-=======
     @media (max-width: 1365px) {
->>>>>>> ed0b139f481d12da53e2445530b7e456d9fc6d54
       width: 50%;
     }
     @media (max-width: 767px) {
@@ -43,8 +39,6 @@ export const ForumFilter = styled.div`
 
 export const ForumFilterSortBy = styled.div`
     margin: .25rem 0;
-<<<<<<< HEAD
-=======
     position: relative;
     &:after {
         content: "";
@@ -58,7 +52,6 @@ export const ForumFilterSortBy = styled.div`
         transform: rotate(45deg);
         pointer-events: none;
     }
->>>>>>> ed0b139f481d12da53e2445530b7e456d9fc6d54
 `;
 
 export const FilterSearch = styled.input`
@@ -72,11 +65,7 @@ export const FilterSearch = styled.input`
     padding: .5rem 1rem;
     font-size: .875rem;
     margin: .25rem 0;
-<<<<<<< HEAD
-        outline: none !important;
-=======
     outline: none !important;
->>>>>>> ed0b139f481d12da53e2445530b7e456d9fc6d54
     @media (max-width: 767px) {
       width: 100%;
     }
@@ -84,10 +73,7 @@ export const FilterSearch = styled.input`
 `;
 
 export const SelectCategory = styled.select`
-<<<<<<< HEAD
-=======
     appearance: none;
->>>>>>> ed0b139f481d12da53e2445530b7e456d9fc6d54
     width: 10rem;
     background-color: #e9e9e9;
     display: flex;
