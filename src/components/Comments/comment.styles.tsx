@@ -46,13 +46,8 @@ export const CommentText = styled.span`
 
 export const CommentDate = styled.span`
     font-size: .75rem;
-    color: #253ad8;
-    align-self: center;
-    padding-left: .5rem;
-    @media (max-width: 767px) {
-        min-width:100%;
-        padding-left: 3.5rem;
-    }
+    color: #b5b5b5;
+    display: block;
 `;
 
 export const CommentTopRightWrap = styled.div`

@@ -59,11 +59,12 @@ export const PostProfileImge = styled.img`
      height: 2.5rem;
      border-radius: 50%;
      object-fit: cover;
+     margin-right: 1rem;
 `;
 export const UserName = styled.span`
      font-size: 1rem;
      font-weight: 500;
-     margin: 0 .625rem;
+     display: block;
 `;
 export const PostDate = styled.span`
   font-size: 0.75rem;

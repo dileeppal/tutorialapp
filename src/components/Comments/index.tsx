@@ -15,7 +15,7 @@ import { PostEditor } from 'components/Editor';
 import { EditorState, convertToRaw } from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import { useForm } from 'react-hook-form';
-import { PostDropdown } from 'components/Dashboard/Forum/forum.styles';
+import { PostDropdown, UserName } from 'components/Dashboard/Forum/forum.styles';
 import { SubmitButton } from 'components/ShareForm/modal.styles';
 
 type FormInput = {
@@ -23,7 +23,7 @@ type FormInput = {
 };
 
 export const Comment = ({ showComments, ...props }: any) => {
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(0);
   const [editorState, setEditorState] = useState<EditorState>(
     EditorState.createEmpty()
   );
@@ -39,6 +39,13 @@ export const Comment = ({ showComments, ...props }: any) => {
   const onSubmit = async ({ body }: any) => {
     console.log(body);
   };
+  const toggleDropdown = (id) => {
+    if(id === showDropdown){
+      setShowDropdown(null)
+    } else{
+      setShowDropdown(id)
+    }
+  }
 
   return (
     <>
@@ -49,29 +56,42 @@ export const Comment = ({ showComments, ...props }: any) => {
             <CommentWrapper>
               <CommentLeftWrap>
                 <UserProfileImge alt="sender profile image" src="/Aleah.jpg" />
+                  
                 <CommentText>
+                  <UserName>
+                    maguyva
+                  </UserName>
+                  <CommentDate> 2 hours ago</CommentDate>
+                  
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry...
                 </CommentText>
-                <CommentDate> 2 hours ago</CommentDate>
+                
               </CommentLeftWrap>
               <CommentTopRightWrap>
                 <PostDropdown>
-                  <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} />
-                  <Dropdown showDropdown={showDropdown} />
+                  <ExpandIcon onClick={() => toggleDropdown(1)} />
+                  <Dropdown onClick={() => toggleDropdown(1)} showDropdown={showDropdown === 1} />
                 </PostDropdown>
               </CommentTopRightWrap>
             </CommentWrapper>
             <CommentWrapper>
               <CommentLeftWrap>
                 <UserProfileImge alt="sender profile image" src="/Aleah.jpg" />
-                <CommentText>Lorem Ipsum</CommentText>
-                <CommentDate> 2 hours ago</CommentDate>
+                <CommentText>
+                  <UserName>
+                    maguyva
+                  </UserName>
+                  <CommentDate> 2 hours ago</CommentDate>
+                  
+                  Lorem 
+                </CommentText>
+                
               </CommentLeftWrap>
               <CommentTopRightWrap>
                 <PostDropdown>
-                  <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} />
-                  <Dropdown showDropdown={showDropdown} />
+                  <ExpandIcon onClick={() => toggleDropdown(2)} />
+                  <Dropdown onClick={() => toggleDropdown(2)} showDropdown={showDropdown === 2} />
                 </PostDropdown>
               </CommentTopRightWrap>
             </CommentWrapper>
