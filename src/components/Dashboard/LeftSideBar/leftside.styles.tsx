@@ -14,6 +14,7 @@ export const LeftSideContainer = styled.div`
   padding-right: 2rem;
   padding-left: 2rem;
   transition: transform 0.2s ease-in-out;
+  z-index: 9999;
   &:before {
     content: "";
     background-color: rgb(0 0 0 / 5%);
@@ -83,7 +84,7 @@ export const ToggleButton = styled.button`
     border: none;
     vertical-align: top;
     margin-top: 1rem;
-    margin-left: 2rem;
+    margin-left: 1.5rem;
     z-index: 100;
     @media (min-width: 992px) {
       display: none

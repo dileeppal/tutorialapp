@@ -27,37 +27,36 @@ export default Dropdown;
 
 export const CardContainer = styled.div`
   display: flex;
-  /* margin: 10px 0; */
-  justify-content: flex-end;
-
+  position: absolute;
+  top: 100%;
+  right: 0;
+  z-index: 10;
 `;
 
-export const DropdownCard = styled.div`
-  background: #fff;
-  display: grid;
-  /* flex-direction: column; */
-  justify-content: flex-start;
-  align-items: flex-start;
-  border-radius: 6px;
-    z-index: 2;
-  /* padding: 60px; */
-  margin-top: 0px;
-  width: 12%;
-  height: 4rem;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  transition: all 0.2s ease-in-out;
 
-  &:hover {
-    transform: scale(1.02);
+
+
+export const DropdownCard = styled.div`
+    background-color: #fff;
+    border-radius: .5rem;
+    margin-top: 0px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     transition: all 0.2s ease-in-out;
-    cursor: pointer;
-  }
+    width: 6rem;
 `;
 
 export const ItemWrapper = styled.div`
-  display: flex;
-  margin-top: 5px;
-  margin-left: 5px;
+    display: flex;
+    padding: .375rem .5rem;
+    width: 100%;
+    border-bottom: 1px solid #e9e9e9;
+    &:last-child {
+      border-bottom: none;
+    }
+  &:hover {
+    background-color: #e9e9e9;
+    cursor: pointer;
+  }
 `;
 export const ItemText = styled.span`
   font-size: 12px;
