@@ -208,8 +208,8 @@ export const PageRightSide = styled.div`
   min-width: 20rem;
   padding: 2rem;
   @media (max-width: 1366px) {
-    max-width: 15rem;
-    min-width: 15rem;
+    max-width: 18rem;
+    min-width: 18rem;
   }
   @media (max-width: 991px) {
     display: none;
