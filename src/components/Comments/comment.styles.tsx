@@ -14,53 +14,61 @@ export const CommentCard = styled.div`
 `;
 
 export const CommentWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-bottom: .75rem;
-  margin-bottom: .75rem;
-  border-bottom: 1px solid #e7e7e7;
-  &:nth-last-of-type(2) {
-    padding-bottom: 0;
-    margin-bottom: 1.5rem;
-    border-bottom: none;
-  }
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: .75rem;
+    margin-bottom: .75rem;
+    border-bottom: 1px solid #e7e7e7;
+  
 `;
 
 export const CommentLeftWrap = styled.div`
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 `;
 
 export const UserProfileImge = styled.img`
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  object-fit: cover;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
 `;
 
 export const CommentText = styled.span`
-  font-size: 14px;
-  font-weight: 500;
-  margin: 0 10px;
+    font-size: .875rem;
+    font-weight: 500;
+    flex: 1 0 0%;
+    align-self: center;
 `;
 
 export const CommentDate = styled.span`
-  font-size: 10px;
-  color: #253ad8;
+    font-size: .75rem;
+    color: #253ad8;
+    align-self: center;
+    padding-left: .5rem;
+    @media (max-width: 767px) {
+        min-width:100%;
+        padding-left: 3.5rem;
+    }
 `;
 
-export const CommentTopRightWrap = styled.div``;
+export const CommentTopRightWrap = styled.div`
+  
+`;
 
 export const ExpandIcon = styled(MdExpandMore)`
-  font-size: 20px;
+    font-size: 1.25rem;
+    cursor: pointer;
 `;
 
 export const CommentHorizontalRule = styled.hr`
-  width: 100%;
-  height: 1px;
-  border-radius: 1rem;
-  border: none;
-  background-color: rgb(156 151 151);
-  margin: 1.5rem auto;
+    width: 100%;
+    height: 1px;
+    border-radius: 1rem;
+    border: none;
+    background-color: rgb(156 151 151);
+    margin: 1.5rem auto;
 `;

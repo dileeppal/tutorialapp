@@ -25,25 +25,25 @@ export const CardLeftWrap = styled.div`
 `;
 
 export const CardTitle = styled.p`
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 500;
-  margin: 0 10px;
-  padding-top: 20px;
+  margin: 0 .625rem;
+  padding-top: 1.25rem;
 `;
 
 export const StartDateTitle = styled.p`
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 500;
-  margin: 0 10px;
+  margin: 0 .625rem;
 `;
 
 export const StartDate = styled.span`
-  font-size: 20px;
+  font-size: 1.25rem;
   color: #5bb3aa;
 `;
 
 export const CardCenterWrap = styled.div`
-  margin: 10px 10px;
+  margin: .625rem .625rem;
 `;
 export const CardText = styled.span``;
 
@@ -66,11 +66,11 @@ export const CardBottom = styled.div`
 
 export const MediaContainer = styled.div`
   width: 100%;
-  border-radius: 10px;
+  border-radius: .625rem;
   -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
   box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
   margin: 30px 0;
-  padding-bottom: 20px;
+  padding-bottom: 1.25rem;
 `;
 
 export const CoursesH2 = styled.h2`

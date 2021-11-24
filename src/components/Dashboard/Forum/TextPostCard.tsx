@@ -44,8 +44,11 @@ const TextPostCard = ({
       <PostTop>
         <PostLeftWrap>
           <PostProfileImge src={image} alt="user profile image" />
-          <UserName>{username}</UserName>
-          <PostDate>{dayjs(date).fromNow()}</PostDate>
+          <UserName>
+            {username}
+            <PostDate>{dayjs(date).fromNow()}</PostDate>
+          </UserName>
+          
         </PostLeftWrap>
         <PostTopRightWrap>
           <PostDropdown>
@@ -56,15 +59,14 @@ const TextPostCard = ({
       </PostTop>
       <PostCenterWrap>
         <PostTitle>{title}</PostTitle>
-      </PostCenterWrap>
-      <PostCenterWrap>
+      
         <PostText>{body}</PostText>
       </PostCenterWrap>
       <PostBottomWrapper>
         <BottomLeftWrap>
           <LikeGroup>
             <LikeIcon />
-            <LikeCounter>{likeCount} liked your post</LikeCounter>
+            <LikeCounter>{likeCount} liked</LikeCounter>
           </LikeGroup>
         </BottomLeftWrap>
         <BottomRightWrap>

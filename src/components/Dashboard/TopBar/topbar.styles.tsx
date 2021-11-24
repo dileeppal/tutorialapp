@@ -22,6 +22,9 @@ export const TopbarContainer = styled.div`
 `;
 
 export const TopLeftWrap = styled.div`
+    @media (min-width: 992px) {
+        min-width: 184px;
+    }
 `;
 
 export const TopBarLogo = styled.span`

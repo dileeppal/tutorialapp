@@ -155,8 +155,8 @@ export const Icons = styled.div`
 `;
 
 export const IconItem = styled.div`
-  margin-right: 15px;
+  margin-right: 1rem;
   cursor: pointer;
   position: relative;
-  font-size: 20px;
+  font-size: 1.25rem;
 `;
