@@ -96,10 +96,10 @@ export default ForumPage
 export const ForumContainer = styled.div`
   width: 33.33%;
   padding: .5rem;
-  @media (max-width: 991px) {
+  @media (max-width: 1366px) {
       width: 50%;
     }
-    @media (max-width: 767px) {
+    @media (max-width: 575px) {
       width: 100%;
     }
 `;

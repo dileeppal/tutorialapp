@@ -8,10 +8,10 @@ export const MainContainer = styled.aside`
 `;
 
 export const MainWrapper = styled.div`
-  padding: 20px 20px 0 0;
+  padding: 1.25rem 1.25rem 0 0;
 `;
 const RightBarTitle = styled.h4`
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   font-size: 18px;
   font-weight: 500;
   margin-bottom: 10px;

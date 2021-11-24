@@ -49,8 +49,10 @@ const VideoPostCard = ({
       <PostTop>
         <PostLeftWrap>
           <PostProfileImge src={image} alt="user profile image" />
-          <UserName>{username}</UserName>
+          <UserName>{username}
           <PostDate>{dayjs(date).fromNow()}</PostDate>
+          </UserName>
+          
         </PostLeftWrap>
         <PostTopRightWrap>
           <PostDropdown>

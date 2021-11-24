@@ -7,10 +7,10 @@ export const SupportCardWrapper = styled.div`
 `;
 
 export const FAQTitle = styled.p`
-  font-size: 20px;
+  font-size: 1.25rem;
   font-weight: 500;
   margin: 0 10px;
-  padding-top: 20px;
+  padding-top: 1.25rem;
 `;
 
 export const TextWrap = styled.div`
@@ -18,7 +18,7 @@ export const TextWrap = styled.div`
 `;
 
 export const ContactCardWrap = styled.div`
-  padding-top: 20px;
+  padding-top: 1.25rem;
 `;
 
 export const ContactCard = styled.div`
@@ -55,7 +55,7 @@ export const SupportMainContainer = styled.div`
   color: #ffffff;
   text-transform: uppercase;
   letter-spacing: 0.4rem;
-  @media only screen and (max-width: 320px) {
+  @media only screen and (max-width: 31.25rem) {
     width: 80vw;
     height: 90vh;
     hr {

@@ -15,6 +15,8 @@ import { PostEditor } from 'components/Editor';
 import { EditorState, convertToRaw } from "draft-js";
 import draftToHtml from "draftjs-to-html";
 import { useForm } from 'react-hook-form';
+import { PostDropdown } from 'components/Dashboard/Forum/forum.styles';
+import { SubmitButton } from 'components/ShareForm/modal.styles';
 
 type FormInput = {
   body: string;
@@ -50,42 +52,48 @@ export const Comment = ({ showComments, ...props }: any) => {
                 <CommentText>
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting
-                  industry...............................................
+                  industry...
                 </CommentText>
                 <CommentDate> 2 hours ago</CommentDate>
               </CommentLeftWrap>
               <CommentTopRightWrap>
-                <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} />
+                <PostDropdown>
+                  <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} />
+                  <Dropdown showDropdown={showDropdown} />
+                </PostDropdown>
               </CommentTopRightWrap>
             </CommentWrapper>
-            <Dropdown showDropdown={showDropdown} />
             <CommentWrapper>
               <CommentLeftWrap>
                 <UserProfileImge alt="sender profile image" src="/Aleah.jpg" />
                 <CommentText>
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting
-                  industry...............................................
+                  industry...
                 </CommentText>
                 <CommentDate> 2 hours ago</CommentDate>
               </CommentLeftWrap>
               <CommentTopRightWrap>
-                <ExpandIcon />
+                <PostDropdown>
+                  <ExpandIcon />
+                </PostDropdown>
               </CommentTopRightWrap>
             </CommentWrapper>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            {errors.body && <span>text is required</span>}
-            <PostEditor
-              editorState={editorState}
-              onEditorStateChange={(newState: EditorState) => {
-                setEditorState(newState);
-                setContent(
-                  draftToHtml(convertToRaw(newState.getCurrentContent()))
-                );
-                setValue("body", content);
-              }}
-            />
-          </form>
+              <form onSubmit={handleSubmit(onSubmit)}>
+                {errors.body && <span>text is required</span>}
+                <PostEditor
+                  editorState={editorState}
+                  onEditorStateChange={(newState: EditorState) => {
+                    setEditorState(newState);
+                    setContent(
+                      draftToHtml(convertToRaw(newState.getCurrentContent()))
+                    );
+                    setValue("body", content);
+                  }}
+                />
+                <br />
+                <SubmitButton>Submit</SubmitButton>
+              </form>
           </CommentCard>
          
         </div>
