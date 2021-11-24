@@ -6,7 +6,7 @@ export const RightSideContainer = styled.aside`
   padding: 2rem;
   @media (max-width: 1366px) {
     max-width: 18rem;
-    min-width: 18rem;
+    min-width: 18rem; 
   }
   @media (max-width: 991px) {
     display: none;
