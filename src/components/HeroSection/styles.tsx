@@ -103,10 +103,10 @@ export const Button = styled.button`
 
 `;
 export const ArrowForward = styled(MdArrowForward)`
-    margin-left: 8px;
-    font-size: 20px;
+    margin-left: .5rem;
+    font-size: 1.25rem;
 `;
 export const ArrowRight = styled(MdKeyboardArrowRight)`
   margin-left: 8px;
-  font-size: 20px;
+  font-size: 1.25rem;
 `;

@@ -66,7 +66,9 @@ export const UserName = styled.span`
      margin: 0 .625rem;
 `;
 export const PostDate = styled.span`
-  font-size: .75rem;
+    font-size: .75rem;
+    color: #b5b5b5;
+    display: block;
 `;
 export const PostTopRightWrap = styled.div`
 `;
@@ -75,17 +77,22 @@ export const ExpandIcon = styled(MdExpandMore)`
 `;
 
 export const PostCenterWrap = styled.div`
-  margin-bottom: 1rem;
-  position: relative;
-  
+    margin-bottom: 1rem;
+    position: relative;
+    flex: 1 0 0%;
+    display: flex;
+    flex-direction: column;
 `;
 
 
 export const PostTitle = styled.h2`
-     font-size: 1.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
 `;
 export const PostText = styled.span`
-
+    display: block;
+    margin-bottom: 1rem;
+    margin-top: auto;
 `;
 export const PostMediaImage = styled.img`
   margin-top: 1rem;

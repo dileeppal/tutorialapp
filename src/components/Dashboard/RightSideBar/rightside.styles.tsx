@@ -15,7 +15,7 @@ export const RightSideContainer = styled.aside`
 `;
 
 export const RightSideWrapper = styled.div`
-  padding: 20px 20px 0 0;
+  padding: 1.25rem 1.25rem 0 0;
 `;
 
 export const ImageWrapper = styled.div`
@@ -41,7 +41,7 @@ export const RightSideAdvert = styled.img`
 `;
 
 export const RightSideTitle = styled.h4`
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 `;
 
 export const UsersLists = styled.ul`

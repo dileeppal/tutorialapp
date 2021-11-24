@@ -58,8 +58,9 @@ const ImagePostCard = ({
         <PostTop>
           <PostLeftWrap>
             <PostProfileImge src={image} alt="user profile image" />
-            <UserName>{username}</UserName>
-            <PostDate>{dayjs(date).fromNow()}</PostDate>
+            <UserName>{username}
+            <PostDate>{dayjs(date).fromNow()}</PostDate></UserName>
+            
           </PostLeftWrap>
           <PostTopRightWrap>
             <PostDropdown>
@@ -77,7 +78,7 @@ const ImagePostCard = ({
           <BottomLeftWrap>
             <LikeGroup>
               <LikeIcon />
-              <LikeCounter>{likeCount} people liked your post</LikeCounter>
+              <LikeCounter>{likeCount} liked</LikeCounter>
             </LikeGroup>
           </BottomLeftWrap>
           <BottomRightWrap>

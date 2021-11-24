@@ -20,7 +20,7 @@ export const ForumRow = styled.div`
 export const ForumColumn = styled.div`
     width: 33.33%;
     padding: .5rem;
-    @media (max-width: 991px) {
+    @media (max-width: 1365px) {
       width: 50%;
     }
     @media (max-width: 767px) {
@@ -39,6 +39,19 @@ export const ForumFilter = styled.div`
 
 export const ForumFilterSortBy = styled.div`
     margin: .25rem 0;
+    position: relative;
+    &:after {
+        content: "";
+        position: absolute;
+        top: calc(50% - .25rem);
+        right: 1rem;
+        border-bottom: .1rem solid #000;
+        border-right: .1rem solid #000;
+        width: .4rem;
+        height: .4rem;
+        transform: rotate(45deg);
+        pointer-events: none;
+    }
 `;
 
 export const FilterSearch = styled.input`
@@ -52,7 +65,7 @@ export const FilterSearch = styled.input`
     padding: .5rem 1rem;
     font-size: .875rem;
     margin: .25rem 0;
-        outline: none !important;
+    outline: none !important;
     @media (max-width: 767px) {
       width: 100%;
     }
@@ -60,6 +73,7 @@ export const FilterSearch = styled.input`
 `;
 
 export const SelectCategory = styled.select`
+    appearance: none;
     width: 10rem;
     background-color: #e9e9e9;
     display: flex;

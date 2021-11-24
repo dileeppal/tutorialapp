@@ -34,12 +34,12 @@ export const NoticeDate = styled.span`
 export const NoticeTopRightWrap = styled.div``;
 
 export const DeleteIcon = styled(MdDeleteForever)`
-  font-size: 20px;
+  font-size: 1.25rem;
 `;
 
 export const NoticecRightSide = styled.div`
   flex: 3;
-  padding: 20px;
+  padding: 1.25rem;
   display: flex;
   justify-content: center;
 `;
@@ -50,7 +50,7 @@ export const MediaContainer = styled.div`
   -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
   box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
   margin: 30px 0;
-  padding-bottom: 20px;
+  padding-bottom: 1.25rem;
 `;
 
 export const NoticesH1 = styled.h1`
