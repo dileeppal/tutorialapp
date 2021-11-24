@@ -58,15 +58,18 @@ const DetailPost = ({
         <PostTop>
           <PostLeftWrap>
             <PostProfileImge src={image} alt="user profile image" />
-            <UserName>{username}</UserName>
-            <PostDate>{dayjs(date).fromNow()}</PostDate>
+            <UserName>
+              {username}
+              <PostDate>{dayjs(date).fromNow()}</PostDate>
+            </UserName>
+            
           </PostLeftWrap>
-          <PostTopRightWrap>
+          {/* <PostTopRightWrap>
             <PostDropdown>
               <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} />
               <Dropdown showDropdown={showDropdown} />
             </PostDropdown>
-          </PostTopRightWrap>
+          </PostTopRightWrap> */}
         </PostTop>
         <PostCenterWrap>
           <PostTitle>{title}</PostTitle>
