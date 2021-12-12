@@ -5,32 +5,32 @@ import ImagePostCard from '../Dashboard/Forum/ImagePostCard';
 import Share from '../Dashboard/Share';
 
 const FeedContainer = styled.div`
-  flex: 5.5;
+    flex: auto;
 `;
 
 const FeedWrapper = styled.div`
-  padding: 0;
+    padding: 0;
 `;
 
 export default function UserFeed() {
     return (
-      <FeedContainer>
-        <FeedWrapper>
-          <Share />
-          <ForumRow>
-            <ForumColumn>
-              <ImagePostCard
-                username="maguyva"
-                image="/D.jpg"
-                date="5 min ago"
-                title="tweet tweet tweet"
-                body="/isak.jpg"
-                likeCount={10}
-                commentCount={8}
-              />
-              </ForumColumn>
-          </ForumRow>
-        </FeedWrapper>
-      </FeedContainer>
+        <FeedContainer>
+            <FeedWrapper>
+                <Share />
+                <ForumRow>
+                    <ForumColumn>
+                        <ImagePostCard
+                            username="maguyva"
+                            image="/D.jpg"
+                            date="5 min ago"
+                            title="tweet tweet tweet"
+                            body="/isak.jpg"
+                            likeCount={10}
+                            commentCount={8}
+                        />
+                    </ForumColumn>
+                </ForumRow>
+            </FeedWrapper>
+        </FeedContainer>
     );
 }

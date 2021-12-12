@@ -6,6 +6,7 @@ import {
   PageContainer,
   InnerContainer,
   PageRightSide,
+  ProfileWrapGroup,
   
 } from "../../styles/common.styles";
 import { ProfileCover, ProfileCoverImage, ProfileInfo, ProfileRightBottomWrap, ProfileRightTopWrap, ProfileRightWrap, UserDescription, UserName, UserProfileImage } from './profile.styles';
@@ -14,35 +15,35 @@ import ProfileRightBar from './ProfileRightBar';
 
 const index = () => {
     return (
-      <>
-        <TopBar />
+        <>
         <PageContainer>
-          <LeftSideBar />
-          <InnerContainer>
-            <ProfileRightWrap>
-              <ProfileRightTopWrap>
-                <ProfileCover>
-                  <ProfileCoverImage
-                    alt="user profile cover image"
-                    src="/red.jpg"
-                  />
-                  <UserProfileImage alt="user profile image" src="/D.jpg" />
-                </ProfileCover>
-                <ProfileInfo>
-                  <UserName>Frank White</UserName>
-                  <UserDescription>Badboy for Life!</UserDescription>
-                </ProfileInfo>
-              </ProfileRightTopWrap>
-              <ProfileRightBottomWrap>
-                <UserFeed />
-              </ProfileRightBottomWrap>
-            </ProfileRightWrap>
-          </InnerContainer>
-          <PageRightSide>
-            live fast
-            <ProfileRightBar />
-          </PageRightSide>
+            <LeftSideBar />
+            <InnerContainer>
+                <TopBar />
+                <ProfileWrapGroup>
+                    <ProfileRightWrap>
+                        <ProfileRightTopWrap>
+                            <ProfileCover>
+                                <ProfileCoverImage alt="user profile cover image" src="/red.jpg" />
+                                <UserProfileImage alt="user profile image" src="/D.jpg" />
+                            </ProfileCover>
+                            
+                            <ProfileInfo>
+                                <UserName>Frank White</UserName>
+                                <UserDescription>Badboy for Life!</UserDescription>
+                            </ProfileInfo>
+                        </ProfileRightTopWrap>
+                        <ProfileRightBottomWrap>
+                            <UserFeed />
+                        </ProfileRightBottomWrap>
+                    </ProfileRightWrap>
+                    <PageRightSide>
+                        <ProfileRightBar />
+                    </PageRightSide>
+                </ProfileWrapGroup>
+            </InnerContainer>
         </PageContainer>
+
         <SmallFooter />
       </>
     );
