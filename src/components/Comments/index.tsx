@@ -59,9 +59,9 @@ export const Comment = ({ showComments, ...props }: any) => {
                   
                 <CommentText>
                   <UserName>
+                  <CommentDate> 2 hours ago</CommentDate>
                     maguyva
                   </UserName>
-                  <CommentDate> 2 hours ago</CommentDate>
                   
                   Lorem Ipsum is simply dummy text of the printing and
                   typesetting industry...
@@ -80,9 +80,9 @@ export const Comment = ({ showComments, ...props }: any) => {
                 <UserProfileImge alt="sender profile image" src="/Aleah.jpg" />
                 <CommentText>
                   <UserName>
+                  <CommentDate> 2 hours ago</CommentDate>
                     maguyva
                   </UserName>
-                  <CommentDate> 2 hours ago</CommentDate>
                   
                   Lorem 
                 </CommentText>

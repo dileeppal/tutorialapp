@@ -27,12 +27,11 @@ export const ViewMore = styled.button`
     cursor: pointer;
     line-height: 1;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 600;
 `;
 export const PostDropdown = styled.div`
     position: relative;
 `;
-
 
 export const LikeGroup = styled.div`
     display: flex;
@@ -71,6 +70,10 @@ export const UserName = styled.span`
     font-size: 1rem;
     font-weight: 600;
     display: block;
+    margin-bottom: .25rem;
+    @media (max-width: 991px) {
+        font-size: .875rem;
+    }
 `;
 
 export const PostDate = styled.span`
@@ -183,9 +186,13 @@ export const BottomRightWrap = styled.div`
 
 export const CommentIcon = styled(FcComments)`
     cursor: pointer;
-    width: 24px;
-    height: 24px;
-    margin-right: 3px;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: .25rem;
+    path {
+        fill: #919191;
+    }
+
 `;
 
 export const CommentText = styled.span`

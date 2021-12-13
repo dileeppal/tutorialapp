@@ -52,46 +52,45 @@ const DetailPost = ({
   const [showComments, setShowComments] = useState(true);
   const [showDropdown, setShowDropdown] = useState(false);
 
-  return (
-    <>
-      
-        <PostTop>
-          <PostLeftWrap>
-            <PostProfileImge src={image} alt="user profile image" />
-            <UserName>
-              {username}
-              <PostDate>{dayjs(date).fromNow()}</PostDate>
-            </UserName>
-            
-          </PostLeftWrap>
-          {/* <PostTopRightWrap>
-            <PostDropdown>
-              <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} />
-              <Dropdown showDropdown={showDropdown} />
-            </PostDropdown>
-          </PostTopRightWrap> */}
-        </PostTop>
-        <PostCenterWrap>
-          <PostTitle>{title}</PostTitle>
-          <PostMediaImage alt="Post image" src={body} />
-        </PostCenterWrap>
+    return (
+        <>
+            <PostTop>
+                <PostLeftWrap>
+                    <PostProfileImge src={image} alt="user profile image" />
+                    <UserName>
+                        {username}
+                        <PostDate>{dayjs(date).fromNow()}</PostDate>
+                    </UserName>
+                </PostLeftWrap>
+                {/* <PostTopRightWrap>
+                    <PostDropdown>
+                        <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} />
+                        <Dropdown showDropdown={showDropdown} />
+                    </PostDropdown>
+                </PostTopRightWrap> */}
+            </PostTop>
 
-        <PostBottomWrapper>
-          <BottomLeftWrap>
-            <LikeGroup>
-              <LikeIcon />
-              <LikeCounter>{likeCount} people liked your post</LikeCounter>
-            </LikeGroup>
-          </BottomLeftWrap>
-          <BottomRightWrap>
-            <CommentIcon onClick={() => setShowComments(showComments)} />
-            <CommentText>{commentCount}</CommentText>
-          </BottomRightWrap>
-        </PostBottomWrapper>
-        <Comment showComments={showComments} />
-      
-    </>
-  );
+            <PostCenterWrap>
+                <PostTitle>{title}</PostTitle>
+                <PostMediaImage alt="Post image" src={body} />
+            </PostCenterWrap>
+
+            <PostBottomWrapper>
+                <BottomLeftWrap>
+                    <LikeGroup>
+                        <LikeIcon />
+                        <LikeCounter>{likeCount} people liked your post</LikeCounter>
+                    </LikeGroup>
+                </BottomLeftWrap>
+
+                <BottomRightWrap>
+                    <CommentIcon onClick={() => setShowComments(showComments)} />
+                    <CommentText>{commentCount}</CommentText>
+                </BottomRightWrap>
+            </PostBottomWrapper>
+            <Comment showComments={showComments} />
+        </>
+);
 };
 
 export default DetailPost;

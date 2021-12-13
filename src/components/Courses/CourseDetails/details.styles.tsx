@@ -1,85 +1,91 @@
 import styled from "styled-components";
 
 export const CoursesH1 = styled.h1`
-  font-size: 2.5rem;
-  color: #655e5e;
-  margin-bottom: 34px;
+    font-size: 2.5rem;
+    color: #655e5e;
+    margin-bottom: 1.5rem;
 
-  @media screen and (max-width: 480px) {
-    font-size: 2rem;
-  }
+    @media (max-width: 991px) {
+        font-size: 2rem;
+    }
 `;
 export const DetailsCardWrapper = styled.div`
-  padding: 5px;
+    margin-bottom: 2.5rem;
 `;
 
 export const CardTop = styled.div`
-  /* display: flex; */
-  align-items: center;
-  justify-content: space-between;
+    
 `;
 
 export const CardLeftWrap = styled.div`
-  /* display: flex; */
-  align-items: center;
+    margin-bottom: 1rem;
 `;
 
 export const CardTitle = styled.p`
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin: 0 .625rem;
-  padding-top: 1.25rem;
+    font-size: 1.25rem;
+    font-weight: 600;
 `;
 
 export const StartDateTitle = styled.p`
-  font-size: 1.25rem;
-  font-weight: 500;
-  margin: 0 .625rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #b3b3b3;
+    @media (max-width: 991px) {
+        font-size: .875rem;
+    }
 `;
 
 export const StartDate = styled.span`
-  font-size: 1.25rem;
-  color: #5bb3aa;
+    color: #7755e2;
 `;
 
 export const CardCenterWrap = styled.div`
-  margin: .625rem .625rem;
+    margin-bottom: 1rem;
 `;
-export const CardText = styled.span``;
+
+export const CardText = styled.span`
+    
+`;
 
 export const ApplyButton = styled.button`
-  background: #256ce1;
-  color: #fff;
-  font-size: 14px;
-  border-radius: 4px;
-  padding: 5px 11px;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  margin-left: auto;
+    background-color: #256ce1;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 4px;
+    padding: 5px 11px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin-left: auto;
 `;
 
 export const CardBottom = styled.div`
-  align-items: center;
-  display: flex;
+    align-items: center;
+    display: flex;
+`;
+
+export const MediaRow = styled.div`
+    display: flex;
+    flex-wrap: wrap;
+    margin: -.75rem;
 `;
 
 export const MediaContainer = styled.div`
-  width: 100%;
-  border-radius: .625rem;
-  -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-  box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-  margin: 30px 0;
-  padding-bottom: 1.25rem;
+    padding: .75rem;
+    width: 33.33%;
+    @media (max-width: 1366px) {
+        width: 50%;
+    }
+    @media (max-width: 991px) {
+        width: 100%;
+    }
 `;
 
 export const CoursesH2 = styled.h2`
-  font-size: 2rem;
-  color: #655e5e;
-  margin-top: 24px;
-  margin-bottom: 24px;
-
-  @media screen and (max-width: 480px) {
     font-size: 2rem;
-  }
+    color: #000;
+    margin-bottom: 1.5rem;
+    @media (max-width: 991px) {
+        font-size: 1.75rem;
+    }
 `;

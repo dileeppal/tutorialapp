@@ -20,6 +20,10 @@ export const ForumRow = styled.div`
     flex-wrap: wrap;
     margin-left: -.75rem;
     margin-right: -.75rem;
+    @media (max-width: 767px) {
+        margin-left: -.5rem;
+        margin-right: -.5rem;
+    }
 `;
 
 export const ForumColumn = styled.div`
@@ -40,6 +44,10 @@ export const ForumFilter = styled.div`
     min-width: 100%;
     width: 100%;
     padding: .75rem;
+    @media (max-width: 767px) {
+        padding: 0 .5rem;
+        margin-bottom: .5rem;
+    }
 `;
 
 export const ForumFilterSortBy = styled.div`
@@ -47,6 +55,7 @@ export const ForumFilterSortBy = styled.div`
     width: 15rem;
     @media (max-width: 767px) {
         width: 100%;
+        margin-bottom: .5rem;
     }
     &:after {
         content: "";
@@ -104,7 +113,7 @@ export const InnerContainer = styled.div`
     padding: 2.5rem;
     @media (max-width: 991px) {
         padding: 1.5rem;
-        min-height: calc(100vh - 4.5rem);
+        min-height: calc(100vh - 4.625rem);
     } 
 `;
 

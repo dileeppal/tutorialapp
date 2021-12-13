@@ -23,6 +23,11 @@ export const SenderProfileImge = styled.img`
     border-radius: .75rem;
     object-fit: cover;
     margin-right: 1rem;
+    @media (max-width: 991px) {
+        min-width: 2.5rem;
+        width: 2.5rem;
+        height: 2.5rem;
+    }
 `;
 
 export const NoticeMessage = styled.span`
