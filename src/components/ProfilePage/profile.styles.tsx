@@ -1,64 +1,70 @@
 import styled from "styled-components"
 
 export const ProfileContainer = styled.div`
-  display: flex;
+    display: flex;
 `;
 
 export const ProfileRightWrap = styled.div`
-  flex: 9;
+    flex: auto;
+    overflow: hidden;
+    border-radius: 1rem;
+    background-color: #fff;
+    box-shadow: 0px 2px 80px rgba(66,66,66,0.08);
+    border-radius: .625rem;
 `;
 
 export const ProfileRightTopWrap = styled.div`
-  margin-top: -2.5rem;
-  margin-left: -2.5rem;
-  margin-right: -2.5rem;
-  margin-bottom: 2.5rem;
-  @media (max-width: 991px) {
-    margin-top: 0;
-    margin-left: -1.5rem;
-    margin-right: -1.5rem;
-  }
+    
 `;
 
 export const ProfileCover = styled.div`
-  height: 320px;
-  position: relative;
+    position: relative;
 `;
 
 export const ProfileCoverImage = styled.img`
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
+    width: 100%;
+    height: 13.75rem;
+    object-fit: cover;
+    display: block;
 `;
 
 export const UserProfileImage = styled.img`
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  object-fit: cover;
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin: auto;
-  top: 150px;
-  border: 3px solid white;
+    width: 7.5rem;
+    height: 7.5rem;
+    border-radius: 10rem;
+    object-fit: cover;
+    border: 3px solid white;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: -3.75rem;
+    margin-bottom: 1rem;
+    position: relative;
 `;
 
 export const ProfileInfo = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 `;
 
 export const UserName = styled.h4`
-  font-size: 24px;
+    font-size: 1.5rem;
+    line-height: 1;
+    margin-bottom: .625rem;
 `;
 
 export const UserDescription = styled.span`
-  font-weight: 300;
+    font-weight: 300;
+    font-size: .875rem;
+    display: block;
 `;
 
 export const ProfileRightBottomWrap = styled.div`
-  display: flex;
+    display: flex;
+    padding: 2.5rem;
+    @media (max-width: 991px) {
+        padding: 1rem;
+    }
 `;

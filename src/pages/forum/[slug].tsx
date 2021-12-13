@@ -8,24 +8,25 @@ import { PageContainer, InnerContainer, PageHeading, PageRightSide } from 'style
 const PostDetails = () => {
     return (
         <>
-        <Topbar />
-        <PageContainer>
-          <LeftSideBar />
-          <InnerContainer>
-            <DetailPost
-                username="maguyva"
-                image="/D.jpg"
-                date="5 min ago"
-                title="tweet tweet tweet"
-                body="tweet tweet tweet"
-                likeCount={10} 
-                commentCount={16} 
-            />
-          </InnerContainer>
-          <PageRightSide>Live Forever Young</PageRightSide>
-        </PageContainer>
-        <SmallFooter />
-      </>
+            <PageContainer>
+                <LeftSideBar />
+                <InnerContainer>
+                    <Topbar />
+                    <DetailPost
+                        username="maguyva"
+                        image="/D.jpg"
+                        date="5 min ago"
+                        title="tweet tweet tweet"
+                        body="tweet tweet tweet"
+                        likeCount={10}
+                        commentCount={16}
+                    />
+                </InnerContainer>
+                {/* <PageRightSide>Live Forever Young</PageRightSide> */}
+            </PageContainer>
+            
+            <SmallFooter />
+        </>
     )
 }
 

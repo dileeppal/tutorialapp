@@ -2,21 +2,33 @@ import styled from "styled-components";
 
 
 export default function AuthButton({ content, type, disabled }: any) {
-  return (
-    <StyledButton type={type} disabled={disabled}>
-      {content}
-    </StyledButton>
-  );
+    return (
+        <StyledButton type={type} disabled={disabled}>
+            {content}
+        </StyledButton>
+    );
 }
 
 const StyledButton = styled.button`
-  background: linear-gradient(to right, #14163c 0%, #03217b 79%);
-  text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  width: 65%;
-  height: 3rem;
-  border: none;
-  color: white;
-  border-radius: 2rem;
-  cursor: pointer;
+    background-color: #7755E2;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 10rem;
+    padding: 1.125rem 3.5rem;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    font-weight: 500;
+    display: inline-block;
+    text-transform: capitalize;
+    box-shadow: 0px 2px 80px rgb(66 66 66 / 8%);
+    transition: all 0.2s ease-in-out;
+    @media (max-width: 991px) {
+        font-size: .875rem;
+        padding: .875rem 2rem;
+    }
+    &:hover {
+        background-color: #fff;
+        color: #7755E2;
+    }
 `;

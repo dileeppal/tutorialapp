@@ -1,64 +1,43 @@
 import styled from "styled-components";
 
 export const LeftSideContainer = styled.div`
-  max-width: 20rem;
-  min-width: 20rem;
-  min-height: calc(100vh - 100px);
-  // overflow-y: auto;
-  position: sticky;
-  background-color: rgb(0 0 0 / 5%);
-  border-right: 1px solid rgb(0 0 0 / 10%);
-  top: 0;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  padding-right: 2rem;
-  padding-left: 2rem;
-  transition: transform 0.2s ease-in-out;
-  z-index: 9999;
-  &:before {
-    content: "";
-    background-color: rgb(0 0 0 / 5%);
-    position: absolute;
+    max-width: 17.5rem;
+    min-width: 17.5rem;
+    min-height: 100vh;
+    position: sticky;
     top: 0;
-    bottom: 0;
-    right: 100%;
-    left: -50vw;
-  }
-
-  @media (max-width: 1366px) {
-    max-width: 18rem;
-    min-width: 18rem;
-  }
-  
-  @media (max-width: 991px) {
-    transform: translateX(-100%);
-    background-color: #ededed;
-    position: fixed;
-    left: 0;
-    top: 70px;
-    bottom: 0;
-    padding: 2rem 1rem;
-  }
-  &.open {
-    transform: none;
-  }
+    transition: transform 0.2s ease-in-out;
+    z-index: 9999;
+    background-color: #fff;
+    overflow-y: auto;
+    max-height: 100vh;
+    
+    @media (max-width: 991px) {
+        transform: translateX(-100%);
+        background-color: #ededed;
+        position: fixed;
+        left: 0;
+        top: 0;
+        bottom: 0;
+    }
+    &.open {
+        transform: none;
+    }
 `;
 
 export const LeftSideBarWrapper = styled.div`
-  padding: 0;
+    padding: 0;
 `;
 
 export const BackOverlay = styled.div`
-  background-color: rgb(0 0 0 / 30%);
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  z-index: 100;
-
+    background-color: rgb(0 0 0 / 30%);
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: 100;
 `;
-
 
 export const SearchButton = styled.button`
     width: 4rem;
@@ -67,7 +46,7 @@ export const SearchButton = styled.button`
     z-index: 100;
     height: 3.5rem;
     position: absolute;
-        cursor: pointer;
+    cursor: pointer;
     @media (min-width: 992px) {
         display: none
     }
@@ -79,84 +58,113 @@ export const SearchButton = styled.button`
 `;
 
 export const ToggleButton = styled.button`
-  width: 1.5rem;
+     width: 2.25rem;
     background-color: transparent;
     border: none;
     vertical-align: top;
-    margin-top: 1rem;
-    margin-left: 1.5rem;
-    z-index: 100;
+    position: absolute;
+    padding: .25rem;
+    top: 1.5rem;
+    left: 1.5rem;
+    z-index: 0;
     @media (min-width: 992px) {
-      display: none
+        display: none
     }
-  span {
-    height: 2px;
-    display: block;
-    background-color: #000;
-    margin: .375rem 0;
-  }
+    span {
+        height: 4px;
+        display: block;
+        background-color: #7755e2;
+        margin: .375rem 0;
+    }
 `;
 
 export const LeftSideBarList = styled.ul`
-  padding: 0;
-  margin: 0;
-  list-style: none;
+    padding: 0;
+    margin: 0;
+    list-style: none;
 `;
-export const LeftSideBarListItem = styled.li`
-  display: flex;
-  align-items: center;
-  font-size: 1rem;
-  cursor: pointer;
-  padding: 1rem 1.75rem;
-  transition: all 0.2s ease-in-out;
-  border-radius: 10rem;
-  margin-bottom: .5rem;
-  font-weight: bold;
-  svg {
-    transition: transform 0.2s ease-in-out;
-  }
-  &.active {
-    color: #ad00bb;
-    background-color: rgb(173 0 187 / 10%);
-  }
-  &:hover {
-    color: #ad00bb;
-    background-color: rgb(173 0 187 / 10%);
+
+export const LeftSideBarListItem = styled.a`
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 1.125rem 1.75rem;
+    font-weight: 500;
+    color: #A2A2C2;
+    border-left: 5px solid transparent;
+    text-decoration: none;
+    margin-top:.75rem;   
     svg {
-      transform: scale(1.375);
+        width: 1.5rem;
+        height: 1.5rem;
+        fill: #A2A2C2;
+        &.stroke {
+            fill: none;
+            stroke: #A2A2C2;
+        }
     }
-  }
+    &.active {
+        color: #7755E2;
+        background-color: rgba(119, 85, 226, .1);
+        border-left-color: #7755E2;
+        svg {
+            fill: #7755E2;
+            &.stroke {
+                fill: none;
+                stroke: #7755E2;
+            }
+        }
+    }
+    &:hover {
+        color: #7755E2;
+        border-left-color: #7755E2;
+        svg {
+            fill: #7755E2;
+            &.stroke {
+                fill: none;
+                stroke: #7755E2;
+            }
+        }
+    }
 `;
 export const LeftSideBarIcon = styled.div`
-  margin-right: 1rem;
-  display: flex;
-  position: relative;
+    margin-right: 1.25rem;
+    display: flex;
+    position: relative;
 `;
+
+
+export const TopBarLogo = styled.div``;
+
 export const LeftSideBarListItemText = styled.span``;
 
 export const IconBadge = styled.span`
-  width: .625rem;
-  height: .625rem;
-  background-color: #4cbaed;
-  border-radius: 50%;
-  color: white;
-  position: absolute;
-  top: -.25rem;
-  right: -.25rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: .625rem;
-  z-index: 1;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 10rem;
+    background-color: #7755E2;
+    color: white;
+    position: absolute;
+    top: -.5rem;
+    right: -.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: .75rem;
+    z-index: 1;
 `;
 
 export const Icons = styled.div`
-  display: flex;
+    display: flex;
 `;
 
 export const IconItem = styled.div`
-  margin-right: 1rem;
-  cursor: pointer;
-  position: relative;
-  font-size: 1.25rem;
+    margin-right: 1rem;
+    cursor: pointer;
+    position: relative;
+    font-size: 1.25rem;
+    svg {
+        
+    }
 `;

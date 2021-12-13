@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
 export const ShareContainer = styled.div`
-    padding: 1.5rem;
-    box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
-    border-radius: .5rem;
+    border: 1px solid #EBEBEB;
+    box-sizing: border-box;
+    box-shadow: 0px 2px 4px rgba(169, 169, 169, 0.18);
+    border-radius: .375rem;
     background-color: #FFF;
     display: flex;
     flex-direction: column;
@@ -14,25 +15,29 @@ export const ShareWrapper = styled.div`
 `;
 export const ShareTop = styled.div`
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    padding: 1.5rem 1.875rem;
+    @media (max-width: 991px) {
+        padding: 1rem;
+    }
 `;
 export const ProfileImage = styled.img`
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    width: 3.125rem;
+    height: 3.125rem;
+    border-radius: 10rem;
     object-fit: cover;
-    margin-right: .625rem;
+    @media (min-width: 992px) {
+        margin-right: 1.375rem;
+    }
 `;
 export const InputLabel = styled.label`
     font-size: .875rem;
     font-weight: 500;
 `;
 export const Title = styled.input`
-    border: 1px;
-    width: 80%;
-    margin-right: .625rem;
-
+    border: none;
+    flex: auto;
+    background-color: transparent;
+    padding: .5rem;
     &:focus {
         outline: none;
     }
@@ -41,7 +46,6 @@ export const Title = styled.input`
 export const Body = styled.select`
     border: none;
     width: 80%;
-
     &:focus {
         outline: none;
     }
@@ -50,7 +54,6 @@ export const Body = styled.select`
 export const SelectOptions = styled.option`
     border: none;
     width: 80%;
-
     &:focus {
         outline: none;
     }
@@ -58,13 +61,16 @@ export const SelectOptions = styled.option`
 
 
 export const ShareHr = styled.hr`
-    margin: 1.5rem -1.5rem;
+    margin: 0;
     opacity: .2;
 `;
 export const ShareBottomWrap = styled.div`
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    padding: 1.25rem 1.875rem;
+    @media (max-width: 991px) {
+        padding: 1rem;
+    }
 `;
 export const ShareOptions = styled.div`
     display: flex;
@@ -72,29 +78,45 @@ export const ShareOptions = styled.div`
 export const ShareOptionItem = styled.div`
     display: flex;
     align-items: center;
-    margin-right: 1rem;
     cursor: pointer;
 `;
 export const ShareOptionsIcon = styled.label`
-    font-size: 18px;
-    margin-right: .25rem;
-    line-height: 1;
+    font-size: 1rem;
+    margin-right: .625rem;
+    @media (max-width: 991px) {
+        font-size: .75rem;
+        margin-right: .25rem;
+    }
     svg {
-        display: block
+        display: block;
+        width: 1.5rem;
+        height: 1.5rem;
+        @media (max-width: 991px) {
+            width: 1rem;
+            height: 1rem;
+        }
     }
 `;
 export const ShareOptionstext = styled.span`
-    font-size: .875rem;
+    font-size: 1rem;
     font-weight: 500;
+    @media (max-width: 991px) {
+        font-size: .75rem;
+    }
 `;
 export const ShareButton = styled.button`
     border: none;
-    background-color: green;
+    background-color: #7755E2;
+    color: white;
     font-weight: 500;
-    padding: .3rem 1rem .5rem;
     border-radius: 10rem;
     cursor: pointer;
-    color: white;
-    font-size: .875rem;
+    font-size: 1rem;
     text-transform: capitalize;
+    padding: .375rem 1.75rem;
+    line-height: 1.5;
+    @media (max-width: 991px) {
+        font-size: .75rem;
+        padding: .25rem 1rem;
+    }
 `;

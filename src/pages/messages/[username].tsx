@@ -5,8 +5,8 @@ import UserMessages from '../../components/UserMessages'
 function Chat() {
     return (
         <>
-           <Topbar />
-           <UserMessages /> 
+            {/* <Topbar /> */}
+            <UserMessages /> 
         </>
     )
 }
