@@ -69,7 +69,7 @@ export const PostProfileImge = styled.img`
 
 export const UserName = styled.span`
     font-size: 1rem;
-    font-weight: 500;
+    font-weight: 600;
     display: block;
 `;
 
@@ -77,6 +77,7 @@ export const PostDate = styled.span`
     font-size: 0.75rem;
     color: #b5b5b5;
     display: block;
+    font-weight: 400;
 `;
 
 export const PostTopRightWrap = styled.div`

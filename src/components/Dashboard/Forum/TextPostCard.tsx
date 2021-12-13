@@ -27,7 +27,6 @@ import {
 } from "./forum.styles";
 import { Comment } from "../../Comments";
 import Dropdown from "../../Dropdown";
-import { DropDownIcon } from "../../../../public/assets/icons/DropDownIcon";
 
 const TextPostCard = ({
     username,
@@ -53,7 +52,6 @@ const TextPostCard = ({
                 </PostLeftWrap>
                 <PostTopRightWrap>
                     <PostDropdown>
-                        <DropDownIcon />
                         <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} />
                         <Dropdown showDropdown={showDropdown} />
                     </PostDropdown>
