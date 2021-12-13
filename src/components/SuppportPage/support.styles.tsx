@@ -54,42 +54,31 @@ export const SupportButtonContainer = styled.div`
 
 export const SupportInput = styled.input`
     width: 100%;
-    background-color: #ebedf0;
     border: none;
-    border-radius: 0.5rem;
-    height: 3rem;
-    padding: .5rem 1.25rem;
-    font-size: 1rem;
-    margin-bottom: 1.25rem;
-    outline: none !important;
-    @media (max-width: 991px) {
-        height: 2.5rem;
-        padding: .5rem 1rem;
-        font-size: .875rem;
-        margin-bottom: 1rem;
-    }
+    padding: .875rem 1.25rem;
+    border-radius: .625rem;
+    background-color: #F3F3F3;
+    outline: none;
+    color: #7a7a7a;
+    margin-bottom: 1rem;
     &::placeholder {
-        color: #000;
+        text-transform: capitalize;
+        color: inherit;
     }
 `;
 
 export const SupportTextArea = styled.textarea`
     width: 100%;
-    background-color: #ebedf0;
     border: none;
-    border-radius: 0.5rem;
-    height: 8rem;
-    padding: .5rem 1.25rem;
-    font-size: 1rem;
-    margin-bottom: 1.25rem;
-    outline: none !important;
-    @media (max-width: 991px) {
-        height: 6rem;
-        padding: .5rem 1rem;
-        font-size: .875rem;
-        margin-bottom: 1rem;
-    }
+    padding: .875rem 1.25rem;
+    border-radius: .625rem;
+    background-color: #F3F3F3;
+    outline: none;
+    color: #7a7a7a;
+    margin-bottom: 1rem;
+    min-height: 8rem;
     &::placeholder {
-        color: #000;
+        text-transform: capitalize;
+        color: inherit;
     }
 `;

@@ -43,7 +43,6 @@ export const ForumFilter = styled.div`
 `;
 
 export const ForumFilterSortBy = styled.div`
-    margin: .25rem 0;
     position: relative;
     width: 15rem;
     @media (max-width: 767px) {
@@ -77,7 +76,6 @@ export const FilterSearch = styled.input`
     height: 3rem;
     padding: .5rem 1.25rem;
     font-size: 1rem;
-    margin: .25rem 0;
     outline: none !important;
     @media (max-width: 767px) {
         width: 100%;
@@ -94,7 +92,6 @@ export const SelectCategory = styled.select`
     height: 3rem;
     padding: .5rem 1.25rem;
     font-size: 1rem;
-    margin: .25rem 0;
     outline: none !important;
 `;
 

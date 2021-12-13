@@ -85,6 +85,12 @@ export const PostTopRightWrap = styled.div`
 
 export const ExpandIcon = styled(MdExpandMore)`
     cursor: pointer;
+    display: block;
+`;
+
+export const DropDownIcon = styled(MdExpandMore)`
+    cursor: pointer;
+    display: block;
 `;
 
 export const PostCenterWrap = styled.div`
