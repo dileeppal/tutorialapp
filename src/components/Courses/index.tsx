@@ -1,5 +1,5 @@
 import React from 'react'
-import { Logo } from '../../../public/assets/images/Logo';
+// import { Logo } from '../../../public/assets/images/Logo';
 import LeftSideBar from '../Dashboard/LeftSideBar'
 import SmallFooter from '../Dashboard/SmallFooter';
 import Topbar from '../Dashboard/TopBar'
