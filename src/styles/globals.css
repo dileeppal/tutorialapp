@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+Antique:wght@300;400;500;700;900&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 * {
   box-sizing: border-box;
@@ -7,7 +6,8 @@
   padding: 0;
   /* font-family: 'Encode Sans Expanded', sans-serif; */
   /* font-family: 'Zen Kaku Gothic New', sans-serif; */
-  font-family: 'Zen Kaku Gothic Antique', sans-serif;
+  /* font-family: 'Zen Kaku Gothic Antique', sans-serif; */
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
@@ -35,8 +35,8 @@ body {
 
 .rdw-editor-wrapper {
     background-color: #FFF;
-    border: 1px solid #ededed;
-    border-radius: 1rem;
+    border: 1px solid rgb(0 0 0 / 10%);
+    border-radius: .5rem;
     overflow: hidden;
 }
 .editor-class {
@@ -44,7 +44,7 @@ body {
   min-height: 8rem;
 }
 .toolbar-class {
-      border: none;
-    border-bottom: 1px solid #F1F1F1;
+    border: none !important;
+    border-bottom: 1px solid rgb(0 0 0 / 10%) !important;
     margin-bottom: 0;
 }

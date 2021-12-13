@@ -7,7 +7,7 @@ margin-top: 15px;
 `;
 
 export const TextHighlighted = styled.span`
-  font-weight: bold;
+  font-weight: 600;
 `;
 export const Container = styled.section`
 flex: 1;

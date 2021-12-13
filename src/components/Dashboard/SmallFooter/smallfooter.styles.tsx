@@ -1,57 +1,75 @@
 import styled from "styled-components";
 
 export const SmallFooterContainer = styled.footer`
-  width: 100%;
-  background-color: #d7c2e6;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
+    width: 100%;
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0px 2px 80px rgb(66 66 66 / 8%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-top: 1px solid #EBEBEB;
 `;
 
 export const SocialMedia = styled.section`
-  max-width: 100%;
-  width: 100%;
-  padding-left: 2rem;
-  padding-right: 2rem;
-  @media screen and (max-width: 991px) {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
+    max-width: 100%;
+    width: 100%;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+    @media screen and (max-width: 991px) {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
 `;
 
 export const SocialMediaWrap = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  @media screen and (max-width: 991px) {
-    flex-direction: column;
-  }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 `;
 
 export const SocialLogo = styled.a`
-  color: #fff;
+    color: inherit;
+    margin: -.75rem;
+    svg {
+        display: block;
+        width: 4rem;
+        height: 4rem;
+        rect {
+            display: none;
+        }
+        path {
+            fill: #7755E2;
+        }
+    }
 `;
-  
+
 export const WebsiteRights = styled.small`
-  color: #fff;
-  margin: 1rem 0;
-  font-size: 1rem;
+    color: #727272;
+    font-size: 1rem;
+    margin-right: auto;
+    margin-left: 2rem;
+    @media (max-width: 991px) {
+        display: none;
+    }
 `;
 
 export const SocialIcons = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 240px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 240px;
+    @media screen and (max-width: 991px) {
+        width: 200px;
+    }
 `;
 
 export const SocialIconLink = styled.a`
-  color: #fff;
-  font-size: 24px;
-  svg {
-    display: block
-  }
+    color: inherit;
+    font-size: 1.5rem;
+    svg {
+        display: block;
+    }
 `;

@@ -6,17 +6,20 @@ import { MdExpandMore } from "react-icons/md";
 
 
 export const ForumWrapper = styled.div`
-    padding: 1.5rem;
-    box-shadow: 0 1px 3px rgb(0 0 0 / 20%);
-    border-radius: .5rem;
+    padding: 1.875rem;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: .625rem;
     background-color: #FFF;
     display: flex;
     flex-direction: column;
     height: 100%;
+    @media (max-width: 991px) {
+        padding: 1.25rem;
+    }
 `;
 export const ViewMore = styled.button`
     background-color: transparent;
-    color: #256ce1;
+    color: #7755E2;
     font-size: .875rem;
     border-radius: .25rem;
     padding: 0;
@@ -24,12 +27,11 @@ export const ViewMore = styled.button`
     cursor: pointer;
     line-height: 1;
     text-transform: uppercase;
-    font-weight: bold;
+    font-weight: 600;
 `;
 export const PostDropdown = styled.div`
-      position: relative;
+    position: relative;
 `;
-
 
 export const LikeGroup = styled.div`
     display: flex;
@@ -37,44 +39,62 @@ export const LikeGroup = styled.div`
 `;
 
 export const ForumContainer = styled.div`
-     width: 100%;
-     border-radius: .625rem;
-     -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-     box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
-     margin: 30px 0;
+    width: 100%;
+    border-radius: .625rem;
+    -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+    box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
+    margin: 30px 0;
 `;
 
 export const PostTop = styled.div`
-     display: flex;
-     align-items: center;
-     justify-content: space-between;
-     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
 `;
+
 export const PostLeftWrap = styled.div`
-     display: flex;
-     align-items: center;
+    display: flex;
+    align-items: center;
 `;
+
 export const PostProfileImge = styled.img`
-     width: 2.5rem;
-     height: 2.5rem;
-     border-radius: 50%;
-     object-fit: cover;
-     margin-right: 1rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-right: 1rem;
 `;
+
 export const UserName = styled.span`
-     font-size: 1rem;
-     font-weight: 500;
-     display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: .25rem;
+    @media (max-width: 991px) {
+        font-size: .875rem;
+    }
 `;
+
 export const PostDate = styled.span`
-  font-size: 0.75rem;
-  color: #b5b5b5;
-  display: block;
+    font-size: 0.75rem;
+    color: #b5b5b5;
+    display: block;
+    font-weight: 400;
 `;
+
 export const PostTopRightWrap = styled.div`
+
 `;
+
 export const ExpandIcon = styled(MdExpandMore)`
-  cursor: pointer;
+    cursor: pointer;
+    display: block;
+`;
+
+export const DropDownIcon = styled(MdExpandMore)`
+    cursor: pointer;
+    display: block;
 `;
 
 export const PostCenterWrap = styled.div`
@@ -85,86 +105,96 @@ export const PostCenterWrap = styled.div`
     flex-direction: column;
 `;
 
-
 export const PostTitle = styled.h2`
     font-size: 1.5rem;
     margin-bottom: 1rem;
 `;
+
 export const PostText = styled.span`
     display: block;
     margin-bottom: 1rem;
     margin-top: auto;
 `;
+
 export const PostMediaImage = styled.img`
-  margin-top: 1rem;
-  width: 100%;
-  max-height: 500px;
-  object-fit: contain;
-  display: block;
+    margin-top: 1rem;
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
 `;
 
 export const PostMediaVideo = styled.video`
-  margin-top: 1rem;
-  width: 100%;
-  max-height: 500px;
-  object-fit: contain;
-  display: block;
+    margin-top: 1rem;
+    width: 100%;
+    max-height: 500px;
+    object-fit: contain;
+    display: block;
 `;
 
 export const PostMediaVideoIF = styled.iframe`
-  margin-top: 1rem;
-  width: 100%;
-  max-height: 192px;
-  object-fit: contain;
-  border: none;
-  outline: none;
-  display: block;
-
-  &:focus {
+    margin-top: 1rem;
+    width: 100%;
+    max-height: 192px;
+    object-fit: contain;
+    border: none;
     outline: none;
-  }
+    display: block;
+    &:focus {
+        outline: none;
+    }
 `;
 
 export const PostBottomWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: auto;
-`;
-export const BottomLeftWrap = styled.div`
-  display: flex;
-  align-items: center;
-`;
-export const LikeIcon = styled(FcLike)`
-  width: 24px;
-  height: 24px;
-  margin-right: 5px;
-  cursor: pointer;
-`;
-export const ViewIcon = styled(AiOutlineFolderView)`
-  width: 24px;
-  height: 24px;
-  margin-right: 5px;
-  cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
 `;
 
+export const BottomLeftWrap = styled.div`
+    display: flex;
+    align-items: center;
+`;
+
+export const LikeIcon = styled(FcLike)`
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    cursor: pointer;
+`;
+
+export const ViewIcon = styled(AiOutlineFolderView)`
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+    cursor: pointer;
+`;
 
 export const LikeCounter = styled.span`
-  margin-right: 1rem;
+    margin-right: 1rem;
 `;
+
 export const ViewCounter = styled.span`
   
 `;
+
 export const BottomRightWrap = styled.div`
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 `;
+
 export const CommentIcon = styled(FcComments)`
-  cursor: pointer;
-  width: 24px;
-  height: 24px;
-  margin-right: 3px;
+    cursor: pointer;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: .25rem;
+    path {
+        fill: #919191;
+    }
+
 `;
+
 export const CommentText = styled.span`
   
 `;

@@ -1,25 +1,22 @@
 import styled from 'styled-components'
 
 export const ConversationWrap = styled.div`
-  display: flex;
-  align-items: center;
-  padding: .625rem;
-  cursor: pointer;
-  margin-top: 1rem;
-  &:hover {
-    background-color: rgb(255 255 255);
-    border-radius: 1rem;
-  }
+    display: flex;
+    align-items: center;
+    padding: .75rem;
+    border-radius: .75rem;
+    cursor: pointer;
+    &:hover {
+        background-color: rgba(97, 94, 240, 0.06);
+    }
 `;
 export const ConversationImg = styled.img`
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-right: 1rem;
+    width: 3rem;
+    height: 3rem;
+    border-radius: .75rem;
+    object-fit: cover;
+    margin-right: 1rem;
 `;
 export const ConversationUserName = styled.span`
-  font-weight: 500;
-
- 
+    font-weight: 500;
 `;

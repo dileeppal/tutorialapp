@@ -1,51 +1,56 @@
 import styled from "styled-components"
 
 export const ChatContainer = styled.div`
-  &:nth-child(1) ~ div {
-    margin-left: -.5rem;
-  }
+    &:nth-child(1) ~ div {
+        @media (max-width: 991px) {
+            margin-left: -.5rem;
+        }
+    }
 `;
 
 export const OnlineUsersWrap = styled.div`
-  display: flex;
-  align-items: center;
-  font-weight: 500;
-  cursor: pointer;
-  margin-top: 10px;
-  @media (max-width: 991px) {
-    margin-top: 0;
-  }
+    display: flex;
+    align-items: center;
+    padding: .75rem;
+    border-radius: .75rem;
+    cursor: pointer;
+    @media (max-width: 991px) {
+        padding: 0;
+    }
+    &:hover {
+        background-color: rgba(97,94,240,0.06);
+    }
 `;
 
 export const OnlineUsersImageWrap = styled.div`
-  position: relative;
-  margin-right: 10px;
-  @media (max-width: 991px) {
-    margin-right: 0;
-  }
+    width: 3rem;
+    height: 3rem;
+    @media (min-width: 992px) {
+        margin-right: 1rem;
+    }
+    position: relative;
 `;
 
 export const OnlineUsersImage = styled.img`
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 1px solid white;
-  display: block;
+    width: 100%;
+    height: 100%;
+    border-radius: .75rem;
+    object-fit: cover;
 `;
 
 export const OnlineUsersImageBadge = styled.div`
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: limegreen;
-  position: absolute;
-  top: 2px;
-  right: 2px;
-`; 
+    width: .75rem;
+    height: .75rem;
+    border-radius: 50%;
+    border: 1px solid #FFF;
+    background-color: limegreen;
+    position: absolute;
+    top: -.25rem;
+    right: -.25rem;
+`;
 
 export const OnlineUsersName = styled.span`
-  @media screen and (max-width: 991px) {
-    display: none;
-  }
+    @media screen and (max-width: 991px) {
+        display: none;
+    }
 `;

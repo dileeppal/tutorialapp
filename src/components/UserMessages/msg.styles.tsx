@@ -1,127 +1,184 @@
 import styled from 'styled-components'
 
 export const MsgContainer = styled.div`
-    height: calc(100vh - 100px);
+    height: calc(100vh - 10.75rem);
+    background-color: #fff;
+    box-shadow: 0px 2px 80px rgba(66,66,66,0.08);
+    border-radius: .625rem;
     display: flex;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    @media (max-width: 991px) {
+        height: calc(100vh - 7.5rem);
+        flex-direction: column;
+    }
+    .BackOverlay {
+        z-index: 1;
+        @media (min-width: 992px){
+            display:none;
+        }
+    }
+`;
+
+export const MessageGroup = styled.div`
+    display: block;
+`;
+
+export const ChatMessageInputGroup = styled.div`
+    position: relative;
 `;
 
 export const MsgChatMenu = styled.div`
-    max-width: 20rem;
-    min-width: 20rem;
-    background-color: rgb(0 0 0 / 5%);
-    border-right: 1px solid rgb(0 0 0 / 10%);
-    padding: 2rem;
-    overflow-y: auto;
-    z-index: 9999;
+    max-width: 21.875rem;
+    min-width: 21.875rem;
+    border-right: 1px solid #E5E5E5;
     @media (max-width: 1366px) {
-        max-width: 18rem;
-        min-width: 18rem;
+        max-width: 17rem;
+        min-width: 17rem;
     }
-    
     @media (max-width: 991px) {
-        transform: translateX(-100%);
-        background-color: #ededed;
-        position: fixed;
+        border-right: none;
+        max-width: 100%;
+        min-width: 100%;
+        position: absolute;
+        top: 0;
         left: 0;
-        top: 70px;
-        bottom: 0;
-        padding: 2rem 1rem;
     }
-    &.opened {
-        transform: none;
-    }
-
 `;
 
 export const MsgChatMenuWrapper = styled.div`
     padding: 0;
     height: 100%;
+    position: relative;
+    z-index: 1;
 `;
+
+export const MasSearchGroup = styled.div`
+    display: flex;
+    padding: 1.5rem;
+    border-bottom: 1px solid #E5E5E5;
+    background-color: #FFF;
+    position: relative;
+    @media (max-width: 991px) {
+        padding: 1rem;
+    }
+    svg {
+        position: absolute;
+        top: 2.375rem;
+        left: 2.5rem;
+        opacity: .5;
+        @media (max-width: 991px) {
+            top: 1.875rem;
+            left: 1.875rem;
+        }
+    }
+`;
+
 export const MsgChatMenuInput = styled.input`
     width: 100%;
     border: none;
-    padding: .75rem 1.25rem;
-    border-radius: 10rem;
-    box-shadow: 1px 1px 5px rgb(0 0 0 / 14%);
-    background: rgb(255 255 255 / 70%);
+    padding: .875rem 1.25rem .875rem 3rem;
+    border-radius: .625rem;
+    background-color: #F3F3F3;
     outline: none;
- 
 `;
 
+export const ConversationGroup = styled.div`
+    padding: 1rem;
+    background-color: #fff;
+    max-height: calc(100% - 6rem);
+    overflow-y: auto;
+    @media (max-width: 991px) {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0; 
+        width: 100%; 
+        max-height: calc(100vh - 15rem);
+    }
+    &.opened {
+        @media (max-width: 991px) {
+            display: block;
+        }
+    }
+`;
 export const ChatBoxContainer = styled.div`
     flex: auto;
 `;
 
 export const ChatBoxWrapper = styled.div`
-    height: calc(100vh - 100px);
-    @media (max-width: 991px) {
-        height: calc(100vh - 70px);
-    }
+    height: 100%;
 `;
 
 export const ChatBoxTop = styled.div`
-    height: calc(100% - 4rem);
+    height: calc(100% - 6rem);
     background-color: #FFF;
     display: flex;
     align-items: flex-end;
     @media (max-width: 991px) {
-        padding-top: 3.5rem;
+        padding-top: 5rem;
+        height: calc(100vh - 12.5rem);
     }
     >  div {
         overflow-y: auto;
-        padding: 1.25rem;
+        padding: 1.5rem;
         width: 100%;
         max-height: 100%;
+        @media (max-width: 991px) {
+            padding: 1rem;
+        }
     }
-    
 `;
 
 export const ChatBoxBottom = styled.div`
     position: relative;
-    border-top: 1px solid rgb(0 0 0 / 5%);
-    height: 4rem;
+    padding: 1.5rem;
+    @media (max-width: 991px) {
+        padding: 1rem;
+    }
 `;
 
 export const ChatMessageInput = styled.textarea`
-    width: 100%;
-    height: 100%;
-    padding: 1rem 4rem 1rem 1.25rem;
-    border: none;
+    border: 2px solid #E2E8F0;
+    border-radius: .75rem;
+    height: 3rem;
+    padding: .75rem 3rem .75rem 1.25rem;
+    line-height: 1.2;
     font-size: 1rem;
+    width: 100%;
+    resize: none;
     display: block;
-    outline: none;
-    resize: none; 
 `;
 
 export const ChatSubmitButton = styled.button`
-    width: 4rem;
-    height: 4rem;
-    border: none;
-    cursor: pointer;
-    color: #000;
-    background-color: transparent;
-    font-size: 1rem;
-    text-transform: capitalize;
-    font-weight: bold;
+    width: 3rem;
+    height: 3rem;
     position: absolute;
     right: 0;
     bottom: 0;
+    background-color: transparent;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
 `;
 
 export const OnlineChatContainer = styled.div`
-    max-width: 20rem;
-    min-width: 20rem;
-    padding: 2rem;
+    max-width: 21.875rem;
+    min-width: 21.875rem;
+    border-left: 1px solid #E5E5E5;
     overflow-y: auto;
     @media (max-width: 1366px) {
-        max-width: 18rem;
-        min-width: 18rem;
+        display: none;
     }
     
     @media (max-width: 991px) {
+        z-index: 10;
+        display: none;
         position: absolute;
-        top: 70px;
-        padding: .5rem 1.5rem;
+        top: 0;
         right: 0;
         min-width: auto;
         max-width: initial;
@@ -129,7 +186,7 @@ export const OnlineChatContainer = styled.div`
 `;
 
 export const OnlineChatWrapper = styled.div`
-    padding: 0;
+    padding: 1rem;
     height: 100%;
     @media (max-width: 991px) {
         display: flex;
