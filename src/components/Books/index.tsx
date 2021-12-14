@@ -78,10 +78,10 @@ function BooksPage() {
                             </CardBody>
                         </PostCard>
                     </PageWrapper>
+                    <SmallFooter />
                 </InnerContainer>
                 {/* <PageRightSide>Live Forever Young</PageRightSide> */}
             </PageContainer>
-            <SmallFooter />
         </>
     );
 }

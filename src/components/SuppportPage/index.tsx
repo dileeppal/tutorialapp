@@ -68,10 +68,10 @@ function SupportPage() {
                             </ContactCard>
                         </ContactCardWrap>
                     </SupportWrapper>
+                    <SmallFooter />
                 </InnerContainer>
                 {/* <PageRightSide>Live Forever Young</PageRightSide> */}
             </PageContainer>
-            <SmallFooter />
         </>
     );
 }
