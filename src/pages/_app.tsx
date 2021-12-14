@@ -49,9 +49,9 @@ function MyApp({ Component, pageProps }: AppProps) {
           <ThemeProvider theme={darkTheme}>
             <CssBaseline />
             <NavDropDown toggle={toggle} isOpen={isOpen} />
-            {/* <NavBar toggle={toggle} /> */}
+            <NavBar toggle={toggle} />
             <Component {...pageProps} />
-            {/* <Footer /> */}
+            <Footer />
           </ThemeProvider>
         </ApolloProvider>
       </Provider>
