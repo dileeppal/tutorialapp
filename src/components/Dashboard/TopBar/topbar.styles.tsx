@@ -40,20 +40,75 @@ export const TopBarLogoGroup = styled.div`
         path {
             fill: #7755E2;
         }
-        @media (max-width: 991px) {
-            
-        }
     }
 `;
 
 export const TopCenterWrap = styled.div`
     flex: auto;
+    .searchOverlay {
+        @media (min-width: 992px) {
+            display: none;
+        }
+    }
 `;
 
 export const SearchBar = styled.div`
     display: flex;
     position: relative;
+    @media (max-width: 991px) {
+        &.opened {
+            position: absolute;
+            top: 1.125rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            z-index: 1000;
+            input {
+                display: block;
+            }
+
+            span {
+                svg {
+                    background-color: #7755E2;
+                        fill: #fff;
+                        order: 2;
+                        padding: .875rem;
+                        border-radius: 1rem;
+                        margin: .25rem;
+                        height: 3.25rem;
+                        width: 3.25rem;
+                        position: absolute;
+                        top: 0;
+                        right: 0;
+                }
+            }
+        }
+    }
 `;
+
+export const TopSearchButton = styled.span`
+    margin-left: auto;
+    svg {
+        cursor: pointer;
+        height: 1.375rem;
+        width: 1.375rem;
+        display: block;
+        @media (min-width: 992px) {
+            background-color: #7755E2;
+            fill: #fff;
+            order: 2;
+            padding: .875rem;
+            border-radius: 1rem;
+            margin: .25rem;
+            height: 3.25rem;
+            width: 3.25rem;
+            position: absolute;
+            top: 0;
+            right: 0;
+        }
+    }
+`;
+
+export const TopSearchIcon = styled.svg``;
 
 export const SearchIcon = styled(HiSearch)`
     cursor: pointer;
@@ -132,6 +187,11 @@ export const IconItem = styled.div`
     cursor: pointer;
     position: relative;
     font-size: 1.5rem;
+    &:nth-child(1) {
+        span {
+            background-color: #16ADDD;
+        }
+    }
     @media (max-width: 991px) {
         margin-left: 1.5rem;
     }

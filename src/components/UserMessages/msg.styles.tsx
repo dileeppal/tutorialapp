@@ -149,6 +149,7 @@ export const ChatMessageInput = styled.textarea`
     width: 100%;
     resize: none;
     display: block;
+    outline: none;
 `;
 
 export const ChatSubmitButton = styled.button`

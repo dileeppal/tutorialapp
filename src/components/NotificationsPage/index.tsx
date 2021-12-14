@@ -67,10 +67,10 @@ function NotificationsPage() {
                         </NoticeTopRightWrap>
                     </NoticesWrapper>
 
+            <SmallFooter />
                 </InnerContainer>
                 {/* <PageRightSide>Live forever young!</PageRightSide> */}
             </PageContainer>
-            <SmallFooter />
         </>
     );
 }

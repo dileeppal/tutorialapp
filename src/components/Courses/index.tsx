@@ -92,11 +92,11 @@ function CoursesPage() {
                             </CardBody>
                         </PostCard>
                     </PageWrapper>
+                    <SmallFooter />
                 </InnerContainer>
                 {/* <PageRightSide>blow my wig</PageRightSide> */}
             </PageContainer>
 
-            <SmallFooter />
 
         </>
     );

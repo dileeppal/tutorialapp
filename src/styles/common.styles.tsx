@@ -111,6 +111,8 @@ export const CategoryOption = styled.option`
 export const InnerContainer = styled.div`
     flex: 1 0 0%;
     padding: 2.5rem;
+    display: flex;
+    flex-direction: column;
     @media (max-width: 991px) {
         padding: 1.5rem;
         min-height: calc(100vh - 4.625rem);
