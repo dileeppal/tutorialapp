@@ -21,11 +21,11 @@ const PostDetails = () => {
                         likeCount={10}
                         commentCount={16}
                     />
+                    <SmallFooter />
                 </InnerContainer>
                 {/* <PageRightSide>Live Forever Young</PageRightSide> */}
             </PageContainer>
             
-            <SmallFooter />
         </>
     )
 }

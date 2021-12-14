@@ -31,6 +31,9 @@ export const ViewMore = styled.button`
 `;
 export const PostDropdown = styled.div`
     position: relative;
+    .DropDownIcon {
+        cursor: pointer;
+    }
 `;
 
 export const LikeGroup = styled.div`

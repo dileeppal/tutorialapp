@@ -1,23 +1,24 @@
 import styled from "styled-components";
 
 export const SmallFooterContainer = styled.footer`
-    width: 100%;
-    background-color: #fff;
-    color: #000;
-    box-shadow: 0px 2px 80px rgb(66 66 66 / 8%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-top: 1px solid #EBEBEB;
+    margin-top: auto;
+    margin-left: -2.5rem;
+    margin-right: -2.5rem;
+    margin-bottom: -2.5rem;
+    @media screen and (max-width: 991px) {
+        margin-left: -1.5rem;
+        margin-right: -1.5rem;
+        margin-bottom: -1.5rem;
+    }
 `;
 
-export const SocialMedia = styled.section`
+export const SocialMedia = styled.div`
+    margin-top: 2rem;
     max-width: 100%;
     width: 100%;
-    padding-left: 1.75rem;
-    padding-right: 1.75rem;
+    padding: 1rem 1.75rem;
+    box-shadow: 0px 2px 80px rgb(66 66 66 / 8%);
+    background-color: #fff;
     @media screen and (max-width: 991px) {
         padding-left: 1.5rem;
         padding-right: 1.5rem;

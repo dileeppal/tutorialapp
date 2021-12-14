@@ -17,6 +17,7 @@ import {
     SearchInput,
     TopRightWrap,
     NavLinks,
+    TopSearchButton,
     TopBarNavLinks,
     Icons,
     IconItem,
@@ -30,6 +31,8 @@ import {
 import { CommentIcon } from "../../../../public/assets/icons/CommentIcon";
 import { WellIcon } from "../../../../public/assets/icons/WellIcon";
 import { Logo } from '../../../../public/assets/images/Logo';
+import { TopSearchIcon } from '../../../../public/assets/icons/TopSearchIcon';
+import { BackOverlay } from '../LeftSideBar/leftside.styles';
 
 const Topbar = () => {
     // const dispatch = useAppDispatch();
@@ -42,6 +45,12 @@ const Topbar = () => {
     // dispatch(setUser(data.me));
     const me: any = {};
     const [dropdown, setDropdown] = useState(false)
+    const [search, setSearch] = useState(false)
+    {
+        search && (
+            <BackOverlay onClick={() => setSearch(false)} className="" />
+        );
+    }
 
     return (
         <TopbarContainer>
@@ -54,10 +63,12 @@ const Topbar = () => {
             </TopLeftWrap>
 
             <TopCenterWrap>
-                <SearchBar>
-                    <SearchIcon></SearchIcon>
+                <SearchBar className={search ? 'opened' : ''}>
+                    {/* <SearchIcon></SearchIcon> */}
+                    <TopSearchButton onClick={() => setSearch(true)}><TopSearchIcon /></TopSearchButton>
                     <SearchInput placeholder="Search" />
                 </SearchBar>
+                {search && <BackOverlay onClick={() => setSearch(false)} className="searchOverlay" />}
             </TopCenterWrap>
 
             <TopRightWrap>

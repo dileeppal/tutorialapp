@@ -41,10 +41,10 @@ const index = () => {
                         <ProfileRightBar />
                     </PageRightSide>
                 </ProfileWrapGroup>
+                <SmallFooter />
             </InnerContainer>
         </PageContainer>
 
-        <SmallFooter />
       </>
     );
 }

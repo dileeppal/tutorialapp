@@ -80,10 +80,10 @@ const ForumPage = () => {
                             />
                         </ForumContainer>
                     </ForumRow>
+                    <SmallFooter />
                 </InnerContainer>
                 {/* <PageRightSide>Live Forever Young</PageRightSide> */}
             </PageContainer>
-            <SmallFooter />
         </>
     );
 }

@@ -98,11 +98,11 @@ function CourseDetails() {
                             />
                         </MediaContainer>
                     </MediaRow>
+                    <SmallFooter />
                 </InnerContainer>
                 {/* <PageRightSide>blow my wig</PageRightSide> */}
             </PageContainer>
             
-            <SmallFooter />
         </>
     );
 }

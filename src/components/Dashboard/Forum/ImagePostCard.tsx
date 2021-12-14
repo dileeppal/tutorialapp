@@ -29,6 +29,7 @@ import relativeTime from "dayjs/plugin/relativeTime";
 dayjs.extend(relativeTime);
 import { Comment } from "../../Comments";
 import Dropdown from "../../Dropdown";
+import { DropDownIcon } from "../../../../public/assets/icons/DropDownIcon";
 
 interface ForumPost {
     username: string;
@@ -64,7 +65,8 @@ const ImagePostCard = ({
 
                     <PostTopRightWrap>
                         <PostDropdown>
-                            <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} />
+                            <span className="DropDownIcon" onClick={() => setShowDropdown(!showDropdown)}><DropDownIcon /></span>
+                            {/* <ExpandIcon onClick={() => setShowDropdown(!showDropdown)} /> */}
                             <Dropdown showDropdown={showDropdown} />
                         </PostDropdown>
                     </PostTopRightWrap>
