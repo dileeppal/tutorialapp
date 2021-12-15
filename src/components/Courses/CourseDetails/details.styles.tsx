@@ -50,9 +50,9 @@ export const CardText = styled.span`
 export const ApplyButton = styled.button`
     background-color: #256ce1;
     color: #fff;
-    font-size: 14px;
-    border-radius: 4px;
-    padding: 5px 11px;
+    font-size: .875rem;
+    border-radius: .25rem;
+    padding: .25rem .75rem;
     border: none;
     outline: none;
     cursor: pointer;

@@ -32,9 +32,9 @@ export const BooksCard = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    border-radius: 10px;
-    max-height: 440px;
-    padding: 30px;
+    border-radius: .625rem;
+    max-height: 27.5rem;
+    padding: 2rem;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
     transition: all 0.2s ease-in-out;
 

@@ -26,20 +26,17 @@ const Dropdown = ({ showDropdown, ...props }: any) => {
 export default Dropdown;
 
 export const CardContainer = styled.div`
-  display: flex;
-  position: absolute;
-  top: 100%;
-  right: 0;
-  z-index: 10;
+    display: flex;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    z-index: 10;
 `;
-
-
-
 
 export const DropdownCard = styled.div`
     background-color: #fff;
     border-radius: .5rem;
-    margin-top: 0px;
+    margin-top: 0;
     box-shadow: 0 1px 3px rgba(0,0,0,0.2);
     transition: all 0.2s ease-in-out;
     width: 6rem;
@@ -51,20 +48,20 @@ export const ItemWrapper = styled.div`
     width: 100%;
     border-bottom: 1px solid #e9e9e9;
     &:last-child {
-      border-bottom: none;
+        border-bottom: none;
     }
-  &:hover {
-    background-color: #e9e9e9;
-    cursor: pointer;
-  }
+    &:hover {
+        background-color: #e9e9e9;
+        cursor: pointer;
+    }
 `;
 export const ItemText = styled.span`
-  font-size: 12px;
-  margin-left: 5px;
+    font-size: .75rem;
+    margin-left: .25rem;
 `;
 export const EditIcon = styled(MdEdit)`
-  font-size: 15px;
+    font-size: 1rem;
 `;
 export const DeleteIcon = styled(MdDeleteForever)`
-  font-size: 15px;
+    font-size: 1rem;
 `;
