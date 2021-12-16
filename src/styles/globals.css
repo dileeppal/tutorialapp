@@ -10,6 +10,10 @@
     font-family: 'Poppins', sans-serif;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
     font-family: 'Zen Kaku Gothic New', sans-serif;
 }

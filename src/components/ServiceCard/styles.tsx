@@ -31,6 +31,7 @@ export const ServicesColumn = styled.div`
     padding-left: 1rem;
     padding-right: 1rem;
     width: 33.33%;
+    display: flex;
     @media (max-width: 991px) {
         width: 100%;
         margin-bottom: 2rem;
@@ -47,7 +48,7 @@ export const ServicesCard = styled.div`
     transition: all 0.2s ease-in-out;
     text-align: center;
     margin-top: 5rem;
-
+    width: 100%;
     &:hover {
         cursor: pointer;
     }
@@ -81,4 +82,5 @@ export const ServiceH2 = styled.h2`
 
 export const ServiceP = styled.p`
     font-size: 1rem;
+    margin-top: auto;
 `;
