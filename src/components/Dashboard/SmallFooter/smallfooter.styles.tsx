@@ -4,12 +4,12 @@ export const SmallFooterContainer = styled.footer`
     margin-top: auto;
     margin-left: -2.5rem;
     margin-right: -2.5rem;
-    margin-bottom: -2.5rem;
+    margin-bottom: -2.5rem; 
     @media screen and (max-width: 991px) {
         margin-left: -1.5rem;
         margin-right: -1.5rem;
         margin-bottom: -1.5rem;
-    }
+    } 
 `;
 
 export const SocialMedia = styled.div`
