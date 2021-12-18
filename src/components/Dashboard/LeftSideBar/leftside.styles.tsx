@@ -58,7 +58,7 @@ export const SearchButton = styled.button`
 `;
 
 export const ToggleButton = styled.button`
-     width: 2.25rem;
+    width: 2.25rem;
     background-color: transparent;
     border: none;
     vertical-align: top;
@@ -128,6 +128,7 @@ export const LeftSideBarListItem = styled.a`
         }
     }
 `;
+
 export const LeftSideBarIcon = styled.div`
     margin-right: 1.25rem;
     display: flex;

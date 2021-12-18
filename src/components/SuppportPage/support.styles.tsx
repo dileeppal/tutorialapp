@@ -38,7 +38,7 @@ export const ContactCard = styled.div`
 `;
 
 export const FormWrap = styled.form`
-    
+
 `;
 
 export const SupportMainContainer = styled.div`

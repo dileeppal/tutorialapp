@@ -69,6 +69,7 @@ export const CardText = styled.h2`
     }
   
 `;
+
 export const CloseButtonWrap = styled.span`
     cursor: pointer;
     float: right;

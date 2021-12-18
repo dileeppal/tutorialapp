@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import Link from "next/link";
-import { MdSchool } from "react-icons/md";
-import { BsFillChatSquareFill } from "react-icons/bs";
-import { MdPermMedia } from "react-icons/md";
-import { FaRegQuestionCircle } from "react-icons/fa";
-import { MdLibraryBooks } from "react-icons/md";
-import { RiAdminFill } from "react-icons/ri";
+// import Link from "next/link";
+// import { MdSchool } from "react-icons/md";
+// import { BsFillChatSquareFill } from "react-icons/bs";
+// import { MdPermMedia } from "react-icons/md";
+// import { FaRegQuestionCircle } from "react-icons/fa";
+// import { MdLibraryBooks } from "react-icons/md";
+// import { RiAdminFill } from "react-icons/ri";
 import { MdForum } from "react-icons/md";
-import { RiNotification2Fill } from "react-icons/ri";
+// import { RiNotification2Fill } from "react-icons/ri";
 import { useRouter } from 'next/router';
 
 import {
@@ -16,12 +16,12 @@ import {
     LeftSideBarListItem,
     LeftSideBarIcon,
     LeftSideBarListItemText,
-    IconBadge,
     ToggleButton,
     BackOverlay,
 } from "./leftside.styles";
+
 import { TopBarLogo } from "../TopBar/topbar.styles";
-import { Logo } from "../../../../public/assets/images/Logo";
+// import { Logo } from "../../../../public/assets/images/Logo";
 import { LogoShape } from "../../../../public/assets/images/LogoShape";
 import { CourseIcon } from "../../../../public/assets/icons/CourseIcon";
 import { BooksIcon } from "../../../../public/assets/icons/BooksIcon";

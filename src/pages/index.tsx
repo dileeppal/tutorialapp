@@ -9,7 +9,9 @@ import {
 } from "../components/MainSection/Data";
 import { withApollo } from "utils/withApollo";
 
+
 function Home() {
+  
   return (
     <>
       <Head>

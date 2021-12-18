@@ -38,7 +38,7 @@ const index = () => {
                         </ProfileRightBottomWrap>
                     </ProfileRightWrap>
                     <PageRightSide>
-                        <ProfileRightBar />
+                        <ProfileRightBar city="Accra" coursesTaken={20} />
                     </PageRightSide>
                 </ProfileWrapGroup>
                 <SmallFooter />
