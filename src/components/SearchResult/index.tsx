@@ -21,111 +21,117 @@ import {
 
 function SearchResult() {
     return (
-        <>
+      <>
+        <PageContainer>
+          <LeftSideBar />
 
-            <PageContainer>
-                <LeftSideBar />
+          <InnerContainer>
+            <TopBar />
+            <PageHeading>Here Book Results</PageHeading>
 
-                <InnerContainer>
-                    <TopBar />
-                    <PageHeading>Here Result 'Books'</PageHeading>
+            <PageSubHeading>Books</PageSubHeading>
 
-                    <PageSubHeading>Books</PageSubHeading>
+            <PageWrapper>
+              <PostCard>
+                <CardImage alt="course image" src="/assets/images/react.svg" />
+                <CardBody>
+                  <CardTitle>Essential TypeScript</CardTitle>
+                  <CardDescription>
+                    Develop Future Proof responsive websites
+                  </CardDescription>
+                  <CardBottom>
+                    <CardStartDate>Peter Jones</CardStartDate>
+                    <ApplyButton>Buy</ApplyButton>
+                  </CardBottom>
+                </CardBody>
+              </PostCard>
 
-                    <PageWrapper>
-                        <PostCard>
-                            <CardImage alt="course image" src="/assets/images/react.svg" />
-                            <CardBody>
-                                <CardTitle>Essential TypeScript</CardTitle>
-                                <CardDescription>Develop Future Proof responsive websites</CardDescription>
-                                <CardBottom>
-                                    <CardStartDate>Peter Jones</CardStartDate>
-                                    <ApplyButton>Buy</ApplyButton>
-                                </CardBottom>
-                            </CardBody>
-                        </PostCard>
+              <PostCard>
+                <CardImage alt="course image" src="/assets/images/react.svg" />
+                <CardBody>
+                  <CardTitle>Essential TypeScript</CardTitle>
+                  <CardDescription>
+                    Develop Future Proof responsive websites
+                  </CardDescription>
+                  <CardBottom>
+                    <CardStartDate>Peter Jones</CardStartDate>
+                    <ApplyButton>Buy</ApplyButton>
+                  </CardBottom>
+                </CardBody>
+              </PostCard>
 
-                        <PostCard>
-                            <CardImage alt="course image" src="/assets/images/react.svg" />
-                            <CardBody>
-                                <CardTitle>Essential TypeScript</CardTitle>
-                                <CardDescription>Develop Future Proof responsive websites</CardDescription>
-                                <CardBottom>
-                                    <CardStartDate>Peter Jones</CardStartDate>
-                                    <ApplyButton>Buy</ApplyButton>
-                                </CardBottom>
-                            </CardBody>
-                        </PostCard>
+              <PostCard>
+                <CardImage alt="course image" src="/assets/images/react.svg" />
+                <CardBody>
+                  <CardTitle>Essential TypeScript</CardTitle>
+                  <CardDescription>
+                    Develop Future Proof responsive websites
+                  </CardDescription>
+                  <CardBottom>
+                    <CardStartDate>Peter Jones</CardStartDate>
+                    <ApplyButton>Buy</ApplyButton>
+                  </CardBottom>
+                </CardBody>
+              </PostCard>
+            </PageWrapper>
 
-                        <PostCard>
-                            <CardImage alt="course image" src="/assets/images/react.svg" />
-                            <CardBody>
-                                <CardTitle>Essential TypeScript</CardTitle>
-                                <CardDescription>Develop Future Proof responsive websites</CardDescription>
-                                <CardBottom>
-                                    <CardStartDate>Peter Jones</CardStartDate>
-                                    <ApplyButton>Buy</ApplyButton>
-                                </CardBottom>
-                            </CardBody>
-                        </PostCard>
-                        
-                    </PageWrapper>
+            <PageSubHeading>Courses</PageSubHeading>
 
-                    <PageSubHeading>Courses</PageSubHeading>
-                    
-                    <PageWrapper>
-                        <PostCard>
-                            <CardImage alt="course image" src="/assets/images/react.svg" />
-                            <CardBody>
-                                <CardDuration>3 Months</CardDuration>
-                                <CardTitle>Fullstack Javascript web Dev</CardTitle>
-                                <CardDescription>
-                                    The course includes: HTML, CSS and JavaScript and React Framework.
-                                </CardDescription>
-                                <CardBottom>
-                                    <CardStartDate>12/11/2021</CardStartDate>
-                                    <ApplyButton>Apply</ApplyButton>
-                                </CardBottom>
-                            </CardBody>
-                        </PostCard>
-                        
-                        <PostCard>
-                            <CardImage alt="course image" src="/assets/images/react.svg" />
-                            <CardBody>
-                                <CardDuration>3 Months</CardDuration>
-                                <CardTitle>Fullstack Javascript web Dev</CardTitle>
-                                <CardDescription>
-                                    The course includes: HTML, CSS and JavaScript and React Framework.
-                                </CardDescription>
-                                <CardBottom>
-                                    <CardStartDate>12/11/2021</CardStartDate>
-                                    <ApplyButton>Apply</ApplyButton>
-                                </CardBottom>
-                            </CardBody>
-                        </PostCard>
-                        
-                        <PostCard>
-                            <CardImage alt="course image" src="/assets/images/react.svg" />
-                            <CardBody>
-                                <CardDuration>3 Months</CardDuration>
-                                <CardTitle>Fullstack Javascript web Dev</CardTitle>
-                                <CardDescription>
-                                    The course includes: HTML, CSS and JavaScript and React Framework.
-                                </CardDescription>
-                                <CardBottom>
-                                    <CardStartDate>12/11/2021</CardStartDate>
-                                    <ApplyButton>Apply</ApplyButton>
-                                </CardBottom>
-                            </CardBody>
-                        </PostCard>
-                        
-                    </PageWrapper>
+            <PageWrapper>
+              <PostCard>
+                <CardImage alt="course image" src="/assets/images/react.svg" />
+                <CardBody>
+                  <CardDuration>3 Months</CardDuration>
+                  <CardTitle>Fullstack Javascript web Dev</CardTitle>
+                  <CardDescription>
+                    The course includes: HTML, CSS and JavaScript and React
+                    Framework.
+                  </CardDescription>
+                  <CardBottom>
+                    <CardStartDate>12/11/2021</CardStartDate>
+                    <ApplyButton>Apply</ApplyButton>
+                  </CardBottom>
+                </CardBody>
+              </PostCard>
 
-                    <SmallFooter />
-                </InnerContainer>
-                {/* <PageRightSide>Live Forever Young</PageRightSide> */}
-            </PageContainer>
-        </>
+              <PostCard>
+                <CardImage alt="course image" src="/assets/images/react.svg" />
+                <CardBody>
+                  <CardDuration>3 Months</CardDuration>
+                  <CardTitle>Fullstack Javascript web Dev</CardTitle>
+                  <CardDescription>
+                    The course includes: HTML, CSS and JavaScript and React
+                    Framework.
+                  </CardDescription>
+                  <CardBottom>
+                    <CardStartDate>12/11/2021</CardStartDate>
+                    <ApplyButton>Apply</ApplyButton>
+                  </CardBottom>
+                </CardBody>
+              </PostCard>
+
+              <PostCard>
+                <CardImage alt="course image" src="/assets/images/react.svg" />
+                <CardBody>
+                  <CardDuration>3 Months</CardDuration>
+                  <CardTitle>Fullstack Javascript web Dev</CardTitle>
+                  <CardDescription>
+                    The course includes: HTML, CSS and JavaScript and React
+                    Framework.
+                  </CardDescription>
+                  <CardBottom>
+                    <CardStartDate>12/11/2021</CardStartDate>
+                    <ApplyButton>Apply</ApplyButton>
+                  </CardBottom>
+                </CardBody>
+              </PostCard>
+            </PageWrapper>
+
+            <SmallFooter />
+          </InnerContainer>
+          {/* <PageRightSide>Live Forever Young</PageRightSide> */}
+        </PageContainer>
+      </>
     );
 }
 

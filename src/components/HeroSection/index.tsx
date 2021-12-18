@@ -20,39 +20,41 @@ const HeroSection = ({ ...props }: any ) => {
         setHover(!hover)
     }
     return (
-        <HeroContainer id="home">
-            <HeroBg>
-                <VideoBg
-                    playsInline
-                    autoPlay
-                    loop
-                    muted
-                    src=""
-                    type="video/mp4"
-                    {...props}
-                />
-            </HeroBg>
-            
-            <HeroContent>
-                <HeroH1>testing somethings</HeroH1>
-                <HeroP>something else will go here</HeroP>
-                <HeroBtnWrapper>
-                    <Button
-                        {...props}
-                        to="home"
-                        onMouseEnter={onHover}
-                        onMouseLeave={onHover}
-                        primary="true"
-                        dark="true"
-                        smooth={true}
-                        duration={500}
-                        spy={true}
-                        offset={-80}
-                        > get started {hover ? <ArrowForward /> : <ArrowRight />}
-                    </Button>
-                </HeroBtnWrapper>
-            </HeroContent>
-        </HeroContainer>
+      <HeroContainer id="home">
+        <HeroBg>
+          <VideoBg
+            playsInline
+            autoPlay
+            loop
+            muted
+            src=""
+            type="video/mp4"
+            {...props}
+          />
+        </HeroBg>
+
+        <HeroContent>
+          <HeroH1>Bare Metals Academy</HeroH1>
+          <HeroP>online training courses</HeroP>
+          <HeroBtnWrapper>
+            <Button
+              {...props}
+              to="home"
+              onMouseEnter={onHover}
+              onMouseLeave={onHover}
+              primary="true"
+              dark="true"
+              smooth={true}
+              duration={500}
+              spy={true}
+              offset={-80}
+            >
+              {" "}
+              get started {hover ? <ArrowForward /> : <ArrowRight />}
+            </Button>
+          </HeroBtnWrapper>
+        </HeroContent>
+      </HeroContainer>
     );
 }
 

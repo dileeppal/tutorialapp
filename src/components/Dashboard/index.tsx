@@ -1,25 +1,21 @@
 import React from 'react'
 import TopBar from './TopBar'
 import LeftSideBar from './LeftSideBar'
-import RightSideBar from './RightSideBar'
 import SmallFooter from './SmallFooter'
-import styled from "styled-components";
+import { InnerContainer, PageContainer } from 'styles/common.styles'
 
-const DashboardContainer = styled.div`
-  width: 100%;
-  display: flex;
-`;
 
 const Dashboard = ({children}: any) => {
     return (
       <>
-        <TopBar />
-        <DashboardContainer>
+        <PageContainer>
           <LeftSideBar />
-          {children}
-          <RightSideBar />
-        </DashboardContainer>
-        <SmallFooter />
+          <InnerContainer>
+            <TopBar />
+            {children}
+            <SmallFooter />
+          </InnerContainer>
+        </PageContainer>
       </>
     );
 }

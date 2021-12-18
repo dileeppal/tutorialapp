@@ -15,6 +15,15 @@ export const ProfileWrapGroup = styled.div`
     display: flex;
 `;
 
+export const PageWrapGroup = styled.div`
+  flex: auto;
+  overflow: hidden;
+  border-radius: 1rem;
+  background-color: #fff;
+  box-shadow: 0px 2px 80px rgba(66, 66, 66, 0.08);
+  border-radius: 0.625rem;
+`;
+
 export const ForumRow = styled.div`
     display: flex;
     flex-wrap: wrap;

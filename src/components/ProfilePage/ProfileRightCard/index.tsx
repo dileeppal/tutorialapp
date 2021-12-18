@@ -54,11 +54,10 @@ type courseCard = {
   coursesTaken: number;
 };
 
-function ProfileRightBar({city, coursesTaken}: courseCard) {
+function ProfileRightCard({city, coursesTaken}: courseCard) {
     return (
       <>
-        <MainContainer>
-          <MainWrapper>
+
             <CoursesTakenGroup>
               <CoursesTaken />
             </CoursesTakenGroup>
@@ -82,10 +81,8 @@ function ProfileRightBar({city, coursesTaken}: courseCard) {
                 <RightBarInfoValue>Superb</RightBarInfoValue>
               </RightBarInfoItem>
             </RightBarInfo>
-          </MainWrapper>
-        </MainContainer>
       </>
     );
 }
 
-export default ProfileRightBar
+export default ProfileRightCard;

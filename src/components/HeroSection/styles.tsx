@@ -34,6 +34,7 @@ export const HeroContent = styled.div`
     margin: auto;
     padding: 2rem;
 `;
+
 export const HeroH1 = styled.h1`
     color: #000;
     font-size: 3.5rem;
@@ -55,6 +56,7 @@ export const HeroP = styled.p`
 export const HeroBtnWrapper = styled.div`
     margin-top: 2rem;
 `;
+
 export const Button = styled.button`
 
 `;
@@ -66,6 +68,7 @@ export const ArrowForward = styled(MdArrowForward)`
     transform: scale(1.2);
     fill: #7755E2;
 `;
+
 export const ArrowRight = styled(MdKeyboardArrowRight)`
     float: right;
     margin-left: .75rem;

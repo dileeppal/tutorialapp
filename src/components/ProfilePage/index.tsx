@@ -1,51 +1,39 @@
 import React from 'react'
-import LeftSideBar from "../Dashboard/LeftSideBar";
-import SmallFooter from "../Dashboard/SmallFooter";
-import TopBar from "../Dashboard/TopBar";
-import {
-  PageContainer,
-  InnerContainer,
-  PageRightSide,
-  ProfileWrapGroup,
-  
-} from "../../styles/common.styles";
-import { ProfileCover, ProfileCoverImage, ProfileInfo, ProfileRightBottomWrap, ProfileRightTopWrap, ProfileRightWrap, UserDescription, UserName, UserProfileImage } from './profile.styles';
+import { ProfileWrapGroup, PageWrapGroup } from "../../styles/common.styles";
+import { ProfileCover, ProfileCoverImage, ProfileInfo, ProfileRightBottomWrap, ProfileRightTopWrap,UserDescription, UserName, UserProfileImage } from './profile.styles';
 import UserFeed from './UserFeed';
-import ProfileRightBar from './ProfileRightBar';
+import ProfileRightCard from './ProfileRightCard';
+import Dashboard from 'components/Dashboard';
+import RightSideBar from 'components/Dashboard/RightSideBar';
 
 const index = () => {
     return (
-        <>
-        <PageContainer>
-            <LeftSideBar />
-            <InnerContainer>
-                <TopBar />
-                <ProfileWrapGroup>
-                    <ProfileRightWrap>
-                        <ProfileRightTopWrap>
-                            <ProfileCover>
-                                <ProfileCoverImage alt="user profile cover image" src="/red.jpg" />
-                                <UserProfileImage alt="user profile image" src="/D.jpg" />
-                            </ProfileCover>
-                            
-                            <ProfileInfo>
-                                <UserName>Frank White</UserName>
-                                <UserDescription>Badboy for Life!</UserDescription>
-                            </ProfileInfo>
-                        </ProfileRightTopWrap>
-                        <ProfileRightBottomWrap>
-                            <UserFeed />
-                        </ProfileRightBottomWrap>
-                    </ProfileRightWrap>
-                    <PageRightSide>
-                        <ProfileRightBar city="Accra" coursesTaken={20} />
-                    </PageRightSide>
-                </ProfileWrapGroup>
-                <SmallFooter />
-            </InnerContainer>
-        </PageContainer>
+      <Dashboard>
+        <ProfileWrapGroup>
+          <PageWrapGroup>
+            <ProfileRightTopWrap>
+              <ProfileCover>
+                <ProfileCoverImage
+                  alt="user profile cover image"
+                  src="/red.jpg"
+                />
+                <UserProfileImage alt="user profile image" src="/D.jpg" />
+              </ProfileCover>
 
-      </>
+              <ProfileInfo>
+                <UserName>Frank White</UserName>
+                <UserDescription>Badboy for Life!</UserDescription>
+              </ProfileInfo>
+            </ProfileRightTopWrap>
+            <ProfileRightBottomWrap>
+              <UserFeed />
+            </ProfileRightBottomWrap>
+          </PageWrapGroup>
+          <RightSideBar>
+            <ProfileRightCard city="Accra" coursesTaken={20} />
+          </RightSideBar>
+        </ProfileWrapGroup>
+      </Dashboard>
     );
 }
 

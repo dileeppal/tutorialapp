@@ -8,9 +8,18 @@ import {
   homeObjThree,
 } from "../components/MainSection/Data";
 import { withApollo } from "utils/withApollo";
+import NavDropDown from 'components/NavDropDown';
+import NavBar from 'components/NavBar/NavBar';
+import Footer from 'components/Footer/Footer';
+import { useState } from 'react';
 
 
 function Home() {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggle: any = () => {
+    setIsOpen(!isOpen);
+  };
   
   return (
     <>
@@ -24,11 +33,14 @@ function Home() {
       </Head>
 
       <main>
+        <NavDropDown toggle={toggle} isOpen={isOpen} />
+        <NavBar toggle={toggle} />
         <HeroSection />
         <MainSection {...homeObjOne} />
         <ServicesCard />
         <MainSection {...homeObjTwo} />
         <MainSection {...homeObjThree} />
+        <Footer />
       </main>
     </>
   );

@@ -1,14 +1,15 @@
-import { Autorenew } from "@material-ui/icons";
 import styled from "styled-components";
 
 export const MainContainer = styled.div`
-    padding-top: 8rem;
-    padding-bottom: 8rem;
-    border-bottom: 1px solid rgba(0,0,0,.05);
-    @media (max-width: 991px) {
-        padding-top: 3rem;
-        padding-bottom: 3rem;
-    }
+  color: #fff;
+  background: ${({ lightBg }: any) => (lightBg ? "#f9f9f9" : "#929696")};
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  @media (max-width: 991px) {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
 `;
 
 export const MainWrapper = styled.div`
@@ -20,14 +21,22 @@ export const MainWrapper = styled.div`
 `;
 
 export const MainRow = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    margin-left: -1rem;
-    margin-right: -1rem;
-    @media (max-width: 991px) {
-        flex-direction: column-reverse;
-    }
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  grid-auto-columns: minmax(auto, 1fr);
+  @media (max-width: 991px) {
+    flex-direction: column-reverse;
+  }
+  grid-template-areas: ${({ imgStart }: any) =>
+    imgStart ? `'col2 col1'` : `'col1 col2'`};
+
+  @media screen and (max-width: 768px) {
+    grid-template-areas: ${({ imgStart }: any) =>
+      imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`};
+  }
 `;
 
 export const Column1 = styled.div`
@@ -63,22 +72,24 @@ export const TopLine = styled.div`
 `;
 
 export const Heading = styled.h2`
-    font-size: 2.75rem;
-    line-height: 1.2;
-    margin-top: 1rem;
-    margin-bottom: 1.5rem;
-    @media (min-width: 992px) {
-        max-width: 20rem;
-    }
-    @media (max-width: 991px) {
-        font-size: 2.25rem;
-    }
+  font-size: 2.75rem;
+  line-height: 1.2;
+  margin-top: 1rem;
+  margin-bottom: 1.5rem;
+  color: ${({ lightText }: any) => (lightText ? "#f7f8fa" : "#010606")};
+  @media (min-width: 992px) {
+    max-width: 20rem;
+  }
+  @media (max-width: 991px) {
+    font-size: 2.25rem;
+  }
 `;
 
 export const Subtitle = styled.p`
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-bottom: 2rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: ${({ darkText }: any) => (darkText ? "#010606" : "#fff")};
 `;
 
 export const BtnWrap = styled.div`

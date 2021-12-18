@@ -4,15 +4,6 @@ export const ProfileContainer = styled.div`
     display: flex;
 `;
 
-export const ProfileRightWrap = styled.div`
-    flex: auto;
-    overflow: hidden;
-    border-radius: 1rem;
-    background-color: #fff;
-    box-shadow: 0px 2px 80px rgba(66,66,66,0.08);
-    border-radius: .625rem;
-`;
-
 export const ProfileRightTopWrap = styled.div`
     
 `;

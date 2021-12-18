@@ -1,15 +1,12 @@
 import { Provider } from "react-redux";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import type { AppProps } from "next/app";
-import React, { useEffect, useState } from "react";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import React, { useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import store from "../app/store";
 import Head from "next/head";
 import { darkTheme } from "../styles/theme";
-import Footer from "../components/Footer/Footer";
-import NavBar from "../components/NavBar/NavBar";
-import NavDropDown from "../components/NavDropDown";
+
 
 import "../styles/globals.css";
 
@@ -22,7 +19,7 @@ export const client = new ApolloClient({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [isOpen, setIsOpen] = useState(false);
+
   useEffect(() => {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side");
@@ -30,10 +27,6 @@ function MyApp({ Component, pageProps }: AppProps) {
       jssStyles?.parentElement?.removeChild(jssStyles);
     }
   }, []);
-
-  const toggle: any = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
     <>
@@ -47,11 +40,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <Provider store={store}>
         <ApolloProvider client={client}>
           <ThemeProvider theme={darkTheme}>
-            <CssBaseline />
-            <NavDropDown toggle={toggle} isOpen={isOpen} />
-            <NavBar toggle={toggle} />
             <Component {...pageProps} />
-            <Footer />
           </ThemeProvider>
         </ApolloProvider>
       </Provider>
