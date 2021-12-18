@@ -71,7 +71,7 @@ export const ToggleButton = styled.button`
         display: none
     }
     span {
-        height: 4px;
+        height: .25rem;
         display: block;
         background-color: #7755e2;
         margin: .375rem 0;

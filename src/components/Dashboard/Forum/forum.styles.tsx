@@ -17,6 +17,7 @@ export const ForumWrapper = styled.div`
         padding: 1.25rem;
     }
 `;
+
 export const ViewMore = styled.button`
     background-color: transparent;
     color: #7755E2;
@@ -29,10 +30,14 @@ export const ViewMore = styled.button`
     text-transform: uppercase;
     font-weight: 600;
 `;
+
 export const PostDropdown = styled.div`
     position: relative;
     .DropDownIcon {
         cursor: pointer;
+        svg {
+            display: block;
+        }
     }
 `;
 
@@ -122,7 +127,7 @@ export const PostText = styled.span`
 export const PostMediaImage = styled.img`
     margin-top: 1rem;
     width: 100%;
-    max-height: 500px;
+    max-height: 31.25rem;
     object-fit: contain;
     display: block;
 `;
@@ -130,7 +135,7 @@ export const PostMediaImage = styled.img`
 export const PostMediaVideo = styled.video`
     margin-top: 1rem;
     width: 100%;
-    max-height: 500px;
+    max-height: 31.25rem;
     object-fit: contain;
     display: block;
 `;
@@ -138,7 +143,7 @@ export const PostMediaVideo = styled.video`
 export const PostMediaVideoIF = styled.iframe`
     margin-top: 1rem;
     width: 100%;
-    max-height: 192px;
+    max-height: 12rem;
     object-fit: contain;
     border: none;
     outline: none;
@@ -161,16 +166,16 @@ export const BottomLeftWrap = styled.div`
 `;
 
 export const LikeIcon = styled(FcLike)`
-    width: 24px;
-    height: 24px;
-    margin-right: 5px;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: .25rem;
     cursor: pointer;
 `;
 
 export const ViewIcon = styled(AiOutlineFolderView)`
-    width: 24px;
-    height: 24px;
-    margin-right: 5px;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: .25rem;
     cursor: pointer;
 `;
 

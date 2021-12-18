@@ -13,12 +13,12 @@ export const SmallFooterContainer = styled.footer`
 `;
 
 export const SocialMedia = styled.div`
-    margin-top: 2rem;
+    margin-top: 1.5rem;
     max-width: 100%;
     width: 100%;
     padding: 1rem 1.75rem;
-    box-shadow: 0px 2px 80px rgb(66 66 66 / 8%);
-    background-color: #fff;
+    /*box-shadow: 0px 2px 80px rgb(66 66 66 / 8%);
+    background-color: #fff;*/
     @media screen and (max-width: 991px) {
         padding-left: 1.5rem;
         padding-right: 1.5rem;
@@ -61,15 +61,15 @@ export const SocialIcons = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 240px;
+    width: 15rem;
     @media screen and (max-width: 991px) {
-        width: 200px;
+        width: 12.5rem;
     }
 `;
 
 export const SocialIconLink = styled.a`
     color: inherit;
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     svg {
         display: block;
     }

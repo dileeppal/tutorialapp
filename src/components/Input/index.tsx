@@ -41,7 +41,7 @@ export const StyledInput = styled(Field)`
 export const ErrorMsg = styled.span`
     display: flex;
     justify-content: center;
-    margin-top: 5px;
+    margin-top: .25rem;
     background: red400;
     color: red;
     font-size: 0.9rem;
@@ -52,7 +52,7 @@ export const ErrorMsg = styled.span`
 export const SuccessMsg = styled.span`
     display: flex;
     justify-content: center;
-    margin-top: 5px;
+    margin-top: .25rem;
     background: red400;
     color: #00ff55;
     font-size: 0.9rem;
