@@ -72,7 +72,8 @@ export const ForumFilterSortBy = styled.div`
 `;
 
 export const CardBody = styled.div`
-    display: block;
+    display: flex;
+    flex-direction: column;
     flex: auto;
 `;
 
@@ -126,6 +127,17 @@ export const PageHeading = styled.h1`
     line-height: 1;
     @media (max-width: 480px) {
         font-size: 1.75rem;
+    }
+`;
+
+export const PageSubHeading = styled.h2`
+    color: #000;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+    @media (max-width: 480px) {
+        font-size: 1.25rem;
     }
 `;
 
@@ -199,7 +211,7 @@ export const CardDuration = styled.span`
 `;
 
 export const CardBottom = styled.div`
-    margin-top: 0;
+    margin-top: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -217,12 +229,12 @@ export const CardStartDate = styled.span`
 export const ApplyButton = styled.button`
     background-color: #7755E2;
     color: #fff;
-    font-size: 1rem;
+    font-size: 1rem; 
     border-radius: 10rem;
     padding: .625rem 1.5rem;
     border: none;
     cursor: pointer;
-    line-height: 1;
+    line-height: 1;    
     font-weight: 500;
     @media (max-width: 991px) {
         font-size: .75rem;
@@ -242,4 +254,4 @@ export const PageRightSide = styled.div`
         display: none;
         padding: 2rem 1.5rem;
     }
-`;
+`;                  

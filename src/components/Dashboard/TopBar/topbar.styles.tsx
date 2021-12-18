@@ -195,17 +195,17 @@ export const IconItem = styled.div`
     @media (max-width: 991px) {
         margin-left: 1.5rem;
     }
-`;
+`;   
 
 export const IconBadge = styled.span`
     width: 1.25rem;
     height: 1.25rem;
     background-color: #f511a9;
     border-radius: 50%;
-    color: white;
-    position: absolute;
+    color: white; 
+    position: absolute; 
     top: -.625rem;
-    right: -.625rem;
+    right: -.625rem; 
     text-align: center;
     font-weight: 600;
     font-size: .75rem;
@@ -253,14 +253,14 @@ export const ProfileDropdown = styled.ul`
     margin-top: 1.5rem;
     box-shadow: 0px 2px 80px rgb(66 66 66 / 8%);
     border-radius: .625rem;
-    z-index: 10;
+    z-index: 10;  
     &.opened {
         display: block;
     }
     @media (max-width: 991px) {
         width: 10rem;
         margin-top: .75rem;
-    }
+    }  
 `;
 
 export const ProfileItem = styled.li`
@@ -276,8 +276,9 @@ export const ProfileItem = styled.li`
         }
         @media (max-width: 991px) {
             font-size: .875rem;
-            padding: .5rem 1.25rem;
+            padding: .5rem 1.25rem; 
         }
     }
 `;
 
+    

@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 import { MdDeleteForever } from "react-icons/md";
 
-
 export const NoticesWrapper = styled.div`
     background-color: #fff;
     box-shadow: 0px 2px 80px rgba(66,66,66,0.08);
@@ -72,7 +71,7 @@ export const NoticecRightSide = styled.div`
 
 export const MediaContainer = styled.div`
     width: 100%;
-    border-radius: 10px;
+    border-radius: .625rem;
     -webkit-box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
     box-shadow: 0px 0px 16px -8px rgba(0, 0, 0, 0.68);
     margin: 30px 0;
@@ -82,7 +81,7 @@ export const MediaContainer = styled.div`
 export const NoticesH1 = styled.h1`
     font-size: 2.5rem;
     color: #655e5e;
-    margin-bottom: 34px;
+    margin-bottom: 2rem;
 
     @media screen and (max-width: 480px) {
         font-size: 2rem;

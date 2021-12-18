@@ -33,6 +33,7 @@ import { WellIcon } from "../../../../public/assets/icons/WellIcon";
 import { Logo } from '../../../../public/assets/images/Logo';
 import { TopSearchIcon } from '../../../../public/assets/icons/TopSearchIcon';
 import { BackOverlay } from '../LeftSideBar/leftside.styles';
+import router from 'next/router';
 
 const Topbar = () => {
     // const dispatch = useAppDispatch();
@@ -45,10 +46,25 @@ const Topbar = () => {
     // dispatch(setUser(data.me));
     const me: any = {};
     const [dropdown, setDropdown] = useState(false)
+    const [toggle, setToggle] = useState(false)
+
     const [search, setSearch] = useState(false)
+
+    const onSearch = (event:any) => {
+        setSearch(event.target.value)
+        if(event.keyCode === 13) {
+            setToggle(false)
+            router.push(`/search-result?=${event.target.value}`)
+        }
+    }
+    const onSetToggle = () => {
+        if(window.screen.width <= 991 && !toggle) return setToggle(true)
+        setToggle(false)
+        router.push(`/search-result?=${search}`)
+    }
     {
-        search && (
-            <BackOverlay onClick={() => setSearch(false)} className="" />
+        toggle && (
+            <BackOverlay onClick={() => setToggle(false)} className="" />
         );
     }
 
@@ -63,12 +79,14 @@ const Topbar = () => {
             </TopLeftWrap>
 
             <TopCenterWrap>
-                <SearchBar className={search ? 'opened' : ''}>
+                <SearchBar className={toggle ? 'opened' : ''}>
                     {/* <SearchIcon></SearchIcon> */}
-                    <TopSearchButton onClick={() => setSearch(true)}><TopSearchIcon /></TopSearchButton>
-                    <SearchInput placeholder="Search" />
+                    <TopSearchButton onClick={() => onSetToggle()}>
+                        <TopSearchIcon />
+                    </TopSearchButton>
+                    <SearchInput placeholder="Search" onKeyUp={(event) => onSearch(event)} />
                 </SearchBar>
-                {search && <BackOverlay onClick={() => setSearch(false)} className="searchOverlay" />}
+                {toggle && <BackOverlay onClick={() => setToggle(false)} className="searchOverlay" />}
             </TopCenterWrap>
 
             <TopRightWrap>

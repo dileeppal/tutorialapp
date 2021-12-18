@@ -197,7 +197,7 @@ export const OnlineChatWrapper = styled.div`
 export const NoConversationText = styled.span`
     position: absolute;
     top: 10%;
-    font-size: 50px;
+    font-size: 3rem;
     color: rgb(224, 220, 220);
     cursor: default;
 `;
