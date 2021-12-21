@@ -20,7 +20,7 @@ export const FooterLinkContainer = styled.div`
     justify-content: center;
 
     @media screen and (max-width: 820px) {
-        padding-top: 2rem;
+        padding-top: 0;
     }
 `;
 

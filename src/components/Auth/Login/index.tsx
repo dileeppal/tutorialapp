@@ -22,7 +22,9 @@ import {
   ForgotPassword,
   PageContainer,
   FormWrap,
-  HorizontalRule
+  HorizontalRule,
+  FormWrapRow,
+  FormWrapThumb
 } from "../auth-styles";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -78,6 +80,7 @@ const Login = () => {
           validationSchema={getLoginValidationSchema}
         >
           {({ isSubmitting, errors, touched }) => (
+            <FormWrapRow>
             <FormWrap>
               <MainContainer>
                 <WelcomeText>Login</WelcomeText>
@@ -110,19 +113,22 @@ const Login = () => {
                     content="Sign in"
                     disabled={isSubmitting}
                   />
-                </ButtonContainer>
-                <HorizontalRule />
-                <FooterLinkContainer className="d-flex">
                   <Link href="/signup">
                     <LoginWith>Register </LoginWith>
                   </Link>
-                  &nbsp;&nbsp;|&nbsp;&nbsp;
+                </ButtonContainer>
+                <HorizontalRule />
+                <FooterLinkContainer className="d-flex">
                   <Link href="/forgot-password">
                     <ForgotPassword>Forgot password?</ForgotPassword>
                   </Link>
                 </FooterLinkContainer>
               </MainContainer>
             </FormWrap>
+            <FormWrapThumb>
+              <img src="https://images.unsplash.com/photo-1469981283837-561b3779462f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
+            </FormWrapThumb>
+            </FormWrapRow>
           )}
         </Formik>
       </PageContainer>

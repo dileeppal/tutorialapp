@@ -15,6 +15,8 @@ import {
   PageContainer,
   FormWrap,
   HorizontalRule,
+  FormWrapRow,
+  FormWrapThumb,
 } from "../auth-styles";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -73,9 +75,10 @@ const ResetPassword = () => {
           validationSchema={getResetPasswordValidationSchema}
         >
           {({ isSubmitting, errors, touched }) => (
+            <FormWrapRow>
             <FormWrap>
               <MainContainer>
-                <WelcomeText>reset password</WelcomeText>
+                <WelcomeText>Reset password</WelcomeText>
                 {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
                 {successMsg && <SuccessMsg>{initialValues.success}</SuccessMsg>}
                 <InputContainer>
@@ -106,13 +109,17 @@ const ResetPassword = () => {
                     content="Submit"
                     disabled={isSubmitting}
                   />
-                </ButtonContainer>
-                <HorizontalRule />
                 <Link href="/signin">
                   <BackToLogin>Back to login?</BackToLogin>
                 </Link>
+                </ButtonContainer>
+                <HorizontalRule />
               </MainContainer>
             </FormWrap>
+            <FormWrapThumb>
+              <img src="https://images.unsplash.com/photo-1469981283837-561b3779462f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
+            </FormWrapThumb>
+            </FormWrapRow>
           )}
         </Formik>
       </PageContainer>

@@ -54,13 +54,13 @@ const Topbar = () => {
         setSearch(event.target.value)
         if(event.keyCode === 13) {
             setToggle(false)
-            router.push(`/search-result?=${event.target.value}`)
+            router.push(`/search?=${event.target.value}`)
         }
     }
     const onSetToggle = () => {
         if(window.screen.width <= 991 && !toggle) return setToggle(true)
         setToggle(false)
-        router.push(`/search-result?=${search}`)
+        router.push(`/search?=${search}`)
     }
     {
         toggle && (
@@ -123,7 +123,7 @@ const Topbar = () => {
                             <Link href={`/user-profile/${me.username}`}>Profile</Link>
                         </ProfileItem>
                         <ProfileItem>
-                            <Link href={`/user-profile/${me.username}`}>Edit</Link>
+                            <Link href={'/edit-profile'}>Edit</Link>
                         </ProfileItem>
                         <ProfileItem>
                             <Link href={`/user-profile/${me.username}`}>Logout</Link>
