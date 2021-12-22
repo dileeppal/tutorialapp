@@ -216,7 +216,7 @@ export const IconBadge = styled.span`
         height: 1rem;
         font-size: .625rem;
     }
-`;
+`; 
 
 export const ProfileImg = styled.img`
     width: 3.75rem;
@@ -229,7 +229,7 @@ export const ProfileImg = styled.img`
     overflow: hidden;
     @media (max-width: 991px) {
         width: 2.5rem;
-        height: 2.5rem;
+        height: 2.5rem; 
     }
 `;
 
@@ -254,7 +254,7 @@ export const ProfileDropdown = styled.ul`
     box-shadow: 0px 2px 80px rgb(66 66 66 / 8%);
     border-radius: .625rem;
     z-index: 10;  
-    &.opened {
+    &.opened { 
         display: block;
     }
     @media (max-width: 991px) {

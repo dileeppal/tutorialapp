@@ -26,7 +26,7 @@ import { CommentIcon } from "../../../../public/assets/icons/CommentIcon";
 import { WellIcon } from "../../../../public/assets/icons/WellIcon";
 import { Logo } from '../../../../public/assets/images/Logo';
 import { TopSearchIcon } from '../../../../public/assets/icons/TopSearchIcon';
-import { BackOverlay } from '../LeftSideBar/leftside.styles';
+import { BackOverlay } from '../LeftSideBar/leftside.styles'; 
 import router from 'next/router';
 
 const Topbar = () => {
@@ -52,7 +52,7 @@ const Topbar = () => {
         toggle && (
             <BackOverlay onClick={() => setToggle(false)} className="" />
         );
-    }
+    } 
 
     return (
       <TopbarContainer>
