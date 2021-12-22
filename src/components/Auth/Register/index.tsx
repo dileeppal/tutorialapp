@@ -31,6 +31,8 @@ import {
   PageContainer,
   FormWrap,
   HorizontalRule,
+  FormWrapRow,
+  FormWrapThumb,
 } from "../auth-styles";
 
 
@@ -73,6 +75,7 @@ const Register = () => {
           validationSchema={getRegisterValidationSchema}
         >
           {({ isSubmitting, errors, touched }) => (
+          <FormWrapRow>
             <FormWrap>
               <MainContainer>
                 <WelcomeText>Register</WelcomeText>
@@ -114,23 +117,27 @@ const Register = () => {
                   </div>
                 </InputContainer>
                 <ButtonContainer>
+                  
                   <Button
                     content="Sign Up"
                     type="submit"
                     disabled={isSubmitting}
                   />
+                  <Link href="/signin">
+                    <LoginWith>Or Login </LoginWith>
+                  </Link>
                 </ButtonContainer>
-                <Link href="/signin">
-                  <LoginWith>OR LOGIN </LoginWith>
-                </Link>
                 <HorizontalRule />
                 <Terms>
                   By creating your account you agree to the{" "}
-                  <Link href="/terms">terms</Link> and 
-                  <Link href="/privacy">privacy policy</Link>
+                  <Link href="/terms">terms</Link> and <Link href="/privacy"> privacy policy</Link>
                 </Terms>
               </MainContainer>
             </FormWrap>
+            <FormWrapThumb>
+              <img src="https://images.unsplash.com/photo-1469981283837-561b3779462f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
+            </FormWrapThumb>
+          </FormWrapRow>
           )}
         </Formik>
       </PageContainer>

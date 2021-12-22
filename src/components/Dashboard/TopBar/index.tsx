@@ -26,7 +26,7 @@ import { CommentIcon } from "../../../../public/assets/icons/CommentIcon";
 import { WellIcon } from "../../../../public/assets/icons/WellIcon";
 import { Logo } from '../../../../public/assets/images/Logo';
 import { TopSearchIcon } from '../../../../public/assets/icons/TopSearchIcon';
-import { BackOverlay } from '../LeftSideBar/leftside.styles';
+import { BackOverlay } from '../LeftSideBar/leftside.styles'; 
 import router from 'next/router';
 
 const Topbar = () => {
@@ -40,19 +40,19 @@ const Topbar = () => {
         setSearch(event.target.value)
         if(event.keyCode === 13) {
             setToggle(false)
-            router.push(`/search-result?=${event.target.value}`)
+            router.push(`/search?=${event.target.value}`)
         }
     }
     const onSetToggle = () => {
         if(window.screen.width <= 991 && !toggle) return setToggle(true)
         setToggle(false)
-        router.push(`/search-result?=${search}`)
+        router.push(`/search?=${search}`)
     }
     {
         toggle && (
             <BackOverlay onClick={() => setToggle(false)} className="" />
         );
-    }
+    } 
 
     return (
       <TopbarContainer>
@@ -71,7 +71,7 @@ const Topbar = () => {
               <TopSearchIcon />
             </TopSearchButton>
             <SearchInput
-              placeholder="Search"
+              placeholder="Search books, courses and hit enter"
               onKeyUp={(event) => onSearch(event)}
             />
           </SearchBar>

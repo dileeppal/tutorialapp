@@ -22,15 +22,15 @@ const SmallFooter
 
         const toggleHome = () => {
             scroll.scrollToTop();
-        };
-        return (
+        }; 
+        return ( 
             <SmallFooterContainer>
                 <SocialMedia>
                     <SocialMediaWrap>
                         <SocialLogo onClick={toggleHome}>
                             <Logo color="white" width="45" height="45" />
                         </SocialLogo>
-                        <WebsiteRights>
+                        <WebsiteRights>  
                             Baremetals Limited {new Date().getFullYear()}
                         </WebsiteRights>
                         <SocialIcons>
