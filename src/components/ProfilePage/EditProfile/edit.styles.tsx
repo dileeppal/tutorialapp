@@ -54,6 +54,10 @@ export const ProfileImage = styled.img`
     border-radius: 10rem;
     object-fit: cover;
     margin-right: 1.25rem;
+    @media (max-width: 991px) {
+        width: 4rem;
+        height: 4rem;
+    }
 `;
 
 
@@ -62,6 +66,10 @@ export const BackGroundImage = styled.img`
     height: 8rem;
     object-fit: cover;
     margin-right: 1.25rem;
+    @media (max-width: 991px) {
+        width: 4rem;
+        height: 4rem;
+    }
 `;
 
 export const HorizontalRule = styled.hr`
@@ -79,6 +87,9 @@ export const PageContentWrap = styled.div`
 
 export const ProfileFormGroup = styled.div`
     padding: 2.5rem;
+    @media (max-width: 991px) {
+        padding: 1.5rem;
+    }
 `;
 
 export const EditProfileTitle = styled.h3`
