@@ -4,6 +4,8 @@ import { useRouter } from 'next/router';
 import { Formik } from "formik";
 import { getLoginValidationSchema } from "utils/formValidation";
 import { useLoginMutation } from "generated/graphql";
+import NextImage from "next/image";
+
 
 // Redux imports
 import { useAppDispatch } from "app/hooks";
@@ -81,53 +83,59 @@ const Login = () => {
         >
           {({ isSubmitting, errors, touched }) => (
             <FormWrapRow>
-            <FormWrap>
-              <MainContainer>
-                <WelcomeText>Login</WelcomeText>
-                {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
-                <InputContainer>
-                <div className="form-group">
-                  <Input
-                    type="text"
-                    placeholder="Username or Email"
-                    name="usernameOrEmail"
-                  />
-                  {errors.usernameOrEmail && touched.usernameOrEmail && (
-                    <Error>{errors.usernameOrEmail}</Error>
-                  )}
-                  </div>
-                  <div className="form-group">
-                  <Input
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                  />
-                  {errors.password && touched.password && (
-                    <Error>{errors.password}</Error>
-                  )}
-                  </div>
-                </InputContainer>
-                <ButtonContainer>
-                  <Button
-                    type="submit"
-                    content="Sign in"
-                    disabled={isSubmitting}
-                  />
-                  <Link href="/signup">
-                    <LoginWith>Register </LoginWith>
-                  </Link>
-                </ButtonContainer>
-                <HorizontalRule />
-                <FooterLinkContainer className="d-flex">
-                  <Link href="/forgot-password">
-                    <ForgotPassword>Forgot password?</ForgotPassword>
-                  </Link>
-                </FooterLinkContainer>
-              </MainContainer>
-            </FormWrap>
-            <FormWrapThumb>
-              <img src="https://images.unsplash.com/photo-1469981283837-561b3779462f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
-            </FormWrapThumb>
+              <FormWrap>
+                <MainContainer>
+                  <WelcomeText>Login</WelcomeText>
+                  {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
+                  <InputContainer>
+                    <div className="form-group">
+                      <Input
+                        type="text"
+                        placeholder="Username or Email"
+                        name="usernameOrEmail"
+                      />
+                      {errors.usernameOrEmail && touched.usernameOrEmail && (
+                        <Error>{errors.usernameOrEmail}</Error>
+                      )}
+                    </div>
+                    <div className="form-group">
+                      <Input
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                      />
+                      {errors.password && touched.password && (
+                        <Error>{errors.password}</Error>
+                      )}
+                    </div>
+                  </InputContainer>
+                  <ButtonContainer>
+                    <Button
+                      type="submit"
+                      content="Sign in"
+                      disabled={isSubmitting}
+                    />
+                    <Link href="/signup">
+                      <LoginWith>Register </LoginWith>
+                    </Link>
+                  </ButtonContainer>
+                  <HorizontalRule />
+                  <FooterLinkContainer className="d-flex">
+                    <Link href="/forgot-password">
+                      <ForgotPassword>Forgot password?</ForgotPassword>
+                    </Link>
+                  </FooterLinkContainer>
+                </MainContainer>
+              </FormWrap>
+              <FormWrapThumb>
+                <NextImage
+                  src="/assets/images/login.svg"
+                  alt="404 image"
+                  width={450}
+                  height={300}
+                  layout="responsive"
+                />
+              </FormWrapThumb>
             </FormWrapRow>
           )}
         </Formik>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-
+import NextImage from "next/image";
 import {
   useRegisterMutation,
 } from "../../../generated/graphql";
@@ -75,69 +75,79 @@ const Register = () => {
           validationSchema={getRegisterValidationSchema}
         >
           {({ isSubmitting, errors, touched }) => (
-          <FormWrapRow>
-            <FormWrap>
-              <MainContainer>
-                <WelcomeText>Register</WelcomeText>
-                
-                {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
-                <InputContainer>
-                  <div className="form-group">
-                  <Input type="text" placeholder="Full Name" name="fullName" />
-                  {errors.fullName && touched.fullName && (
-                    <Error>{errors.fullName}</Error>
-                  )}
-                  </div>
-                  <div className="form-group">
-                  <Input
-                    type="text"
-                    placeholder="username"
-                    name="username"
-                    values="username"
-                  />
-                  {errors.username && touched.username && (
-                    <Error>{errors.username}</Error>
-                  )}
-                  </div>
-                  <div className="form-group">
-                  <Input type="email" placeholder="Email" name="email" />
-                  {errors.email && touched.email && (
-                    <Error>{errors.email}</Error>
-                  )}
-                  </div>
-                  <div className="form-group">
-                  <Input
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                  />
-                  {errors.password && touched.password && (
-                    <Error>{errors.password}</Error>
-                  )}
-                  </div>
-                </InputContainer>
-                <ButtonContainer>
-                  
-                  <Button
-                    content="Sign Up"
-                    type="submit"
-                    disabled={isSubmitting}
-                  />
-                  <Link href="/signin">
-                    <LoginWith>Or Login </LoginWith>
-                  </Link>
-                </ButtonContainer>
-                <HorizontalRule />
-                <Terms>
-                  By creating your account you agree to the{" "}
-                  <Link href="/terms">terms</Link> and <Link href="/privacy"> privacy policy</Link>
-                </Terms>
-              </MainContainer>
-            </FormWrap>
-            <FormWrapThumb>
-              <img src="https://images.unsplash.com/photo-1469981283837-561b3779462f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
-            </FormWrapThumb>
-          </FormWrapRow>
+            <FormWrapRow>
+              <FormWrap>
+                <MainContainer>
+                  <WelcomeText>Register</WelcomeText>
+
+                  {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
+                  <InputContainer>
+                    <div className="form-group">
+                      <Input
+                        type="text"
+                        placeholder="Full Name"
+                        name="fullName"
+                      />
+                      {errors.fullName && touched.fullName && (
+                        <Error>{errors.fullName}</Error>
+                      )}
+                    </div>
+                    <div className="form-group">
+                      <Input
+                        type="text"
+                        placeholder="username"
+                        name="username"
+                        values="username"
+                      />
+                      {errors.username && touched.username && (
+                        <Error>{errors.username}</Error>
+                      )}
+                    </div>
+                    <div className="form-group">
+                      <Input type="email" placeholder="Email" name="email" />
+                      {errors.email && touched.email && (
+                        <Error>{errors.email}</Error>
+                      )}
+                    </div>
+                    <div className="form-group">
+                      <Input
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                      />
+                      {errors.password && touched.password && (
+                        <Error>{errors.password}</Error>
+                      )}
+                    </div>
+                  </InputContainer>
+                  <ButtonContainer>
+                    <Button
+                      content="Sign Up"
+                      type="submit"
+                      disabled={isSubmitting}
+                    />
+                    <Link href="/signin">
+                      <LoginWith>Or Login </LoginWith>
+                    </Link>
+                  </ButtonContainer>
+                  <HorizontalRule />
+                  <Terms>
+                    By creating your account you agree to the{" "}
+                    <Link href="/terms">terms</Link> and{" "}
+                    <Link href="/privacy"> privacy policy</Link>
+                  </Terms>
+                </MainContainer>
+              </FormWrap>
+              <FormWrapThumb>
+                <NextImage
+                  src="/assets/images/register.svg"
+                  alt="404 image"
+                  width={450}
+                  height={300}
+                  layout="responsive"
+                />
+              </FormWrapThumb>
+            </FormWrapRow>
           )}
         </Formik>
       </PageContainer>

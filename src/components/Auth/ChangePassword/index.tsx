@@ -4,6 +4,7 @@ import { Formik } from "formik";
 import { getForgotPasswordValidationSchema } from "utils/formValidation";
 import { useForgotPasswordMutation } from "generated/graphql";
 import { ErrorMsg, Input, Error, SuccessMsg } from "../../Input";
+import NextImage from "next/image";
 import Button from "../Button";
 
 import {
@@ -71,42 +72,48 @@ const ChangePassword = () => {
           >
             {({ isSubmitting, errors, touched }) => (
               <FormWrapRow>
-              <FormWrap>
-                <MainContainer>
-                  <WelcomeText>Forgot password</WelcomeText>
-                  {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
-                  {successMsg && (
-                    <SuccessMsg>{initialValues.success}</SuccessMsg>
-                  )}
-                  <InputContainer>
-                  <div className="form-group">
-                    <Input
-                      type="text"
-                      placeholder="Email or Username"
-                      name="usernameOrEmail"
-                      values="usernameOrEmail"
-                    />
-                    {errors.usernameOrEmail && touched.usernameOrEmail && (
-                      <Error>{errors.usernameOrEmail}</Error>
+                <FormWrap>
+                  <MainContainer>
+                    <WelcomeText>Forgot password</WelcomeText>
+                    {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
+                    {successMsg && (
+                      <SuccessMsg>{initialValues.success}</SuccessMsg>
                     )}
-                    </div>
-                  </InputContainer>
-                  <ButtonContainer>
-                    <Button
-                      type="Submit"
-                      content="Send"
-                      disabled={isSubmitting}
-                    />
-                  <Link href="/signin">
-                    <BackToLogin>Back to login?</BackToLogin>
-                  </Link>
-                  </ButtonContainer>
-                  <HorizontalRule />
-                </MainContainer>
-              </FormWrap>
-              <FormWrapThumb>
-              <img src="https://images.unsplash.com/photo-1469981283837-561b3779462f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
-            </FormWrapThumb>
+                    <InputContainer>
+                      <div className="form-group">
+                        <Input
+                          type="text"
+                          placeholder="Email or Username"
+                          name="usernameOrEmail"
+                          values="usernameOrEmail"
+                        />
+                        {errors.usernameOrEmail && touched.usernameOrEmail && (
+                          <Error>{errors.usernameOrEmail}</Error>
+                        )}
+                      </div>
+                    </InputContainer>
+                    <ButtonContainer>
+                      <Button
+                        type="Submit"
+                        content="Send"
+                        disabled={isSubmitting}
+                      />
+                      <Link href="/signin">
+                        <BackToLogin>Back to login?</BackToLogin>
+                      </Link>
+                    </ButtonContainer>
+                    <HorizontalRule />
+                  </MainContainer>
+                </FormWrap>
+                <FormWrapThumb>
+                  <NextImage
+                    src="/assets/images/forgotpassword.svg"
+                    alt="404 image"
+                    width={450}
+                    height={300}
+                    layout="responsive"
+                  />
+                </FormWrapThumb>
               </FormWrapRow>
             )}
           </Formik>

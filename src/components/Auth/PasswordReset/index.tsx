@@ -5,6 +5,7 @@ import { getResetPasswordValidationSchema } from "utils/formValidation";
 import { useResetPasswordMutation } from "generated/graphql";
 import { ErrorMsg, Input, Error, SuccessMsg } from "../../Input";
 import Button from "../Button";
+import NextImage from "next/image";
 
 import {
   MainContainer,
@@ -76,49 +77,57 @@ const ResetPassword = () => {
         >
           {({ isSubmitting, errors, touched }) => (
             <FormWrapRow>
-            <FormWrap>
-              <MainContainer>
-                <WelcomeText>Reset password</WelcomeText>
-                {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
-                {successMsg && <SuccessMsg>{initialValues.success}</SuccessMsg>}
-                <InputContainer>
-                <div className="form-group">
-                  <Input
-                    type="password"
-                    placeholder="New Password"
-                    name="newPassword"
-                  />
-                  {errors.newPassword && touched.newPassword && (
-                    <Error>{errors.newPassword}</Error>
+              <FormWrap>
+                <MainContainer>
+                  <WelcomeText>Reset password</WelcomeText>
+                  {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
+                  {successMsg && (
+                    <SuccessMsg>{initialValues.success}</SuccessMsg>
                   )}
-                  </div>
-                  <div className="form-group">
-                  <Input
-                    type="password"
-                    placeholder="Confirm Password"
-                    name="confirmPassword"
-                  />
-                  {errors.confirmPassword && touched.confirmPassword && (
-                    <Error>{errors.confirmPassword}</Error>
-                  )}
-                  </div>
-                </InputContainer>
-                <ButtonContainer>
-                  <Button
-                    type="Submit"
-                    content="Submit"
-                    disabled={isSubmitting}
-                  />
-                <Link href="/signin">
-                  <BackToLogin>Back to login?</BackToLogin>
-                </Link>
-                </ButtonContainer>
-                <HorizontalRule />
-              </MainContainer>
-            </FormWrap>
-            <FormWrapThumb>
-              <img src="https://images.unsplash.com/photo-1469981283837-561b3779462f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80" />
-            </FormWrapThumb>
+                  <InputContainer>
+                    <div className="form-group">
+                      <Input
+                        type="password"
+                        placeholder="New Password"
+                        name="newPassword"
+                      />
+                      {errors.newPassword && touched.newPassword && (
+                        <Error>{errors.newPassword}</Error>
+                      )}
+                    </div>
+                    <div className="form-group">
+                      <Input
+                        type="password"
+                        placeholder="Confirm Password"
+                        name="confirmPassword"
+                      />
+                      {errors.confirmPassword && touched.confirmPassword && (
+                        <Error>{errors.confirmPassword}</Error>
+                      )}
+                    </div>
+                  </InputContainer>
+                  <ButtonContainer>
+                    <Button
+                      type="Submit"
+                      content="Submit"
+                      disabled={isSubmitting}
+                    />
+                    <Link href="/signin">
+                      <BackToLogin>Back to login?</BackToLogin>
+                    </Link>
+                  </ButtonContainer>
+                  <HorizontalRule />
+                </MainContainer>
+              </FormWrap>
+              <FormWrapThumb>
+                <NextImage
+                  src="/assets/images/forgot.svg"
+                  alt="404 image"
+                  width={450}
+                  height={300}
+                  layout="responsive"
+                />
+              </FormWrapThumb>
             </FormWrapRow>
           )}
         </Formik>

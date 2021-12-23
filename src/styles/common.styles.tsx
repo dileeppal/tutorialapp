@@ -1,14 +1,15 @@
 import styled from 'styled-components'
 
 export const PageContainer = styled.div`
-    display: flex;
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #EEF0F3;
-    @media (max-width: 991px) {
-      flex-direction: column;
-    }
+  display: flex;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: auto;
+  background-color: #eef0f3;
+  @media (max-width: 991px) {
+    flex-direction: column;
+  }
 `;
 
 export const ProfileWrapGroup = styled.div`
