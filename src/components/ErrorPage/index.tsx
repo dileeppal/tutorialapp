@@ -38,84 +38,111 @@ const ErrorPage: React.FC<ErrorPageProps> = ({statusCode = 400}: any) => {
     const [errTitle] = useState(getError(statusCode).title);
     const [errMsg] = useState(getError(statusCode).message);
     const [image] = useState(getError(statusCode).image);
-  return (
-    <PageContainer>
-      <Wrapper>
-        <ErrorTitleText>{`${statusCode} ${errTitle}`}</ErrorTitleText>
-        <ImageWrapper>
-          <NextImage src={image} alt="404 image" width={450} height={300} />
-        </ImageWrapper>
-        <ErrorText>{errMsg}</ErrorText>
-        <Link href="/">
-          <button>Go Back</button>
-        </Link>
-      </Wrapper>
-    </PageContainer>
-  );
+    return (
+        <PageContainer>
+            <Wrapper>
+                <ImageWrapper>
+                    <NextImage src={image} alt="404 image" width={900} height={500} />
+                </ImageWrapper>
+                <ErrorContent>
+                    <ErrorSubTitleText>{`${errTitle}`}</ErrorSubTitleText>
+                    <ErrorTitleText>{`${statusCode}`}</ErrorTitleText>
+                    <ErrorText>{errMsg}</ErrorText>
+                    <Link href="/">
+                        <GoBackButton>Go Back</GoBackButton>
+                    </Link>
+                </ErrorContent>
+            </Wrapper>
+        </PageContainer>
+    );
 };
 
 export default ErrorPage
 
 export const PageContainer = styled.div`
-  background-color: #eef0f3;
-  padding: 5rem 1.5rem;
-  min-height: 100vh;
-  display: flex;
-  @media (max-width: 767px) {
-    padding: 2rem 1.5rem;
-  }
+    background-color: #eef0f3;
+    min-height: 100vh;
+    display: flex;
 `;
 
 export const Wrapper = styled.div`
-  width: 100%;
-  padding: 4rem;
-  align-items: center;
-  z-index: 10;
-  @media (min-width: 768px) {
-    min-height: 38.25rem;
-  }
-  h4,
-  h5 {
-    font-size: 1rem;
-    font-weight: normal;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    max-width: 75rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 2rem;
     @media (max-width: 767px) {
-      font-size: 0.75rem;
+        flex-wrap: wrap;
     }
-  }
-  @media (max-width: 767px) {
-    padding: 1.75rem;
-  }
 `;
 
-export const ErrorTitleText = styled.h2`
-  color: inherit;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  @media (max-width: 767px) {
-    font-size: 1.75rem;
-    margin-bottom: 1.25rem;
-  }
+export const ErrorSubTitleText = styled.h2`
+    font-size: 2rem; 
+    font-weight: 300;
+    color: inherit;
+    margin-bottom: .5rem;
 `;
 
-export const ErrorText = styled.h2`
-  color: inherit;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  @media (max-width: 767px) {
-    font-size: 1.75rem;
-    margin-bottom: 1.25rem;
-  }
+export const GoBackButton = styled.button`
+
+    background-color: #7755E2;
+    color: #fff;
+    font-size: 1rem;
+    border-radius: 10rem;
+    padding: .875rem 2.5rem;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    font-weight: 500;
+    display: inline-block;
+    text-transform: capitalize;
+    box-shadow: 0px 2px 80px rgb(66 66 66 / 8%);
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+        color: #7755E2;
+        background-color: #fff;
+    }
+    @media (max-width: 767px) {
+        padding: 1rem 2rem;
+    }
+    
+`;
+
+export const ErrorTitleText = styled.h1`
+    color: inherit;
+    font-size: 8rem;
+    line-height: 1;
+    margin-bottom: .5rem;
+`;
+
+export const ErrorText = styled.p`
+    color: inherit;
+    font-size: 1.125rem;
+    margin-bottom: 1.5rem;
 `;
 
 export const ImageWrapper = styled.div`
-  width: 50%;
-  @media (max-width: 767px) {
-    display: none;
-    width: 100%;
-  }
-  img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
+    flex: 1 0 0%;
+    @media (max-width: 767px) {
+        min-width: 18.5rem;
+        max-width: 18.5rem;
+        margin-left: auto;
+        margin-right: auto;
+    }
 `;
+
+export const ErrorContent = styled.div`
+    min-width: 22rem;
+    max-width: 22rem;
+    text-align: center;
+    @media (max-width: 767px) {
+        min-width: 18.5rem;
+        max-width: 18.5rem;
+        margin-left: auto;
+        margin-right: auto; 
+    }
+`;
+

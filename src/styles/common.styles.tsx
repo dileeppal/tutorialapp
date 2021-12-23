@@ -16,13 +16,31 @@ export const ProfileWrapGroup = styled.div`
     display: flex;
 `;
 
+export const ContentArea = styled.div`
+    background-color: #fff;
+    box-shadow: 0px 2px 80px rgba(66,66,66,0.08);
+    border-radius: 0.625rem;
+    padding: 3.5rem;
+
+    @media (max-width: 991px) {
+        padding: 2rem;
+    }
+
+    > * {
+        margin-bottom: 1.5rem;
+    }
+    ul, ol {
+        padding-left: 1.5rem;
+    }
+`;
+
 export const PageWrapGroup = styled.div`
-  flex: auto;
-  overflow: hidden;
-  border-radius: 1rem;
-  background-color: #fff;
-  box-shadow: 0px 2px 80px rgba(66, 66, 66, 0.08);
-  border-radius: 0.625rem;
+    flex: auto;
+    overflow: hidden; 
+    border-radius: 1rem;
+    background-color: #fff;
+    box-shadow: 0px 2px 80px rgba(66, 66, 66, 0.08);
+    border-radius: 0.625rem;
 `;
 
 export const ForumRow = styled.div`
@@ -35,14 +53,14 @@ export const ForumRow = styled.div`
         margin-right: -.5rem;
     }
 `;
-
+ 
 export const ForumColumn = styled.div`
     margin: .75rem;
     width: calc(100% - 1.5rem);
     @media (max-width: 1365px) {
         width: 50%;
     }
-    @media (max-width: 767px) {
+    @media (max-width: 767px) { 
         width: 100%;
     }
 `;
@@ -247,7 +265,7 @@ export const ApplyButton = styled.button`
     line-height: 1;    
     font-weight: 500;
     @media (max-width: 991px) {
-        font-size: .75rem;
+        font-size: .75rem; 
         padding: .5rem 1rem;
     }
 `;
@@ -261,7 +279,7 @@ export const PageRightSide = styled.div`
         min-width: 20rem;
     }
     @media (max-width: 991px) {
-        display: none;
-        padding: 2rem 1.5rem;
+        display: none; 
+        padding: 2rem 1.5rem;      
     }
-`;                  
+`;

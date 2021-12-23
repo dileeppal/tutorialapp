@@ -1,10 +1,11 @@
+import TermsAndConditionsPage from 'components/TermsAndConditions'
 import React from 'react'
 
 const TermsOfService = () => {
     return (
-        <div>
-            
-        </div>
+        <>
+            <TermsAndConditionsPage />
+        </>
     )
 }
 
