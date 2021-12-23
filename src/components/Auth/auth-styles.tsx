@@ -20,6 +20,7 @@ export const FormWrap = styled(Form)`
 
 export const FormWrapThumb = styled.div`
     width: 50%;
+    align-self: center;
     @media (max-width: 767px) {
         display: none;
         width: 100%;
@@ -37,11 +38,33 @@ export const FormWrapRow = styled.div`
     margin: auto;
     width: 100%;
     max-width: 56rem;
-    overflow: hidden;
     background-color: #fff;
     color: #000;
     box-shadow: 0px 2px 80px rgb(66 66 66 / 8%);
     border-radius: .5rem;
+    position: relative;
+    margin-top: 3rem;
+`;
+
+export const BackToHome = styled.button`
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    margin-bottom: 1rem;
+    
+    background-color: #7755E2;
+    color: #fff;
+    font-size: 1rem;
+    padding: .5rem 1.5rem;
+    border-radius: 10rem;
+    border: none;
+    cursor: pointer;
+    line-height: 1;
+    font-weight: 500;
+    display: inline-block;
+    text-transform: capitalize;
+    box-shadow: 0px 2px 5px rgb(66 66 66 / 8%);
+    transition: all 0.2s ease-in-out;
 `;
 
 export const MainContainer = styled.div`

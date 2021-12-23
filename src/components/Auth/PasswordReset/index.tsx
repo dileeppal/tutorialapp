@@ -18,6 +18,7 @@ import {
   HorizontalRule,
   FormWrapRow,
   FormWrapThumb,
+  BackToHome,
 } from "../auth-styles";
 
 import { ToastContainer, toast } from "react-toastify";
@@ -77,6 +78,9 @@ const ResetPassword = () => {
         >
           {({ isSubmitting, errors, touched }) => (
             <FormWrapRow>
+              <Link href="/">
+                <BackToHome>Back</BackToHome>
+              </Link>
               <FormWrap>
                 <MainContainer>
                   <WelcomeText>Reset password</WelcomeText>

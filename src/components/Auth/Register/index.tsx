@@ -33,6 +33,7 @@ import {
   HorizontalRule,
   FormWrapRow,
   FormWrapThumb,
+  BackToHome,
 } from "../auth-styles";
 
 
@@ -76,6 +77,9 @@ const Register = () => {
         >
           {({ isSubmitting, errors, touched }) => (
             <FormWrapRow>
+              <Link href="/">
+                <BackToHome>Back</BackToHome>
+              </Link>
               <FormWrap>
                 <MainContainer>
                   <WelcomeText>Register</WelcomeText>
@@ -142,8 +146,8 @@ const Register = () => {
                 <NextImage
                   src="/assets/images/register.svg"
                   alt="404 image"
-                  width={450}
-                  height={300}
+                  width={600}
+                  height={620}
                   layout="responsive"
                 />
               </FormWrapThumb>

@@ -26,7 +26,8 @@ import {
   FormWrap,
   HorizontalRule,
   FormWrapRow,
-  FormWrapThumb
+  FormWrapThumb,
+  BackToHome
 } from "../auth-styles";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -83,6 +84,9 @@ const Login = () => {
         >
           {({ isSubmitting, errors, touched }) => (
             <FormWrapRow>
+              <Link href="/">
+                <BackToHome>Back</BackToHome>
+              </Link>
               <FormWrap>
                 <MainContainer>
                   <WelcomeText>Login</WelcomeText>
