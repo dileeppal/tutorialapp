@@ -292,17 +292,16 @@ export const SocialDropDown = styled.div`
         display: flex;
         align-items: center;
         padding: 0.625rem 1.25rem;
-        background-color: #7755e2;
         border-radius: 2rem;
         height: 2.5rem;
         font-size: 1rem;
         font-weight: normal;
-        color: #FFF;
+        color: #000;
         svg {
             display: block;
             height: 100%;
             width: 100%;
-            fill: #FFF;
+            fill: #000;
             margin-right: .5rem;
         }
     }
@@ -318,7 +317,7 @@ export const SocialDropDownList = styled.ul`
     display: none;
     position: absolute;
     top: 100%;
-    width: 10rem;
+    width: 12rem;
     right: 0;
     background-color: #FFF;
     padding: .5rem 0;
@@ -346,6 +345,6 @@ export const SocialDropDownItem = styled.li`
         width: 1rem;
         height: 1rem;
         vertical-align: middle;
-        margin-right: .5rem;
+        margin-right: .75rem;
     }
 `;

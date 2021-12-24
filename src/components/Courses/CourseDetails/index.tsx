@@ -37,7 +37,9 @@ import {
 import { SocialDropDownIcon }  from "../../../../public/assets/icons/SocialDropDownIcon"
 import { FaceBook }  from "../../../../public/assets/icons/FaceBook"
 import { Twitter }  from "../../../../public/assets/icons/Twitter"
-import { InstaGram }  from "../../../../public/assets/icons/InstaGram"
+import { LinkedIn }  from "../../../../public/assets/icons/LinkedIn"
+import { WhatsApp }  from "../../../../public/assets/icons/WhatsApp"
+import { TikTok }  from "../../../../public/assets/icons/TikTok"
 
 function CourseDetails() {
 
@@ -65,8 +67,16 @@ function CourseDetails() {
                                     Twitter
                                 </SocialDropDownItem>
                                 <SocialDropDownItem>
-                                    <InstaGram />
-                                    Instagram
+                                    <LinkedIn />
+                                    LinkedIn
+                                </SocialDropDownItem>
+                                <SocialDropDownItem>
+                                    <WhatsApp />
+                                    Whatsapp
+                                </SocialDropDownItem>
+                                <SocialDropDownItem>
+                                    <TikTok />
+                                    Tiktok
                                 </SocialDropDownItem>
                             </SocialDropDownList>
                         </SocialDropDown>
