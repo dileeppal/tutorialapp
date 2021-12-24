@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import ImagePostCard from "../../Dashboard/Forum/ImagePostCard";
 import TextPostCard from "../../Dashboard/Forum/TextPostCard";
 import VideoPostCard from "../../Dashboard/Forum/VideoPostCard";
@@ -27,16 +27,51 @@ import {
   PageHeading,
   CardBottom,
   ApplyButton,
+
+  SocialDropDown,
+  SocialDropDownList,
+  SocialDropDownItem,
+
 } from "../../../styles/common.styles";
 
+import { SocialDropDownIcon }  from "../../../../public/assets/icons/SocialDropDownIcon"
+import { FaceBook }  from "../../../../public/assets/icons/FaceBook"
+import { Twitter }  from "../../../../public/assets/icons/Twitter"
+import { InstaGram }  from "../../../../public/assets/icons/InstaGram"
+
 function CourseDetails() {
+
+    const [socialDropdown, setSocialDropdown] = useState(false)
+
     return (
         <>
             <PageContainer>
                 <LeftSideBar />
                 <InnerContainer>
                     <Topbar />
-                    <PageHeading>Course Title</PageHeading>
+                    <PageHeading>
+                        <SocialDropDown>
+                            <span onClick={() => setSocialDropdown(!socialDropdown)}>
+                                <SocialDropDownIcon  />
+                                Share
+                            </span>
+                            <SocialDropDownList className={`${socialDropdown ? "opened" : ""}`} onClick={() => setSocialDropdown(!socialDropdown)}>
+                                <SocialDropDownItem>
+                                    <FaceBook />
+                                    Facebook
+                                </SocialDropDownItem>
+                                <SocialDropDownItem>
+                                    <Twitter />
+                                    Twitter
+                                </SocialDropDownItem>
+                                <SocialDropDownItem>
+                                    <InstaGram />
+                                    Instagram
+                                </SocialDropDownItem>
+                            </SocialDropDownList>
+                        </SocialDropDown>
+                        Fullstack Javascript web Dev
+                    </PageHeading>
                     <DetailsCardWrapper>
                         <CardTop>
                             <CardLeftWrap>
