@@ -41,7 +41,6 @@ body {
     background-color: #FFF;
     border: 1px solid rgb(0 0 0 / 10%);
     border-radius: .5rem;
-    overflow: hidden;
 }
 .editor-class {
     padding: 0 1rem .5rem;
