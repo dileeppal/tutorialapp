@@ -145,7 +145,7 @@ const Register = () => {
               <FormWrapThumb>
                 <NextImage
                   src="/assets/images/register.svg"
-                  alt="404 image"
+                  alt="register image"
                   width={600}
                   height={620}
                   layout="responsive"

@@ -57,7 +57,7 @@ function EditProfile() {
                             <HorizontalLine />
                         </EditProfileGroup>
                         <EditProfileGroup>
-                            <EditProfileTitle>Prfile Detail</EditProfileTitle>
+                            <EditProfileTitle>Profile Detail</EditProfileTitle>
                             <FileUploadedGroup>
                                 <FileUploadedThumb src={preview} />
                                 <FileUploaded type='file' onChange={InputFileUpload} />

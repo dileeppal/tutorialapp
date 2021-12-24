@@ -126,7 +126,7 @@ const ResetPassword = () => {
               <FormWrapThumb>
                 <NextImage
                   src="/assets/images/forgot.svg"
-                  alt="404 image"
+                  alt="reset password image"
                   width={450}
                   height={300}
                   layout="responsive"

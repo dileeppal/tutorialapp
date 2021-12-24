@@ -134,7 +134,7 @@ const Login = () => {
               <FormWrapThumb>
                 <NextImage
                   src="/assets/images/login.svg"
-                  alt="404 image"
+                  alt="login image"
                   width={450}
                   height={300}
                   layout="responsive"

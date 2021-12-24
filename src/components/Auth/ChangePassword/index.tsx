@@ -74,7 +74,7 @@ const ChangePassword = () => {
             {({ isSubmitting, errors, touched }) => (
               <FormWrapRow>
                 <Link href="/">
-                  <BackToHome>Back</BackToHome>
+                  <BackToHome>Home</BackToHome>
                 </Link>
                 <FormWrap>
                   <MainContainer>
@@ -112,7 +112,7 @@ const ChangePassword = () => {
                 <FormWrapThumb>
                   <NextImage
                     src="/assets/images/forgotpassword.svg"
-                    alt="404 image"
+                    alt="forgot password image"
                     width={450}
                     height={300}
                     layout="responsive"
