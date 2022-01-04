@@ -18,6 +18,10 @@ import {
     ApplyButton,
     CardDuration,
 } from "../../styles/common.styles";
+import TextPostCard from 'components/Dashboard/Forum/TextPostCard';
+import { ForumContainer } from 'components/Dashboard/Forum/forum.styles';
+import VideoPostCard from 'components/Dashboard/Forum/VideoPostCard';
+import ImagePostCard from 'components/Dashboard/Forum/ImagePostCard';
 
 function SearchResult() {
     return (
@@ -125,6 +129,46 @@ function SearchResult() {
                   </CardBottom>
                 </CardBody>
               </PostCard>
+            </PageWrapper>
+
+            <PageSubHeading>Users</PageSubHeading>
+
+            <PageWrapper>
+
+                <ForumContainer>
+                    <TextPostCard
+                        username="maguyva"
+                        image="/D.jpg"
+                        date="5 min ago"
+                        title="tweet tweet tweet"
+                        body="tweet tweet tweet"
+                        likeCount="10"
+                        commentCount={16}
+                    />
+                </ForumContainer>
+                <ForumContainer>
+                    <VideoPostCard
+                        username="maguyva"
+                        image="/D.jpg"
+                        date="5 min ago"
+                        title="tweet tweet tweet"
+                        body="/exvid.mp4"
+                        likeCount={13}
+                        commentCount={29}
+                        viewCount={31}
+                    />
+                </ForumContainer>
+                <ForumContainer>
+                    <ImagePostCard
+                        username="maguyva"
+                        image="/D.jpg"
+                        date="5 min ago"
+                        title="tweet tweet tweet"
+                        body="/isak.jpg"
+                        likeCount={10}
+                        commentCount={8}
+                    />
+                </ForumContainer>
             </PageWrapper>
 
             <SmallFooter />
