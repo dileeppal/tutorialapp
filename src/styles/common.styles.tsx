@@ -348,3 +348,55 @@ export const SocialDropDownItem = styled.li`
         margin-right: .75rem;
     }
 `;
+
+export const UserGroup = styled.div`
+    display: flex;
+    align-items: start;  
+`;
+export const UserImg = styled.img`
+    margin-right: 0.75rem;
+    border-radius: 100%;
+`;
+
+export const UserNameWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+`;
+export const UserName = styled.span`
+    font-weight: bold;    
+    line-height: 1.2;
+`;
+export const PostDate = styled.small`
+    font-size: .75rem;
+    color: #afa5c3;
+`;
+
+export const UserText = styled.div`
+    font-size: 1rem;
+    color: #afa5c3;
+    margin-bottom: .5rem;
+`;
+
+export const UserInfo = styled.div`
+    
+`;
+
+export const FlexRow = styled.div`
+    display: flex;
+    margin-bottom:.25rem;
+`;
+export const FlexCol = styled.div`
+    padding: 0 .5rem 0 0;
+`;
+
+export const H4 = styled.h4`
+    font-size:1.25rem;
+    font-weight: bold;
+`;
+export const Strong = styled.strong`
+    
+`;
+
+
+
