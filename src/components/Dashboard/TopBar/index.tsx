@@ -1,141 +1,153 @@
 import React, { useState } from 'react'
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-// for data fetching
-
-
+// styled components
 import {
-    TopbarContainer,
-    TopLeftWrap,
-    TopBarLogoGroup,
-    TopCenterWrap,
-    SearchBar,
-    SearchInput,
-    TopRightWrap,
-    TopSearchButton,
-    Icons,
-    IconItem,
-    IconBadge,
-    ProfileImg,
-    ProfileSetting,
-    ProfileDropdown,
-    ProfileItem,
+  TopbarContainer,
+  TopLeftWrap,
+  TopBarLogoGroup,
+  TopCenterWrap,
+  SearchBar,
+  SearchInput,
+  TopRightWrap,
+  TopSearchButton,
+  Icons,
+  ProfileImg,
+  ProfileSetting,
+  ProfileDropdown,
+  ProfileItem,
 } from "./topbar.styles";
 
-import { CommentIcon } from "../../../../public/assets/icons/CommentIcon";
-import { WellIcon } from "../../../../public/assets/icons/WellIcon";
-import { Logo } from '../../../../public/assets/images/Logo';
-import { TopSearchIcon } from '../../../../public/assets/icons/TopSearchIcon';
-import { BackOverlay } from '../LeftSideBar/leftside.styles'; 
-import router from 'next/router';
+import { Logo } from "../../../../public/assets/images/Logo";
+import { TopSearchIcon } from "../../../../public/assets/icons/TopSearchIcon";
+
+import { useAppSelector } from "app/hooks";
+import { isUser } from "features/auth/selectors";
+import {
+  useLogoutMutation,
+} from "generated/graphql";
+
+import { BackOverlay } from '../LeftSideBar/leftside.styles';
+import AlarmBell from './AlarmBell';
+import ChatIcon from './ChatIcon';
 
 const Topbar = () => {
+  const router = useRouter();
+  const [logout] = useLogoutMutation();
+  const [dropdown, setDropdown] = useState(false);
+  const [toggle, setToggle] = useState(false);
+  const [search, setSearch] = useState(false);
+  const { user: user } = useAppSelector(isUser);
 
-    const [dropdown, setDropdown] = useState(false)
-    const [toggle, setToggle] = useState(false)
 
-    const [search, setSearch] = useState(false)
+  const me = user;
 
-    const onSearch = (event:any) => {
-        setSearch(event.target.value)
-        if(event.keyCode === 13) {
-            setToggle(false)
-            router.push(`/search?=${event.target.value}`)
-        }
+  const handleLogOut = async () => {
+    try {
+      const res = await logout({
+        variables: {
+          username: me?.username as string,
+        },
+      });
+      if (res.data?.logout.includes("User logged off.")) {
+        router.push("/signin");
+      }
+    } catch (error) {
+      console.log(error);
+      throw error;
     }
-    const onSetToggle = () => {
-        if(window.screen.width <= 991 && !toggle) return setToggle(true)
-        setToggle(false)
-        router.push(`/search?=${search}`)
-    }
-    {
-        toggle && (
-            <BackOverlay onClick={() => setToggle(false)} className="" />
-        );
-    } 
+  };
 
-    return (
-      <TopbarContainer>
-        <TopLeftWrap>
-          <TopBarLogoGroup>
-            <Link href={`/user-profile/`}>
+  const onSearch = (event: any) => {
+    setSearch(event.target.value);
+    if (event.keyCode === 13) {
+      setToggle(false);
+      router.push(`/search-result?=${event.target.value}`);
+    }
+  };
+  const onSetToggle = () => {
+    if (window.screen.width <= 991 && !toggle) return setToggle(true);
+    setToggle(false);
+    router.push(`/search-result?=${search}`);
+  };
+  {
+    toggle && <BackOverlay onClick={() => setToggle(false)} className="" />;
+  }
+
+  return (
+    <TopbarContainer>
+      <TopLeftWrap>
+        <TopBarLogoGroup>
+          <Link href={`/user-profile/`}>
+            <div>
               <Logo color="white" width="50" height="50" />
-            </Link>
-          </TopBarLogoGroup>
-        </TopLeftWrap>
+            </div>
+          </Link>
+        </TopBarLogoGroup>
+      </TopLeftWrap>
 
-        <TopCenterWrap>
-          <SearchBar className={toggle ? "opened" : ""}>
-            {/* <SearchIcon></SearchIcon> */}
-            <TopSearchButton onClick={() => onSetToggle()}>
-              <TopSearchIcon />
-            </TopSearchButton>
-            <SearchInput
-              placeholder="Search books, courses and hit enter"
-              onKeyUp={(event) => onSearch(event)}
-            />
-          </SearchBar>
-          {toggle && (
-            <BackOverlay
-              onClick={() => setToggle(false)}
-              className="searchOverlay"
-            />
-          )}
-        </TopCenterWrap>
-
-        <TopRightWrap>
-          {/* <TopBarNavLinks>
-                    <NavLinks>
-                        <Link href={`/user-profile/${me.username}`}>Home</Link>
-                    </NavLinks>
-                    <NavLinks>Timeline</NavLinks>
-                </TopBarNavLinks> */}
-          <Icons>
-            {/* <IconItem>
-                        <Link href={`/user-profile/${me.username}`}>
-                            <RiHome4Fill />
-                        </Link>
-                    </IconItem> */}
-            <IconItem>
-              <CommentIcon />
-              <IconBadge>3</IconBadge>
-            </IconItem>
-            <IconItem>
-              <WellIcon />
-              {/* <RiNotification2Fill /> */}
-              <IconBadge>5</IconBadge>
-            </IconItem>
-          </Icons>
-
-          <ProfileSetting>
-            <ProfileImg
-              onClick={() => setDropdown(!dropdown)}
-              alt="user profile image"
-              src="/Aleah.jpg"
-            />
-            <ProfileDropdown
-              className={`${dropdown ? "opened" : ""}`}
-              onClick={() => setDropdown(!dropdown)}
-            >
-              <ProfileItem>
-                <Link href={`/user-profile/maguyva`}>Setting</Link>
-              </ProfileItem>
-              <ProfileItem>
-                <Link href={`/user-profile/maguyva`}>Profile</Link>
-              </ProfileItem>
-              <ProfileItem>
-                <Link href={`/user-profile/maguyva/edit-profile`}>
-                  Edit Profile
-                </Link>
-              </ProfileItem>
-              <ProfileItem>
-                <Link href={`/user-profile/maguyva`}>Logout</Link>
-              </ProfileItem>
-            </ProfileDropdown>
-          </ProfileSetting>
-        </TopRightWrap>
-      </TopbarContainer>
-    );
-}
+      <TopCenterWrap>
+        <SearchBar className={toggle ? "opened" : ""}>
+          <TopSearchButton onClick={() => onSetToggle()}>
+            <TopSearchIcon />
+          </TopSearchButton>
+          <SearchInput
+            placeholder="Search for courses, posts or users then hit enter"
+            onKeyUp={(event) => onSearch(event)}
+          />
+        </SearchBar>
+        {toggle && (
+          <BackOverlay
+            onClick={() => setToggle(false)}
+            className="searchOverlay"
+          />
+        )}
+      </TopCenterWrap>
+      <TopRightWrap>
+        <Icons>
+          <ChatIcon />
+          <AlarmBell id={me?.id as string} />
+        </Icons>
+        <ProfileSetting>
+          <ProfileImg
+            onClick={() => setDropdown(!dropdown)}
+            alt="user profile image"
+            src={me?.profileImage}
+          />
+          <ProfileDropdown
+            className={`${dropdown ? "opened" : ""}`}
+            onClick={() => setDropdown(!dropdown)}
+          >
+            {/* <ProfileItem>
+              <Link href={`/user-profile/${me?.userIdSlug}`}>Setting</Link>
+            </ProfileItem> */}
+            <ProfileItem>
+              <Link href={`/user-profile/${me?.userIdSlug}`}>Profile</Link>
+            </ProfileItem>
+            <ProfileItem>
+              <Link href={`/user-profile/${me?.userIdSlug}/edit-profile`}>
+                Edit Profile
+              </Link>
+            </ProfileItem>
+            <ProfileItem>
+              <Link href={`/user-profile/${me?.userIdSlug}/edit-profile`}>
+                Privacy settings
+              </Link>
+            </ProfileItem>
+            <ProfileItem>
+              <Link href={`/user-profile/${me?.userIdSlug}/edit-profile`}>
+                Terms
+              </Link>
+            </ProfileItem>
+            <ProfileItem>
+              <a onClick={handleLogOut}>Logout</a>
+            </ProfileItem>
+          </ProfileDropdown>
+        </ProfileSetting>
+      </TopRightWrap>
+    </TopbarContainer>
+  );
+};
 
 export default Topbar;

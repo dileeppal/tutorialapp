@@ -1,14 +1,8 @@
-import React from 'react'
-// import { Logo } from '../../../public/assets/images/Logo';
-import LeftSideBar from '../Dashboard/LeftSideBar'
-import SmallFooter from '../Dashboard/SmallFooter';
-import Topbar from '../Dashboard/TopBar'
+import React from "react";
+import Link from "next/link";
+import { useAppSelector } from "app/hooks";
+import Dashboard from 'components/Dashboard';
 import {
-  PageContainer,
-  InnerContainer,
-  PageRightSide,
-  PageHeading,
-  PageWrapper,
   PostCard,
   CardTitle,
   CardImage,
@@ -18,88 +12,52 @@ import {
   CardStartDate,
   ApplyButton,
   CardBody,
+  PageHeading,
+  PageWrapper,
 } from "../../styles/common.styles";
+import { theCourses } from "features/courses/selectors";
+
 
 function CoursesPage() {
-    return (
-        <>
-
-            <PageContainer>
-                
-                <LeftSideBar />
-                
-                <InnerContainer>
-                    <Topbar />
-                    <PageHeading>Courses</PageHeading>
-                    <PageWrapper>
-                        <PostCard>
-                            <CardImage alt="course image" src="/assets/images/react.svg" />
-                            <CardBody>
-                                <CardDuration>3 Months</CardDuration>
-                                <CardTitle>Fullstack Javascript web Dev</CardTitle>
-                                <CardDescription>
-                                    The course includes: HTML, CSS and JavaScript and React Framework.
-                                </CardDescription>
-                                <CardBottom>
-                                    <CardStartDate>12/11/2021</CardStartDate>
-                                    <ApplyButton>Apply</ApplyButton>
-                                </CardBottom>
-                            </CardBody>
-                        </PostCard>
-                        
-                        <PostCard>
-                            <CardImage alt="course image" src="/assets/images/react.svg" />
-                            <CardBody>
-                                <CardDuration>3 Months</CardDuration>
-                                <CardTitle>Fullstack Javascript web Dev</CardTitle>
-                                <CardDescription>
-                                    The course includes: HTML, CSS and JavaScript and React Framework.
-                                </CardDescription>
-                                <CardBottom>
-                                    <CardStartDate>12/11/2021</CardStartDate>
-                                    <ApplyButton>Apply</ApplyButton>
-                                </CardBottom>
-                            </CardBody>
-                        </PostCard>
-                        
-                        <PostCard>
-                            <CardImage alt="course image" src="/assets/images/react.svg" />
-                            <CardBody>
-                                <CardDuration>3 Months</CardDuration>
-                                <CardTitle>Fullstack Javascript web Dev</CardTitle>
-                                <CardDescription>
-                                    The course includes: HTML, CSS and JavaScript and React Framework.
-                                </CardDescription>
-                                <CardBottom>
-                                    <CardStartDate>12/11/2021</CardStartDate>
-                                    <ApplyButton>Apply</ApplyButton>
-                                </CardBottom>
-                            </CardBody>
-                        </PostCard>
-                        
-                        <PostCard>
-                            <CardImage alt="course image" src="/assets/images/react.svg" />
-                            <CardBody>
-                                <CardDuration>3 Months</CardDuration>
-                                <CardTitle>Fullstack Javascript web Dev</CardTitle>
-                                <CardDescription>
-                                    The course includes: HTML, CSS and JavaScript and React Framework.
-                                </CardDescription>
-                                <CardBottom>
-                                    <CardStartDate>12/11/2021</CardStartDate>
-                                    <ApplyButton>Apply</ApplyButton>
-                                </CardBottom>
-                            </CardBody>
-                        </PostCard>
-                    </PageWrapper>
-                    <SmallFooter />
-                </InnerContainer>
-                {/* <PageRightSide>blow my wig</PageRightSide> */}
-            </PageContainer>
-
-
-        </>
-    );
+  const courses: any = useAppSelector(theCourses);
+  // console.log(courses);
+  return (
+    <>
+      <Dashboard>
+        <PageHeading>Courses</PageHeading>
+        <PageWrapper>
+          {!courses ? (
+            <div>loading...</div>
+          ) : (
+            courses.map((course: any, id: string) =>
+              !course ? null : (
+                <PostCard key={id}>
+                  <Link href={`/courses/${course.slug}`}>
+                    <CardImage alt="course image" src={course.image} />
+                  </Link>
+                  <CardBody>
+                    <CardDuration> - {course.duration}</CardDuration>
+                    <CardTitle>
+                      <Link href={`/courses/${course.slug}`}>
+                        {course.title}
+                      </Link>
+                    </CardTitle>
+                    <CardDescription>{course.description}</CardDescription>
+                    <CardBottom>
+                      <CardStartDate>{course.startDate}</CardStartDate>
+                      <Link href={`/courses/${course.slug}`}>
+                        <ApplyButton>apply</ApplyButton>
+                      </Link>
+                    </CardBottom>
+                  </CardBody>
+                </PostCard>
+              )
+            )
+          )}
+        </PageWrapper>
+      </Dashboard>
+    </>
+  );
 }
 
-export default CoursesPage
+export default CoursesPage;

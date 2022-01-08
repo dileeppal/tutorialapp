@@ -2,36 +2,32 @@ import React from "react";
 import styled from "styled-components";
 
 const Container = styled.li`
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
 `;
-
 const UserImageWrap = styled.div`
-    margin-right: .625rem;
-    position: relative;
+  margin-right: 10px;
+  position: relative;
 `;
-
 const UserImg = styled.img`
-    width: 2.5rem;
-    height: 2.5rem;
-    border-radius: 10rem;
-    object-fit: cover;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
 `;
-
 const UserStatus = styled.span`
-    width: .75rem;
-    height: .75rem;
-    border-radius: 10rem;
-    background-color: limegreen;
-    position: absolute;
-    top: -.125rem;
-    right: 0;
-    border: 2px solid white;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: limegreen;
+  position: absolute;
+  top: -2px;
+  right: 0;
+  border: 2px solid white;
 `;
-
 const UserTitle = styled.span`
-    font-weight: 500;
+  font-weight: 500;
 `;
 
 function OnlineUsers() {

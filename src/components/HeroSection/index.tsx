@@ -32,7 +32,6 @@ const HeroSection = ({ ...props }: any ) => {
             {...props}
           />
         </HeroBg>
-
         <HeroContent>
           <HeroH1>Bare Metals Academy</HeroH1>
           <HeroP>online training courses</HeroP>
@@ -49,7 +48,6 @@ const HeroSection = ({ ...props }: any ) => {
               spy={true}
               offset={-80}
             >
-              {" "}
               get started {hover ? <ArrowForward /> : <ArrowRight />}
             </Button>
           </HeroBtnWrapper>

@@ -1,33 +1,45 @@
-import DetailPost from 'components/Dashboard/Forum/DetailPost'
-import LeftSideBar from 'components/Dashboard/LeftSideBar'
-import SmallFooter from 'components/Dashboard/SmallFooter'
-import Topbar from 'components/Dashboard/TopBar'
-import React from 'react'
-import { PageContainer, InnerContainer, PageHeading, PageRightSide } from 'styles/common.styles'
+import DetailPost from "components/ForumPage/DetailPost";
+import {
+  GetPostBySlugDocument,
+  GetPostBySlugQueryResult,
+  Maybe,
+  PostResult,
+} from "generated/graphql";
+import { client } from 'lib/initApollo';
+import { useIsAuth } from 'lib/isAuth';
+import { requireAuthentication } from 'lib/requireAuthentication';
+import { GetServerSideProps } from 'next';
+import React from "react";
 
-const PostDetails = () => {
-    return (
-        <>
-            <PageContainer>
-                <LeftSideBar />
-                <InnerContainer>
-                    <Topbar />
-                    <DetailPost
-                        username="maguyva"
-                        image="/D.jpg"
-                        date="5 min ago"
-                        title="tweet tweet tweet"
-                        body="tweet tweet tweet"
-                        likeCount={10}
-                        commentCount={16}
-                    />
-                    <SmallFooter />
-                </InnerContainer>
-                {/* <PageRightSide>Live Forever Young</PageRightSide> */}
-            </PageContainer>
-            
-        </>
-    )
-}
+type detailProps = {
+  data: { data: { getPostBySlug: Maybe<PostResult> | undefined } };
+  loading: boolean;
+  error: any;
+};
 
-export default PostDetails
+const PostDetails = (props: detailProps) => {
+  useIsAuth();
+  return (
+    <>
+      <DetailPost props={props} />
+    </>
+  );
+};
+
+export const getServerSideProps: GetServerSideProps = requireAuthentication(
+  async (ctx) => {
+    const { slug } = ctx.query;
+    const data = await client.query<GetPostBySlugQueryResult>({
+      query: GetPostBySlugDocument,
+      variables: {
+        slug: slug,
+      },
+    });
+    // console.log(data);
+    return {
+      props: {data},
+    };
+  }
+);
+
+export default PostDetails;

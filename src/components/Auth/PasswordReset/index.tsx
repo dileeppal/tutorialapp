@@ -20,7 +20,6 @@ import {
   FormWrapThumb,
   BackToHome,
 } from "../auth-styles";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
@@ -38,7 +37,7 @@ const ResetPassword = () => {
   const [errorMsg, setErrorMsg] = useState(false);
   const [successMsg, setSuccessMsg] = useState(false);
 
-  const handleSubmit = async ({ ...values }: any) => {
+  const handleSubmit = async ({ ...values }: typeof initialValues) => {
     console.log(values);
 
     try {
@@ -83,11 +82,7 @@ const ResetPassword = () => {
               </Link>
               <FormWrap>
                 <MainContainer>
-                  <WelcomeText>Reset password</WelcomeText>
-                  {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
-                  {successMsg && (
-                    <SuccessMsg>{initialValues.success}</SuccessMsg>
-                  )}
+                  <WelcomeText>reset password</WelcomeText>
                   <InputContainer>
                     <div className="form-group">
                       <Input
@@ -112,14 +107,18 @@ const ResetPassword = () => {
                   </InputContainer>
                   <ButtonContainer>
                     <Button
-                      type="Submit"
-                      content="Submit"
+                      type="submit"
+                      content="submit"
                       disabled={isSubmitting}
                     />
                     <Link href="/signin">
-                      <BackToLogin>Back to login?</BackToLogin>
+                      <BackToLogin>back to login?</BackToLogin>
                     </Link>
                   </ButtonContainer>
+                  {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
+                  {successMsg && (
+                    <SuccessMsg>{initialValues.success}</SuccessMsg>
+                  )}
                   <HorizontalRule />
                 </MainContainer>
               </FormWrap>

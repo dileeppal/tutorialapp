@@ -1,21 +1,29 @@
-import React from "react";
-import dynamic from "next/dynamic";
+import React, { useState } from "react";
+// import dynamic from "next/dynamic"; 
+import htmlToDraft from "html-to-draftjs";
+import { ContentState, EditorState } from "draft-js";
+import { Editor } from "react-draft-wysiwyg";
 
-
-const Editor = dynamic(
-  () => import("react-draft-wysiwyg").then((mod) => mod.Editor),
-  {
-    ssr: false,
-  }
-);
+// const Editor =
+//   dynamic(() => import("react-draft-wysiwyg").then((mod) => mod.Editor), {
+//     ssr: false,
+//   });
 
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 
-export const PostEditor = ({
-  editorState,
-  onEditorStateChange,
-  ...props
-}: any) => {
+const PostEditor = ({ onEditorStateChange, content, ...props }: any) => {
+
+  const blocksFromHtml = htmlToDraft(content);
+  const { contentBlocks, entityMap } = blocksFromHtml;
+  const contentState = ContentState.createFromBlockArray(
+    contentBlocks,
+    entityMap
+  );
+
+  const [editorState, setEditorState] = useState<EditorState>(
+    EditorState.createWithContent(contentState)
+  );
+
   return (
     <Editor
       {...props}
@@ -23,7 +31,10 @@ export const PostEditor = ({
       toolbarClassName="toolbar-class"
       wrapperClassName="wrapper-class"
       editorClassName="editor-class"
-      onEditorStateChange={onEditorStateChange}
+      onEditorStateChange={(newState: EditorState) => {
+        setEditorState(newState);
+        onEditorStateChange(newState);
+      }}
       // toolbarOnFocus
       toolbar={{
         options: [
@@ -48,3 +59,5 @@ export const PostEditor = ({
     />
   );
 };
+
+export default PostEditor

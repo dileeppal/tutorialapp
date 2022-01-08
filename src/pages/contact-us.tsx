@@ -1,12 +1,16 @@
 import React from "react";
 import ContactUsPage from "components/ContactUs";
+import { useNoAuthPages } from "lib/noAuth";
+import { withApollo } from 'utils/withApollo';
 
-function Forum() {
+
+function Contact() {
+  useNoAuthPages();
   return (
     <>
-      <ContactUsPage/>
+      <ContactUsPage />
     </>
   );
 }
 
-export default Forum;
+export default withApollo({ ssr: false })(Contact);

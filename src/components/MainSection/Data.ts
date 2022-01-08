@@ -1,3 +1,4 @@
+
 export const homeObjOne = {
   id: "courses",
   lightBg: false,
@@ -24,7 +25,7 @@ export const homeObjTwo = {
   topLine: "Recommended Books",
   headline: "An array of recommended books.",
   description:
-    "Each course will have a recommended book along with other reading materials and online videos to help you laong the way.",
+    'Each course will have a recommended book along with other reading materials and online videos to help you laong the way.',
   buttonLabel: "Get Started",
   imgStart: true,
   img: "/assets/images/knowledge.svg",
@@ -42,7 +43,7 @@ export const homeObjThree = {
   topLine: "Forum",
   headline: "Stuck? Post a question to the forum ",
   description:
-    "The forum has been created for students to ask any challenging questions. All students and teachers have access and are all willing to help. We want to build a helpful and thriving community.",
+    'The forum has been created for students to ask any challenging questions. All students and teachers have access and are all willing to help. We want to build a helpful and thriving community.',
   buttonLabel: "Get Started",
   imgStart: false,
   img: "/assets/images/community.svg",
@@ -51,3 +52,4 @@ export const homeObjThree = {
   primary: true,
   darkText: false,
 };
+

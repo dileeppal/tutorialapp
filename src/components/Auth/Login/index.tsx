@@ -27,11 +27,12 @@ import {
   HorizontalRule,
   FormWrapRow,
   FormWrapThumb,
-  BackToHome
+  BackToHome,
 } from "../auth-styles";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { FooterLinkContainer } from 'components/Footer/styles';
+import { FooterLinkContainer } from "components/Footer/styles";
+
 
 
 const initialValues = {
@@ -48,7 +49,6 @@ const Login = () => {
   let err: any;
   
 
-
   const handleSubmit = async ({ ...values }: any) => {
 
     try {
@@ -57,17 +57,19 @@ const Login = () => {
           ...values,
         },
       });
-      if (!response.data?.login.includes("Login successful for")) {
+      // console.log(response);
+      if (!response.data?.login.includes("success-")) {
         err = response.data?.login;
         initialValues.error = err;
         setErrorMsg(true);
         dispatch(setError(response.data?.login));
       } else {
         dispatch(setSuccess(response.data?.login));
-        toast.success(response.data?.login);
+        const me = response.data?.login.slice(8);
+        toast.success("login successful");
         setTimeout(() => {
-          router.push("/courses");
-        }, 2000);
+          router.push(`/user-profile/${me}`);
+        }, 500);
       }
     } catch (ex) {
       console.log(ex);
@@ -85,12 +87,12 @@ const Login = () => {
           {({ isSubmitting, errors, touched }) => (
             <FormWrapRow>
               <Link href="/">
-                <BackToHome>Back</BackToHome>
+                <BackToHome>Home</BackToHome>
               </Link>
               <FormWrap>
                 <MainContainer>
-                  <WelcomeText>Login</WelcomeText>
-                  {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
+                  <WelcomeText>login</WelcomeText>
+                  {errorMsg && <><ErrorMsg>{initialValues.error}</ErrorMsg><br/></>}
                   <InputContainer>
                     <div className="form-group">
                       <Input
@@ -126,7 +128,7 @@ const Login = () => {
                   <HorizontalRule />
                   <FooterLinkContainer className="d-flex">
                     <Link href="/forgot-password">
-                      <ForgotPassword>Forgot password?</ForgotPassword>
+                      <ForgotPassword>Forgot Password?</ForgotPassword>
                     </Link>
                   </FooterLinkContainer>
                 </MainContainer>

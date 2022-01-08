@@ -6,7 +6,6 @@ import { useForgotPasswordMutation } from "generated/graphql";
 import { ErrorMsg, Input, Error, SuccessMsg } from "../../Input";
 import NextImage from "next/image";
 import Button from "../Button";
-
 import {
   MainContainer,
   WelcomeText,
@@ -20,7 +19,6 @@ import {
   FormWrapThumb,
   BackToHome,
 } from "../auth-styles";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -44,7 +42,7 @@ const ChangePassword = () => {
           ...values,
         },
       })
-      console.log(response.data)
+      // console.log(response.data)
       if (response.data?.forgotPassword.includes("reset link")) {
         const msg: any = response.data?.forgotPassword;
         setSuccessMsg(true);
@@ -78,11 +76,8 @@ const ChangePassword = () => {
                 </Link>
                 <FormWrap>
                   <MainContainer>
-                    <WelcomeText>Forgot password</WelcomeText>
-                    {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
-                    {successMsg && (
-                      <SuccessMsg>{initialValues.success}</SuccessMsg>
-                    )}
+                    <WelcomeText>Forgot Password</WelcomeText>
+
                     <InputContainer>
                       <div className="form-group">
                         <Input
@@ -98,14 +93,18 @@ const ChangePassword = () => {
                     </InputContainer>
                     <ButtonContainer>
                       <Button
-                        type="Submit"
-                        content="Send"
+                        type="submit"
+                        content="send"
                         disabled={isSubmitting}
                       />
                       <Link href="/signin">
-                        <BackToLogin>Back to login?</BackToLogin>
+                        <BackToLogin>back to login?</BackToLogin>
                       </Link>
                     </ButtonContainer>
+                    {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
+                    {successMsg && (
+                      <SuccessMsg>{initialValues.success}</SuccessMsg>
+                    )}
                     <HorizontalRule />
                   </MainContainer>
                 </FormWrap>

@@ -1,0 +1,3 @@
+mutation EditBackGroundImage($file: Upload!) {
+  editBackGroundImage(file: $file)
+}

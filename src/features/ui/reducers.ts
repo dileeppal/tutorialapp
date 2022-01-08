@@ -1,22 +1,30 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import Category from "models/Category";
 
 
  type uiState = {
-     loading: boolean;
-     error: string;
-     success: string;
-
- }
+   category: Category | null;
+   loading: boolean;
+   error: string;
+   success: string;
+ };
 const initialState: uiState = {
+  category: null,
   loading: false,
   error: "",
   success: "",
 };
 
 const uiSlice = createSlice({
-  name: "auth",
+  name: "ui",
   initialState,
   reducers: {
+    setCategory: (state, action: PayloadAction<any>) => {
+      return {
+        ...state,
+        category: action.payload,
+      };
+    },
     setLoading: (state, action: PayloadAction<boolean>) => {
       return {
         ...state,
@@ -38,7 +46,6 @@ const uiSlice = createSlice({
   },
 });
 
-export const { setLoading, setError, setSuccess } =
-  uiSlice.actions;
+export const { setLoading, setError, setSuccess, setCategory } = uiSlice.actions;
 
 export default uiSlice.reducer;

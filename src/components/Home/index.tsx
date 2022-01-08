@@ -1,30 +1,27 @@
-import AdCardThree from 'components/AdCards/AdCardThree';
+import React from 'react'
+import { PageHeading, PageWrapGroup, ProfileWrapGroup } from 'styles/common.styles'
+import Dashboard from '../Dashboard'
+
+import { useAppSelector } from "app/hooks";
+import { isUser } from "features/auth/selectors";
 import RightSideBar from 'components/Dashboard/RightSideBar';
-import React from "react";
-import {
-  PageHeading,
-  ProfileWrapGroup,
-  PageWrapGroup,
-} from "styles/common.styles";
-import Dashboard from "../Dashboard";
+import AdCardThree from 'components/AdCards/AdCardThree';
 
 const Home = () => {
-  
-  return (
-    <>
-      <Dashboard>
-        <PageHeading>Maguyva Dashboard</PageHeading>
-        <ProfileWrapGroup>
-            <PageWrapGroup>
+    const { user: user } = useAppSelector(isUser);
+    return (
+      <>
+        <Dashboard>
+          <PageHeading>{user?.fullName} Dashboard</PageHeading>
+          <ProfileWrapGroup>
+            <PageWrapGroup></PageWrapGroup>
+            <RightSideBar>
+              <AdCardThree />
+            </RightSideBar>
+          </ProfileWrapGroup>
+        </Dashboard>
+      </>
+    );
+}
 
-            </PageWrapGroup>
-          <RightSideBar>
-            <AdCardThree />
-          </RightSideBar>
-        </ProfileWrapGroup>
-      </Dashboard>
-    </>
-  );
-};
-
-export default Home;
+export default Home

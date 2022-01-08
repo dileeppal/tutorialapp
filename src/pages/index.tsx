@@ -8,19 +8,19 @@ import {
   homeObjThree,
 } from "../components/MainSection/Data";
 import { withApollo } from "utils/withApollo";
-import NavDropDown from 'components/NavDropDown';
+import { useNoAuth } from "lib/noAuth";
 import NavBar from 'components/NavBar/NavBar';
-import Footer from 'components/Footer/Footer';
 import { useState } from 'react';
-
+import Footer from 'components/Footer/Footer';
+import NavDropDown from 'components/NavDropDown';
 
 function Home() {
+  useNoAuth();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle: any = () => {
     setIsOpen(!isOpen);
   };
-  
   return (
     <>
       <Head>
@@ -37,7 +37,7 @@ function Home() {
         <NavBar toggle={toggle} />
         <HeroSection />
         <MainSection {...homeObjOne} />
-        <ServicesCard />
+        <ServicesCard id="featured"/>
         <MainSection {...homeObjTwo} />
         <MainSection {...homeObjThree} />
         <Footer />

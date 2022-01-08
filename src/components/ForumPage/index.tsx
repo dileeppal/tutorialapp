@@ -1,103 +1,148 @@
-import React from 'react'
-import styled from "styled-components";
-import TopBar from "../Dashboard/TopBar";
-import LeftSideBar from "../Dashboard/LeftSideBar";
-import SmallFooter from "../Dashboard/SmallFooter";
+import React, { SetStateAction, useEffect, useState } from "react";
 import Share from "../Dashboard/Share";
-import ImagePostCard from "../Dashboard/Forum/ImagePostCard";
-import TextPostCard from "../Dashboard/Forum/TextPostCard";
-import VideoPostCard from "../Dashboard/Forum/VideoPostCard";
+import styled from "styled-components";
+import { CategoryQuery, Exact, PostArray, Query, useCategoryQuery } from "generated/graphql";
+// import { useAppSelector } from "app/hooks";
+// import { isUser } from "features/auth/selectors";
+
 
 import {
-    PageContainer,
-    InnerContainer,
-    PageRightSide,
-    PageHeading,
-    ForumRow,
-    ForumFilter,
-    ForumFilterSortBy,
-    SelectCategory,
-    CategoryOption,
-    FilterSearch,
+  PageHeading,
+  ForumRow,
+  ForumFilter,
+  ForumFilterSortBy,
+  SelectCategory,
+  CategoryOption,
+  FilterSearch,
 } from "../../styles/common.styles";
+import Card from "./Card";
+import Dashboard from 'components/Dashboard';
+import { ErrorMsg } from 'components/Input';
+import { QueryResult } from '@apollo/client';
 
-const ForumPage = () => {
-    return (
-        <>
-            <PageContainer>
-                <LeftSideBar />
-                <InnerContainer>
-                    <TopBar />
-                    <PageHeading>Forum</PageHeading>
 
-                    <Share />
-                    <ForumRow>
-                        <ForumFilter>
-                            <ForumFilterSortBy>
-                                <SelectCategory>
-                                    <CategoryOption>Category 01</CategoryOption>
-                                    <CategoryOption>Category 02</CategoryOption>
-                                    <CategoryOption>Category 03</CategoryOption>
-                                    <CategoryOption>Category 04</CategoryOption>
-                                </SelectCategory>
-                            </ForumFilterSortBy>
-                            <FilterSearch placeholder="Search">
-                            </FilterSearch>
-                        </ForumFilter>
 
-                        <ForumContainer>
-                            <TextPostCard
-                                username="maguyva"
-                                image="/D.jpg"
-                                date="5 min ago"
-                                title="tweet tweet tweet"
-                                body="tweet tweet tweet"
-                                likeCount="10"
-                                commentCount={16}
-                            />
-                        </ForumContainer>
-                        <ForumContainer>
-                            <VideoPostCard
-                                username="maguyva"
-                                image="/D.jpg"
-                                date="5 min ago"
-                                title="tweet tweet tweet"
-                                body="/exvid.mp4"
-                                likeCount={13}
-                                commentCount={29}
-                                viewCount={31}
-                            />
-                        </ForumContainer>
-                        <ForumContainer>
-                            <ImagePostCard
-                                username="maguyva"
-                                image="/D.jpg"
-                                date="5 min ago"
-                                title="tweet tweet tweet"
-                                body="/isak.jpg"
-                                likeCount={10}
-                                commentCount={8}
-                            />
-                        </ForumContainer>
-                    </ForumRow>
-                    <SmallFooter />
-                </InnerContainer>
-                {/* <PageRightSide>Live Forever Young</PageRightSide> */}
-            </PageContainer>
-        </>
-    );
-}
+const ForumPage = (props: {
+  props: { data: Query; loading: boolean; error: any };
+}) => {
+  const cats: QueryResult<CategoryQuery, Exact<{
+    [key: string]: never;
+}>> = useCategoryQuery();
 
-export default ForumPage
+  const { data, loading, error } = props.props;
+  if (!data || loading) {
+    return <div>loading...</div>;
+  }
+  if (error) return <ErrorMsg>{error}</ErrorMsg>;
+  const { posts } = data.getLatestPosts as PostArray; 
+
+  const categories = cats?.data?.getAllCategories;
+  const [filteredcategories, setFilteredcategories] = useState([]);
+  const [values, setValues] = useState({
+    category: "",
+    search: "",
+  });
+  
+
+  useEffect(() => {
+    setFilteredcategories(posts as SetStateAction<never[]>);
+  }, [posts]);
+
+  const handleCategorySearch =
+    (name: string) => (event: { target: { value: any } }) => {
+      setValues({ ...values, [name]: event.target.value });
+      // console.log(event.target.value);
+      const categoryName = event.target.value;
+      if (categoryName !== "" || null || undefined) {
+        const filteredData = posts?.filter((post: any) => {
+          return post.category.name == categoryName;
+          // return cat.vote_average == ratings;
+        });
+        setFilteredcategories(filteredData as SetStateAction<never[]>);
+      } else setFilteredcategories(posts as SetStateAction<never[]>);
+    };
+
+  const handleSearch =
+    (name: string) => (event: { target: { value: string } }) => {
+      setValues({ ...values, [name]: event.target.value });
+      // console.log(event.target.value);
+      const searchValue = event.target.value;
+      if (searchValue !== "") {
+        const filteredData = posts?.filter((post) => {
+          return Object.values(post)
+            .join(" ")
+            .toLowerCase()
+            .includes(searchValue.toLowerCase());
+        });
+        setFilteredcategories(filteredData as SetStateAction<never[]>);
+      } else setFilteredcategories(posts as SetStateAction<never[]>);
+    };
+  return (
+    <Dashboard>
+      <PageHeading>Forum</PageHeading>
+      <Share />
+      <ForumRow>
+        <ForumFilter>
+          <ForumFilterSortBy>
+            <SelectCategory onChange={handleCategorySearch("category")}>
+              <CategoryOption value={values.category}>
+                Category Search
+              </CategoryOption>
+              {categories?.map((c: { name: string; id: string }) => (
+                <CategoryOption key={c.id} value={c.name}>
+                  {c.name}
+                </CategoryOption>
+              ))}
+            </SelectCategory>
+          </ForumFilterSortBy>
+          <FilterSearch
+            type="text"
+            name="search"
+            onChange={handleSearch("category")}
+            placeholder="Search"
+          ></FilterSearch>
+        </ForumFilter>
+        {!filteredcategories ? (
+          <div>loading...</div>
+        ) : (
+          filteredcategories.map((post: any, id) =>
+            !post ? null : (
+              <ForumContainer key={id}>
+                <Card
+                  username={post.creator.username}
+                  userIdSlug={post.creator.userIdSlug}
+                  image={post.creator.profileImage}
+                  date={post.createdOn}
+                  title={post.title}
+                  body={post.category.name}
+                  likeCount={post.points}
+                  commentCount={12}
+                  slug={post.slug}
+                  id={post.id}
+                >
+                  {/* {user?.userIdSlug === post.creator.userIdSlug && (
+                    <DropDownIcon />
+                  )} */}
+                </Card>
+              </ForumContainer>
+            )
+          )
+        )}
+      </ForumRow>
+    </Dashboard>
+  );
+};
+
+export default ForumPage;
 
 export const ForumContainer = styled.div`
-    width: 33.33%;
-    padding: .75rem;
-    @media (max-width: 1366px) {
-        width: 50%;
-    }
-    @media (max-width: 575px) {
-        width: 100%;
-        padding: .5rem;
-    }
+  width: 33.33%;
+  padding: 0.75rem;
+  @media (max-width: 1366px) {
+    width: 50%;
+  }
+  @media (max-width: 575px) {
+    width: 100%;
+    padding: 0.5rem;
+  }
 `;

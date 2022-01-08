@@ -1,17 +1,27 @@
-import ErrorPage from 'components/ErrorPage';
-// import Modal from "components/ShareForm/Modal";
-// import { useState } from "react";
+
+import { useIsAuth } from 'lib/isAuth';
+import React, { useEffect, useState } from "react";
+
+import {
+  FacebookShareCount,
+  HatenaShareCount,
+  OKShareCount,
+  PinterestShareCount,
+  RedditShareCount,
+  TumblrShareCount,
+  VKShareCount,
+} from "react-share";
 
 
 const form = () => {
-    // const [showModal, setShowModal] = useState(true);
+  useIsAuth();
 
-    return (
-      <>
-        <ErrorPage statusCode={500} />
-        {/* <Modal showModal={showModal} closeM={() => setShowModal(false)} /> */}
-      </>
-    );
-}
+  return (
+    <>
+      {/* <ErrorPage statusCode={500} /> */}
+      {/* <Converse /> */}
+    </>
+  );
+};
 
-export default form
+export default form;

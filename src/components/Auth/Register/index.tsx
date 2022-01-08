@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import NextImage from "next/image";
+
 import {
   useRegisterMutation,
 } from "../../../generated/graphql";
@@ -7,9 +8,9 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { Formik} from "formik";
 import Button from "../Button";
-import { Input, Error, ErrorMsg } from "../../Input";
+import { Input, Error, ErrorMsg, SuccessMsg} from "../../Input";
 import { getRegisterValidationSchema } from "../../../utils/formValidation";
-// import AuthModal from "../../Modal";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -39,6 +40,7 @@ import {
 
 const Register = () => {
   const [errorMsg, setErrorMsg] = useState(false);
+  const [successMsg, setSuccessMsg] = useState(false);
   let err: any;
   const router = useRouter();
 
@@ -56,10 +58,11 @@ const Register = () => {
         initialValues.error = err;
         setErrorMsg(true);
       } else {
+        setSuccessMsg(true);
         toast.success(response.data?.register);
         setTimeout(() => {
           router.push("/signin");
-        }, 5000);
+        }, 500);
       }
     } catch (ex) {
       console.log(ex);
@@ -68,7 +71,6 @@ const Register = () => {
 
   return (
     <>
-      {/* <AuthModal isOpen={false}>{initialValues.error}</AuthModal>; */}
       <PageContainer>
         <Formik
           initialValues={initialValues}
@@ -78,12 +80,13 @@ const Register = () => {
           {({ isSubmitting, errors, touched }) => (
             <FormWrapRow>
               <Link href="/">
-                <BackToHome>Back</BackToHome>
+                <BackToHome>Home</BackToHome>
               </Link>
               <FormWrap>
                 <MainContainer>
+                  {successMsg && <SuccessMsg>Please check your email to activate your account</SuccessMsg>}
+                  <br />
                   <WelcomeText>Register</WelcomeText>
-
                   {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
                   <InputContainer>
                     <div className="form-group">
@@ -99,7 +102,7 @@ const Register = () => {
                     <div className="form-group">
                       <Input
                         type="text"
-                        placeholder="username"
+                        placeholder="Username"
                         name="username"
                         values="username"
                       />
@@ -134,17 +137,18 @@ const Register = () => {
                       <LoginWith>Or Login </LoginWith>
                     </Link>
                   </ButtonContainer>
+
                   <HorizontalRule />
                   <Terms>
                     By creating your account you agree to the{" "}
-                    <Link href="/terms">terms</Link> and{" "}
+                    <Link href="/terms">terms</Link> and
                     <Link href="/privacy"> privacy policy</Link>
                   </Terms>
                 </MainContainer>
               </FormWrap>
               <FormWrapThumb>
                 <NextImage
-                  src="/assets/images/register.svg"
+                  src="/assets/images/reg.svg"
                   alt="register image"
                   width={600}
                   height={620}

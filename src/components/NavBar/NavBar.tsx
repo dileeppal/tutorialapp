@@ -13,7 +13,7 @@ import {
   NavBarContainer,
   NavItem,
 } from "./NavBar.styles";
-import { LogoShape } from "../../../public/assets/images/LogoShape";
+import { LogoShape } from "../../../public/assets/icons/LogoShape";
 
 
 
@@ -98,17 +98,19 @@ export default function NavBar({ toggle, ...props }: any) {
             </NavLink>
           </NavItem>
           <NavItem>
-            <NavLink
-              {...props}
-              to="signin"
-              smooth={true}
-              duration={500}
-              spy={true}
-              offset={-80}
-              exact="true"
-            >
-              Login
-            </NavLink>
+            <Link href="/signin">
+              <NavLink
+                {...props}
+                to="/signin"
+                smooth={true}
+                duration={500}
+                spy={true}
+                offset={-80}
+                exact="true"
+              >
+                Login
+              </NavLink>
+            </Link>
           </NavItem>
         </NavMenu>
         <NavBtn>

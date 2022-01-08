@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-scroll";
+import {Link} from "react-scroll"
 
 export const Nav = styled.nav`
   background: ${({ scrollNav }: any) => (scrollNav ? "#fff" : "transparent")};
@@ -25,7 +25,7 @@ export const NavBarContainer = styled.div`
   z-index: 1;
   width: 100%;
   padding: 0 24px;
-  max-width: 1100px;
+  max-width: 1100px
 `;
 
 export const NavMenu = styled.ul`
@@ -41,7 +41,7 @@ export const NavMenu = styled.ul`
 `;
 
 export const NavItem = styled.li`
-  height: 80px;
+    height: 80px;
 `;
 
 export const NavLink = styled(Link)`
