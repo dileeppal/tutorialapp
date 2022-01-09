@@ -1,4 +1,5 @@
 import React from "react";
+import { useRouter } from 'next/router';
 
 import {
   PageHeading,
@@ -25,68 +26,166 @@ import {
   Strong,
 } from "../../styles/common.styles";
 import Dashboard from "../Dashboard";
+import { Query } from 'generated/graphql';
+import { ErrorMsg } from 'components/Input';
 
-function SearchResult() {
+function SearchResult(props: {
+  props: { data: Query; loading: boolean; error: any };
+}) {
+  const router = useRouter();
+  const { data, loading, error } = props;
+
+  // if (data.searchBySearchTerm.messages) {
+  //   return <div>nothing found</div>;
+  // }
+const { courses, users, posts } = data.searchBySearchTerm;
+  const noData = data.searchBySearchTerm?.messages;
+  // if (!data || loading) {
+  //   return <div>loading...</div>;
+  // }
+  // if (error) return <ErrorMsg>{error}</ErrorMsg>;
+
+  // const  search  = router.asPath;
+
+  console.log(props);
+
   return (
     <Dashboard>
       <PageHeading>Search Results Here </PageHeading>
 
-      <PageSubHeading>Users</PageSubHeading>
-      <PageWrapper>
-        {[0, 1, 2].map((post) => (
-          <PostCard key={post}>
-            <CardBody>
-              <UserGroup>
-                <UserImg width={80} height={80} src="/D.jpg" />
-                <UserNameWrapper>
-                  <H4>maguyva</H4>
-                  <UserText>Badboy for Life!</UserText>
-                  <UserInfo>
-                    <FlexRow>
-                      <FlexCol>
-                        <Strong>Ratings:</Strong>
-                      </FlexCol>
-                      <FlexCol>Superb</FlexCol>
-                    </FlexRow>
-                    <FlexRow>
-                      <FlexCol>
-                        <Strong>City:</Strong>
-                      </FlexCol>
-                      <FlexCol>Accra</FlexCol>
-                    </FlexRow>
-                  </UserInfo>
-                </UserNameWrapper>
-              </UserGroup>
-            </CardBody>
-          </PostCard>
+      {noData && <div>{noData[0]}</div>}
+
+      {courses !== null || undefined && (
+        <>
+          <PageSubHeading>Courses</PageSubHeading>
+          <PageWrapper>
+            <PostCard>
+              <CardBody>
+                <CardDuration>3 Months</CardDuration>
+                <CardTitle>Fullstack Javascript web Dev</CardTitle>
+                <CardDescription>
+                  The course includes: HTML, CSS and JavaScript and React
+                  Framework.
+                </CardDescription>
+                <CardBottom>
+                  <CardStartDate>12/11/2021</CardStartDate>
+                  <ApplyButton>Apply</ApplyButton>
+                </CardBottom>
+              </CardBody>
+            </PostCard>
+
+            <PostCard>
+              <CardBody>
+                <CardDuration>3 Months</CardDuration>
+                <CardTitle>Fullstack Javascript web Dev</CardTitle>
+                <CardDescription>
+                  The course includes: HTML, CSS and JavaScript and React
+                  Framework.
+                </CardDescription>
+                <CardBottom>
+                  <CardStartDate>12/11/2021</CardStartDate>
+                  <ApplyButton>Apply</ApplyButton>
+                </CardBottom>
+              </CardBody>
+            </PostCard>
+
+            <PostCard>
+              <CardBody>
+                <CardDuration>3 Months</CardDuration>
+                <CardTitle>Fullstack Javascript web Dev</CardTitle>
+                <CardDescription>
+                  The course includes: HTML, CSS and JavaScript and React
+                  Framework.
+                </CardDescription>
+                <CardBottom>
+                  <CardStartDate>12/11/2021</CardStartDate>
+                  <ApplyButton>Apply</ApplyButton>
+                </CardBottom>
+              </CardBody>
+            </PostCard>
+          </PageWrapper>
+        </>
+      )}
+
+      {posts !== null ||
+        (undefined && (
+          <>
+            <PageSubHeading>Posts</PageSubHeading>
+            <PageWrapper>
+              {posts.map((post: React.Key | null | undefined) => (
+                <PostCard key={post}>
+                  <CardBody>
+                    <CardTitle>tweet tweet tweet</CardTitle>
+                    <CardDescription>
+                      Develop Future Proof responsive websites
+                    </CardDescription>
+                    <CardBottom>
+                      <UserGroup>
+                        <UserImg width={40} height={40} src="/D.jpg" />
+                        <UserNameWrapper>
+                          <UserName>maguyva</UserName>
+                          <PostDate>5 days ago</PostDate>
+                        </UserNameWrapper>
+                      </UserGroup>
+                      <ApplyButton>View</ApplyButton>
+                    </CardBottom>
+                  </CardBody>
+                </PostCard>
+              ))}
+            </PageWrapper>
+          </>
         ))}
-      </PageWrapper>
 
-      <PageSubHeading>Posts</PageSubHeading>
-      <PageWrapper>
-        {[0, 1, 2].map((post) => (
-          <PostCard key={post}>
-            <CardBody>
-              <CardTitle>tweet tweet tweet</CardTitle>
-              <CardDescription>
-                Develop Future Proof responsive websites
-              </CardDescription>
-              <CardBottom>
-                <UserGroup>
-                  <UserImg width={40} height={40} src="/D.jpg" />
-                  <UserNameWrapper>
-                    <UserName>maguyva</UserName>
-                    <PostDate>5 days ago</PostDate>
-                  </UserNameWrapper>
-                </UserGroup>
-                <ApplyButton>View</ApplyButton>
-              </CardBottom>
-            </CardBody>
-          </PostCard>
+      {users !== null ||
+        (undefined && (
+          <>
+            <PageSubHeading>Users</PageSubHeading>
+            <PageWrapper>
+              {users.map(
+                (
+                  user: {
+                    profileImage: string;
+                    fullName: string;
+                    description: string;
+                  },
+                  id: string
+                ) => (
+                  <PostCard key={id}>
+                    <CardBody>
+                      <UserGroup>
+                        <UserImg
+                          width={80}
+                          height={80}
+                          src={user.profileImage}
+                        />
+                        <UserNameWrapper>
+                          <H4>{user.fullName}</H4>
+                          <UserText>{user.description}</UserText>
+                          <UserInfo>
+                            <FlexRow>
+                              <FlexCol>
+                                <Strong>Ratings:</Strong>
+                              </FlexCol>
+                              <FlexCol>Superb</FlexCol>
+                            </FlexRow>
+                            <FlexRow>
+                              <FlexCol>
+                                <Strong>City:</Strong>
+                              </FlexCol>
+                              <FlexCol>Accra</FlexCol>
+                            </FlexRow>
+                          </UserInfo>
+                        </UserNameWrapper>
+                      </UserGroup>
+                    </CardBody>
+                  </PostCard>
+                )
+              )}
+            </PageWrapper>
+          </>
         ))}
-      </PageWrapper>
 
-      <PageSubHeading>Books</PageSubHeading>
+      {/* <PageSubHeading>Books</PageSubHeading>
 
       <PageWrapper>
         <PostCard>
@@ -127,52 +226,7 @@ function SearchResult() {
             </CardBottom>
           </CardBody>
         </PostCard>
-      </PageWrapper>
-
-      <PageSubHeading>Courses</PageSubHeading>
-      <PageWrapper>
-        <PostCard>
-          <CardBody>
-            <CardDuration>3 Months</CardDuration>
-            <CardTitle>Fullstack Javascript web Dev</CardTitle>
-            <CardDescription>
-              The course includes: HTML, CSS and JavaScript and React Framework.
-            </CardDescription>
-            <CardBottom>
-              <CardStartDate>12/11/2021</CardStartDate>
-              <ApplyButton>Apply</ApplyButton>
-            </CardBottom>
-          </CardBody>
-        </PostCard>
-
-        <PostCard>
-          <CardBody>
-            <CardDuration>3 Months</CardDuration>
-            <CardTitle>Fullstack Javascript web Dev</CardTitle>
-            <CardDescription>
-              The course includes: HTML, CSS and JavaScript and React Framework.
-            </CardDescription>
-            <CardBottom>
-              <CardStartDate>12/11/2021</CardStartDate>
-              <ApplyButton>Apply</ApplyButton>
-            </CardBottom>
-          </CardBody>
-        </PostCard>
-
-        <PostCard>
-          <CardBody>
-            <CardDuration>3 Months</CardDuration>
-            <CardTitle>Fullstack Javascript web Dev</CardTitle>
-            <CardDescription>
-              The course includes: HTML, CSS and JavaScript and React Framework.
-            </CardDescription>
-            <CardBottom>
-              <CardStartDate>12/11/2021</CardStartDate>
-              <ApplyButton>Apply</ApplyButton>
-            </CardBottom>
-          </CardBody>
-        </PostCard>
-      </PageWrapper>
+      </PageWrapper> */}
     </Dashboard>
   );
 }

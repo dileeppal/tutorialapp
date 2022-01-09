@@ -348,7 +348,7 @@ export type MutationDeleteVideoArgs = {
 
 
 export type MutationEditBackGroundImageArgs = {
-  file: Scalars['Upload'];
+  imageUrl: Scalars['String'];
 };
 
 
@@ -394,7 +394,7 @@ export type MutationEditPostArgs = {
 
 
 export type MutationEditProfileImageArgs = {
-  file: Scalars['Upload'];
+  imageUrl: Scalars['String'];
 };
 
 
@@ -950,14 +950,14 @@ export type DeleteMeMutationVariables = Exact<{ [key: string]: never; }>;
 export type DeleteMeMutation = { __typename?: 'Mutation', deleteMe: string };
 
 export type EditBackGroundImageMutationVariables = Exact<{
-  file: Scalars['Upload'];
+  imageUrl: Scalars['String'];
 }>;
 
 
 export type EditBackGroundImageMutation = { __typename?: 'Mutation', editBackGroundImage: string };
 
 export type EditProfileImageMutationVariables = Exact<{
-  file: Scalars['Upload'];
+  imageUrl: Scalars['String'];
 }>;
 
 
@@ -1048,7 +1048,7 @@ export type GetUserBySlugIdQuery = { __typename?: 'Query', getUserBySlugId?: { _
 export type MeQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-export type MeQuery = { __typename?: 'Query', me: { __typename?: 'EntityResult', messages?: Array<string> | null | undefined } | { __typename?: 'User', id: string, userIdSlug?: string | null | undefined, role: string, fullName: string, username: string, description: string, isOnline: boolean, location: string, profileImage: string, backgroundImg: string, createdOn: any, posts?: Array<{ __typename?: 'Post', id: string, slug: string, views: number, points: number, title: string, body: string, createdOn: any, comments?: Array<{ __typename?: 'Comment', id: string, body: string, createdOn: any, createdBy: string }> | null | undefined }> | null | undefined } };
+export type MeQuery = { __typename?: 'Query', me: { __typename?: 'EntityResult', messages?: Array<string> | null | undefined } | { __typename?: 'User', id: string, userIdSlug?: string | null | undefined, role: string, fullName: string, username: string, email: string, description: string, isOnline: boolean, location: string, profileImage: string, backgroundImg: string, createdOn: any, posts?: Array<{ __typename?: 'Post', id: string, slug: string, views: number, points: number, title: string, body: string, createdOn: any, comments?: Array<{ __typename?: 'Comment', id: string, body: string, createdOn: any, createdBy: string }> | null | undefined }> | null | undefined } };
 
 export type SearchUsersQueryVariables = Exact<{
   searchItem: Scalars['String'];
@@ -1881,8 +1881,8 @@ export type DeleteMeMutationHookResult = ReturnType<typeof useDeleteMeMutation>;
 export type DeleteMeMutationResult = Apollo.MutationResult<DeleteMeMutation>;
 export type DeleteMeMutationOptions = Apollo.BaseMutationOptions<DeleteMeMutation, DeleteMeMutationVariables>;
 export const EditBackGroundImageDocument = gql`
-    mutation EditBackGroundImage($file: Upload!) {
-  editBackGroundImage(file: $file)
+    mutation EditBackGroundImage($imageUrl: String!) {
+  editBackGroundImage(imageUrl: $imageUrl)
 }
     `;
 export type EditBackGroundImageMutationFn = Apollo.MutationFunction<EditBackGroundImageMutation, EditBackGroundImageMutationVariables>;
@@ -1900,7 +1900,7 @@ export type EditBackGroundImageMutationFn = Apollo.MutationFunction<EditBackGrou
  * @example
  * const [editBackGroundImageMutation, { data, loading, error }] = useEditBackGroundImageMutation({
  *   variables: {
- *      file: // value for 'file'
+ *      imageUrl: // value for 'imageUrl'
  *   },
  * });
  */
@@ -1912,8 +1912,8 @@ export type EditBackGroundImageMutationHookResult = ReturnType<typeof useEditBac
 export type EditBackGroundImageMutationResult = Apollo.MutationResult<EditBackGroundImageMutation>;
 export type EditBackGroundImageMutationOptions = Apollo.BaseMutationOptions<EditBackGroundImageMutation, EditBackGroundImageMutationVariables>;
 export const EditProfileImageDocument = gql`
-    mutation EditProfileImage($file: Upload!) {
-  editProfileImage(file: $file)
+    mutation EditProfileImage($imageUrl: String!) {
+  editProfileImage(imageUrl: $imageUrl)
 }
     `;
 export type EditProfileImageMutationFn = Apollo.MutationFunction<EditProfileImageMutation, EditProfileImageMutationVariables>;
@@ -1931,7 +1931,7 @@ export type EditProfileImageMutationFn = Apollo.MutationFunction<EditProfileImag
  * @example
  * const [editProfileImageMutation, { data, loading, error }] = useEditProfileImageMutation({
  *   variables: {
- *      file: // value for 'file'
+ *      imageUrl: // value for 'imageUrl'
  *   },
  * });
  */
@@ -2712,6 +2712,7 @@ export const MeDocument = gql`
       role
       fullName
       username
+      email
       description
       isOnline
       location

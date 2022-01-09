@@ -1,16 +1,13 @@
 import React from 'react'
 // import dynamic from "next/dynamic";
 import {Editor} from "react-draft-wysiwyg";
-
-// import { useMutation } from "@apollo/client";
-import { client } from "lib/initApollo";
+import { storage } from "lib/admin";
 import {
-  UploadFileDocument,
-  // MutationUploadFileArgs,
-  UploadFileMutation,
-} from "generated/graphql";
-
-
+  uploadBytes,
+  ref,
+  getDownloadURL,
+  StorageReference,
+} from "firebase/storage";
 
 // const Editor = dynamic(
 //   () => import("react-draft-wysiwyg").then((mod) => mod.Editor),
@@ -29,16 +26,15 @@ const ModalEditor = ({
 }: any) => {
   
     const uploadImageCallBack = async (file: File) => {
-      // console.log(file);
-      const res = await uploadInlineImageForModal(file, id);
-      console.log(res?.uploadFile);
-
+      const testingRef = ref(storage, `testing folder/${file.name}`);
+      const res = await uploadInlineImageForModal(file, testingRef);
+      const url = await getDownloadURL(testingRef);
+      console.log(res);
       return Promise.resolve({
         data: {
-          link: res?.uploadFile,
+          link: url
         },
       });
-      
     };
 
   return (
@@ -86,18 +82,10 @@ export default ModalEditor
 
 export const uploadInlineImageForModal = async (
   file: File,
-  id: string
+  storeRef: StorageReference
 ) => {
   try {
-    // console.log(file)
-    const { data } = await client.mutate<UploadFileMutation>({
-      mutation: UploadFileDocument,
-      variables: {
-        file,
-        id
-      },
-    });
-    return data;
+    return await uploadBytes(storeRef, file);
   } catch (e) {
     console.error(e);
     return null;

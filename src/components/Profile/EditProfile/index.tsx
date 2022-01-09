@@ -4,6 +4,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useAppSelector } from "app/hooks";
 import { isUser } from "features/auth/selectors";
 
+import { storage } from "lib/admin";
+import {
+  uploadBytes,
+  ref,
+  getDownloadURL,
+} from "firebase/storage";
+
 import {
   PageHeading,
   ProfileWrapGroup,
@@ -81,6 +88,7 @@ const EditProfile = () => {
     isImgError: false,
     isBkgImgError: false,
   });
+
   const [msg, setMsg] = useState("");
   const [success, setSuccess] = useState({
     isSuccess: false,
@@ -89,10 +97,12 @@ const EditProfile = () => {
     isBkgImgSuccess: false,
   });
   const [imgSizeErr, setImgSizeErr] = useState(false)
-  const [bkgImage, setBkgImage] = useState(user?.profileImage);
+  const [bkgImage, setBkgImage] = useState(user?.backgroundImage );
+  const [profImage, setProfImage] = useState(user?.profileImage);
   const schema = getChangePasswordValidationSchema();
   const profSchema = getProfileDetailsValidationSchema();
 
+  console.log(user)
   const removeErrorMsg = (): void => {
     setTimeout(() => {
       setError({
@@ -253,46 +263,66 @@ const EditProfile = () => {
       setValue("profileImage", upload as any);
     };
 
+
   // Submit button function for changingin user profile image,
   const handleImageSubmit: SubmitHandler<any> = async (dta) => {
+    const { name } = dta.profileImage
+    // console.log(name);
+    const testingRef = ref(storage, `testing folder/${name}`)
     const file = dta.profileImage;
-    // console.log(file);
-    const { data } = await editProfileImage({
-      variables: {
-        file,
-      },
-    });
-    console.log(data);
+ try {
 
-    if (data?.editProfileImage.includes("Success-")) {
-      setMsg("Profile image changed successfully.");
-      success.isImgSuccess = true;
-      removeSuccessMsg();
-    } else {
-      const errMsg = data?.editProfileImage as string;
-      setMsg(errMsg);
-      error.isImgError = true;
-      removeErrorMsg();
+    const res = await uploadBytes(testingRef, file).then(async () => {
+        const url = await getDownloadURL(testingRef);
+        return url
+      });
+      console.log(res)
+      const { data } = await editProfileImage({
+        variables: {
+          imageUrl: res,
+        },
+      });
+      if (data?.editProfileImage.includes("successfully")) {
+        setProfImage(res);
+        setMsg("Profile image changed successfully.");
+        success.isImgSuccess = true;
+        removeSuccessMsg();
+        setValue("success", "Profile image changed successfully.");
+      } else {
+        const errMsg = data?.editProfileImage as string;
+        setMsg(errMsg);
+        error.isImgError = true;
+        removeErrorMsg();
+      }
+    } catch (err) {
+      console.log("");
     }
   };
 
   // Submit button function for changing user background image,
   const handleBkgImageSubmit: SubmitHandler<any> = async (dta) => {
     const file = dta.profileImage;
-    // console.log(file);
+    const { name } = dta.profileImage;
+    const testingRef = ref(storage, `testing folder/${name}`);
+
+    const res = await uploadBytes(testingRef, file).then(async () => {
+      const url = await getDownloadURL(testingRef);
+      return url;
+    });
+    console.log(res);
     const { data } = await editBackGroundImage({
       variables: {
-        file
+        imageUrl: res,
       },
     });
-    console.log(data);
+    // console.log(data);
 
-    if (data?.editBackGroundImage.includes("Success-")) {
-      const url = data?.editBackGroundImage.slice(8);
-      setBkgImage(url);
+    if (data?.editBackGroundImage.includes("successfully")) {
+      setBkgImage(res);
       setMsg("Background image changed successfully.");
       success.isBkgImgSuccess = true;
       removeSuccessMsg();
+      setValue("success", "Background image changed successfully.");
     } else {
       const errMsg = data?.editBackGroundImage as string;
       setMsg(errMsg);
@@ -369,7 +399,7 @@ const EditProfile = () => {
                 {success.isImgSuccess && <SuccessMsg>{msg}</SuccessMsg>}
                 {error.isImgError && <ErrorMsg>{msg}</ErrorMsg>}
                 <form onSubmit={handleImgSubmit(handleImageSubmit)}>
-                  <ProfileImage src={user?.profileImage} alt="Profile Image" />
+                  <ProfileImage src={profImage ? profImage : user?.profileImage} alt="Profile Image" />
                   <InputSubmitGroup>
                     <input
                       type="file"
@@ -394,9 +424,9 @@ const EditProfile = () => {
                   <InputSubmitGroup>
                     <input
                       type="file"
-                      name="profileImage"
+                      name="backgroundImage"
                       required
-                      onChange={handleImageChange("profileImage")}
+                      onChange={handleImageChange("backgroundImage")}
                     />
                     <Button type="submit">submit</Button>
                   </InputSubmitGroup>

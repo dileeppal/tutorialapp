@@ -63,13 +63,15 @@ const Topbar = () => {
     setSearch(event.target.value);
     if (event.keyCode === 13) {
       setToggle(false);
-      router.push(`/search-result?=${event.target.value}`);
+      router.push(`/search-results/${search}`);
+      
     }
   };
   const onSetToggle = () => {
     if (window.screen.width <= 991 && !toggle) return setToggle(true);
     setToggle(false);
-    router.push(`/search-result?=${search}`);
+    router.push(`/search-results/${search}`);
+    // console.log(search);
   };
   {
     toggle && <BackOverlay onClick={() => setToggle(false)} className="" />;

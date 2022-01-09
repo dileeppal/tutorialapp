@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import dynamic from "next/dynamic";
 
+
 import { useAppDispatch, useAppSelector } from "app/hooks";
 import { isUser } from "features/auth";
 import { setCategory } from "features/ui/reducers";
@@ -157,6 +158,7 @@ const PostForm = ({
 
             <BodyTextWrapper>
               <ModalEditor
+                id={user?.id as string}
                 editorState={editorState}
                 onEditorStateChange={(newState: EditorState) => {
                   setEditorState(newState);
