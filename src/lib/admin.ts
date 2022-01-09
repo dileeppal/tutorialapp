@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getStorage } from "firebase/storage";
-import config from "../../database";
+import config from "../utils/database";
 
 const firebaseApp = initializeApp(config);
 

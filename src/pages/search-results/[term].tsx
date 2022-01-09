@@ -23,7 +23,7 @@ const SeachResultsPage = (props: JSX.IntrinsicAttributes & { props: { data: Quer
 export const getServerSideProps: GetServerSideProps = requireAuthentication(
   async (ctx) => {
     const { term } = ctx.query
-    console.log(term)
+    // console.log(term)
     const { data } = await client.query<SearchBySearchTermQueryResult>({
       query: SearchBySearchTermDocument,
       variables: {

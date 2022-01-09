@@ -17,8 +17,7 @@ function courses(props: any) {
   const dispatch = useAppDispatch();
   const courseData = props.data?.getLatestCourses?.courses;
   dispatch(setCourse(courseData));
-  // console.log(courseData);
-
+  
   return (
     <>
       <CoursesPage />
@@ -28,6 +27,7 @@ function courses(props: any) {
 
 export const getServerSideProps: GetServerSideProps = requireAuthentication(
   async (_ctx) => {
+    
     const { data } = await client.query<GetLatestCoursesQueryResult>({
       query: GetLatestCoursesDocument,
     });

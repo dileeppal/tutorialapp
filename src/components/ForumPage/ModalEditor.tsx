@@ -27,9 +27,9 @@ const ModalEditor = ({
   
     const uploadImageCallBack = async (file: File) => {
       const testingRef = ref(storage, `testing folder/${file.name}`);
-      const res = await uploadInlineImageForModal(file, testingRef);
+      await uploadInlineImageForModal(file, testingRef);
       const url = await getDownloadURL(testingRef);
-      console.log(res);
+      // console.log(res);
       return Promise.resolve({
         data: {
           link: url

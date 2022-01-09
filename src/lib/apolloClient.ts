@@ -5,13 +5,16 @@ import { getMainDefinition } from '@apollo/client/utilities';
 import { createUploadLink } from "apollo-upload-client";
 
 let apolloClient: ApolloClient<NormalizedCacheObject>;
-const GRAPHQL_URL = "http://localhost:8000/graphql";
-const WS_URL = "ws://localhost:8000/subscriptions";
+// const GRAPHQL_URL = "https://discuva-server.herokuapp.com/";
+const GRAPHQL_URL = process.env.NEXT_PUBLIC_GRAPHQL_URL;
+const WS_URL = process.env.NEXT_PUBLIC_WS_URL;
+// console.log(WS_URL);
 
 // const httpLink = new HttpLink({
 //   uri: GRAPHQL_URL,
 //   credentials: "include",
 // });
+
 const httpLink = createUploadLink({
   uri: GRAPHQL_URL,
   credentials: "include",
@@ -19,7 +22,7 @@ const httpLink = createUploadLink({
 
 const wsLink: any = process.browser
     ? new WebSocketLink({
-  uri: WS_URL,
+  uri: WS_URL as string,
   options: {
     reconnect: true,
   },

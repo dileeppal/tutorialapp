@@ -17,7 +17,7 @@ export function requireAuthentication(gssp: GetServerSideProps) {
     } else {
       const accessToken = cookie.parse(req.headers.cookie);
       // console.log(accessToken);
-      const tokens = Object.keys(accessToken).includes("maguyvathegreat");
+      const tokens = Object.keys(accessToken).includes(process.env.COOKIE_NAME as string);
       // console.log(tokens);
       const token = tokens
 

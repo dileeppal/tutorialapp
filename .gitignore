@@ -55,5 +55,5 @@ amplifytools.xcconfig
 package-lock.json
 yarn-lock.
 yarn-error.log
-database.ts
+private.ts
 storagedb.json

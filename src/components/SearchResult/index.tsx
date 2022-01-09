@@ -55,93 +55,76 @@ const { courses, users, posts } = data.searchBySearchTerm;
 
       {noData && <div>{noData[0]}</div>}
 
-      {courses !== null || undefined && (
+      {courses !== null &&
+         (
+          <>
+            <PageSubHeading>Courses</PageSubHeading>
+            <PageWrapper>
+              {
+                courses?.map(
+                  (
+                    post: React.Key | null | undefined,
+                    id: string | undefined
+                  ) => (
+                    <PostCard key={id}>
+                      <CardBody>
+                        <CardDuration>3 Months</CardDuration>
+                        <CardTitle>Fullstack Javascript web Dev</CardTitle>
+                        <CardDescription>
+                          The course includes: HTML, CSS and JavaScript and
+                          React Framework.
+                        </CardDescription>
+                        <CardBottom>
+                          <CardStartDate>12/11/2021</CardStartDate>
+                          <ApplyButton>Apply</ApplyButton>
+                        </CardBottom>
+                      </CardBody>
+                    </PostCard>
+                  )
+                )}
+            </PageWrapper>
+          </>
+        )}
+
+      {posts !== null && (
         <>
-          <PageSubHeading>Courses</PageSubHeading>
+          <PageSubHeading>Posts</PageSubHeading>
           <PageWrapper>
-            <PostCard>
-              <CardBody>
-                <CardDuration>3 Months</CardDuration>
-                <CardTitle>Fullstack Javascript web Dev</CardTitle>
-                <CardDescription>
-                  The course includes: HTML, CSS and JavaScript and React
-                  Framework.
-                </CardDescription>
-                <CardBottom>
-                  <CardStartDate>12/11/2021</CardStartDate>
-                  <ApplyButton>Apply</ApplyButton>
-                </CardBottom>
-              </CardBody>
-            </PostCard>
-
-            <PostCard>
-              <CardBody>
-                <CardDuration>3 Months</CardDuration>
-                <CardTitle>Fullstack Javascript web Dev</CardTitle>
-                <CardDescription>
-                  The course includes: HTML, CSS and JavaScript and React
-                  Framework.
-                </CardDescription>
-                <CardBottom>
-                  <CardStartDate>12/11/2021</CardStartDate>
-                  <ApplyButton>Apply</ApplyButton>
-                </CardBottom>
-              </CardBody>
-            </PostCard>
-
-            <PostCard>
-              <CardBody>
-                <CardDuration>3 Months</CardDuration>
-                <CardTitle>Fullstack Javascript web Dev</CardTitle>
-                <CardDescription>
-                  The course includes: HTML, CSS and JavaScript and React
-                  Framework.
-                </CardDescription>
-                <CardBottom>
-                  <CardStartDate>12/11/2021</CardStartDate>
-                  <ApplyButton>Apply</ApplyButton>
-                </CardBottom>
-              </CardBody>
-            </PostCard>
+            {posts !==
+              null && posts?.map(
+                (
+                  post: React.Key | null | undefined,
+                  id: string | undefined
+                ) => (
+                  <PostCard key={id}>
+                    <CardBody>
+                      <CardTitle>tweet tweet tweet</CardTitle>
+                      <CardDescription>
+                        Develop Future Proof responsive websites
+                      </CardDescription>
+                      <CardBottom>
+                        <UserGroup>
+                          <UserImg width={40} height={40} src="/D.jpg" />
+                          <UserNameWrapper>
+                            <UserName>maguyva</UserName>
+                            <PostDate>5 days ago</PostDate>
+                          </UserNameWrapper>
+                        </UserGroup>
+                        <ApplyButton>View</ApplyButton>
+                      </CardBottom>
+                    </CardBody>
+                  </PostCard>
+                )
+              )}
           </PageWrapper>
         </>
       )}
 
-      {posts !== null ||
-        (undefined && (
-          <>
-            <PageSubHeading>Posts</PageSubHeading>
-            <PageWrapper>
-              {posts.map((post: React.Key | null | undefined) => (
-                <PostCard key={post}>
-                  <CardBody>
-                    <CardTitle>tweet tweet tweet</CardTitle>
-                    <CardDescription>
-                      Develop Future Proof responsive websites
-                    </CardDescription>
-                    <CardBottom>
-                      <UserGroup>
-                        <UserImg width={40} height={40} src="/D.jpg" />
-                        <UserNameWrapper>
-                          <UserName>maguyva</UserName>
-                          <PostDate>5 days ago</PostDate>
-                        </UserNameWrapper>
-                      </UserGroup>
-                      <ApplyButton>View</ApplyButton>
-                    </CardBottom>
-                  </CardBody>
-                </PostCard>
-              ))}
-            </PageWrapper>
-          </>
-        ))}
-
-      {users !== null ||
-        (undefined && (
+      {users !== null && (
           <>
             <PageSubHeading>Users</PageSubHeading>
             <PageWrapper>
-              {users.map(
+              {users?.map(
                 (
                   user: {
                     profileImage: string;
@@ -183,7 +166,7 @@ const { courses, users, posts } = data.searchBySearchTerm;
               )}
             </PageWrapper>
           </>
-        ))}
+        )}
 
       {/* <PageSubHeading>Books</PageSubHeading>
 

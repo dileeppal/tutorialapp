@@ -27,6 +27,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       nprogress.done();
     }
   };
+ 
   const apolloClient = useApollo(pageProps.initialApolloState);
 
   useEffect(() => {
