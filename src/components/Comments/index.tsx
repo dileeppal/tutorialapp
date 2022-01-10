@@ -169,7 +169,7 @@ const Comment = () => {
 
       const msg = response.data?.editComment.messages![0] as string;
       if (msg.includes("successfully")) {
-        refetch(GetCommentsByPostSlugDocument);
+        refetch(GetCommentsByPostSlugDocument as any);
         console.log(msg);
       } else {
         toast.error(msg);
@@ -204,7 +204,7 @@ const Comment = () => {
     });
     if (res.data?.deleteComment.includes("deleted")) {
       // console.log(res);
-      refetch(GetCommentsByPostSlugDocument);
+      refetch(GetCommentsByPostSlugDocument as any);
     } else {
       toast.error(res.data?.deleteComment);
     }

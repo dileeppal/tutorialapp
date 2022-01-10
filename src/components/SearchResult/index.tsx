@@ -1,5 +1,6 @@
+/* eslint-disable react/prop-types */
 import React from "react";
-import { useRouter } from 'next/router';
+// import { useRouter } from 'next/router';
 
 import {
   PageHeading,
@@ -32,18 +33,22 @@ import { ErrorMsg } from 'components/Input';
 function SearchResult(props: {
   props: { data: Query; loading: boolean; error: any };
 }) {
-  const router = useRouter();
-  const { data, loading, error } = props;
+  // const router = useRouter();
+  // eslint-disable-next-line react/prop-types
+  const { data, loading, error }: any= props;
 
   // if (data.searchBySearchTerm.messages) {
   //   return <div>nothing found</div>;
   // }
+// eslint-disable-next-line react/prop-types
 const { courses, users, posts } = data.searchBySearchTerm;
+
+  // eslint-disable-next-line react/prop-types
   const noData = data.searchBySearchTerm?.messages;
-  // if (!data || loading) {
-  //   return <div>loading...</div>;
-  // }
-  // if (error) return <ErrorMsg>{error}</ErrorMsg>;
+  if (!data || loading) {
+    return <div>loading...</div>;
+  }
+  if (error) return <ErrorMsg>{error}</ErrorMsg>;
 
   // const  search  = router.asPath;
 
@@ -61,6 +66,7 @@ const { courses, users, posts } = data.searchBySearchTerm;
             <PageSubHeading>Courses</PageSubHeading>
             <PageWrapper>
               {
+                // eslint-disable-next-line react/prop-types
                 courses?.map(
                   (
                     post: React.Key | null | undefined,

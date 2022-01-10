@@ -14,7 +14,7 @@ import {
   PostText,
   PostBottomWrapper,
   BottomLeftWrap,
-  LikeIcon,
+  // LikeIcon,
   LikeCounter,
   BottomRightWrap,
   CommentIcon,
@@ -23,9 +23,9 @@ import {
   ViewIcon,
   ViewCounter,
   PostMediaVideoIF,
-  ForumContainer,
+  // ForumContainer,
 } from "../../ForumPage/forum.styles";
-import  Comment  from "../../Comments";
+// import  Comment  from "../../Comments";
 import Dropdown from "../../Dropdown";
 
 const VideoPostCard = ({
@@ -44,7 +44,7 @@ const VideoPostCard = ({
   const [showDropdown, setShowDropdown] = useState(false);
   return (
     <>
-      <ForumContainer>
+      {/* <ForumContainer> */}
         <ForumWrapper>
           <PostTop>
             <PostLeftWrap>
@@ -70,7 +70,7 @@ const VideoPostCard = ({
           </PostCenterWrap>
           <PostBottomWrapper>
             <BottomLeftWrap>
-              <LikeIcon />
+              {/* <LikeIcon /> */}
               <LikeCounter>{likeCount}</LikeCounter>
               <ViewIcon />
               <ViewCounter>{viewCount}</ViewCounter>
@@ -82,7 +82,7 @@ const VideoPostCard = ({
           </PostBottomWrapper>
           {/* <Comment showComments={showComments} postId={postId} /> */}
         </ForumWrapper>
-      </ForumContainer>
+      {/* </ForumContainer> */}
     </>
   );
 };

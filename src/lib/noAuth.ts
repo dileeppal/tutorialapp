@@ -4,13 +4,15 @@ import { useEffect } from "react";
 import { useAppDispatch } from "app/hooks";
 import { setUser } from "features/auth";
 
+// type msgType = Maybe<string[]> | undefined;
 
 export const useNoAuth = () => {
   const { data, loading } = useMeQuery();
   const router = useRouter();
+  const { messages }: any = data?.me;  
 
   useEffect(() => {
-    if (!loading && !data?.me.messages) {
+    if (!loading && (!messages)) {
       const me = data?.me as User;
       router.push(`/user-profile/${me.userIdSlug}`);
     } 
@@ -21,13 +23,14 @@ export const useNoAuthPages = () => {
   const { data, loading } = useMeQuery();
   const router = useRouter();
   const dispatch = useAppDispatch();
+  const { messages }: any = data?.me;
   
   useEffect(() => {
-    if (loading && !data?.me.messages) {
+    if (loading && !messages) {
       router.push(router.pathname);
     }
 
-    if (!loading && !data?.me.messages ) {
+    if (!loading && !messages ) {
       const me = data?.me as User;
       dispatch(setUser(me));
     }

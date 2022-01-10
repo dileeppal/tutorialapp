@@ -1,16 +1,7 @@
-
 import { useIsAuth } from 'lib/isAuth';
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import {
-  FacebookShareCount,
-  HatenaShareCount,
-  OKShareCount,
-  PinterestShareCount,
-  RedditShareCount,
-  TumblrShareCount,
-  VKShareCount,
-} from "react-share";
+
 
 
 const form = () => {

@@ -5,7 +5,8 @@ import { getMainDefinition } from '@apollo/client/utilities';
 import { createUploadLink } from "apollo-upload-client";
 
 let apolloClient: ApolloClient<NormalizedCacheObject>;
-// const GRAPHQL_URL = "https://discuva-server.herokuapp.com/";
+// const GRAPHQL_URL = "http://localhost:8000/graphql";
+// const WS_URL = "ws://localhost:8000/subscriptions";
 const GRAPHQL_URL = process.env.NEXT_PUBLIC_GRAPHQL_URL;
 const WS_URL = process.env.NEXT_PUBLIC_WS_URL;
 // console.log(WS_URL);
@@ -51,7 +52,7 @@ function createApolloClient() {
   });
 }
 
-export function initializeApollo(initialState = null) {
+export function initializeApollo(initialState: null | undefined) {
   const _apolloClient = apolloClient ?? createApolloClient();
 
   // If your page has Next.js data fetching methods that use Apollo Client, the initial state

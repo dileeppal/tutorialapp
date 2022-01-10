@@ -14,15 +14,15 @@ import {
   PostText,
   PostBottomWrapper,
   BottomLeftWrap,
-  LikeIcon,
+  // LikeIcon,
   LikeCounter,
   BottomRightWrap,
   CommentIcon,
   CommentText,
   ForumWrapper,
-  ForumContainer,
+  // ForumContainer,
 } from "../../ForumPage/forum.styles";
-import  Comment  from "../../Comments";
+// import  Comment  from "../../Comments";
 import Dropdown from "../../Dropdown";
 
 const TextPostCard = ({
@@ -39,7 +39,7 @@ const TextPostCard = ({
   const [showDropdown, setShowDropdown] = useState(false);
   return (
     <>
-      <ForumContainer>
+      {/* <ForumContainer> */}
         <ForumWrapper>
           <PostTop>
             <PostLeftWrap>
@@ -60,7 +60,7 @@ const TextPostCard = ({
           </PostCenterWrap>
           <PostBottomWrapper>
             <BottomLeftWrap>
-              <LikeIcon />
+              {/* <LikeIcon /> */}
               <LikeCounter>{likeCount} liked your post</LikeCounter>
             </BottomLeftWrap>
             <BottomRightWrap>
@@ -68,9 +68,9 @@ const TextPostCard = ({
               <CommentText>{commentCount}</CommentText>
             </BottomRightWrap>
           </PostBottomWrapper>
-          <Comment showComments={showComments} postId={postId}/>
+          {/* <Comment showComments={showComments} postId={postId}/> */}
         </ForumWrapper>
-      </ForumContainer>
+      {/* </ForumContainer> */}
     </>
   );
 };

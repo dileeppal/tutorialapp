@@ -20,7 +20,7 @@ const PrivacyContent = () => {
         </p>
         <p>
           This Policy applies to Our use of any and all data collected by us in
-          relation to your use of Our Mobile App (“App” or “Platform"). Please
+          relation to your use of Our Mobile App (“App” or “Platform). Please
           read this Privacy Policy carefully and ensure that you understand it.
           Your acceptance of Our Privacy Policy is deemed to occur upon your
           first use of Our Platform. If you do not accept and agree with this

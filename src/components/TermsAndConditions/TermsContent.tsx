@@ -294,8 +294,8 @@ const TermsContent = () => {
           submitting any content to Justappli, you hereby grant us a worldwide,
           non-exclusive, royalty-free, sublicenseable and transferable license
           to use, reproduce, distribute, prepare derivative works of and display
-          the user content in connection with the Service and Justappli's (and
-          its successors' and affiliates') business, including without
+          the user content in connection with the Service and Justapplis (and
+          its successors and affiliates) business, including without
           limitation for promoting and redistributing part or all of the Service
           (and derivative works thereof) in any media formats and through any
           media channels now existing or developed in the future.
@@ -348,9 +348,9 @@ const TermsContent = () => {
         <p>No refunds shall be entertained in any circumstances.</p>
         <h3>Third-Party Materials</h3>
         <p>
-          The Software may enable access to Apple's, Licensor's and/or
-          third-party services and websites (referred as "Third Party
-          Services"). Use of the Services requires Internet access and use of
+          The Software may enable access to Apples, Licensors and/or
+          third-party services and websites (referred as Third Party
+          Services). Use of the Services requires Internet access and use of
           certain Services requires you to accept additional terms. You agree
           that you may not use the Services without acceptance of such
           additional terms.
@@ -463,20 +463,20 @@ const TermsContent = () => {
           protected by copyright right laws. All software used on mobile
           applications and the website is the property of Justappli, our
           affiliates or our software suppliers and is protected by international
-          copyright and authors' rights laws. It is therefore understood that
+          copyright and authors rights laws. It is therefore understood that
           all intellectual property rights concerning any information, content,
           materials, data or processes contained on our mobile applications and
           the website belong to Justappli, its affiliates and/or its content
           suppliers. All such intellectual property rights of Justappli, its
           affiliates and/or its content suppliers are hereby reserved. You may
           not systematically extract and/or re-utilise parts of the contents of
-          mobile applications and the website without Justappli's explicit
+          mobile applications and the website without Justapplis explicit
           written approval. You also may not create and/or publish your own
           database that features substantial (e.g. user content) parts of our
           mobile applications and website without
         </p>
         <p>
-          Justappli's explicit written consent. Except where explicitly stated
+          Justapplis explicit written consent. Except where explicitly stated
           to the contrary, all persons (including their names and images), third
           party trademarks and images of third party products, services and/or
           locations featured in our mobile applications and website are in no
