@@ -9,7 +9,7 @@ import { setUser } from "features/auth";
 export const useNoAuth = () => {
   const { data, loading } = useMeQuery();
   const router = useRouter();
-  const { messages }: any = data?.me;  
+  const messages : any = data?.me;  
 
   useEffect(() => {
     if (!loading && (!messages)) {
@@ -23,7 +23,7 @@ export const useNoAuthPages = () => {
   const { data, loading } = useMeQuery();
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const { messages }: any = data?.me;
+  const messages: any = data?.me;
   
   useEffect(() => {
     if (loading && !messages) {
