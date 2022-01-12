@@ -2,9 +2,10 @@ import { createWithApollo } from "./createWithApollo";
 import { ApolloClient, InMemoryCache } from "@apollo/client";
 import { NextPageContext } from "next";
 
-export const createClient = (ctx: NextPageContext) => 
+const GRAPHQL_URL = process.env.NEXT_PUBLIC_GRAPHQL_URL;
+export const createClient = (ctx: NextPageContext) =>
   new ApolloClient({
-    uri: "http://localhost:8000/graphql",
+    uri: GRAPHQL_URL,
     credentials: "include",
     headers: {
       cookie:
