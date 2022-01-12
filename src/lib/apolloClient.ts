@@ -7,10 +7,12 @@ import { createUploadLink } from "apollo-upload-client";
 let apolloClient: ApolloClient<NormalizedCacheObject>;
 // const GRAPHQL_URL = "http://localhost:8000/graphql";
 // const WS_URL = "ws://localhost:8000/subscriptions";
-const GRAPHQL_URL = process.env.NEXT_PUBLIC_GRAPHQL_URL;
-const WS_URL = process.env.NEXT_PUBLIC_WS_URL;
-console.log(WS_URL);
-console.log(GRAPHQL_URL);
+const GRAPHQL_URL =
+  process.env.NEXT_PUBLIC_GRAPHQL_URL || "http://localhost:8000/graphql";
+const WS_URL =
+  process.env.NEXT_PUBLIC_WS_URL || "ws://localhost:8000/subscriptions";
+// console.log(WS_URL);
+// console.log(GRAPHQL_URL);
 
 // const httpLink = new HttpLink({
 //   uri: GRAPHQL_URL,
