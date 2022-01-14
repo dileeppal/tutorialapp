@@ -53,14 +53,17 @@ const Register = () => {
           ...values,
         },
       });
+      console.log(response);
       if (response.data?.register !== "Registration successful.") { 
         err = response.data?.register;
         initialValues.error = err;
         setErrorMsg(true);
       } else {
+        console.log('I came here')
         setSuccessMsg(true);
         toast.success(response.data?.register);
         setTimeout(() => {
+          console.log('I am working')
           router.push("/signin");
         }, 500);
       }
