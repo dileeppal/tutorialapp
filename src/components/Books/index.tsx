@@ -1,87 +1,71 @@
 import React from 'react'
-// import PageContainer, {
-//   InnerContainer,
-//   PageRightSide,
-// } from "../Containers/PageContainer";
-import LeftSideBar from '../Dashboard/LeftSideBar'
-import SmallFooter from '../Dashboard/SmallFooter'
-import TopBar from '../Dashboard/TopBar'
+import { BookArray, Query } from "generated/graphql";
+import styled from "styled-components";
+import Dashboard from "components/Dashboard";
 import {
-  PageContainer,
-  InnerContainer,
-  PageRightSide,
-  PageHeading,
-  PageWrapper,
   PostCard,
   CardTitle,
+  CardBody,
   CardImage,
   CardDescription,
-  CardDuration,
   CardBottom,
-  CardStartDate,
   ApplyButton,
+  PageHeading,
+  PageWrapper,
 } from "../../styles/common.styles";
+import { ErrorMsg } from 'components/Input';
 
-function BooksPage() {
-    return (
-      <>
-        <TopBar />
-        <PageContainer>
-          <LeftSideBar />
-          <InnerContainer>
-            <PageHeading>Recommended Books</PageHeading>
-            <PageWrapper>
-              <PostCard>
-                <CardImage alt="course image" src="/assets/images/react.svg" />
-                <CardTitle>Essential TypeScript</CardTitle>
-                <CardDescription>
-                  Develop Future Proof responsive websites
-                </CardDescription>
-                <CardBottom>
-                  <CardStartDate>Peter Jones</CardStartDate>
-                  <ApplyButton>Buy</ApplyButton>
-                </CardBottom>
-              </PostCard>
-              <PostCard>
-                <CardImage alt="course image" src="/assets/images/react.svg" />
-                <CardTitle>Essential TypeScript</CardTitle>
-                <CardDescription>
-                  Develop Future Proof responsive websites
-                </CardDescription>
-                <CardBottom>
-                  <CardStartDate>Peter Jones</CardStartDate>
-                  <ApplyButton>Buy</ApplyButton>
-                </CardBottom>
-              </PostCard>
-              <PostCard>
-                <CardImage alt="course image" src="/assets/images/react.svg" />
-                <CardTitle>Essential TypeScript</CardTitle>
-                <CardDescription>
-                  Develop Future Proof responsive websites
-                </CardDescription>
-                <CardBottom>
-                  <CardStartDate>Peter Jones</CardStartDate>
-                  <ApplyButton>Buy</ApplyButton>
-                </CardBottom>
-              </PostCard>
-              <PostCard>
-                <CardImage alt="course image" src="/assets/images/react.svg" />
-                <CardTitle>Essential TypeScript</CardTitle>
-                <CardDescription>
-                  Develop Future Proof responsive websites
-                </CardDescription>
-                <CardBottom>
-                  <CardStartDate>Peter Jones</CardStartDate>
-                  <ApplyButton>Buy</ApplyButton>
-                </CardBottom>
-              </PostCard>
-            </PageWrapper>
-          </InnerContainer>
-          <PageRightSide>Live Forever Young</PageRightSide>
-        </PageContainer>
-        <SmallFooter />
-      </>
-    );
+
+function BooksPage(props: {
+  props: { data: Query; loading: boolean; error: any };
+}) {
+  const { data, loading, error } = props.props;
+  if (!data || loading) {
+    return <div>loading...</div>;
+  }
+  if (error) return <ErrorMsg>{error}</ErrorMsg>;
+  const {books} = data.getBooks as BookArray; 
+  // console.log(data);
+
+  return (
+    <>
+      <Dashboard>
+        <PageHeading>Recommended Books</PageHeading>
+        <PageWrapper>
+          {!books ? (
+            <div>loading...</div>
+          ) : (
+            books.map((book, id) =>
+              !book ? null : (
+                <PostCard key={id}>
+                  <a href={book.link}>
+                    <CardImage alt="course image" src={book.image} />
+                  </a>
+                  <CardBody>
+                    <CardTitle>{book.title}</CardTitle>
+                    <CardDescription>{book.description}</CardDescription>
+                    <CardBottom>
+                      <BookAuthor>{book.author}</BookAuthor>
+                      <ApplyButton>Buy</ApplyButton>
+                    </CardBottom>
+                  </CardBody>
+                </PostCard>
+              )
+            )
+          )}
+        </PageWrapper>
+      </Dashboard>
+    </>
+  );
 }
 
 export default BooksPage
+
+export const BookAuthor = styled.span`
+  font-size: 1rem;
+  color: #a2a2c2;
+  font-weight: 600;
+  @media (max-width: 991px) {
+    font-size: 0.75rem;
+  }
+`;

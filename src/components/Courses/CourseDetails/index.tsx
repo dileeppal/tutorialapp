@@ -1,111 +1,277 @@
-import React from 'react'
-import ImagePostCard from '../../Dashboard/Forum/ImagePostCard';
-import TextPostCard from '../../Dashboard/Forum/TextPostCard';
-import VideoPostCard from '../../Dashboard/Forum/VideoPostCard';
-import LeftSideBar from '../../Dashboard/LeftSideBar';
-import SmallFooter from '../../Dashboard/SmallFooter';
-import Topbar from '../../Dashboard/TopBar'
-import PageContainer, {
-  MiddleContainer,
-  RightSideContainer,
-} from '../../Containers/PageContainer'
+import React, { useEffect, useState } from 'react'
+import { useRouter } from "next/router";
+import { CourseResult, Maybe, useJoinOrLeaveCourseMutation, User } from "generated/graphql";
+import { useAppSelector } from "app/hooks";
+import { isUser } from "features/auth/selectors";
 
 import {
-  CoursesH1,
+  CardTitle,
   DetailsCardWrapper,
   CardTop,
   CardLeftWrap,
-  CardTitle,
   StartDate,
   CardCenterWrap,
   CardText,
   StartDateTitle,
-  ApplyButton,
-  CardBottom,
   MediaContainer,
   CoursesH2,
+  CoursesTeacherWrap,
+  CoursesTeacherNameAndImageWrap,
+  CoursesTeacherName,
+  CoursesTeacherImage,
+  MediaRow,
 } from "./details.styles";
 
-function CourseDetails() {
-    return (
-      <>
-        <Topbar />
-        <PageContainer>
-          <LeftSideBar />
-          <MiddleContainer>
-            <CoursesH1>Course Title</CoursesH1>
-            <DetailsCardWrapper>
-              <CardTop>
-                <CardLeftWrap>
-                  <StartDateTitle>
-                    Start Date{" "}
-                    <StartDate> - 21/11/2021 to 21-01-2022</StartDate>
-                  </StartDateTitle>
-                  <CardTitle>Course Description</CardTitle>
-                </CardLeftWrap>
-              </CardTop>
-              <CardCenterWrap>
-                <CardText>
-                  What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the
-                  printing and typesetting industry. Lorem Ipsum has been the
-                  industrys standard dummy text ever since the 1500s, when an
-                  unknown printer took a galley of type and scrambled it to make
-                  a type specimen book. It has survived not only five centuries,
-                  but also the leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing software
-                  like Aldus PageMaker including versions of Lorem Ipsum.
-                </CardText>
-              </CardCenterWrap>
-              <CardBottom>
-                <ApplyButton>apply</ApplyButton>
-              </CardBottom>
-              <CoursesH2>Course Updates</CoursesH2>
-              <MediaContainer>
-                <TextPostCard
-                  username="maguyva"
-                  image="/D.jpg"
-                  date="5 hours ago"
-                  likeCount={12}
-                  commentCount={2}
-                  content="leap into electronic typesetting, remaining
-                  essentially unchanged. It was popularised in the 1960s with
-                  the release of Letraset sheets containing Lorem Ipsum
-                  passages, and more recently with desktop publishing"
-                />
-              </MediaContainer>
-              <MediaContainer>
-                <VideoPostCard
-                  username="hotness"
-                  image="/prettygirl.jpg"
-                  videoMedia="/exvid.mp4"
-                  date="5 hours ago"
-                  likeCount={12}
-                  commentCount={2}
-                  content="leap into electronic typesetting, remaining
-                  essentially unchanged."
-                />
-              </MediaContainer>
-              <MediaContainer>
-                <ImagePostCard
-                  username="aleah"
-                  image="/Aleah.jpg"
-                  postMedia="/assets/images/forum.svg"
-                  date="5 hours ago"
-                  likeCount={12}
-                  commentCount={2}
-                  content="leap into electronic typesetting, remaining
-                  essentially unchanged."
-                />
-              </MediaContainer>
-            </DetailsCardWrapper>
-          </MiddleContainer>
-          <RightSideContainer>blow my wig</RightSideContainer>
-        </PageContainer>
-        <SmallFooter />
-      </>
-    );
+import {
+  PageHeading,
+  CardBottom,
+  ApplyButton,
+  SocialDropDown,
+  SocialDropDownList,
+  SocialDropDownItem,
+} from "../../../styles/common.styles";
+
+import { SocialDropDownIcon } from "../../../../public/assets/icons/SocialDropDownIcon";
+import { FaceBook } from "../../../../public/assets/icons/FaceBook";
+import { Twitter } from "../../../../public/assets/icons/Twitter";
+import { LinkedIn } from "../../../../public/assets/icons/LinkedIn";
+import { WhatsApp } from "../../../../public/assets/icons/WhatsApp";
+import { Email } from "../../../../public/assets/icons/Email";
+
+import { ErrorMsg } from 'components/Input';
+import Dashboard from 'components/Dashboard';
+
+
+import {
+  FacebookShareButton,
+  TwitterShareButton,
+  LinkedinShareButton,
+  WhatsappShareButton,
+  EmailShareButton,
+} from "react-share";
+import VideoCard from './VideoCard';
+
+interface Details {
+  id: string;
+  description: string;
+  duration: string;
+  endDate: string;
+  startDate: string;
+  title: string;
+  students: Array<Student>;
+  teacher: User;
+  notes: string;
+  videos: Array<{
+    id: string;
+    title: string;
+    url: string;
+    description: string;
+    createdOn: string;
+  }>;
+}
+
+interface Student {
+  id: string;
+  username: string;
+  user: User
+  
+}
+
+type dataProp = {
+  data: {
+    getCourseBySlug: Maybe<CourseResult> | undefined;
+  };
+};
+
+function CourseDetails(props: {
+  props: { data: dataProp; loading: boolean; error: any };
+}) {
+  const router = useRouter();
+  // const { slug } = router.query;
+  
+  const { data, loading, error } = props.props;
+  // console.log(data);
+
+  if (!data || loading) {
+    return <div>loading...</div>;
+  }
+  if (error) return <ErrorMsg>{error}</ErrorMsg>;
+
+  const course = data.data.getCourseBySlug;
+
+  const [socialDropdown, setSocialDropdown] = useState(false);
+  const [join] = useJoinOrLeaveCourseMutation();
+  const [errorMsg, setErrorMsg] = useState(false);
+  const [message, setMessage] = useState<string | undefined>("");
+  const [isStudent, setIsStudent] = useState(false);
+  const [isTeacher, setIsTeacher] = useState(false);
+  const { user: user } = useAppSelector(isUser);
+  const me = user;
+
+  const {
+    id,
+    description,
+    endDate,
+    startDate,
+    title,
+    notes,
+    students,
+    teacher,
+    videos,
+  } = course as Details;
+
+  // console.log(videos)
+
+  useEffect(() => {
+    if (students.length !== 0) {
+      students.forEach((student) => {
+        if (student.user?.id === me?.id) {
+          setIsStudent(true);
+        }
+      });
+    }
+  }, [students, me?.id]);
+
+  useEffect(() => {
+    if (teacher.id === me?.id) {
+      setIsTeacher(true);
+    }
+  }, [me?.id]);
+
+  if (!data || loading) {
+    return <div>loading...</div>;
+  }
+
+  const joinCourse = async () => {
+    console.log("testing", isStudent);
+
+    try {
+      const response = await join({
+        variables: {
+          courseId: id as string,
+          join: isStudent ? false : true,
+        },
+      });
+      console.log("re-testing", isStudent);
+      const msg = response.data?.joinOrLeaveCourse;
+      setMessage(msg);
+      setErrorMsg(true);
+      console.log(response.data?.joinOrLeaveCourse);
+    } catch (err) {
+      console.log("error:", err);
+    }
+  };
+
+  const url: string = `http://localhost:3000${router.asPath}`;
+  return (
+    <Dashboard>
+      <PageHeading>
+        <SocialDropDown>
+          <span onClick={() => setSocialDropdown(!socialDropdown)}>
+            <SocialDropDownIcon />
+            Share
+          </span>
+          <SocialDropDownList
+            className={`${socialDropdown ? "opened" : ""}`}
+            onClick={() => setSocialDropdown(!socialDropdown)}
+          >
+            <SocialDropDownItem>
+              <FacebookShareButton url={url}>
+                <FaceBook />
+                Facebook
+              </FacebookShareButton>
+            </SocialDropDownItem>
+            <SocialDropDownItem>
+              <TwitterShareButton url={url}>
+                <Twitter />
+                Twitter
+              </TwitterShareButton>
+            </SocialDropDownItem>
+            <SocialDropDownItem>
+              <LinkedinShareButton url={url}>
+                <LinkedIn />
+                LinkedIn
+              </LinkedinShareButton>
+            </SocialDropDownItem>
+            <SocialDropDownItem>
+              <WhatsappShareButton url={url}>
+                <WhatsApp />
+                Whatsapp
+              </WhatsappShareButton>
+            </SocialDropDownItem>
+            <SocialDropDownItem>
+              <EmailShareButton url={url}>
+                <Email />
+                Email
+              </EmailShareButton>
+            </SocialDropDownItem>
+          </SocialDropDownList>
+        </SocialDropDown>
+        {title}
+      </PageHeading>
+      <DetailsCardWrapper>
+        <CardTop>
+          <CardLeftWrap>
+            <StartDateTitle>
+              Start Date{" "}
+              <StartDate>
+                {" "}
+                - {startDate} to {endDate}
+              </StartDate>
+            </StartDateTitle>
+            <CardTitle>Course Description</CardTitle>
+          </CardLeftWrap>
+        </CardTop>
+        <CardCenterWrap>
+          <CardText>{description}</CardText>
+        </CardCenterWrap>
+        <CardBottom>
+          {!isTeacher && (
+            <>
+              {isStudent ? (
+                <ApplyButton
+                  onClick={joinCourse}
+                  style={{ backgroundColor: "red" }}
+                  type="button"
+                  // disabled={true}
+                >
+                  applied
+                </ApplyButton>
+              ) : (
+                <ApplyButton onClick={joinCourse} type="button">
+                  apply
+                </ApplyButton>
+              )}
+              {errorMsg && <ErrorMsg>{message}</ErrorMsg>}
+            </>
+          )}
+        </CardBottom>
+        <CoursesTeacherWrap>
+          <CardTitle>Teacher</CardTitle>
+          <CoursesTeacherNameAndImageWrap>
+            <CoursesTeacherImage src={teacher.profileImage} />
+            <CoursesTeacherName>{teacher.fullName}</CoursesTeacherName>
+          </CoursesTeacherNameAndImageWrap>
+        </CoursesTeacherWrap>
+        <CoursesH2>Additional Notes</CoursesH2>
+        <div>{notes}</div>
+        <MediaRow>
+          {videos.map((vid, id) => {
+            <MediaContainer key={id}>
+              <VideoCard
+                fullName={teacher.fullName}
+                date={vid.createdOn}
+                title={vid.title}
+                url={vid.url}
+                userIdSlug={teacher.userIdSlug as string}
+                description={vid.description}
+              />
+            </MediaContainer>;
+          })}
+        </MediaRow>
+      </DetailsCardWrapper>
+    </Dashboard>
+  );
 }
 
 export default CourseDetails

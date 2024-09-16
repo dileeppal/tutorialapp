@@ -1,27 +1,34 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import { MdSchool } from "react-icons/md";
-import { BsFillChatSquareFill } from "react-icons/bs";
-import { MdPermMedia } from "react-icons/md";
+import { useRouter } from "next/router";
+import { MdHome, MdForum, MdSchool } from "react-icons/md";
 import { FaRegQuestionCircle } from "react-icons/fa";
-import { MdLibraryBooks } from "react-icons/md";
-import { RiAdminFill } from "react-icons/ri";
-import { MdForum } from "react-icons/md";
 import { RiNotification2Fill } from "react-icons/ri";
-
+import { TopBarLogo } from "../TopBar/topbar.styles";
 import {
   LeftSideContainer,
   LeftSideBarWrapper,
   LeftSideBarListItem,
   LeftSideBarIcon,
   LeftSideBarListItemText,
-  IconBadge,
   ToggleButton,
   BackOverlay,
 } from "./leftside.styles";
 
+import { LogoShape } from "../../../../public/assets/icons/LogoShape"
+import { BooksIcon } from "../../../../public/assets/icons/BooksIcon";
+import { ChatIcon } from "../../../../public/assets/icons/ChatIcon";
+import { AdminIcon } from "../../../../public/assets/icons/AdminIcon";
+
+
 const LeftSideBar = () => {
-  const [menuState, setMenuState] =  useState(false)
+  const router = useRouter();
+  const [menuState, setMenuState] = useState(false);
+  {
+    menuState && (
+      <BackOverlay onClick={() => setMenuState(false)} className="" />
+    );
+  }
   return (
     <>
       <ToggleButton onClick={() => setMenuState(true)} className="toggleMenu">
@@ -29,80 +36,137 @@ const LeftSideBar = () => {
         <span></span>
         <span></span>
       </ToggleButton>
-      {menuState && <BackOverlay onClick={() => setMenuState(false)} className="" />}
-    
-    <LeftSideContainer className= {menuState ? 'open': ''}>
-      <LeftSideBarWrapper>
-        <LeftSideBarListItem>
-          <LeftSideBarIcon>
-            <Link href="/courses">
-              <MdSchool />
-            </Link>
-          </LeftSideBarIcon>
-          <LeftSideBarListItemText>Courses</LeftSideBarListItemText>
-        </LeftSideBarListItem>
-        <LeftSideBarListItem>
-          <LeftSideBarIcon>
-            <Link href="/books">
-              <MdLibraryBooks />
-            </Link>
-          </LeftSideBarIcon>
-          <LeftSideBarListItemText>Books</LeftSideBarListItemText>
-        </LeftSideBarListItem>
-        <LeftSideBarListItem>
-          <LeftSideBarIcon>
-            <Link href="/recommendation">
-              <MdPermMedia />
-            </Link>
-          </LeftSideBarIcon>
-          <LeftSideBarListItemText>Recommendations</LeftSideBarListItemText>
-        </LeftSideBarListItem>
-        <LeftSideBarListItem>
-          <LeftSideBarIcon>
-            <IconBadge></IconBadge>
-            <Link href="/messages/maguyva">
-              <BsFillChatSquareFill />
-            </Link>
-          </LeftSideBarIcon>
-          <LeftSideBarListItemText>Chat</LeftSideBarListItemText>
-        </LeftSideBarListItem>
-        <LeftSideBarListItem>
-          <LeftSideBarIcon>
-            <Link href="/forum">
-              <MdForum />
-            </Link>
-          </LeftSideBarIcon>
-          <LeftSideBarListItemText>Forum</LeftSideBarListItemText>
-        </LeftSideBarListItem>
-        <LeftSideBarListItem>
-          <LeftSideBarIcon>
-            <IconBadge>2</IconBadge>
-            <Link href="/notifications">
-              <RiNotification2Fill />
-            </Link>
-          </LeftSideBarIcon>
-          <LeftSideBarListItemText>Notifications</LeftSideBarListItemText>
-        </LeftSideBarListItem>
-        <LeftSideBarListItem>
-          <LeftSideBarIcon>
-            <Link href="/support">
-              <FaRegQuestionCircle />
-            </Link>
-          </LeftSideBarIcon>
-          <LeftSideBarListItemText>Support</LeftSideBarListItemText>
-        </LeftSideBarListItem>
-        <LeftSideBarListItem>
-          <LeftSideBarIcon>
-            <Link href="/admin">
-              <RiAdminFill />
-            </Link>
-          </LeftSideBarIcon>
-          <LeftSideBarListItemText>Admin</LeftSideBarListItemText>
-        </LeftSideBarListItem>
-      </LeftSideBarWrapper>
-    </LeftSideContainer>
-    </>
+      {menuState && (
+        <BackOverlay onClick={() => setMenuState(false)} className="" />
+      )}
+      <LeftSideContainer>
+        <LeftSideBarWrapper>
+          <TopBarLogo>
+            <a href={`/user-profile/`}>
+              <LogoShape color="#5634bf" width="100" height="100" />
+            </a>
+          </TopBarLogo>
 
+          <LeftSideBarListItem
+            className={router.pathname == "/home" ? "active" : ""}
+          >
+            <LeftSideBarIcon>
+              <Link href="/home">
+                <div>
+                  <MdHome />
+                </div>
+              </Link>
+            </LeftSideBarIcon>
+            <Link href="/home">
+              <LeftSideBarListItemText>Dashboard</LeftSideBarListItemText>
+            </Link>
+          </LeftSideBarListItem>
+
+          <LeftSideBarListItem
+            className={router.pathname == "/courses" ? "active" : ""}
+          >
+            <LeftSideBarIcon>
+              <Link href="/courses">
+                <div>
+                  <MdSchool />
+                </div>
+              </Link>
+            </LeftSideBarIcon>
+            <Link href="/courses">
+              <LeftSideBarListItemText>Courses</LeftSideBarListItemText>
+            </Link>
+          </LeftSideBarListItem>
+          <LeftSideBarListItem
+            className={router.pathname == "/books" ? "active" : ""}
+          >
+            <LeftSideBarIcon>
+              <Link href="/books">
+                <div>
+                  <BooksIcon />
+                </div>
+              </Link>
+            </LeftSideBarIcon>
+            <Link href="/books">
+              <LeftSideBarListItemText>Books</LeftSideBarListItemText>
+            </Link>
+          </LeftSideBarListItem>
+
+          <LeftSideBarListItem
+            className={router.pathname == "/messages" ? "active" : ""}
+          >
+            <LeftSideBarIcon>
+              {/* <IconBadge></IconBadge> */}
+              <Link href="/messages">
+                <div>
+                  <ChatIcon />
+                </div>
+              </Link>
+            </LeftSideBarIcon>
+            <Link href="/messages">
+              <LeftSideBarListItemText>Chat</LeftSideBarListItemText>
+            </Link>
+          </LeftSideBarListItem>
+          <LeftSideBarListItem
+            className={router.pathname == "/forum" ? "active" : ""}
+          >
+            <LeftSideBarIcon>
+              <Link href="/forum">
+                <div>
+                  <MdForum />
+                </div>
+              </Link>
+            </LeftSideBarIcon>
+            <Link href="/forum">
+              <LeftSideBarListItemText>Forum</LeftSideBarListItemText>
+            </Link>
+          </LeftSideBarListItem>
+          <LeftSideBarListItem
+            className={router.pathname == "/notifications" ? "active" : ""}
+          >
+            <LeftSideBarIcon>
+              {/* <IconBadge>2</IconBadge> */}
+              <Link href="/notifications">
+                <div>
+                  <RiNotification2Fill />
+                </div>
+              </Link>
+            </LeftSideBarIcon>
+            <Link href="/notifications">
+              <LeftSideBarListItemText>Notifications</LeftSideBarListItemText>
+            </Link>
+          </LeftSideBarListItem>
+          <LeftSideBarListItem
+            className={router.pathname == "/support" ? "active" : ""}
+          >
+            <LeftSideBarIcon>
+              <Link href="/support">
+                <div>
+                  <FaRegQuestionCircle />
+                </div>
+              </Link>
+            </LeftSideBarIcon>
+            <Link href="/support">
+              <LeftSideBarListItemText>Support</LeftSideBarListItemText>
+            </Link>
+          </LeftSideBarListItem>
+
+          <LeftSideBarListItem
+            className={router.pathname == "/admin" ? "active" : ""}
+          >
+            <LeftSideBarIcon>
+              <Link href="/admin">
+                <div>
+                  <AdminIcon />
+                </div>
+              </Link>
+            </LeftSideBarIcon>
+            <Link href="/admin">
+              <LeftSideBarListItemText>Admin</LeftSideBarListItemText>
+            </Link>
+          </LeftSideBarListItem>
+        </LeftSideBarWrapper>
+      </LeftSideContainer>
+    </>
   );
 };
 

@@ -5,6 +5,7 @@ import { getResetPasswordValidationSchema } from "utils/formValidation";
 import { useResetPasswordMutation } from "generated/graphql";
 import { ErrorMsg, Input, Error, SuccessMsg } from "../../Input";
 import Button from "../Button";
+import NextImage from "next/image";
 
 import {
   MainContainer,
@@ -15,8 +16,10 @@ import {
   PageContainer,
   FormWrap,
   HorizontalRule,
+  FormWrapRow,
+  FormWrapThumb,
+  BackToHome,
 } from "../auth-styles";
-
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/router";
@@ -34,7 +37,7 @@ const ResetPassword = () => {
   const [errorMsg, setErrorMsg] = useState(false);
   const [successMsg, setSuccessMsg] = useState(false);
 
-  const handleSubmit = async ({ ...values }: any) => {
+  const handleSubmit = async ({ ...values }: typeof initialValues) => {
     console.log(values);
 
     try {
@@ -73,46 +76,62 @@ const ResetPassword = () => {
           validationSchema={getResetPasswordValidationSchema}
         >
           {({ isSubmitting, errors, touched }) => (
-            <FormWrap>
-              <MainContainer>
-                <WelcomeText>reset password</WelcomeText>
-                {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
-                {successMsg && <SuccessMsg>{initialValues.success}</SuccessMsg>}
-                <InputContainer>
-                <div className="form-group">
-                  <Input
-                    type="password"
-                    placeholder="New Password"
-                    name="newPassword"
-                  />
-                  {errors.newPassword && touched.newPassword && (
-                    <Error>{errors.newPassword}</Error>
+            <FormWrapRow>
+              <Link href="/">
+                <BackToHome>Back</BackToHome>
+              </Link>
+              <FormWrap>
+                <MainContainer>
+                  <WelcomeText>reset password</WelcomeText>
+                  <InputContainer>
+                    <div className="form-group">
+                      <Input
+                        type="password"
+                        placeholder="New Password"
+                        name="newPassword"
+                      />
+                      {errors.newPassword && touched.newPassword && (
+                        <Error>{errors.newPassword}</Error>
+                      )}
+                    </div>
+                    <div className="form-group">
+                      <Input
+                        type="password"
+                        placeholder="Confirm Password"
+                        name="confirmPassword"
+                      />
+                      {errors.confirmPassword && touched.confirmPassword && (
+                        <Error>{errors.confirmPassword}</Error>
+                      )}
+                    </div>
+                  </InputContainer>
+                  <ButtonContainer>
+                    <Button
+                      type="submit"
+                      content="submit"
+                      disabled={isSubmitting}
+                    />
+                    <Link href="/signin">
+                      <BackToLogin>back to login?</BackToLogin>
+                    </Link>
+                  </ButtonContainer>
+                  {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
+                  {successMsg && (
+                    <SuccessMsg>{initialValues.success}</SuccessMsg>
                   )}
-                  </div>
-                  <div className="form-group">
-                  <Input
-                    type="password"
-                    placeholder="Confirm Password"
-                    name="confirmPassword"
-                  />
-                  {errors.confirmPassword && touched.confirmPassword && (
-                    <Error>{errors.confirmPassword}</Error>
-                  )}
-                  </div>
-                </InputContainer>
-                <ButtonContainer>
-                  <Button
-                    type="Submit"
-                    content="Submit"
-                    disabled={isSubmitting}
-                  />
-                </ButtonContainer>
-                <HorizontalRule />
-                <Link href="/signin">
-                  <BackToLogin>Back to login?</BackToLogin>
-                </Link>
-              </MainContainer>
-            </FormWrap>
+                  <HorizontalRule />
+                </MainContainer>
+              </FormWrap>
+              <FormWrapThumb>
+                <NextImage
+                  src="/assets/images/forgot.svg"
+                  alt="reset password image"
+                  width={450}
+                  height={300}
+                  layout="responsive"
+                />
+              </FormWrapThumb>
+            </FormWrapRow>
           )}
         </Formik>
       </PageContainer>

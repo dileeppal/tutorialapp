@@ -1,108 +1,155 @@
 import React, { useState } from 'react'
 import Link from "next/link";
+import { useRouter } from "next/router";
 
-// for data fetching
-import { ErrorMsg } from "components/Input";
-import { useMeQuery } from "generated/graphql";
-import { useAppDispatch } from "app/hooks";
-import { setUser } from "features/auth/reducers";
-
+// styled components
 import {
   TopbarContainer,
   TopLeftWrap,
-  TopBarLogo,
+  TopBarLogoGroup,
   TopCenterWrap,
   SearchBar,
-  SearchIcon,
   SearchInput,
   TopRightWrap,
-  NavLinks,
-  TopBarNavLinks,
+  TopSearchButton,
   Icons,
-  IconItem,
-  IconBadge,
   ProfileImg,
   ProfileSetting,
   ProfileDropdown,
   ProfileItem,
 } from "./topbar.styles";
 
-import { BsFillChatSquareFill } from "react-icons/bs";
-import { RiNotification2Fill, RiHome4Fill } from "react-icons/ri";
 import { Logo } from "../../../../public/assets/images/Logo";
+import { TopSearchIcon } from "../../../../public/assets/icons/TopSearchIcon";
 
+import { useAppSelector } from "app/hooks";
+import { isUser } from "features/auth/selectors";
+import {
+  useLogoutMutation,
+} from "generated/graphql";
+
+import { BackOverlay } from '../LeftSideBar/leftside.styles';
+import AlarmBell from './AlarmBell';
+import ChatIcon from './ChatIcon';
 
 const Topbar = () => {
-  // const dispatch = useAppDispatch();
+  const router = useRouter();
+  const [logout] = useLogoutMutation();
+  const [dropdown, setDropdown] = useState(false);
+  const [toggle, setToggle] = useState(false);
+  const [search, setSearch] = useState(false);
+  const { user: user } = useAppSelector(isUser);
 
-  // const { data, loading, error } = useMeQuery();
-  // if (!data || loading) {
-  //   return <div>loading...</div>;
-  // }
-  // if (error) return <ErrorMsg>{error}</ErrorMsg>;
-  // dispatch(setUser(data.me));
-  const me: any = {};
-  const [dropdown, setDropdown] = useState(false)
 
-    return (
-      <TopbarContainer>
-        <TopLeftWrap>
-          <TopBarLogo>
-            <Link href={`/user-profile/`}>
-              <TopBarLogo>
-                <Logo color="white" width="50" height="50" />
-              </TopBarLogo>
-            </Link>
-          </TopBarLogo>
-        </TopLeftWrap>
-        <TopCenterWrap>
-          <SearchBar>
-            <SearchIcon></SearchIcon>
-            <SearchInput placeholder="Search for friend, post or video" />
-          </SearchBar>
-        </TopCenterWrap>
-        <TopRightWrap>
-          {/* <TopBarNavLinks>
-            <NavLinks>
-              <Link href={`/user-profile/${me.username}`}>Home</Link>
-            </NavLinks>
-            <NavLinks>Timeline</NavLinks>
-          </TopBarNavLinks> */}
-          <Icons>
-            <IconItem>
-              <Link href={`/user-profile/${me.username}`}>
-                <RiHome4Fill />
+  const me = user;
+
+  const handleLogOut = async () => {
+    try {
+      const res = await logout({
+        variables: {
+          username: me?.username as string,
+        },
+      });
+      if (res.data?.logout.includes("User logged off.")) {
+        router.push("/signin");
+      }
+    } catch (error) {
+      console.log(error);
+      throw error;
+    }
+  };
+
+  const onSearch = (event: any) => {
+    setSearch(event.target.value);
+    if (event.keyCode === 13) {
+      setToggle(false);
+      router.push(`/search-results/${search}`);
+      
+    }
+  };
+  const onSetToggle = () => {
+    if (window.screen.width <= 991 && !toggle) return setToggle(true);
+    setToggle(false);
+    router.push(`/search-results/${search}`);
+    // console.log(search);
+  };
+  {
+    toggle && <BackOverlay onClick={() => setToggle(false)} className="" />;
+  }
+
+  return (
+    <TopbarContainer>
+      <TopLeftWrap>
+        <TopBarLogoGroup>
+          <Link href={`/user-profile/`}>
+            <div>
+              <Logo color="white" width="50" height="50" />
+            </div>
+          </Link>
+        </TopBarLogoGroup>
+      </TopLeftWrap>
+
+      <TopCenterWrap>
+        <SearchBar className={toggle ? "opened" : ""}>
+          <TopSearchButton onClick={() => onSetToggle()}>
+            <TopSearchIcon />
+          </TopSearchButton>
+          <SearchInput
+            placeholder="Search for courses, posts or users then hit enter"
+            onKeyUp={(event) => onSearch(event)}
+          />
+        </SearchBar>
+        {toggle && (
+          <BackOverlay
+            onClick={() => setToggle(false)}
+            className="searchOverlay"
+          />
+        )}
+      </TopCenterWrap>
+      <TopRightWrap>
+        <Icons>
+          <ChatIcon />
+          <AlarmBell id={me?.id as string} />
+        </Icons>
+        <ProfileSetting>
+          <ProfileImg
+            onClick={() => setDropdown(!dropdown)}
+            alt="user profile image"
+            src={me?.profileImage}
+          />
+          <ProfileDropdown
+            className={`${dropdown ? "opened" : ""}`}
+            onClick={() => setDropdown(!dropdown)}
+          >
+            {/* <ProfileItem>
+              <Link href={`/user-profile/${me?.userIdSlug}`}>Setting</Link>
+            </ProfileItem> */}
+            <ProfileItem>
+              <Link href={`/user-profile/${me?.userIdSlug}`}>Profile</Link>
+            </ProfileItem>
+            <ProfileItem>
+              <Link href={`/user-profile/${me?.userIdSlug}/edit-profile`}>
+                Edit Profile
               </Link>
-            </IconItem>
-            <IconItem>
-              <BsFillChatSquareFill />
-              <IconBadge>3</IconBadge>
-            </IconItem>
-            <IconItem>
-              <RiNotification2Fill />
-              <IconBadge>5</IconBadge>
-            </IconItem>
-          </Icons>
-          <ProfileSetting>
-            <ProfileImg onClick={ () => setDropdown(!dropdown)} alt="user profile image" src={me.profileImage} />
-            <ProfileDropdown className={ `${dropdown ? 'opened': ''}`} onClick={ () => setDropdown(!dropdown)}>
-              <ProfileItem>
-                <Link href={`/user-profile/${me.username}`}>Setting</Link>
-              </ProfileItem>
-              <ProfileItem>
-                <Link href={`/user-profile/${me.username}`}>Profile</Link>
-              </ProfileItem>
-              <ProfileItem>
-                <Link href={`/user-profile/${me.username}`}>Edit</Link>
-              </ProfileItem>
-              <ProfileItem>
-                <Link href={`/user-profile/${me.username}`}>Logout</Link>
-              </ProfileItem>
-            </ProfileDropdown>
-          </ProfileSetting>
-        </TopRightWrap>
-      </TopbarContainer>
-    );
-}
+            </ProfileItem>
+            <ProfileItem>
+              <Link href={`/user-profile/${me?.userIdSlug}/edit-profile`}>
+                Privacy settings
+              </Link>
+            </ProfileItem>
+            <ProfileItem>
+              <Link href={`/user-profile/${me?.userIdSlug}/edit-profile`}>
+                Terms
+              </Link>
+            </ProfileItem>
+            <ProfileItem>
+              <a onClick={handleLogOut}>Logout</a>
+            </ProfileItem>
+          </ProfileDropdown>
+        </ProfileSetting>
+      </TopRightWrap>
+    </TopbarContainer>
+  );
+};
 
 export default Topbar;

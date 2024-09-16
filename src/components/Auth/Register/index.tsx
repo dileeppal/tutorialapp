@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import NextImage from "next/image";
 
 import {
   useRegisterMutation,
@@ -7,9 +8,9 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import { Formik} from "formik";
 import Button from "../Button";
-import { Input, Error, ErrorMsg } from "../../Input";
+import { Input, Error, ErrorMsg, SuccessMsg} from "../../Input";
 import { getRegisterValidationSchema } from "../../../utils/formValidation";
-// import AuthModal from "../../Modal";
+
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -31,11 +32,15 @@ import {
   PageContainer,
   FormWrap,
   HorizontalRule,
+  FormWrapRow,
+  FormWrapThumb,
+  BackToHome,
 } from "../auth-styles";
 
 
 const Register = () => {
   const [errorMsg, setErrorMsg] = useState(false);
+  const [successMsg, setSuccessMsg] = useState(false);
   let err: any;
   const router = useRouter();
 
@@ -48,15 +53,19 @@ const Register = () => {
           ...values,
         },
       });
+      console.log(response);
       if (response.data?.register !== "Registration successful.") { 
         err = response.data?.register;
         initialValues.error = err;
         setErrorMsg(true);
       } else {
+        console.log('I came here')
+        setSuccessMsg(true);
         toast.success(response.data?.register);
         setTimeout(() => {
+          console.log('I am working')
           router.push("/signin");
-        }, 5000);
+        }, 500);
       }
     } catch (ex) {
       console.log(ex);
@@ -65,7 +74,6 @@ const Register = () => {
 
   return (
     <>
-      {/* <AuthModal isOpen={false}>{initialValues.error}</AuthModal>; */}
       <PageContainer>
         <Formik
           initialValues={initialValues}
@@ -73,64 +81,84 @@ const Register = () => {
           validationSchema={getRegisterValidationSchema}
         >
           {({ isSubmitting, errors, touched }) => (
-            <FormWrap>
-              <MainContainer>
-                <WelcomeText>Register</WelcomeText>
-                
-                {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
-                <InputContainer>
-                  <div className="form-group">
-                  <Input type="text" placeholder="Full Name" name="fullName" />
-                  {errors.fullName && touched.fullName && (
-                    <Error>{errors.fullName}</Error>
-                  )}
-                  </div>
-                  <div className="form-group">
-                  <Input
-                    type="text"
-                    placeholder="username"
-                    name="username"
-                    values="username"
-                  />
-                  {errors.username && touched.username && (
-                    <Error>{errors.username}</Error>
-                  )}
-                  </div>
-                  <div className="form-group">
-                  <Input type="email" placeholder="Email" name="email" />
-                  {errors.email && touched.email && (
-                    <Error>{errors.email}</Error>
-                  )}
-                  </div>
-                  <div className="form-group">
-                  <Input
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                  />
-                  {errors.password && touched.password && (
-                    <Error>{errors.password}</Error>
-                  )}
-                  </div>
-                </InputContainer>
-                <ButtonContainer>
-                  <Button
-                    content="Sign Up"
-                    type="submit"
-                    disabled={isSubmitting}
-                  />
-                </ButtonContainer>
-                <Link href="/signin">
-                  <LoginWith>OR LOGIN </LoginWith>
-                </Link>
-                <HorizontalRule />
-                <Terms>
-                  By creating your account you agree to the{" "}
-                  <Link href="/terms">terms</Link> and 
-                  <Link href="/privacy">privacy policy</Link>
-                </Terms>
-              </MainContainer>
-            </FormWrap>
+            <FormWrapRow>
+              <Link href="/">
+                <BackToHome>Home</BackToHome>
+              </Link>
+              <FormWrap>
+                <MainContainer>
+                  {successMsg && <SuccessMsg>Please check your email to activate your account</SuccessMsg>}
+                  <br />
+                  <WelcomeText>Register</WelcomeText>
+                  {errorMsg && <ErrorMsg>{initialValues.error}</ErrorMsg>}
+                  <InputContainer>
+                    <div className="form-group">
+                      <Input
+                        type="text"
+                        placeholder="Full Name"
+                        name="fullName"
+                      />
+                      {errors.fullName && touched.fullName && (
+                        <Error>{errors.fullName}</Error>
+                      )}
+                    </div>
+                    <div className="form-group">
+                      <Input
+                        type="text"
+                        placeholder="Username"
+                        name="username"
+                        values="username"
+                      />
+                      {errors.username && touched.username && (
+                        <Error>{errors.username}</Error>
+                      )}
+                    </div>
+                    <div className="form-group">
+                      <Input type="email" placeholder="Email" name="email" />
+                      {errors.email && touched.email && (
+                        <Error>{errors.email}</Error>
+                      )}
+                    </div>
+                    <div className="form-group">
+                      <Input
+                        type="password"
+                        placeholder="Password"
+                        name="password"
+                      />
+                      {errors.password && touched.password && (
+                        <Error>{errors.password}</Error>
+                      )}
+                    </div>
+                  </InputContainer>
+                  <ButtonContainer>
+                    <Button
+                      content="Sign Up"
+                      type="submit"
+                      disabled={isSubmitting}
+                    />
+                    <Link href="/signin">
+                      <LoginWith>Or Login </LoginWith>
+                    </Link>
+                  </ButtonContainer>
+
+                  <HorizontalRule />
+                  <Terms>
+                    By creating your account you agree to the{" "}
+                    <Link href="/terms">terms</Link> and
+                    <Link href="/privacy"> privacy policy</Link>
+                  </Terms>
+                </MainContainer>
+              </FormWrap>
+              <FormWrapThumb>
+                <NextImage
+                  src="/assets/images/reg.svg"
+                  alt="register image"
+                  width={600}
+                  height={620}
+                  layout="responsive"
+                />
+              </FormWrapThumb>
+            </FormWrapRow>
           )}
         </Formik>
       </PageContainer>

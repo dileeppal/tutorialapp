@@ -14,30 +14,21 @@ import {
   ShareButton,
 } from "./share.styles";
 import { MdPermMedia, MdOndemandVideo, MdTextsms } from "react-icons/md";
-import Modal from "components/ShareForm/Modal";
+import { useAppSelector } from "app/hooks";
+import { isUser } from "features/auth/selectors";
+import PostForm from 'components/ForumPage/PostForm';
 
-
-
-// const categories = [
-//   { value: "grocery", name: "Grocery", id: "1" },
-//   { value: "women-cloths", name: "Women Cloths", id: "2" },
-//   { value: "bags", name: "Bags", id: "3" },
-//   { value: "makeup", name: "Makeup", id: "4" },
-// ];
-
-const username = "frank";
 const Share = () => {
-
+  const { user: user } = useAppSelector(isUser);
   const [showModal, setShowModal] = useState(false);
-
 
   return (
     <>
       <ShareContainer>
         <ShareWrapper>
           <ShareTop>
-            <ProfileImage src="/D.jpg" alt="user profile image" />
-            <Title placeholder={`what's on your mind ${username}?`} />
+            <ProfileImage src={user?.profileImage} />
+            <Title onClick={() => setShowModal(true)} placeholder={`what's on your mind ${user?.username}?`} />
           </ShareTop>
           <ShareHr />
           <ShareBottomWrap>
@@ -69,7 +60,7 @@ const Share = () => {
           </ShareBottomWrap>
         </ShareWrapper>
       </ShareContainer>
-      <Modal
+      <PostForm
         showModal={showModal}
         closeM={() => setShowModal(false)}
         setShowModal={setShowModal}

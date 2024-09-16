@@ -1,15 +1,18 @@
-import Modal from "components/ShareForm/Modal";
-import { useState } from "react";
+import { useIsAuth } from 'lib/isAuth';
+import React from "react";
+
+
 
 
 const form = () => {
-    const [showModal, setShowModal] = useState(true);
+  useIsAuth();
 
-    return (
-      <>
-        <Modal showModal={showModal} closeM={() => setShowModal(false)} />
-      </>
-    );
-}
+  return (
+    <>
+      {/* <ErrorPage statusCode={500} /> */}
+      {/* <Converse /> */}
+    </>
+  );
+};
 
-export default form
+export default form;

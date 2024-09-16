@@ -1,39 +1,50 @@
 import { Provider } from "react-redux";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import { ApolloProvider } from "@apollo/client";
 import type { AppProps } from "next/app";
-import React, { useEffect, useState } from "react";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import React, { useEffect } from "react";
 import { ThemeProvider } from "styled-components";
 import store from "../app/store";
 import Head from "next/head";
+import nprogress from "nprogress";
+import Router from "next/router";
 import { darkTheme } from "../styles/theme";
-import Footer from "../components/Footer/Footer";
-import NavBar from "../components/NavBar/NavBar";
-import NavDropDown from "../components/NavDropDown";
+import { useApollo } from "../lib/apolloClient";
+
 
 import "../styles/globals.css";
+import "nprogress/nprogress.css";
 
-export const client = new ApolloClient({
-  uri: "http://localhost:8000/graphql",
-  credentials: "include",
-  cache: new InMemoryCache({
-    resultCaching: false,
-  }),
-});
+
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const [isOpen, setIsOpen] = useState(false);
+  const startLoading = () => {
+    if (typeof window !== "undefined") {
+      nprogress.start();
+    }
+  };
+  const stopLoading = () => {
+    if (typeof window !== "undefined") {
+      nprogress.done();
+    }
+  };
+ 
+  const apolloClient = useApollo(pageProps.initialApolloState);
+
   useEffect(() => {
+    nprogress.configure({ showSpinner: false });
+    Router.events.on("routeChangeStart", startLoading);
+    Router.events.on("routeChangeComplete", stopLoading);
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector("#jss-server-side");
     if (jssStyles) {
       jssStyles?.parentElement?.removeChild(jssStyles);
     }
-  }, []);
 
-  const toggle: any = () => {
-    setIsOpen(!isOpen);
-  };
+    return () => {
+      Router.events.on("routeChangeStart", startLoading);
+      Router.events.on("routeChangeComplete", stopLoading);
+    };
+  }, []);
 
   return (
     <>
@@ -45,13 +56,9 @@ function MyApp({ Component, pageProps }: AppProps) {
         />
       </Head>
       <Provider store={store}>
-        <ApolloProvider client={client}>
+        <ApolloProvider client={apolloClient}>
           <ThemeProvider theme={darkTheme}>
-            <CssBaseline />
-            <NavDropDown toggle={toggle} isOpen={isOpen} />
-            {/* <NavBar toggle={toggle} /> */}
             <Component {...pageProps} />
-            {/* <Footer /> */}
           </ThemeProvider>
         </ApolloProvider>
       </Provider>
